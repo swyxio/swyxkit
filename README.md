@@ -11,12 +11,21 @@ still work in progress, please dont use this yet...
 Key Design Considerations
 
 - error page
+- top level blog URLs
+- Blog with blog index
+- consumes markdown (and in future - external data sources)
+
+Todo:
+
+- proper markdown parsing
+- syntax highlighting
+- get vfile to work
 
 ## Live Demo
 
 See https://swyxkit.netlify.app/
 
-<div>
+<div>`
 <img src="https://user-images.githubusercontent.com/6764957/121153339-8d77c700-c878-11eb-80f4-083e9dbcb84b.png" height="600" />
 <img align="right" src="https://user-images.githubusercontent.com/6764957/121153375-9799c580-c878-11eb-9f77-077030f32d96.png" height="600" />
 </div>
