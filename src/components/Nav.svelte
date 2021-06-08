@@ -21,7 +21,7 @@
 	}
 </script>
 
-<nav class="bg-white text-gray-900 p-4 border-b-thick">
+<nav class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-50 p-4 border-b-thick dark:border-0">
 	<div class="sm:flex justify-between">
 		<div class="LeftNav hidden md:block">
 			<a href="#" class="text-3xl font-bold p-3">Site Name</a>
@@ -29,13 +29,13 @@
 		<div class="sm:flex RightNav">
 			<ul class="flex justify-center sm:items-center text-xl">
 				<li class="sm:inline-block">
-					<a href="#" class="p-3 hover:text-red-900">About</a>
+					<a href="#" class="p-3 link">About</a>
 				</li>
 				<li class="sm:inline-block">
-					<a href="#" class="p-3 hover:text-red-900">Blog</a>
+					<a href="#" class="p-3 link">Blog</a>
 				</li>
 				<li class="sm:inline-block">
-					<a href="#" class="p-3 hover:text-red-900">Contact</a>
+					<a href="https://github.com/sw-yx/swyxkit" class="p-3 link">GitHub</a>
 				</li>
 				<li class="sm:inline-block">
 					<button on:click={toggleDarkMode}>{isDark ? '😎' : '🌙'}</button>
