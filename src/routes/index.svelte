@@ -12,7 +12,7 @@
     </div>
 </main>
 
-<section class="border-b-thick bg-yellow-100">
+<section class="border-b-thick bg-yellow-100 dark:bg-gray-900">
     <div class="container mx-auto border-black border-x-thick bg-gray-50 dark:bg-gray-900 p-8">
         <h2 class="text-5xl mb-8">This is a section</h2>
         <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, deserunt quis pariatur necessitatibus consequuntur dolore excepturi rem sint corrupti itaque, cum ratione laboriosam totam maxime quia possimus incidunt eum ipsa.</p>

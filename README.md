@@ -1,4 +1,7 @@
-# swyx kit
+# swyxkit!
+
+Demo: https://swyxkit.netlify.app/
+
 
 
 swyx's preferred starter for Svelte projects:
