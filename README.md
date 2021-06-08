@@ -33,7 +33,7 @@ See https://swyxkit.netlify.app/
 <img align="right" src="https://user-images.githubusercontent.com/6764957/121153375-9799c580-c878-11eb-9f77-077030f32d96.png" height="600" />
 </div>
 
-![CleanShot 2021-06-08 at 19 07 30](https://user-images.githubusercontent.com/6764957/121174708-c91c8c00-c88c-11eb-889b-deec40a828e2.png)
+![https://user-images.githubusercontent.com/6764957/121174708-c91c8c00-c88c-11eb-889b-deec40a828e2.png](https://user-images.githubusercontent.com/6764957/121174708-c91c8c00-c88c-11eb-889b-deec40a828e2.png)
 
 
 
