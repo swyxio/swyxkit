@@ -1,6 +1,28 @@
 <script>
     import Nav from '../components/Nav.svelte'
+
+    // meta tags
+    let Title = "swyxkit"
+    let Description = "swyx's default SvelteKit + Tailwind starter"
+    let ogImage = "https://opengraph.githubassets.com/5fa65e3ceb548d54756a8a3b6e8ca0cace69e1515bd2641b81c88d24c0a9066b/sw-yx/swyxdotio"
 </script>
+
+<svelte:head>
+    <title>{Title}</title>
+    <link rel="canonical" href="https://swyx.io/" />
+    <link rel="alternate" type="application/rss+xml" href="https://swyx.io/rss.xml" />
+    <meta property="og:url" content="https://www.swyx.io/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={Title} />
+    <meta name="Description" content={Description} />
+    <meta property="og:description" content={Description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="https://twitter.com/swyx/" />
+    <meta name="twitter:title" content={Title} />
+    <meta name="twitter:description" content={Description} />
+    <meta name="twitter:image" content={ogImage} />
+</svelte:head>
 
 <main class="max-h-[800px] md:h-screen border-b-thick">
     <Nav />
