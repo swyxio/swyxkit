@@ -11,12 +11,15 @@ still work in progress, please dont use this yet...
 Key Design Considerations
 
 - error page
+- dark mode
 - top level blog URLs
 - Blog with blog index
+- some typography
 - consumes markdown (and in future - external data sources)
 
 Todo:
 
+- RSS
 - proper markdown parsing
 - syntax highlighting
 - get vfile to work
