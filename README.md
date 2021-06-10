@@ -16,6 +16,8 @@ Key Design Considerations
 - Blog with blog index
 - some typography
 - consumes markdown (and in future - external data sources)
+- minor design touches
+    - navlink hover effect
 
 Todo:
 

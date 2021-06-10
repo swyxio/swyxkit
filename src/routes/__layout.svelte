@@ -14,7 +14,11 @@
         .link {
             @apply dark:text-blue-300 dark:hover:text-blue-100 text-blue-600 hover:text-blue-400 hover:underline
         }
+        body {
+            --brand-accent: #00b7ff;
+        }
     }
+
 </style>
 
 <slot></slot>
