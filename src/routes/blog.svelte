@@ -39,7 +39,7 @@
 </script>
 
 <svelte:head>
-	<title>Swyxkit BLog Index</title>
+	<title>Swyxkit Blog Index</title>
 	<meta name="description" content="Latest Hacker News stories in the {list} category" />
 </svelte:head>
 
