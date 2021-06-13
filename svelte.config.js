@@ -16,14 +16,6 @@ const config = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 		adapter: adapter(),
-		prerender: {
-			crawl: true,
-			force: true,
-			pages: [
-				'/',
-				'/blog'
-			],
-		}
 	}
 };
 
