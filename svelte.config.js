@@ -18,6 +18,7 @@ const config = {
 		adapter: adapter(),
 		prerender: {
 			crawl: true,
+			froce: true,
 			pages: [
 				'/',
 				'/blog'
