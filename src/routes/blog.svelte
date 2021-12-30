@@ -46,7 +46,6 @@
 		return true;
 	});
 
-	$: console.log({ search });
 </script>
 
 <svelte:head>
@@ -92,9 +91,8 @@
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ea. Voluptatum nam
 			voluptatibus optio corrupti.
 		</IndexCard>
-		<IndexCard href="/boo" title="Blogpost # 2" date="106,255 views">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ea. Voluptatum nam
-			voluptatibus optio corrupti.
+		<IndexCard href="/welcome" title="Welcome to Swyxkit" date="106,255 views">
+			Click here to see some photos and details on swyxkit and how to use it!
 		</IndexCard>
 		<IndexCard href="/moo" title="Blogpost # 3" date="106,255 views">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ea. Voluptatum nam

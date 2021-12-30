@@ -51,7 +51,7 @@ import FeatureCard from '../components/FeatureCard.svelte';
 				Featured Posts
 			</h3>
 			<div class="flex gap-6 flex-col md:flex-row">
-				<FeatureCard title="Lorem ipsum dolor sit." views={12345} />
+				<FeatureCard title="Welcome to swyxkit!" href="/welcome" views={12345} />
 				<FeatureCard title="Dolor sit amet consectetur adipisicing elit." views={12345} />
 				<FeatureCard title="Nulla, autem." views={12345} />
 			</div>

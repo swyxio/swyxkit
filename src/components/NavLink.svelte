@@ -2,10 +2,6 @@
 	import { page } from '$app/stores';
 	$: isActive = $page.url.pathname === $$props.href;
 	export let href;
-	console.log({
-		foo: $page.url,
-		href: $$props.href
-	});
 </script>
 
 <a

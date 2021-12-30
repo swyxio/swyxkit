@@ -1,5 +1,6 @@
 <script>
-	import NavLink from './NavLink.svelte';
+	import MobileMenu from './MobileMenu.svelte';
+import NavLink from './NavLink.svelte';
 
 	let isDark = false;
 	if (typeof localStorage !== 'undefined') {
@@ -27,6 +28,7 @@
 	class="flex items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16 text-gray-900 bg-gray-50 dark:bg-gray-900 bg-opacity-60 dark:text-gray-100"
 >
 	<a href="#skip" class="skip-nav">Skip to content</a>
+	<MobileMenu />
 	<ul class="ml-[-0.60rem] flex">
 		<li><NavLink href="/">Home</NavLink></li>
 		<li><NavLink href="/blog">Blog</NavLink></li>
@@ -115,7 +117,7 @@
 		@apply dark:hover:text-blue-100 hover:text-blue-400 
 	} */
 	/* Nav link pseudos */
-	.nav-link:hover {
+	/* .nav-link:hover {
 		--nav-scale: 1;
 	}
 	.nav-link:after,
@@ -139,5 +141,5 @@
 		top: calc(100% + 2px);
 		right: 0;
 		transform-origin: 100% 50%;
-	}
+	} */
 </style>

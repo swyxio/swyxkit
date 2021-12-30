@@ -1,0 +1,145 @@
+<script>
+	let isOpen = false;
+</script>
+
+<div class="ml-[-0.60rem]">
+<button
+	class="burger visible"
+	aria-label="Toggle menu"
+	type="button"
+	on:click={() => (isOpen = !isOpen)}
+>
+	{#if !isOpen}
+		<svg
+			class="h-5 w-5 absolute text-gray-900 dark:text-gray-100"
+			width="20"
+			height="20"
+			viewBox="0 0 20 20"
+			fill="none"
+			><path
+				d="M2.5 7.5H17.5"
+				stroke="currentColor"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/><path
+				d="M2.5 12.5H17.5"
+				stroke="currentColor"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/></svg
+		>
+	{:else}
+		<svg
+			class="h-5 w-5 absolute text-gray-900 dark:text-gray-100"
+			viewBox="0 0 24 24"
+			width="24"
+			height="24"
+			stroke="currentColor"
+			stroke-width="1.5"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			fill="none"
+			shape-rendering="geometricPrecision"
+			data-hide="true"><path d="M18 6L6 18" /><path d="M6 6l12 12" /></svg
+		>
+	{/if}
+</button>
+{#if isOpen}
+	<ul
+		class="menu flex flex-col absolute bg-gray-100 dark:bg-gray-900 menuRendered"
+	>
+		<li
+			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+			style="transition-delay: 150ms;"
+		>
+			<a class="flex w-auto pb-4" href="/">Home</a>
+		</li>
+		<li
+			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+			style="transition-delay: 250ms;"
+		>
+			<a class="flex w-auto pb-4" href="/blog">Blog</a>
+		</li>
+		<li
+			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+			style="transition-delay: 300ms;"
+		>
+			<a class="flex w-auto pb-4" href="/newsletter">Newsletter</a>
+		</li>
+		<li
+			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+			style="transition-delay: 325ms;"
+		>
+			<a class="flex w-auto pb-4" href="/tweets">Tweets</a>
+		</li>
+	</ul>
+{/if}
+</div>
+<style lang="postcss">
+	.burger {
+		transition: opacity 300ms ease;
+		border: 0;
+		background: transparent;
+		width: 40px;
+		height: 40px;
+		position: relative;
+	}
+
+	.burger svg {
+		transform: translate(-50%, -50%) scale(1);
+		top: 50%;
+		left: 50%;
+		opacity: 1;
+		transition: opacity 300ms ease, transform 300ms ease;
+	}
+
+	.burger svg[data-hide='true'] {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0);
+	}
+
+	.menu {
+		padding: 0 28px 0 4px;
+		margin: 0;
+		padding-top: 24px;
+		width: 100%;
+		height: 100vh;
+		z-index: 1000;
+		opacity: 0;
+		left: 0;
+		transition: opacity 300ms ease, transform 300ms ease;
+	}
+
+	.menu li {
+		transform: translateX(-16px);
+		opacity: 0;
+		transition: opacity 300ms ease, transform 300ms ease, width 300ms ease, border-color 300ms ease;
+		width: 0px;
+		white-space: nowrap;
+	}
+
+	.menuRendered {
+		opacity: 1;
+	}
+
+	.menuRendered li {
+		@apply border-gray-200 dark:border-gray-600 w-full;
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	.menu > * + * {
+		margin-top: 24px;
+	}
+
+	@keyframes grow {
+		0% {
+			height: 0px;
+		}
+		100% {
+			height: 24px;
+		}
+	}
+</style>
