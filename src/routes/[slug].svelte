@@ -1,6 +1,6 @@
 <script context="module">
 	export const prerender = true;
-	export async function load({ page: { params }, fetch }) {
+	export async function load({ params, fetch }) {
 		// if (!valid_lists.has(list)) {
 		// 	console.log('invalid');
 		// 	return {
@@ -9,16 +9,21 @@
 		// 	};
 		// }
 
+
 		const slug = params.slug;
 
 		// const res = await fetch(`https://api.hnpwa.com/v0/${list}/${page}.json`);
 		// const items = await res.json();
 
 		const res = await fetch(`/api/blog/${slug}.json`);
-		const json = await res.json();
+		const x = (await res.json()).data
+		const json = JSON.parse(x);
+		console.log({json})
+
 		return {
 			props: {
-				json: json.data
+				metadata: json.data,
+				content: json.content
 			}
 		};
 	}
@@ -27,9 +32,8 @@
 <script>
 	import Nav from '../components/Nav.svelte';
 
-	export let json;
-	let metadata = json.data;
-	let content = json.content;
+	export let metadata
+	export let content 
 </script>
 
 <svelte:head>
@@ -46,8 +50,10 @@
 			<h2 class="border-l-8 border-yellow-200 pl-4">Written on <code>{metadata.date}</code></h2>
 		</header>
 		<div class="mx-auto max-w-prose">
-			<div class="p-8 text-lg md:text-xl leading-loose md:leading-[2.5rem] tracking-wide">
-				{content}
+			<!-- <div class="p-8 text-lg md:text-xl leading-loose md:leading-[2.5rem] tracking-wide"> -->
+			<div class="prose">
+				<!-- <svelte:component this={Content.toString()} /> -->
+				{@html content}
 			</div>
 		</div>
 		<p class="mt-8 py-4">

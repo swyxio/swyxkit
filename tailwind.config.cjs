@@ -1,7 +1,5 @@
 module.exports = {
-    mode: 'jit',
-    // you dont need `purge: enabled: production` because you are using jit
-    purge: [ 
+    content: [ 
       "./src/**/*.svelte",
       // may also want to include HTML files
       "./src/**/*.html"
@@ -11,5 +9,7 @@ module.exports = {
       extend: {},
     },
     variants: {},
-    plugins: [],
+    plugins: [
+      require('@tailwindcss/typography'),
+    ],
   }

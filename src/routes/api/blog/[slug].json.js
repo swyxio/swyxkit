@@ -12,7 +12,7 @@ export async function get(
 	const data = await getBlogpost(slug);
 	return {
 		body: {
-			data
+			data: JSON.stringify(data),
 		}
 	};
 }

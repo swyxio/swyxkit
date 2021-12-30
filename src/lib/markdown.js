@@ -1,3 +1,6 @@
+import { compile } from 'mdsvex';
+
+
 // import unified from 'unified'
 // import {VFile} from 'vfile'
 // import {reporter} from 'vfile-reporter'
@@ -6,13 +9,24 @@ import { resolve, basename } from 'path'
 import { promises as fs } from 'fs'
 import grayMatter from 'gray-matter'
 
+
+// import remarkParse from 'remark-parse'
+// import remarkRehype from 'remark-rehype'
+// // import rehypeDocument from 'rehype-document'
+// // import rehypeFormat from 'rehype-format'
+// import rehypeStringify from 'rehype-stringify'
+
 // let _preset = {
 // 	settings: {},
 // 	plugins: [
-// 		// require('remark-parse'),
-// 		// require('remark-slug'),
+// 		remarkParse,
+// remarkRehype,
+// // rehypeDocument,
+// // rehypeFormat,
+// rehypeStringify,
+// 		// remarkslug,
 // 		// [
-// 		// 	require('remark-autolink-headings'),
+// 		// 	remarkautolinkeadings'),
 // 		// 	{
 // 		// 		behavior: 'wrap',
 // 		// 		linkProperties: { class: 'highlightOnHover' }
@@ -24,11 +38,10 @@ import grayMatter from 'gray-matter'
 // 		// 		// },
 // 		// 	}
 // 		// ],
-// 		// require('remark-toc'),
-// 		// require('remark-sectionize'),
-// 		// require('remark-rehype'),
+// 		// remarktoc,
+// 		// remarksectionize,
 // 		// require('rehype-format'),
-// 		// [require('remark-frontmatter'), ['yaml']],
+// 		// [remarkfrontmatter, ['yaml']],
 // 		// //   [require('./rehype-shiki'), { theme: 'material-theme-palenight' }],
 // 		// require('rehype-stringify')
 // 		// //   require('./remark-replace'),
@@ -48,7 +61,9 @@ export async function getBlogpost(slug) {
 	const _path = resolve('content', slug + '.md')
 	const src = await fs.readFile(_path, 'utf8');
 	const data = grayMatter(src)
-	return {content: data.content, data: data.data, slug: data.data.slug ?? basename(_path, '.md')}
+	// const content = await parseMarkdown({ filePath: _path, markdown: data.content })
+	const content = (await compile(data.content, {})).code;
+	return {content, data: data.data, slug: data.data.slug ?? basename(_path, '.md')}
 }
 
 async function* getFiles(dir) {

@@ -22,6 +22,7 @@ Key Design Considerations
 Todo:
 
 - RSS
+- Mdsvex
 - proper markdown parsing
 - syntax highlighting
 - get vfile to work
