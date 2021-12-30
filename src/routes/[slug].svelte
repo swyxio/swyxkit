@@ -18,7 +18,7 @@
 		const res = await fetch(`/api/blog/${slug}.json`);
 		const x = (await res.json()).data
 		const json = JSON.parse(x);
-		console.log({json})
+		// console.log({json})
 
 		return {
 			props: {
