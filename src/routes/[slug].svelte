@@ -29,29 +29,42 @@
 </script>
 
 <script>
-	import Nav from '../components/Nav.svelte';
-
+	import Newsletter from '../components/Newsletter.svelte';
 	export let metadata;
 	export let content;
 </script>
 
 <svelte:head>
-	<title>{metadata.title} | swyxkit</title>
+	<title>{metadata.title}</title>
 	<meta name="description" content="swyxkit blog" />
 </svelte:head>
 
-<Nav />
+<article class="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
+	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+		{metadata.title}
+	</h1>
+	<div class="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center">
+		<div class="flex items-center">
+			<p class="ml-2 text-sm text-gray-700 dark:text-gray-300">{metadata.author}</p>
+		</div>
+		<p class="mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
+			{metadata.date}
+		</p>
+	</div>
+	<div class="w-full my-8 prose dark:prose-invert max-w-none">
+		{@html content}
+	</div>
+	<Newsletter />
+</article>
 
-<section class="p-16 border-b-thick">
+<!-- <section class="p-16 border-b-thick">
 	<div class="container mx-auto">
 		<header>
 			<h1 class="text-4xl md:text-7xl mb-12 font-extrabold">{metadata.title}</h1>
 			<h2 class="border-l-8 border-yellow-200 pl-4">Written on <code>{metadata.date}</code></h2>
 		</header>
 		<div class="mx-auto max-w-prose">
-			<!-- <div class="p-8 text-lg md:text-xl leading-loose md:leading-[2.5rem] tracking-wide"> -->
 			<div class="prose">
-				<!-- <svelte:component this={Content.toString()} /> -->
 				{@html content}
 			</div>
 		</div>
@@ -59,7 +72,7 @@
 			<a sveltekit:prefetch class="link" href="/blog">👈 Back to Blog Index</a>
 		</p>
 	</div>
-</section>
+</section> -->
 
 <!-- {#each items as item, i}
 	{#if item}

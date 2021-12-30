@@ -10,3 +10,16 @@
 		--brand-accent: #00b7ff;
 	}
 }
+
+/* https://seek-oss.github.io/capsize/ */
+.capsize::before {
+  content: '';
+  margin-bottom: -0.098em;
+  display: table;
+}
+
+.capsize::after {
+  content: '';
+  margin-top: -0.219em;
+  display: table;
+}
