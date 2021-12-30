@@ -9,14 +9,13 @@
 		// 	};
 		// }
 
-
 		const slug = params.slug;
 
 		// const res = await fetch(`https://api.hnpwa.com/v0/${list}/${page}.json`);
 		// const items = await res.json();
 
 		const res = await fetch(`/api/blog/${slug}.json`);
-		const x = (await res.json()).data
+		const x = (await res.json()).data;
 		const json = JSON.parse(x);
 		// console.log({json})
 
@@ -32,8 +31,8 @@
 <script>
 	import Nav from '../components/Nav.svelte';
 
-	export let metadata
-	export let content 
+	export let metadata;
+	export let content;
 </script>
 
 <svelte:head>

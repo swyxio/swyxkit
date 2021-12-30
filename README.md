@@ -3,7 +3,7 @@
 swyx's preferred starter for Svelte projects:
 
 - SvelteKit
-- Tailwind CSS
+- Tailwind 3 + Tailwind Typography
 - Netlify
 
 still work in progress, please dont use this yet...
@@ -14,10 +14,9 @@ Key Design Considerations
 - dark mode
 - top level blog URLs
 - Blog with blog index
-- some typography
 - consumes markdown (and in future - external data sources)
 - minor design touches
-    - navlink hover effect
+  - navlink hover effect
 
 Todo:
 
@@ -37,8 +36,6 @@ See https://swyxkit.netlify.app/
 </div>
 
 ![CleanShot 2021-06-08 at 19 07 30](https://user-images.githubusercontent.com/6764957/121174796-e3ef0080-c88c-11eb-8b49-38cc0c64d11c.png)
-
-
 
 ## Setup
 

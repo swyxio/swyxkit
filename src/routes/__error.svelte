@@ -7,7 +7,7 @@
 </script>
 
 <script>
-    import Nav from '../components/Nav.svelte'
+	import Nav from '../components/Nav.svelte';
 	import { dev } from '$app/env';
 
 	export let status;
@@ -18,10 +18,10 @@
 	let message = offline ? 'Find the internet and try again' : error.message;
 
 	let title = offline ? 'Offline' : status;
-    if (title === 404) {
-        title = "Page not found :("
-        message = "Sorry! If you think this URL is broken, please let me know!"
-    }
+	if (title === 404) {
+		title = 'Page not found :(';
+		message = 'Sorry! If you think this URL is broken, please let me know!';
+	}
 </script>
 
 <svelte:head>
@@ -30,16 +30,18 @@
 
 <Nav />
 <section class="p-8">
-    <h1>{title}</h1>
-    
-    <p>{message}</p>
-    
-    {#if dev && error.stack}
-        <pre class="overflow-scroll bg-gray-200 mono">{error.stack}</pre>
-    {/if}
+	<h1>{title}</h1>
+
+	<p>{message}</p>
+
+	{#if dev && error.stack}
+		<pre class="overflow-scroll bg-gray-200 mono">{error.stack}</pre>
+	{/if}
 </section>
+
 <style>
-	h1, p {
+	h1,
+	p {
 		margin: 0 auto;
 	}
 

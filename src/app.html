@@ -4,19 +4,25 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+			rel="stylesheet"
+		/>
 		<!-- <link href="/tailwind.css" rel="stylesheet"> -->
 		<script>
 			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-			if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-			document.documentElement.classList.add('dark')
+			if (
+				localStorage.theme === 'dark' ||
+				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				document.documentElement.classList.add('dark');
 			} else {
-			document.documentElement.classList.remove('dark')
+				document.documentElement.classList.remove('dark');
 			}
 		</script>
 		%svelte.head%
 	</head>
-	<body class="dark:bg-gray-900 dark:text-gray-100">
+	<body class="bg-white dark:bg-gray-900 text-white dark:text-black vsc-initialized">
 		<div id="svelte">%svelte.body%</div>
 	</body>
 </html>

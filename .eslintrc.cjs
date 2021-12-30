@@ -2,7 +2,7 @@ module.exports = {
 	root: true,
 	parser: '@typescript-eslint/parser',
 	extends: [
-		'eslint:recommended', 
+		'eslint:recommended',
 		// 'plugin:@typescript-eslint/recommended',  // todo: https://stackoverflow.com/questions/57597142/how-to-run-typescript-eslint-on-ts-files-and-eslint-on-js-files-in-the-same-pr
 		'prettier'
 	],

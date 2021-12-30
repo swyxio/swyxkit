@@ -1,14 +1,12 @@
 import { compile } from 'mdsvex';
 
-
 // import unified from 'unified'
 // import {VFile} from 'vfile'
 // import {reporter} from 'vfile-reporter'
 
-import { resolve, basename } from 'path'
-import { promises as fs } from 'fs'
-import grayMatter from 'gray-matter'
-
+import { resolve, basename } from 'path';
+import { promises as fs } from 'fs';
+import grayMatter from 'gray-matter';
 
 // import remarkParse from 'remark-parse'
 // import remarkRehype from 'remark-rehype'
@@ -52,18 +50,22 @@ export async function listBlogposts() {
 	let content = [];
 	for await (const _path of getFiles('content')) {
 		const src = await fs.readFile(_path, 'utf8');
-		const data = grayMatter(src)
-		content.push({content: data.content, data: data.data, slug: data.data.slug ?? basename(_path, '.md')});
+		const data = grayMatter(src);
+		content.push({
+			content: data.content,
+			data: data.data,
+			slug: data.data.slug ?? basename(_path, '.md')
+		});
 	}
-	return content
+	return content;
 }
 export async function getBlogpost(slug) {
-	const _path = resolve('content', slug + '.md')
+	const _path = resolve('content', slug + '.md');
 	const src = await fs.readFile(_path, 'utf8');
-	const data = grayMatter(src)
+	const data = grayMatter(src);
 	// const content = await parseMarkdown({ filePath: _path, markdown: data.content })
 	const content = (await compile(data.content, {})).code;
-	return {content, data: data.data, slug: data.data.slug ?? basename(_path, '.md')}
+	return { content, data: data.data, slug: data.data.slug ?? basename(_path, '.md') };
 }
 
 async function* getFiles(dir) {
