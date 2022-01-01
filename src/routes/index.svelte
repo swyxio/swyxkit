@@ -48,7 +48,7 @@
 			/> -->
 		</div>
 
-		<section class="mb-16">
+		<section class="mb-16 w-full">
 			<h3 class="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
 				Featured Posts
 			</h3>
