@@ -1,27 +1,10 @@
 <script context="module">
-	export const prerender = true;
+	// export const prerender = true; // causes issues with RSS prerendering in netlify adapter
 	export async function load({ params, fetch }) {
-		// if (!valid_lists.has(list)) {
-		// 	console.log('invalid');
-		// 	return {
-		// 		status: 404,
-		// 		error: 'Not found'
-		// 	};
-		// }
-
-		const page = +params.page;
-
-		// const res = await fetch(`https://api.hnpwa.com/v0/${list}/${page}.json`);
-		// const items = await res.json();
-
 		const res = await fetch(`/api/listBlogposts.json`);
 		const items = await res.json();
 		return {
-			props: {
-				page,
-				// list,
-				items
-			},
+			props: { items },
 			maxage: 60 // 1 minute
 		};
 	}
@@ -46,7 +29,6 @@
 		}
 		return true;
 	});
-
 </script>
 
 <svelte:head>
