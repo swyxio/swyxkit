@@ -1,5 +1,5 @@
 <script context="module">
-	// export const prerender = true; // causes issues with RSS prerendering in netlify adapter
+	export const prerender = true;
 	export async function load({ params, fetch }) {
 		const res = await fetch(`/api/listBlogposts.json`);
 		if (res.status > 300) {
