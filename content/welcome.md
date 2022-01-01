@@ -33,11 +33,9 @@ swyx's preferred starter for Svelte projects:
 
 See https://swyxkit.netlify.app/
 
-![image](https://user-images.githubusercontent.com/6764957/147860386-1b5b5620-21d5-4d41-940c-f5b70caf5fc1.png)
+![image](https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png)
 
-![image](https://user-images.githubusercontent.com/6764957/147860388-1cef3c75-cd26-4ed3-b31c-d2a4ef7c09d3.png)
-
-![image](https://user-images.githubusercontent.com/6764957/147860391-fb148faf-f691-41bf-ba02-11d9ab721497.png)
+![image](https://user-images.githubusercontent.com/6764957/147861337-d40a1798-e7ff-40e1-8dd8-ba1350fd3784.png)
 
 
 ## Setup
