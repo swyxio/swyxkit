@@ -5,7 +5,7 @@
 </script>
 
 <a
-	class="transform hover:scale-[1.01] transition-all rounded-xl w-full md:w-1/3 bg-gradient-to-r p-1 from-[#D8B4FE] to-[#818CF8]"
+	class="transform hover:scale-[1.01] transition-all rounded-xl w-full md:w-1/3 bg-gradient-to-r p-1 from-yellow-400 via-red-500 to-pink-500"
 	{href}
 	><div class="flex flex-col justify-between h-full bg-white dark:bg-gray-900 rounded-lg p-4">
 		<div class="flex flex-col md:flex-row justify-between">

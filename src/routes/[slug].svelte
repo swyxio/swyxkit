@@ -38,10 +38,10 @@ import Newsletter from '../components/Newsletter.svelte';
 </svelte:head>
 
 <article class="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
-	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white ">
 		{metadata.title}
 	</h1>
-	<div class="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center">
+	<div class="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center bg">
 		<div class="flex items-center">
 			<p class="ml-2 text-sm text-gray-700 dark:text-gray-300">{metadata.author}</p>
 		</div>
@@ -49,6 +49,8 @@ import Newsletter from '../components/Newsletter.svelte';
 			{metadata.date}
 		</p>
 	</div>
+	<div class="flex h-1 w-full my-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500" />
+
 	<div class="w-full my-8 prose dark:prose-invert max-w-none">
 		{@html content}
 	</div>
