@@ -30,12 +30,13 @@ swyx's preferred starter for Svelte projects:
 
 See https://swyxkit.netlify.app/
 
-<div>
-<img src="https://user-images.githubusercontent.com/6764957/121153339-8d77c700-c878-11eb-80f4-083e9dbcb84b.png" height="600" />
-<img align="right" src="https://user-images.githubusercontent.com/6764957/121153375-9799c580-c878-11eb-9f77-077030f32d96.png" height="600" />
-</div>
+![image](https://user-images.githubusercontent.com/6764957/147860386-1b5b5620-21d5-4d41-940c-f5b70caf5fc1.png)
 
-![CleanShot 2021-06-08 at 19 07 30](https://user-images.githubusercontent.com/6764957/121174796-e3ef0080-c88c-11eb-8b49-38cc0c64d11c.png)
+![image](https://user-images.githubusercontent.com/6764957/147860388-1cef3c75-cd26-4ed3-b31c-d2a4ef7c09d3.png)
+
+![image](https://user-images.githubusercontent.com/6764957/147860391-fb148faf-f691-41bf-ba02-11d9ab721497.png)
+
+
 
 ## Setup
 
@@ -68,5 +69,6 @@ You can read:
     - https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
     - Reasons it is hard to do dynamic RSS in Sveltekit:
       - Sveltekit Endpoints dont take over from Sveltekit dynamic param routes (`[slug].svelte` has precedence over `rss.xml.js`)
-      - RSS Endpoint runs locally but doesnt run in Netlify bc no access to the content
+      - RSS Endpoint runs locally but doesnt run in Netlify bc no access to the content in prod
+      - approach i went for is to use Vite's `import.meta.globEager` feature and that makes it static for the RSS... 
 - Find more sveltekit projects at https://github.com/janosh/awesome-svelte-kit

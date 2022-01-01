@@ -77,7 +77,13 @@
 		</li>
 		<li
 			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 font-semibold"
-			style="transition-delay: 300ms;"
+			style="transition-delay: 350ms;"
+		>
+			<a class="flex w-auto pb-4" href="/about">About</a>
+		</li>
+		<li
+			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 font-semibold"
+			style="transition-delay: 400ms;"
 		>
 			<a class="flex w-auto pb-4" href="https://github.com/sw-yx/swyxkit">GitHub</a>
 		</li>

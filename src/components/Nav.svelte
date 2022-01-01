@@ -44,6 +44,7 @@
 	<ul class="ml-[-0.60rem] flex">
 		<li><NavLink href="/">Home</NavLink></li>
 		<li><NavLink href="/blog">Blog</NavLink></li>
+		<li><NavLink href="/about">About</NavLink></li>
 	</ul>
 	<div class="flex items-center space-x-2">
 		<!-- RSS -->
