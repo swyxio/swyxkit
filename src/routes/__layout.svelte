@@ -31,7 +31,7 @@
 					href="/about">About</a
 				>
 				<a class="text-gray-500 hover:text-gray-300 transition" href="/#newsletter">Newsletter</a>
-				<a class="text-gray-500 hover:text-gray-300 transition" href={origin + "/rss.xml"} rel="external">RSS</a>
+				<a class="text-gray-500 hover:text-gray-300 transition" href={origin + "/api/rss.xml"} rel="external">RSS</a>
 			</div>
 			<div class="flex flex-col space-y-4">
 				<a

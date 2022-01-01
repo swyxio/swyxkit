@@ -50,7 +50,7 @@
 		<a
 			class="text-gray-700 dark:text-gray-200"
 			rel="external"
-			href={origin + '/rss.xml'}
+			href={origin + '/api/rss.xml'}
 			aria-label="RSS"
 		>
 			<svg
