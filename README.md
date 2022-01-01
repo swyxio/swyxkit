@@ -63,4 +63,10 @@ You can read:
 - Other people's code I borrowed from
   - https://github.com/mvasigh/sveltekit-mdsvex-blog
   - https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
+  - RSS
+    - https://scottspence.com/posts/make-an-rss-feed-with-sveltekit
+    - https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
+    - Reasons it is hard to do dynamic RSS in Sveltekit:
+      - Sveltekit Endpoints dont take over from Sveltekit dynamic param routes (`[slug].svelte` has precedence over `rss.xml.js`)
+      - RSS Endpoint runs locally but doesnt run in Netlify bc no access to the content
 - Find more sveltekit projects at https://github.com/janosh/awesome-svelte-kit
