@@ -1,6 +1,6 @@
 ---
 title: 'Two Forms of Pre-rendering'
-date: '2020-01-01'
+date: '202201-01'
 author: swyx
 ---
 

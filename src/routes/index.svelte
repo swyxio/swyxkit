@@ -37,7 +37,7 @@
 					This is SwyxKit!
 				</h1>
 				<h2 class="text-gray-700 dark:text-gray-200 mb-4">
-					An opinionated blog starter for <span class="font-semibold">SvelteKit + Tailwind + Netlify.</span> Refreshed for 2020!
+					An opinionated blog starter for <span class="font-semibold">SvelteKit + Tailwind + Netlify.</span> Refreshed for 2022!
 				</h2>
 				<p class="text-gray-600 dark:text-gray-400 mb-16">
 					<a href={REPO_URL}>View source here!</a>

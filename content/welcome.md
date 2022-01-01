@@ -1,6 +1,6 @@
 ---
 title: 'Welcome to swyxkit!'
-date: '2020-12-02'
+date: '202212-02'
 author: swyx
 ---
 swyx's preferred starter for Svelte projects:
