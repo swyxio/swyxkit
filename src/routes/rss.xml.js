@@ -1,7 +1,18 @@
 import RSS from 'rss'
 import { SITE_URL } from '../../siteConfig'
 // https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
-export async function get() {
+/** @type {import('@sveltejs/kit').RequestHandler} */
+export async function get({
+  
+	// url: URL;
+  url
+	// method: string;
+	// headers: RequestHeaders;
+	// rawBody: RawBody;
+	// params: Record<string, string>;
+	// body: ParameterizedBody<Body>;
+	// locals: Locals;
+}) {
 
   const feed = new RSS({
     title: 'swyxkit blog',
@@ -9,17 +20,22 @@ export async function get() {
     feed_url: SITE_URL + '/rss.xml'
   });
 
-  const res = await fetch(`/api/listBlogposts.json`);
+  const res = await fetch(url.origin + `/api/listBlogposts.json`);
   const allBlogs = await res.json();
-  console.log(allBlogs.list)
   allBlogs.list.forEach((post) => {
     feed.item({
       title: post.title,
       url: SITE_URL + `/${post.slug}`,
       date: post.data.date,
-      description: post.content.slice(0, 200)
+      description: makeDescription(post)
     });
   });
+
+  function makeDescription(post) {
+    if (post.data.description) return post.data.description
+    if (post.content.length > 300) return post.content.slice(0, 300) + '\n [TRUNCATED]'
+    return post.content
+  }
 
   // todo - nonindent if not human
   return {

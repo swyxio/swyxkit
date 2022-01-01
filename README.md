@@ -14,8 +14,10 @@ still work in progress, please dont use this yet...
   - Dark mode
   - Blog with blog index
     - Top level blog URLs (`/myblog` instead of `/blog/myblog`)
+    - Blog content in a separte `/content` folder instead of in `/src/routes`
   - Consumes markdown and MDSveX (and in future - external data sources)
     - with syntax highlighting
+  - RSS (at `/rss.xml`)
 - Performance touches
   - no `hydrate` on about and blog pages
   - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
@@ -23,10 +25,6 @@ still work in progress, please dont use this yet...
   - Error page
   - navlink hover effect
   - Mobile menu with animation
-
-## Todo
-
-- RSS
 
 ## Live Demo
 
