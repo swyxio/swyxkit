@@ -23,16 +23,19 @@
 		return {
 			props: {
 				metadata: json.data,
-				content: json.content
+				content: json.content,
+				slug
 			}
 		};
 	}
 </script>
 
 <script>
-	import Newsletter from '../components/Newsletter.svelte';
+	import { REPO_URL } from 'siteConfig';
+import Newsletter from '../components/Newsletter.svelte';
 	export let metadata;
 	export let content;
+	export let slug;
 </script>
 
 <svelte:head>
@@ -54,6 +57,9 @@
 	</div>
 	<div class="w-full my-8 prose dark:prose-invert max-w-none">
 		{@html content}
+	</div>
+	<div>
+		Found a typo? Wanna add something? Edit this page on <a href={`${REPO_URL}/blob/main/content/${slug}.md`}>GitHub</a>!
 	</div>
 	<Newsletter />
 </article>

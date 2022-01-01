@@ -25,6 +25,7 @@ still work in progress, please dont use this yet...
   - Error page
   - navlink hover effect
   - Mobile menu with animation
+  - Edit on GitHub link
 
 ## Live Demo
 
@@ -44,7 +45,9 @@ npm install
 npm run start
 ```
 
-You should be able to deploy this project straight to Netlify as is
+You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/).
+
+Before deploying, remember to configure `siteConfig.js` - just some hardcoded vars i want you to remember to configure.
 
 ## Further Reading
 

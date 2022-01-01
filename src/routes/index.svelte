@@ -1,7 +1,17 @@
+<script context="module">
+	import { REPO_URL } from '../../siteConfig';
+	export async function load() {
+		return {
+			props: {
+				REPO_URL
+			}
+		};
+	}
+</script>
 <script>
 	import Newsletter from '../components/Newsletter.svelte';
 import FeatureCard from '../components/FeatureCard.svelte';
-
+	let REPO_URL
 	// meta tags
 	let Title = 'swyxkit';
 	let Description = "swyx's default SvelteKit + Tailwind starter";
@@ -32,18 +42,18 @@ import FeatureCard from '../components/FeatureCard.svelte';
 		<div class="flex flex-col-reverse sm:flex-row items-start">
 			<div class="flex flex-col pr-8">
 				<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-3 text-black dark:text-white">
-					Name here
+					This is Swyxkit!
 				</h1>
 				<h2 class="text-gray-700 dark:text-gray-200 mb-4">
-					Your title at <span class="font-semibold">Your company</span>
+					An opinionated blog starter for <span class="font-semibold">SvelteKit + Tailwind + Netlify.</span>
 				</h2>
 				<p class="text-gray-600 dark:text-gray-400 mb-16">
-					Brief bio here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, eveniet?
+					<a href={REPO_URL}>View source here!</a>
 				</p>
 			</div>
-			<div
+			<!-- <div
 				class="w-[80px] h-[80px] rounded-full sm:w-[176px] sm:h-[136px] relative mb-8 sm:mb-0 mr-auto bg-cyan-300 bg-opacity-25"
-			/>
+			/> -->
 		</div>
 
 		<section class="mb-16">
