@@ -24,7 +24,7 @@
 					>
 				</form>
 				<p class="text-sm text-gray-800 dark:text-gray-200">
-					3 subscribers including my Mom – <a href="/newsletter">23 issues</a>
+					3 subscribers including my Mom – <a href="/#newsletter">23 issues</a>
 				</p>
 			</div>
 		</section>
