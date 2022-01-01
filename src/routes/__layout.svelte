@@ -17,7 +17,9 @@
 				<a class="text-gray-500 hover:text-gray-300 transition" href="/">Home</a><a
 					class="text-gray-500 hover:text-gray-300 transition"
 					href="/about">About</a
-				><a class="text-gray-500 hover:text-gray-300 transition" href="/#newsletter">Newsletter</a>
+				>
+				<a class="text-gray-500 hover:text-gray-300 transition" href="/#newsletter">Newsletter</a>
+				<a class="text-gray-500 hover:text-gray-300 transition" href="/rss.xml">RSS</a>
 			</div>
 			<div class="flex flex-col space-y-4">
 				<a

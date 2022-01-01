@@ -26,6 +26,7 @@ still work in progress, please dont use this yet...
   - Navlink hover effect
   - Mobile menu with animation
   - Edit on GitHub link
+  - Accessible SVG Icons https://github.com/sw-yx/spark-joy/blob/master/README.md#general--misc
 
 ## Live Demo
 
