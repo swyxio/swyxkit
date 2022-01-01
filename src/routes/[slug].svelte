@@ -1,11 +1,10 @@
 <script context="module">
 	export const prerender = true;
-	import { REPO_URL } from '../lib/siteConfig';
-	export async function load({ params, fetch }) {
-
+	import { REPO_URL } from '$lib/siteConfig';
+	export async function load({ url, params, fetch }) {
 		const slug = params.slug;
 		const res = await fetch(`/api/blog/${slug}.json`);
-		if (res.status > 300) {
+		if (res.status > 400) {
 			return {
 				status: res.status,
 				error: await res.text()

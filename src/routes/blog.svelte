@@ -2,7 +2,7 @@
 	export const prerender = true;
 	export async function load({ params, fetch }) {
 		const res = await fetch(`/api/listBlogposts.json`);
-		if (res.status > 300) {
+		if (res.status > 400) {
 			return {
 				status: res.status,
 				error: await res.text()

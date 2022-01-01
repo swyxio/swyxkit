@@ -3,20 +3,22 @@ import { SITE_URL } from '$lib/siteConfig'
 import { listBlogposts } from '$lib/markdown';
 // https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({
-	url // url: URL;
-	// method: string;
-	// headers: RequestHeaders;
-	// rawBody: RawBody;
-	// params: Record<string, string>;
-	// body: ParameterizedBody<Body>;
-	// locals: Locals;
-}) {
+export async function get(
+  // {
+	// // url: URL;
+	// // method: string;
+	// // headers: RequestHeaders;
+	// // rawBody: RawBody;
+	// // params: Record<string, string>;
+	// // body: ParameterizedBody<Body>;
+	// // locals: Locals;
+// }
+) {
 
   const feed = new RSS({
     title: 'swyxkit blog',
     site_url: SITE_URL,
-    feed_url: SITE_URL + '/rss.xml'
+    feed_url: SITE_URL + '/api/rss.xml'
   });
 
   // notes - originally tried to fetch this via /api/listBlogposts.json but...
