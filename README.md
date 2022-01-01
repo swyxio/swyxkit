@@ -25,6 +25,7 @@ swyx's preferred starter for Svelte projects:
   - Mobile menu with animation
   - Edit on GitHub link
   - Accessible SVG Icons https://github.com/sw-yx/spark-joy/blob/master/README.md#general--misc
+  - Custom scrollbar https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
 
 ## Live Demo
 
