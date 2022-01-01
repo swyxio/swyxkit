@@ -2,12 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
-  .link {
-      @apply dark:text-blue-300 dark:hover:text-blue-100 text-blue-600 hover:text-blue-400 hover:underline
-  }
-  body {
-      --brand-accent: #00b7ff;
+
+	body {
+    --brand-accent: #00b7ff;
+    /* https://ishadeed.com/article/defensive-css */
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+	}
+  img {
+    /* https://ishadeed.com/article/defensive-css */
+    max-width: 100%;
+    object-fit: cover;
+    background-color: grey;
   }
 }
+
+a {
+  @apply dark:text-blue-300 dark:hover:text-blue-100 text-blue-600 hover:text-blue-400 hover:underline;
+}
+
+/* https://seek-oss.github.io/capsize/ */
+.capsize::before {
+  content: '';
+  margin-bottom: -0.098em;
+  display: table;
+}
+
+.capsize::after {
+  content: '';
+  margin-top: -0.219em;
+  display: table;
+}
+
+
+  /* 
+  CUSTOM SCROLLBARS! 
+  - https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
+  */
+  body {
+    /* --scrollbar-primary-color: #3730a3; */
+    --scrollbar-primary-color: #facc15;
+    --text-color: #ef4444;
+  }
+  /* .dark body {
+    --scrollbar-primary-color: #8db2e5;
+  } */
+  /* body::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+  } */
+  body::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  body::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--scrollbar-primary-color), var(--text-color));
+    border-radius: 4px;
+  }
+  

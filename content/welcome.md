@@ -1,5 +1,8 @@
-# swyxkit!
-
+---
+title: 'Welcome to swyxkit!'
+date: '2020-12-02'
+author: swyx
+---
 swyx's preferred starter for Svelte projects:
 
 - SvelteKit
@@ -25,7 +28,6 @@ swyx's preferred starter for Svelte projects:
   - Mobile menu with animation
   - Edit on GitHub link
   - Accessible SVG Icons https://github.com/sw-yx/spark-joy/blob/master/README.md#general--misc
-  - Custom scrollbar https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
 
 ## Live Demo
 
@@ -34,6 +36,7 @@ See https://swyxkit.netlify.app/
 ![image](https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png)
 
 ![image](https://user-images.githubusercontent.com/6764957/147861337-d40a1798-e7ff-40e1-8dd8-ba1350fd3784.png)
+
 
 ## Setup
 
