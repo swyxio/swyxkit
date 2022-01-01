@@ -1,4 +1,5 @@
-<script context="module">
+<!-- <script context="module">
+	// cant figure this out https://github.com/sveltejs/vite-plugin-svelte/issues/243
 	import { REPO_URL } from '../../siteConfig';
 	export async function load() {
 		return {
@@ -7,11 +8,11 @@
 			}
 		};
 	}
-</script>
+</script> -->
 <script>
 	import Newsletter from '../components/Newsletter.svelte';
-import FeatureCard from '../components/FeatureCard.svelte';
-	let REPO_URL
+	import FeatureCard from '../components/FeatureCard.svelte';
+	export let REPO_URL= "https://github.com/sw-yx/swyxkit/"
 	// meta tags
 	let Title = 'swyxkit';
 	let Description = "swyx's default SvelteKit + Tailwind starter";
@@ -85,42 +86,3 @@ import FeatureCard from '../components/FeatureCard.svelte';
 		</section>
 		<Newsletter />
 	</div>
-
-<!-- <section class="border-b-thick bg-yellow-100 dark:bg-gray-900">
-    <div class="container mx-auto border-black border-x-thick bg-gray-50 dark:bg-gray-900 p-8">
-        <h2 class="text-5xl mb-8">This is a section</h2>
-        <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, deserunt quis pariatur necessitatibus consequuntur dolore excepturi rem sint corrupti itaque, cum ratione laboriosam totam maxime quia possimus incidunt eum ipsa.</p>
-        <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, deserunt quis pariatur necessitatibus consequuntur dolore excepturi rem sint corrupti itaque, cum ratione laboriosam totam maxime quia possimus incidunt eum ipsa.</p>
-        <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, deserunt quis pariatur necessitatibus consequuntur dolore excepturi rem sint corrupti itaque, cum ratione laboriosam totam maxime quia possimus incidunt eum ipsa.</p>
-    </div>
-</section>
-
-
-<section class="border-b-thick h-12">
-</section>
-
-<section class="border-b-thick">
-    <div class="p-8">
-        <h2 class="text-5xl mb-8">This is a full bleed section</h2>
-        <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, deserunt quis pariatur necessitatibus consequuntur dolore excepturi rem sint corrupti itaque, cum ratione laboriosam totam maxime quia possimus incidunt eum ipsa.</p>
-        <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, deserunt quis pariatur necessitatibus consequuntur dolore excepturi rem sint corrupti itaque, cum ratione laboriosam totam maxime quia possimus incidunt eum ipsa.</p>
-        <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, deserunt quis pariatur necessitatibus consequuntur dolore excepturi rem sint corrupti itaque, cum ratione laboriosam totam maxime quia possimus incidunt eum ipsa.</p>
-    </div>
-</section>
-
-<footer class="flex pt-16 justify-between p-8">
-    <div class="LeftFooter">
-        <ul class="flex flex-col">
-            <li class="link">Made with 🧡 </li>
-            <li class="link">Contact email here </li>
-            <li class="link">About</li>
-        </ul>
-    </div>
-    <div class="RightFooter">
-        <ul class="flex flex-col">
-            <li class="link">swyx © 2021</li>
-            <li class="link">swyx</li>
-        </ul>
-    </div>
-
-</footer> -->

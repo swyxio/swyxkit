@@ -18,7 +18,7 @@
 	let message = offline ? 'Find the internet and try again' : error.message;
 
 	let title = offline ? 'Offline' : status;
-	if (title === 404) {
+	if (title === '404') {
 		title = 'Page not found :(';
 		message = 'Sorry! If you think this URL is broken, please let me know!';
 	}
@@ -28,14 +28,13 @@
 	<title>{title}</title>
 </svelte:head>
 
-<Nav />
-<section class="p-8">
-	<h1>{title}</h1>
+<section class="prose p-8">
+	<h1>Error: {title}</h1>
 
-	<p>{message}</p>
+	<p class="font-mono">{message}</p>
 
 	{#if dev && error.stack}
-		<pre class="overflow-scroll bg-gray-200 mono">{error.stack}</pre>
+		<pre class="p-8 overflow-scroll bg-gray-800 mono">{error.stack}</pre>
 	{/if}
 </section>
 

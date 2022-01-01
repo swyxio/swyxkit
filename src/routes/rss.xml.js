@@ -3,9 +3,7 @@ import { SITE_URL } from '../../siteConfig'
 // https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({
-  
-	// url: URL;
-  url
+	url // url: URL;
 	// method: string;
 	// headers: RequestHeaders;
 	// rawBody: RawBody;

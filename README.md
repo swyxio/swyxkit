@@ -17,13 +17,13 @@ still work in progress, please dont use this yet...
     - Blog content in a separte `/content` folder instead of in `/src/routes`
   - Consumes markdown and MDSveX (and in future - external data sources)
     - with syntax highlighting
-  - RSS (at `/rss.xml`)
+  - RSS (at `/rss.xml`) with caching
 - Performance touches
   - no `hydrate` on about and blog pages
   - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
 - Minor design/UX touches
-  - Error page
-  - navlink hover effect
+  - Error page (try going to URL that doesnt exist)
+  - Navlink hover effect
   - Mobile menu with animation
   - Edit on GitHub link
 

@@ -5,10 +5,19 @@ import { getBlogpost } from '$lib/markdown';
  */
 export async function get({ params }) {
 	const { slug } = params;
-	const data = await getBlogpost(slug);
-	return {
-		body: {
-			data: JSON.stringify(data)
+	let data
+	try {
+		data = await getBlogpost(slug);
+		return {
+			body: {
+				data: JSON.stringify(data)
+			}
+		};
+	} catch(err) {
+		console.log('api slug ', err.message)
+		return {
+			status: 404,
+			body: err.message
 		}
-	};
+	}
 }

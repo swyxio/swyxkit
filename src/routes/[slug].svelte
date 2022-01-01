@@ -2,23 +2,17 @@
 	export const prerender = true;
 	export const hydrate = false;
 	export async function load({ params, fetch }) {
-		// if (!valid_lists.has(list)) {
-		// 	console.log('invalid');
-		// 	return {
-		// 		status: 404,
-		// 		error: 'Not found'
-		// 	};
-		// }
 
 		const slug = params.slug;
-
-		// const res = await fetch(`https://api.hnpwa.com/v0/${list}/${page}.json`);
-		// const items = await res.json();
-
 		const res = await fetch(`/api/blog/${slug}.json`);
+		if (res.status > 300) {
+			return {
+				status: res.status,
+				error: await res.text()
+			};
+		}
 		const x = (await res.json()).data;
 		const json = JSON.parse(x);
-		// console.log({json})
 
 		return {
 			props: {
@@ -31,7 +25,7 @@
 </script>
 
 <script>
-	import { REPO_URL } from 'siteConfig';
+	import { REPO_URL } from '../../siteConfig';
 import Newsletter from '../components/Newsletter.svelte';
 	export let metadata;
 	export let content;
