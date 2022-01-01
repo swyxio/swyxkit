@@ -1,3 +1,8 @@
+<script context="module">
+  export const hydrate = false // about pages dont need it!
+  // more info https://twitter.com/Rich_Harris/status/1376578504704331778?s=20
+</script>
+
 ## About me
 
 FuturePartnership traction client social media hypotheses founders focus. Rockstar return on investment MVP termsheet network effects ecosystem hypotheses. Business model canvas network effects strategy android branding termsheet hypotheses pivot user experience bootstrapping. **Buyer monetization scrum project** learning curve non-disclosure agreement marketing technology channels strategy assets influencer:

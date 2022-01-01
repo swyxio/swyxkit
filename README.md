@@ -8,23 +8,25 @@ swyx's preferred starter for Svelte projects:
 
 still work in progress, please dont use this yet...
 
-Key Design Considerations
+## Key Features and Design Considerations:
 
-- error page
-- dark mode
-- top level blog URLs
-- Blog with blog index
-- consumes markdown (and in future - external data sources)
-- minor design touches
+- Features
+  - Dark mode
+  - Blog with blog index
+    - Top level blog URLs (`/myblog` instead of `/blog/myblog`)
+  - Consumes markdown and MDSveX (and in future - external data sources)
+    - with syntax highlighting
+- Performance touches
+  - no `hydrate` on about and blog pages
+  - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
+- Minor design/UX touches
+  - Error page
   - navlink hover effect
+  - Mobile menu with animation
 
-Todo:
+## Todo
 
 - RSS
-- Mdsvex
-- proper markdown parsing
-- syntax highlighting
-- get vfile to work
 
 ## Live Demo
 
@@ -44,6 +46,8 @@ npm install
 npm run start
 ```
 
+You should be able to deploy this project straight to Netlify as is
+
 ## Further Reading
 
 You can read:
@@ -55,3 +59,8 @@ You can read:
 ## Acknowledgements
 
 - Design from Lee Robinson: https://github.com/leerob/leerob.io/
+- MDSvex from Pngwn is amazing https://mdsvex.pngwn.io/docs#layout
+- Other people's code I borrowed from
+  - https://github.com/mvasigh/sveltekit-mdsvex-blog
+  - https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
+- Find more sveltekit projects at https://github.com/janosh/awesome-svelte-kit

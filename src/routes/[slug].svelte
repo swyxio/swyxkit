@@ -1,5 +1,6 @@
 <script context="module">
 	export const prerender = true;
+	export const hydrate = false;
 	export async function load({ params, fetch }) {
 		// if (!valid_lists.has(list)) {
 		// 	console.log('invalid');

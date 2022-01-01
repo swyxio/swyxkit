@@ -12,15 +12,21 @@ swyx's preferred starter for Svelte projects:
 
 still work in progress, please dont use this yet...
 
-## Key Design Considerations
+## Key Features and Design Considerations:
 
-- error page
-- dark mode
-- top level blog URLs
-- Blog with blog index
-- consumes markdown (and in future - external data sources)
-- minor design touches
+- Features
+  - Dark mode
+  - Blog with blog index
+    - Top level blog URLs (`/myblog` instead of `/blog/myblog`)
+  - Consumes markdown and MDSveX (and in future - external data sources)
+    - with syntax highlighting
+- Performance touches
+  - no `hydrate` on about and blog pages
+  - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
+- Minor design/UX touches
+  - Error page
   - navlink hover effect
+  - Mobile menu with animation
 
 ## Todo
 
@@ -32,13 +38,13 @@ still work in progress, please dont use this yet...
 
 ## Live Demo
 
-See https://swyxkit.netlify.app/
+<div>
+<img src="https://user-images.githubusercontent.com/6764957/121153339-8d77c700-c878-11eb-80f4-083e9dbcb84b.png" height="600" />
+<img align="right" src="https://user-images.githubusercontent.com/6764957/121153375-9799c580-c878-11eb-9f77-077030f32d96.png" height="600" />
+</div>
 
-![image](https://user-images.githubusercontent.com/6764957/147788293-4f0059a2-ca9e-4e1f-bfee-7a5e90c5a7a5.png)
+![CleanShot 2021-06-08 at 19 07 30](https://user-images.githubusercontent.com/6764957/121174796-e3ef0080-c88c-11eb-8b49-38cc0c64d11c.png)
 
-![image](https://user-images.githubusercontent.com/6764957/147788307-cb2db055-fae9-4e34-a757-28642647c03d.png)
-
-![image](https://user-images.githubusercontent.com/6764957/147788319-696ab07a-5dde-432d-98c9-59b602fbdbb7.png)
 
 ## Setup
 

@@ -21,7 +21,8 @@
 				page,
 				// list,
 				items
-			}
+			},
+			maxage: 60 // 1 minute
 		};
 	}
 </script>
