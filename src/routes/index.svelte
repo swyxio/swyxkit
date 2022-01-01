@@ -46,7 +46,7 @@
 					This is Swyxkit!
 				</h1>
 				<h2 class="text-gray-700 dark:text-gray-200 mb-4">
-					An opinionated blog starter for <span class="font-semibold">SvelteKit + Tailwind + Netlify.</span>
+					An opinionated blog starter for <span class="font-semibold">SvelteKit + Tailwind + Netlify.</span> Refreshed for 2020!
 				</h2>
 				<p class="text-gray-600 dark:text-gray-400 mb-16">
 					<a href={REPO_URL}>View source here!</a>
@@ -62,12 +62,13 @@
 				Featured Posts
 			</h3>
 			<div class="flex gap-6 flex-col md:flex-row">
-				<FeatureCard title="Welcome to swyxkit!" href="/welcome" views={12345} />
-				<FeatureCard title="Dolor sit amet consectetur adipisicing elit." views={12345} />
-				<FeatureCard title="Nulla, autem." views={12345} />
+				<FeatureCard title="Welcome to swyxkit!" href="/welcome" date={'Jan 2022'} />
+				<FeatureCard title="Dolor sit amet consectetur adipisicing elit." date={'Jan 2022'} />
+				<FeatureCard title="Nulla, autem." date={'Jan 2022'} />
 			</div>
 			<a
-				class="flex mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6"
+				class="flex mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg 
+				 dark:hover:text-gray-200 transition-all h-6"
 				href="/blog"
 				>Read all posts<svg
 					xmlns="http://www.w3.org/2000/svg"

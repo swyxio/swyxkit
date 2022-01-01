@@ -1,6 +1,6 @@
 <script context="module">
 	export const prerender = true;
-	export const hydrate = false;
+	import { REPO_URL } from '../lib/siteConfig';
 	export async function load({ params, fetch }) {
 
 		const slug = params.slug;
@@ -18,18 +18,19 @@
 			props: {
 				metadata: json.data,
 				content: json.content,
-				slug
+				slug,
+				REPO_URL
 			}
 		};
 	}
 </script>
 
 <script>
-	import { REPO_URL } from '../../siteConfig';
 import Newsletter from '../components/Newsletter.svelte';
 	export let metadata;
 	export let content;
 	export let slug;
+	export let REPO_URL
 </script>
 
 <svelte:head>
@@ -52,8 +53,8 @@ import Newsletter from '../components/Newsletter.svelte';
 	<div class="w-full my-8 prose dark:prose-invert max-w-none">
 		{@html content}
 	</div>
-	<div>
-		Found a typo? Wanna add something? Edit this page on <a href={`${REPO_URL}/blob/main/content/${slug}.md`}>GitHub</a>!
+	<div class="prose dark:prose-invert">
+		Found a typo? Wanna add something? Edit this page on <a href={`${REPO_URL}/edit/main/content/${slug}.md`}>GitHub</a>!
 	</div>
 	<Newsletter />
 </article>

@@ -48,7 +48,7 @@ npm run start
 
 You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/).
 
-Before deploying, remember to configure `siteConfig.js` - just some hardcoded vars i want you to remember to configure.
+Before deploying, remember to configure `/lib/siteConfig.js` - just some hardcoded vars i want you to remember to configure.
 
 ## Further Reading
 

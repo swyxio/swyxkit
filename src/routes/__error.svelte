@@ -28,7 +28,7 @@
 	<title>{title}</title>
 </svelte:head>
 
-<section class="prose p-8">
+<section class="prose dark:prose-invert container mx-auto py-12">
 	<h1>Error: {title}</h1>
 
 	<p class="font-mono">{message}</p>
