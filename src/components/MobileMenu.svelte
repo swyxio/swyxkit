@@ -1,8 +1,20 @@
 <script>
 	let isOpen = false;
+	let isMenuRendered
+	$: {
+		if (isOpen) {
+			setTimeout(() => {
+				isMenuRendered = true;
+			}, 20);
+		} else {
+			setTimeout(() => {
+				isMenuRendered = false;
+			}, 300);
+		}
+	}
 </script>
 
-<div class="ml-[-0.60rem]">
+<div class="ml-[-0.60rem] md:hidden">
 <button
 	class="burger visible"
 	aria-label="Toggle menu"
@@ -48,28 +60,29 @@
 </button>
 {#if isOpen}
 	<ul
-		class="menu flex flex-col absolute bg-gray-100 dark:bg-gray-900 menuRendered"
+		class="menu flex flex-col absolute bg-gray-50 dark:bg-gray-900  uppercase text-2xl"
+		class:menuRendered={isMenuRendered}
 	>
 		<li
-			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 font-semibold"
 			style="transition-delay: 150ms;"
 		>
 			<a class="flex w-auto pb-4" href="/">Home</a>
 		</li>
 		<li
-			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 font-semibold"
 			style="transition-delay: 250ms;"
 		>
 			<a class="flex w-auto pb-4" href="/blog">Blog</a>
 		</li>
 		<li
-			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 font-semibold"
 			style="transition-delay: 300ms;"
 		>
 			<a class="flex w-auto pb-4" href="/newsletter">Newsletter</a>
 		</li>
 		<li
-			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 font-semibold"
 			style="transition-delay: 325ms;"
 		>
 			<a class="flex w-auto pb-4" href="/tweets">Tweets</a>
@@ -93,11 +106,6 @@
 		left: 50%;
 		opacity: 1;
 		transition: opacity 300ms ease, transform 300ms ease;
-	}
-
-	.burger svg[data-hide='true'] {
-		opacity: 0;
-		transform: translate(-50%, -50%) scale(0);
 	}
 
 	.menu {
