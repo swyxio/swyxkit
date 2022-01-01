@@ -14,7 +14,6 @@ export async function get({ params }) {
 			}
 		};
 	} catch(err) {
-		console.log('api slug ', err.message)
 		return {
 			status: 404,
 			body: err.message

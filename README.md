@@ -6,8 +6,6 @@ swyx's preferred starter for Svelte projects:
 - Tailwind 3 + Tailwind Typography
 - Netlify
 
-still work in progress, please dont use this yet...
-
 ## Key Features and Design Considerations:
 
 - Features

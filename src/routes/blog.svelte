@@ -2,6 +2,12 @@
 	// export const prerender = true; // causes issues with RSS prerendering in netlify adapter
 	export async function load({ params, fetch }) {
 		const res = await fetch(`/api/listBlogposts.json`);
+		if (res.status > 300) {
+			return {
+				status: res.status,
+				error: await res.text()
+			};
+		}
 		const items = await res.json();
 		return {
 			props: { items },
@@ -102,14 +108,3 @@
 		<div>no items found!</div>
 	{/if}
 </section>
-
-<!-- {#each items as item, i}
-	{#if item}
-    <ItemSummary {item} index={start + i} />
-	{/if}
-    {/each} -->
-<!-- sometimes we get bad data? TODO investigate -->
-<!-- 
-{#if next}
-	<a class="more" href={next}>More...</a>
-{/if} -->
