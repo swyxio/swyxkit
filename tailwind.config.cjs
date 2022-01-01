@@ -6,7 +6,15 @@ module.exports = {
 	],
 	darkMode: 'class',
 	theme: {
-		extend: {}
+		extend: {
+			typography: theme => ({
+				DEFAULT: {
+					css: {
+            '--tw-prose-bullets': theme('colors.black'),
+					}
+				}
+			})
+		}
 	},
 	variants: {},
 	plugins: [require('@tailwindcss/typography')]

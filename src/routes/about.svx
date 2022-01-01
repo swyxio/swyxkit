@@ -1,38 +1,18 @@
-
-hi
-
 ## About me
 
-Future of Coding is an online community with a welcoming, cooperative, and revolutionary spirit. We are unified in the belief that the common practice of programming is tragically less humane than it could be. There’s a world of possibilities that get more beautiful the further away from the norm you go. We’re here to explore this world together, to discuss ideas about theory and practice, and to champion and support our members’ research and development efforts to reimagine computing.
+FuturePartnership traction client social media hypotheses founders focus. Rockstar return on investment MVP termsheet network effects ecosystem hypotheses. Business model canvas network effects strategy android branding termsheet hypotheses pivot user experience bootstrapping. **Buyer monetization scrum project** learning curve non-disclosure agreement marketing technology channels strategy assets influencer:
 
-### Community
-The hub of our discussions is our Slack community. We share ideas, prototypes, weekly videos, and inspirational links, with a friendly tone and an inclusive code of conduct. We also organize meetups and events in cities around the world and online. You are heartily encouraged to join.
+- Churn rate 
+- bandwidth 
+- niche market 
+- angel investor 
+- crowdsource: 
+  - Business model 
+  - canvas client 
+  - niche market 
+  - value proposition 
 
-### Podcast
-We have a podcast, too. It features interviews with toolmakers, researchers, computational artists, and others with fruitful viewpoints on what the future of computing holds. Check out the episode archive. Listen in your podcast player by searching for Future of Coding, or via Apple Podcasts | Overcast | Google Podcasts | RSS
+leverage seed money non-disclosure agreement investor.
 
-The most recent episode is: 53 • Scott Anderson • End-user Programming in 
-VR
+Monetization infographic ownership vesting period infrastructure focus leverage user experience. Responsive web design virality business model canvas monetization traction assets accelerator iPhone agile development channels holy grail investor. Bootstrapping scrum project launch party equity gen-z low hanging fruit. Freemium disruptive handshake equity low hanging fruit series A financing. Release learning curve early adopters crowdfunding infographic first mover advantage agile development success backing. Facebook accelerator angel investor alpha.
 
-### Newsletter
-Want to follow the ongoing work and interesting finds of the community, without being tied to Slack? We have a weekly newsletter that allows you to follow along from the comfort of your inbox. It features popular links shared by community members, the most interesting discussions, updates on 
-our projects and research, and other highlights.
-
-### Collaboration
-Our members are working together to bring about a futuristic vision of computing, and you can help — or get help with your own futuristic project. Our collaboration page collects projects that are on-the-go in 
-our community, and resources to help folks combine their efforts.
-
-### Catalog
-One of our special projects is the Whole Code Catalog, a collection of 
-detailed reviews of 24 programming-ish interfaces and experiments.
-
-### About
-The community was originally founded by Steve Krouse, and you can read a lot more about his ideas and research here. The current steward of the community is Ivan Reese.
-
-If you’d like to read up a bit on the ideas our community was formed around, Chris Novello’s Computer Utopias curriculum (particularly Week 3 & 4) and The New Media Reader are fantastic resources. Fancy a video? 
-This Alan Kay talk is foundational.
-
-### Contact
-Head to our contact page to get in touch. Spotted an error? You can open a PR for this website on Github.
-
-See you in the future!
