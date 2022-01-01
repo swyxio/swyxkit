@@ -1,6 +1,18 @@
 <script>
 	import '../tailwind.css';
 	import Nav from '../components/Nav.svelte';
+	export let origin = ''
+</script>
+<script context="module">
+	import { REPO_URL } from '$lib/siteConfig';
+	/** @type {import('@sveltejs/kit').Load} */
+	export async function load({ url }) {
+		return {
+			props: {
+				origin: url.origin
+			}
+		};
+	}
 </script>
 
 <div class="flex flex-col justify-center px-8">
@@ -19,7 +31,7 @@
 					href="/about">About</a
 				>
 				<a class="text-gray-500 hover:text-gray-300 transition" href="/#newsletter">Newsletter</a>
-				<a class="text-gray-500 hover:text-gray-300 transition" href="/rss.xml" rel="external">RSS</a>
+				<a class="text-gray-500 hover:text-gray-300 transition" href={origin + "/rss.xml"} rel="external">RSS</a>
 			</div>
 			<div class="flex flex-col space-y-4">
 				<a
