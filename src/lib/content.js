@@ -1,5 +1,5 @@
 import { compile } from 'mdsvex';
-
+import { dev } from '$app/env'
 import grayMatter from 'gray-matter';
 import fetch from 'node-fetch';
 import { GH_USER_REPO } from './siteConfig';
@@ -40,7 +40,7 @@ export async function listBlogposts() {
 export async function getBlogpost(slug) {
 
 	// get all blogposts if not already done - or in development
-	if (process.env.NODE_ENV !== 'production' ?? allBlogposts.length === 0) {
+	if (dev ?? allBlogposts.length === 0) {
 		allBlogposts = await listBlogposts()
 	}
 	// find the blogpost that matches this slug
@@ -62,10 +62,18 @@ function parseIssue(issue) {
 	} else {
 		slug = slugify(issue.title)
 	}
+	let date
+	if (data.data.date) {
+		date = new Date(data.data.date)
+	} else {
+		date = new Date(issue.created_at)
+	}
+	
 	return {
 		content: data.content,
 		data: data.data,
 		slug: slug.toLowerCase(),
+		date,
 		ghMetadata: {
 			issueUrl: issue.html_url,
 			commentsUrl: issue.comments_url,

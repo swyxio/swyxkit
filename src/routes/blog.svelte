@@ -1,5 +1,5 @@
 <script context="module">
-	export const prerender = true;
+	// export const prerender = true; // turned off so it refreshes quickly
 	export async function load({ params, fetch }) {
 		const res = await fetch(`/api/listBlogposts.json`);
 		// alternate strategy https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit

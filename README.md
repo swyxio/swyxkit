@@ -5,6 +5,7 @@ swyx's preferred starter for Svelte projects:
 - SvelteKit
 - Tailwind 3 + Tailwind Typography
 - Netlify
+- GitHub Issues for Blogging
 
 ## Key Features and Design Considerations:
 
@@ -14,11 +15,12 @@ swyx's preferred starter for Svelte projects:
     - Blog content pulled from the GitHub Issues API - make to set your `GH_USER_REPO` variable!
     - paginates through api
     - Comment system also from Github Issues
-  - Consumes markdown and MDSveX (and in future - external data sources)
-    - with syntax highlighting
+    - Consumes markdown/MDSveX
+      - with syntax highlighting
   - RSS (at `/api/rss.xml`) with caching
 - Performance touches
   - no `hydrate` on about and blog pages
+    - update: temporarily disabled while we figure out mobile nav without hydration
   - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
 - Minor design/UX touches
   - Top level blog URLs (`/myblog` instead of `/blog/myblog` - sliiightly better SEO/url design)
@@ -53,7 +55,7 @@ Before deploying, remember to configure `/lib/siteConfig.js` - just some hardcod
 This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give `process.env.GH_TOKEN` to raise rate limit from 60 to 5000. Just make a really basic personal access token, should be enough.
 https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
 
-When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites/swyxkit/settings/deploys#environment
+When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites/YOUR_SITE/settings/deploys#environment
 
 ## Further Reading
 
@@ -84,3 +86,4 @@ You can read:
 - implement etag header for github api
 - store results in netlify build cache
 - separate hydration path for mobile nav
+- custom components in MDX, and rehype plugins
