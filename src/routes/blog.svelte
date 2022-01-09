@@ -78,16 +78,15 @@
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
 			Most Popular
 		</h3>
-		<IndexCard href="/foo" title="Blogpost # 1" date="106,255 views">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ea. Voluptatum nam
-			voluptatibus optio corrupti.
+		<IndexCard href="/foo" title="Hardcoded Blogpost # 1" date="106,255 views">
+			Just a hardcorded blogpost or you can use the metadata up to you
 		</IndexCard>
 		<IndexCard href="/welcome" title="Welcome to Swyxkit" date="106,255 views">
-			Click here to see some photos and details on swyxkit and how to use it!
+			Just a hardcorded blogpost or you can use the metadata up to you
 		</IndexCard>
-		<IndexCard href="/moo" title="Blogpost # 3" date="106,255 views">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ea. Voluptatum nam
-			voluptatibus optio corrupti.
+		<IndexCard href="/moo" title="Hardcoded Blogpost # 3" date="106,255 views">
+			Just a hardcorded blogpost or you can use the metadata up to you
+
 		</IndexCard>
 
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
@@ -99,7 +98,7 @@
 			{#each list as item}
 				<li class="mb-8 text-lg">
 					<!-- <code class="mr-4">{item.data.date}</code> -->
-					<IndexCard href={item.slug} title={item.data.title} date={item.data.date}>
+					<IndexCard href={item.slug} title={item.data.title} date={item.data.date} ghMetadata={item.ghMetadata}>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ea. Voluptatum nam
 						voluptatibus optio corrupti.
 					</IndexCard>

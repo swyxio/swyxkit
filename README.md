@@ -10,9 +10,10 @@ swyx's preferred starter for Svelte projects:
 
 - Features
   - Dark mode
-  - Blog with blog index
-    - Top level blog URLs (`/myblog` instead of `/blog/myblog`)
-    - Blog content in a separte `/content` folder instead of in `/src/routes`
+  - Github-issues-driven Blog with blog index
+    - Blog content pulled from the GitHub Issues API - make to set your `GH_USER_REPO` variable!
+    - paginates through api
+    - Comment system also from Github Issues
   - Consumes markdown and MDSveX (and in future - external data sources)
     - with syntax highlighting
   - RSS (at `/api/rss.xml`) with caching
@@ -20,7 +21,9 @@ swyx's preferred starter for Svelte projects:
   - no `hydrate` on about and blog pages
   - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
 - Minor design/UX touches
+  - Top level blog URLs (`/myblog` instead of `/blog/myblog` - sliiightly better SEO/url design)
   - Error page (try going to URL that doesnt exist)
+    - including nice error when github api rate limit exceeded
   - Navlink hover effect
   - Mobile menu with animation
   - Edit on GitHub link
@@ -69,3 +72,9 @@ You can read:
       - RSS Endpoint runs locally but doesnt run in Netlify bc no access to the content in prod
       - approach i went for is to use Vite's `import.meta.globEager` feature and that makes it static for the RSS... 
 - Find more sveltekit projects at https://github.com/janosh/awesome-svelte-kit
+
+## Todos
+
+- implement etag header for github api
+- store results in netlify build cache
+- separate hydration path for mobile nav

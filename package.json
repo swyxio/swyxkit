@@ -51,5 +51,10 @@
 		"vfile": "^5.2.0",
 		"vfile-reporter": "^7.0.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"node-fetch": "^2.6.6",
+		"parse-link-header": "^2.0.0",
+		"slugify": "^1.6.5"
+	}
 }

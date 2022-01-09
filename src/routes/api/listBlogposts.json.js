@@ -1,4 +1,4 @@
-import { listBlogposts } from '$lib/markdown';
+import { listBlogposts } from '$lib/content';
 
 /**
  * @type {import('@sveltejs/kit').RequestHandler}

@@ -1,6 +1,6 @@
 import RSS from 'rss'
 import { SITE_URL } from '$lib/siteConfig'
-// import { listBlogposts } from '$lib/markdown';
+import { listBlogposts } from '$lib/content';
 // import { basename } from 'path';
 // import { promises as fs } from 'fs';
 // import grayMatter from 'gray-matter';
@@ -33,18 +33,19 @@ export async function get(
   // // const res = await fetch(`${url.protocol}//${url.host}/api/listBlogposts.json`);
   // // const allBlogs = await res.json();
 
-  // // finally the solution was simplest - just run the same fn in node lol
-  // const allBlogs = await listBlogposts();
-  // allBlogs.forEach((post) => {
-  //   feed.item({
-  //     title: post.data.title,
-  //     url: SITE_URL + `/${post.slug}`,
-  //     date: post.data.date,
-  //     // description: makeDescription(post)
-  //   });
-  // });
+  // finally the solution was simplest - just run the same fn in node lol
+  const allBlogs = await listBlogposts();
+  allBlogs.forEach((post) => {
+    feed.item({
+      title: post.data.title,
+      url: SITE_URL + `/${post.slug}`,
+      date: post.data.date,
+      // description: makeDescription(post)
+    });
+  });
 
-  let allBlogs = import.meta.globEager('/content/**/*.md')
+  // use this if you want your content in a local '/content' folder rather than github issues
+  // let allBlogs = import.meta.globEager('/content/**/*.md')
   Object.entries(allBlogs).forEach(([path, obj]) => {
     feed.item({
       title: obj.metadata.title,

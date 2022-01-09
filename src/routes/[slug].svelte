@@ -1,5 +1,6 @@
 <script context="module">
 	export const prerender = true;
+	export const hydrate = false;
 	import { REPO_URL } from '$lib/siteConfig';
 	export async function load({ url, params, fetch }) {
 		const slug = params.slug;
@@ -17,6 +18,7 @@
 			props: {
 				metadata: json.data,
 				content: json.content,
+				ghMetadata: json.ghMetadata,
 				slug,
 				REPO_URL
 			}
@@ -28,8 +30,9 @@
 import Newsletter from '../components/Newsletter.svelte';
 	export let metadata;
 	export let content;
-	export let slug;
-	export let REPO_URL
+	export let ghMetadata
+	// export let slug;
+	// export let REPO_URL
 </script>
 
 <svelte:head>
@@ -46,6 +49,7 @@ import Newsletter from '../components/Newsletter.svelte';
 			<p class="ml-2 text-sm text-gray-700 dark:text-gray-300">{metadata.author}</p>
 		</div>
 		<p class="mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
+			<span class="mr-4 text-xs font-mono text-opacity-70 text-gray-700 dark:text-gray-300">{ghMetadata.reactions.total_count} reactions</span>
 			{metadata.date}
 		</p>
 	</div>
@@ -54,9 +58,9 @@ import Newsletter from '../components/Newsletter.svelte';
 	<div class="w-full my-8 prose dark:prose-invert max-w-none">
 		{@html content}
 	</div>
-	<div class="prose dark:prose-invert">
+	<!-- <div class="prose dark:prose-invert">
 		Found a typo? Wanna add something? Edit this page on <a href={`${REPO_URL}/edit/main/content/${slug}.md`}>GitHub</a>!
-	</div>
+	</div> -->
 	<Newsletter />
 </article>
 

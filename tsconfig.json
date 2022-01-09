@@ -31,6 +31,6 @@
 		"src/**/*.js",
 		"src/**/*.ts",
 		"src/**/*.svelte",
-		"src/lib/markdown.js"
+		"src/lib/content.js"
 	]
 }
