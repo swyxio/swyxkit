@@ -53,6 +53,8 @@ Before deploying, remember to configure `/lib/siteConfig.js` - just some hardcod
 This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give `process.env.GH_TOKEN` to raise rate limit from 60 to 5000. Just make a really basic personal access token, should be enough.
 https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
 
+When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites/swyxkit/settings/deploys#environment
+
 ## Further Reading
 
 You can read:
