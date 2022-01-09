@@ -41,6 +41,7 @@ See https://swyxkit.netlify.app/
 ## Setup
 
 ```bash
+export GH_TOKEN=your_gh_token_here # can skip if just trying out this repo casually
 npm install
 npm run start
 ```
@@ -48,6 +49,9 @@ npm run start
 You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/).
 
 Before deploying, remember to configure `/lib/siteConfig.js` - just some hardcoded vars i want you to remember to configure.
+
+This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give `process.env.GH_TOKEN` to raise rate limit from 60 to 5000. Just make a really basic personal access token, should be enough.
+https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
 
 ## Further Reading
 
