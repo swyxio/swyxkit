@@ -54,26 +54,21 @@ export async function getBlogpost(slug) {
 function parseIssue(issue) {
 	const src = issue.body;
 	const data = grayMatter(src);
+	let title = data.data.title ?? issue.title;
 	let slug
 	if (data.data.slug) {
 		slug = data.data.slug
-	} else if(data.data.title) {
-		slug = slugify(data.data.title)
 	} else {
-		slug = slugify(issue.title)
+		slug = slugify(title)
 	}
-	let date
-	if (data.data.date) {
-		date = new Date(data.data.date)
-	} else {
-		date = new Date(issue.created_at)
-	}
+	let date = data.data.date ?? issue.created_at
 	
 	return {
 		content: data.content,
 		data: data.data,
+		title,
 		slug: slug.toLowerCase(),
-		date,
+		date: new Date(date),
 		ghMetadata: {
 			issueUrl: issue.html_url,
 			commentsUrl: issue.comments_url,
