@@ -87,3 +87,4 @@ You can read:
 - store results in netlify build cache
 - separate hydration path for mobile nav
 - custom components in MDX, and rehype plugins
+- github comments and reactions
