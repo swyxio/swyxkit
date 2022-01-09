@@ -98,7 +98,7 @@
 			{#each list as item}
 				<li class="mb-8 text-lg">
 					<!-- <code class="mr-4">{item.data.date}</code> -->
-					<IndexCard href={item.slug} title={item.data.title} date={item.data.date} ghMetadata={item.ghMetadata}>
+					<IndexCard href={item.slug} title={item.title} date={new Date(item.date).toISOString().slice(0,10)} ghMetadata={item.ghMetadata}>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ea. Voluptatum nam
 						voluptatibus optio corrupti.
 					</IndexCard>

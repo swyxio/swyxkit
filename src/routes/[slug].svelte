@@ -54,7 +54,7 @@ import Newsletter from '../components/Newsletter.svelte';
 		</div>
 		<p class="mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
 			<span class="mr-4 text-xs font-mono text-opacity-70 text-gray-700 dark:text-gray-300">{ghMetadata.reactions.total_count} reactions</span>
-			{date}
+			{new Date(date).toISOString().slice(0,10)}
 		</p>
 	</div>
 	<div class="flex h-1 w-full my-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500" />
