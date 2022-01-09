@@ -15,7 +15,7 @@
 	}
 </script>
 
-<div class="flex flex-col justify-center px-8">
+<div class="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900">
 	<Nav />
 </div>
 <main class="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900">
