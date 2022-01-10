@@ -51,5 +51,17 @@
 		"vfile": "^5.2.0",
 		"vfile-reporter": "^7.0.3"
 	},
-	"type": "module"
+	"engines": {
+		"node": ">=14.17"
+	},
+	"type": "module",
+	"dependencies": {
+		"date-fns": "^2.28.0",
+		"node-fetch": "^2.6.6",
+		"parse-link-header": "^2.0.0",
+		"prism-themes": "^1.9.0",
+		"shiki": "^0.10.0",
+		"slugify": "^1.6.5",
+		"snarkdown": "^2.0.0"
+	}
 }

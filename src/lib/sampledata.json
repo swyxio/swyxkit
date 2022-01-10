@@ -1,0 +1,106 @@
+{
+  url: 'https://api.github.com/repos/OneGraph/onegraph-changelog/issues/18',
+  repository_url: 'https://api.github.com/repos/OneGraph/onegraph-changelog',
+  labels_url: 'https://api.github.com/repos/OneGraph/onegraph-changelog/issues/18/labels{/name}',
+  comments_url: 'https://api.github.com/repos/OneGraph/onegraph-changelog/issues/18/comments',
+  events_url: 'https://api.github.com/repos/OneGraph/onegraph-changelog/issues/18/events',
+  html_url: 'https://github.com/OneGraph/onegraph-changelog/issues/18',
+  id: 493687638,
+  node_id: 'MDU6SXNzdWU0OTM2ODc2Mzg=',
+  number: 18,
+  title: '[docs, feature]: Feedback in general',
+  user: {
+    login: 'jsjoeio',
+    id: 3806031,
+    node_id: 'MDQ6VXNlcjM4MDYwMzE=',
+    avatar_url: 'https://avatars.githubusercontent.com/u/3806031?v=4',
+    gravatar_id: '',
+    url: 'https://api.github.com/users/jsjoeio',
+    html_url: 'https://github.com/jsjoeio',
+    followers_url: 'https://api.github.com/users/jsjoeio/followers',
+    following_url: 'https://api.github.com/users/jsjoeio/following{/other_user}',
+    gists_url: 'https://api.github.com/users/jsjoeio/gists{/gist_id}',
+    starred_url: 'https://api.github.com/users/jsjoeio/starred{/owner}{/repo}',
+    subscriptions_url: 'https://api.github.com/users/jsjoeio/subscriptions',
+    organizations_url: 'https://api.github.com/users/jsjoeio/orgs',
+    repos_url: 'https://api.github.com/users/jsjoeio/repos',
+    events_url: 'https://api.github.com/users/jsjoeio/events{/privacy}',
+    received_events_url: 'https://api.github.com/users/jsjoeio/received_events',
+    type: 'User',
+    site_admin: false
+  },
+  labels: [],
+  state: 'open',
+  locked: false,
+  assignee: null,
+  assignees: [],
+  milestone: null,
+  comments: 12,
+  created_at: '2019-09-15T02:41:41Z',
+  updated_at: '2019-09-17T00:46:38Z',
+  closed_at: null,
+  author_association: 'CONTRIBUTOR',
+  active_lock_reason: null,
+  body: 'I think the setup instructions could be clarified to make it easier for first-time users. For instance, following the instructions, I get this after starting the app:\r\n' +
+    '\r\n' +
+    '<img width="1081" alt="image" src="https://user-images.githubusercontent.com/3806031/64915719-7d25cd00-d722-11e9-86a4-e3822e77efd0.png">\r\n' +
+    '\r\n' +
+    "I know this is because the server isn't running and hasn't generated the queries but ideally, the setup should walk me through the entire setup (including the Relay part) before telling me to start the app.\r\n" +
+    '\r\n' +
+    `Another thing that isn't clear is if I need to use two separate OneGraph apps? I am guessing no, but in the Setup part, you say use your "app's id". But then in the Relay part you say create a new app. I think we could clarify this section to avoid any confusion.\r\n` +
+    '\r\n' +
+    "Also, I think we should try to solidify the use of env variables. There's a `.env` but then in the relay part, it tells me to add them inline with the `yarn relay --watch` command. It would be nice if I just added them to the `.env`. \r\n" +
+    '\r\n' +
+    `While all of these may sound "negative", I do think this project is awesome and I know it's still very early on, but I did get things running :)\r\n` +
+    '\r\n' +
+    '<img width="1280" alt="image" src="https://user-images.githubusercontent.com/3806031/64915783-2ae5ab80-d724-11e9-8767-6ce10c3b89ee.png">\r\n' +
+    '\r\n' +
+    `Last thing, I don't know the best solution, but the "issue" is having all the types of deployments in this one example. Now, to deploy to Netlify, I have to go delete the firebase, fly, now, files. Maybe instead you could do what services like Next.js and Nest.js do where you have a directory with examples:\r\n` +
+    '- [next.js examples](https://github.com/zeit/next.js/tree/canary/examples)\r\n' +
+    '- [nest.js examples](https://github.com/nestjs/nest/tree/master/sample)\r\n' +
+    '\r\n' +
+    '\r\n' +
+    'Also, not your fault, but Netlify failed with I tried to deploy :( Something happened with the authorization? I ran `yarn deploy:netlify`, it opened a tab in my browser, I logged in and gave it permission then went back and reran the command but it failed saying unauthorized. Will figure this out. But might be worth noting in the docs. \r\n' +
+    '\r\n' +
+    '<img width="286" alt="image" src="https://user-images.githubusercontent.com/3806031/64915874-ee1ab400-d725-11e9-931c-d79a4fc4d693.png">\r\n' +
+    '\r\n' +
+    '\r\n' +
+    "Hmm...tried to deploy by connecting site to Netlify and it didn't work.\r\n" +
+    '<img width="1392" alt="image" src="https://user-images.githubusercontent.com/3806031/64915926-3be3ec00-d727-11e9-9df8-2a3e4759d9ce.png">\r\n' +
+    '\r\n' +
+    'Looks like something went wrong with my functions maybe:\r\n' +
+    '<img width="931" alt="image" src="https://user-images.githubusercontent.com/3806031/64915935-6f267b00-d727-11e9-849e-0ca9e88051b5.png">\r\n' +
+    '\r\n' +
+    "I'll have to investigate a bit further but I'm sure I can figure it out. \r\n" +
+    '\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '## Summary of Feedback\r\n' +
+    '\r\n' +
+    '### Doc fixes\r\n' +
+    "- Rewrite Setup instructions to be more hold user's hand more\r\n" +
+    '- Decide on consistent user of environment variables\r\n' +
+    '- Refactor the main example and create `/examples` directory\r\n' +
+    '\r\n' +
+    '### Bugs\r\n' +
+    "- couldn't deploy to Netlify from command line (bug with Netlify?)\r\n" +
+    '\r\n' +
+    '### Feature Requests\r\n' +
+    "- OneGraph OneBlog CLI tool to generate boiler plate. It would ask what service you want to use (i.e. Firebase, now, Netlify), and then you wouldn't have all the unnecessary files\r\n" +
+    '\r\n' +
+    "P.S. - this is the first time I've heard of Grommet. Looks pretty nice! 👌🏼",
+  reactions: {
+    url: 'https://api.github.com/repos/OneGraph/onegraph-changelog/issues/18/reactions',
+    total_count: 1,
+    '+1': 0,
+    '-1': 0,
+    laugh: 0,
+    hooray: 0,
+    confused: 0,
+    heart: 1,
+    rocket: 0,
+    eyes: 0
+  },
+  timeline_url: 'https://api.github.com/repos/OneGraph/onegraph-changelog/issues/18/timeline',
+  performed_via_github_app: null
+}

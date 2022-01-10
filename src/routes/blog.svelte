@@ -1,5 +1,5 @@
 <script context="module">
-	export const prerender = true;
+	// export const prerender = true; // turned off so it refreshes quickly
 	export async function load({ params, fetch }) {
 		const res = await fetch(`/api/listBlogposts.json`);
 		// alternate strategy https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
@@ -30,13 +30,14 @@
 	$: start = 1 + (page - 1) * PAGE_SIZE;
 	$: next = `/${list}/${+page + 1}`;
 
+	let isTruncated = items.list.length > 2
 	let search;
 	$: list = items.list.filter((item) => {
 		if (search) {
 			return item.data.title.toLowerCase().includes(search.toLowerCase());
 		}
 		return true;
-	});
+	}).slice(0, isTruncated ? 2 : items.list.length);
 </script>
 
 <svelte:head>
@@ -78,16 +79,15 @@
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
 			Most Popular
 		</h3>
-		<IndexCard href="/foo" title="Blogpost # 1" date="106,255 views">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ea. Voluptatum nam
-			voluptatibus optio corrupti.
+		<IndexCard href="/foo" title="Hardcoded Blogpost # 1" date="106,255 views">
+			Just a hardcorded blogpost or you can use the metadata up to you
 		</IndexCard>
 		<IndexCard href="/welcome" title="Welcome to Swyxkit" date="106,255 views">
-			Click here to see some photos and details on swyxkit and how to use it!
+			Just a hardcorded blogpost or you can use the metadata up to you
 		</IndexCard>
-		<IndexCard href="/moo" title="Blogpost # 3" date="106,255 views">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ea. Voluptatum nam
-			voluptatibus optio corrupti.
+		<IndexCard href="/moo" title="Hardcoded Blogpost # 3" date="106,255 views">
+			Just a hardcorded blogpost or you can use the metadata up to you
+
 		</IndexCard>
 
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
@@ -99,13 +99,20 @@
 			{#each list as item}
 				<li class="mb-8 text-lg">
 					<!-- <code class="mr-4">{item.data.date}</code> -->
-					<IndexCard href={item.slug} title={item.data.title} date={item.data.date}>
+					<IndexCard href={item.slug} title={item.title} date={new Date(item.date).toISOString().slice(0,10)} ghMetadata={item.ghMetadata}>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ea. Voluptatum nam
 						voluptatibus optio corrupti.
 					</IndexCard>
 				</li>
 			{/each}
 		</ul>
+		{#if isTruncated}
+			<div class="flex justify-center">
+				<button on:click={() => isTruncated = false} class="inline-block text-lg font-bold tracking-tight text-black md:text-2xl dark:text-white bg-blue-100 dark:bg-blue-900 rounded p-4 hover:text-yellow-900 hover:dark:text-yellow-200">
+					Load More Posts...
+				</button>
+			</div>
+		{/if}
 	{:else}
 		<div>no items found!</div>
 	{/if}

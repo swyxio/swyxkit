@@ -5,6 +5,7 @@ node_modules
 /build
 /functions
 /static/tailwind.css
+/src/lib/sampledata.json
 
 # Local Netlify folder
 .netlify

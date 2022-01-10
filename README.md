@@ -5,27 +5,37 @@ swyx's preferred starter for Svelte projects:
 - SvelteKit
 - Tailwind 3 + Tailwind Typography
 - Netlify
+- GitHub Issues as CMS
+
+Feel free to rip out these opinions as you see fit of course.
 
 ## Key Features and Design Considerations:
 
 - Features
   - Dark mode
-  - Blog with blog index
-    - Top level blog URLs (`/myblog` instead of `/blog/myblog`)
-    - Blog content in a separte `/content` folder instead of in `/src/routes`
-  - Consumes markdown and MDSveX (and in future - external data sources)
-    - with syntax highlighting
+  - Github-issues-driven Blog with blog index
+    - Blog content pulled from the GitHub Issues API - make to set your `GH_USER_REPO` variable!
+    - Comment and Reaction system from Github Issues
+    - Consumes markdown/MDSveX
+      - with syntax highlighting
   - RSS (at `/api/rss.xml`) with caching
 - Performance touches
   - no `hydrate` on about and blog pages
+    - update: temporarily disabled while we figure out mobile nav without hydration
   - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
 - Minor design/UX touches
+  - Top level blog URLs (`/myblog` instead of `/blog/myblog` - sliiightly better SEO/url design)
+  - Blog index truncates at 20 posts to make sure to render quickly
+  - [Comments are rendered and sanitized](https://github.com/developit/snarkdown/issues/70)
   - Error page (try going to URL that doesnt exist)
+    - including nice error when github api rate limit exceeded
   - Navlink hover effect
   - Mobile menu with animation
   - Edit on GitHub link
   - Accessible SVG Icons https://github.com/sw-yx/spark-joy/blob/master/README.md#general--misc
   - Custom scrollbar https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
+
+> ⚠️ known issue - syntax highlighting of mdsvex currently adds extra `@html` for no reason. Pngwn is aware of it.
 
 ## Live Demo
 
@@ -38,6 +48,7 @@ See https://swyxkit.netlify.app/
 ## Setup
 
 ```bash
+export GH_TOKEN=your_gh_token_here # can skip if just trying out this repo casually
 npm install
 npm run start
 ```
@@ -45,6 +56,11 @@ npm run start
 You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/).
 
 Before deploying, remember to configure `/lib/siteConfig.js` - just some hardcoded vars i want you to remember to configure.
+
+This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give `process.env.GH_TOKEN` to raise rate limit from 60 to 5000. Just make a really basic personal access token, should be enough.
+https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
+
+When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites/YOUR_SITE/settings/deploys#environment
 
 ## Further Reading
 
@@ -69,3 +85,10 @@ You can read:
       - RSS Endpoint runs locally but doesnt run in Netlify bc no access to the content in prod
       - approach i went for is to use Vite's `import.meta.globEager` feature and that makes it static for the RSS... 
 - Find more sveltekit projects at https://github.com/janosh/awesome-svelte-kit
+
+## Todos
+
+- implement etag header for github api
+- store results in netlify build cache
+- separate hydration path for mobile nav
+- custom components in MDX, and rehype plugins
