@@ -1,7 +1,8 @@
 <script context="module">
 	export const prerender = true;
-	export const hydrate = false;
+	export const hydrate = true;
 	import { REPO_URL } from '$lib/siteConfig';
+import Comments from '../components/Comments.svelte';
 	export async function load({ url, params, fetch }) {
 		const slug = params.slug;
 		const res = await fetch(`/api/blog/${slug}.json`);
@@ -29,7 +30,10 @@
 </script>
 
 <script>
+
+import 'prism-themes/themes/prism-shades-of-purple.min.css'
 import Newsletter from '../components/Newsletter.svelte';
+import Reactions from '../components/Reactions.svelte';
 	export let metadata;
 	export let title;
 	export let date;
@@ -53,45 +57,22 @@ import Newsletter from '../components/Newsletter.svelte';
 			<p class="ml-2 text-sm text-gray-700 dark:text-gray-300">swyx</p>
 		</div>
 		<p class="mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
-			<span class="mr-4 text-xs font-mono text-opacity-70 text-gray-700 dark:text-gray-300">{ghMetadata.reactions.total_count} reactions</span>
+			<a href={ghMetadata.issueUrl} rel="external" class="no-underline" target="_blank">
+				<span class="mr-4 text-xs font-mono text-opacity-70 text-gray-700 dark:text-gray-300">{ghMetadata.reactions.total_count} reactions</span>
+			</a>
 			{new Date(date).toISOString().slice(0,10)}
 		</p>
 	</div>
 	<div class="flex h-1 w-full my-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500" />
 
-	<div class="w-full my-8 prose dark:prose-invert max-w-none">
+	<div class="w-full mt-16 mb-32 prose dark:prose-invert max-w-none">
 		{@html content}
 	</div>
-	<!-- <div class="prose dark:prose-invert">
-		Found a typo? Wanna add something? Edit this page on <a href={`${REPO_URL}/edit/main/content/${slug}.md`}>GitHub</a>!
-	</div> -->
+	<div class="prose dark:prose-invert border-t border-b p-4 border-blue-800 mb-12">
+		Reactions: <Reactions {ghMetadata} />
+	</div>
+	<div class="mb-8">
+		<Comments {ghMetadata} />
+	</div>
 	<Newsletter />
 </article>
-
-<!-- <section class="p-16 border-b-thick">
-	<div class="container mx-auto">
-		<header>
-			<h1 class="text-4xl md:text-7xl mb-12 font-extrabold">{metadata.title}</h1>
-			<h2 class="border-l-8 border-yellow-200 pl-4">Written on <code>{metadata.date}</code></h2>
-		</header>
-		<div class="mx-auto max-w-prose">
-			<div class="prose">
-				{@html content}
-			</div>
-		</div>
-		<p class="mt-8 py-4">
-			<a sveltekit:prefetch class="link" href="/blog">👈 Back to Blog Index</a>
-		</p>
-	</div>
-</section> -->
-
-<!-- {#each items as item, i}
-	{#if item}
-    <ItemSummary {item} index={start + i} />
-	{/if}
-    {/each} -->
-<!-- sometimes we get bad data? TODO investigate -->
-
-<!-- {#if next}
-	<a class="more" href={next}>More...</a>
-{/if} -->

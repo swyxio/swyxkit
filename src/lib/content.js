@@ -5,6 +5,20 @@ import fetch from 'node-fetch';
 import { GH_USER_REPO } from './siteConfig';
 import parse from 'parse-link-header'
 import slugify from 'slugify'
+// import remarkParse from 'remark-parse'
+// import remarkRehype from 'remark-rehype'
+// import rehypeDocument from 'rehype-document'
+// import rehypeFormat from 'rehype-format'
+import rehypeStringify from 'rehype-stringify'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutoLink from 'rehype-autolink-headings'
+
+const remarkPlugins = undefined
+const rehypePlugins = [rehypeStringify, rehypeSlug, 
+	[rehypeAutoLink, {
+		behavior: 'wrap',
+		properties: { class: 'hover:text-yellow-100 no-underline' }
+	}]]
 
 
 const publishedTags = ['Published']
@@ -46,7 +60,10 @@ export async function getBlogpost(slug) {
 	// find the blogpost that matches this slug
 	const blogpost = allBlogposts.find(post => post.slug === slug)
 	// compile it with mdsvex
-	const content = (await compile(blogpost.content, {})).code;
+	const content = (await compile(blogpost.content, {
+		remarkPlugins,
+		rehypePlugins
+	})).code;
 
 	return { ...blogpost, content };
 }
@@ -62,7 +79,7 @@ function parseIssue(issue) {
 		slug = slugify(title)
 	}
 	let date = data.data.date ?? issue.created_at
-	
+
 	return {
 		content: data.content,
 		data: data.data,

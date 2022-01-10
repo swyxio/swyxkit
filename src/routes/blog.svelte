@@ -30,13 +30,14 @@
 	$: start = 1 + (page - 1) * PAGE_SIZE;
 	$: next = `/${list}/${+page + 1}`;
 
+	let isTruncated = items.list.length > 2
 	let search;
 	$: list = items.list.filter((item) => {
 		if (search) {
 			return item.data.title.toLowerCase().includes(search.toLowerCase());
 		}
 		return true;
-	});
+	}).slice(0, isTruncated ? 2 : items.list.length);
 </script>
 
 <svelte:head>
@@ -105,6 +106,13 @@
 				</li>
 			{/each}
 		</ul>
+		{#if isTruncated}
+			<div class="flex justify-center">
+				<button on:click={() => isTruncated = false} class="inline-block text-lg font-bold tracking-tight text-black md:text-2xl dark:text-white bg-blue-100 dark:bg-blue-900 rounded p-4 hover:text-yellow-900 hover:dark:text-yellow-200">
+					Load More Posts...
+				</button>
+			</div>
+		{/if}
 	{:else}
 		<div>no items found!</div>
 	{/if}

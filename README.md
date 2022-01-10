@@ -5,7 +5,9 @@ swyx's preferred starter for Svelte projects:
 - SvelteKit
 - Tailwind 3 + Tailwind Typography
 - Netlify
-- GitHub Issues for Blogging
+- GitHub Issues as CMS
+
+Feel free to rip out these opinions as you see fit of course.
 
 ## Key Features and Design Considerations:
 
@@ -13,8 +15,7 @@ swyx's preferred starter for Svelte projects:
   - Dark mode
   - Github-issues-driven Blog with blog index
     - Blog content pulled from the GitHub Issues API - make to set your `GH_USER_REPO` variable!
-    - paginates through api
-    - Comment system also from Github Issues
+    - Comment and Reaction system from Github Issues
     - Consumes markdown/MDSveX
       - with syntax highlighting
   - RSS (at `/api/rss.xml`) with caching
@@ -24,6 +25,8 @@ swyx's preferred starter for Svelte projects:
   - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
 - Minor design/UX touches
   - Top level blog URLs (`/myblog` instead of `/blog/myblog` - sliiightly better SEO/url design)
+  - Blog index truncates at 20 posts to make sure to render quickly
+  - [Comments are rendered and sanitized](https://github.com/developit/snarkdown/issues/70)
   - Error page (try going to URL that doesnt exist)
     - including nice error when github api rate limit exceeded
   - Navlink hover effect
@@ -31,6 +34,8 @@ swyx's preferred starter for Svelte projects:
   - Edit on GitHub link
   - Accessible SVG Icons https://github.com/sw-yx/spark-joy/blob/master/README.md#general--misc
   - Custom scrollbar https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
+
+> ⚠️ known issue - syntax highlighting of mdsvex currently adds extra `@html` for no reason. Pngwn is aware of it.
 
 ## Live Demo
 
@@ -87,4 +92,3 @@ You can read:
 - store results in netlify build cache
 - separate hydration path for mobile nav
 - custom components in MDX, and rehype plugins
-- github comments and reactions
