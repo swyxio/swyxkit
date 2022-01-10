@@ -21,6 +21,7 @@ const rehypePlugins = [rehypeStringify, rehypeSlug,
 	}]]
 
 
+const allowedPosters = ['sw-yx']
 const publishedTags = ['Published']
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header
@@ -41,7 +42,7 @@ export async function listBlogposts() {
 		const issues = await res.json();
 		if (res.status > 400) throw new Error(res.status + ' ' + res.statusText + '\n' + (issues && issues.message))
 		issues.forEach(issue => {
-			if (issue.labels.some(label => publishedTags.includes(label.name))) {
+			if (issue.labels.some(label => publishedTags.includes(label.name)) && allowedPosters.includes(issue.user.login)) {
 				allBlogposts.push(parseIssue(issue));
 			}
 		})
