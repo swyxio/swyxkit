@@ -21,7 +21,7 @@ Feel free to rip out these opinions as you see fit of course.
   - RSS (at `/api/rss.xml`) with caching
 - Performance touches
   - no `hydrate` on about and blog pages
-    - update: temporarily disabled while we figure out mobile nav without hydration
+    - *update: temporarily disabled while we figure out mobile nav without hydration*
   - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
 - Minor design/UX touches
   - Top level blog URLs (`/myblog` instead of `/blog/myblog` - sliiightly better SEO/url design)
@@ -31,11 +31,10 @@ Feel free to rip out these opinions as you see fit of course.
     - including nice error when github api rate limit exceeded
   - Navlink hover effect
   - Mobile menu with animation
-  - Edit on GitHub link
   - Accessible SVG Icons https://github.com/sw-yx/spark-joy/blob/master/README.md#general--misc
   - Custom scrollbar https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
 
-> ⚠️ known issue - syntax highlighting of mdsvex currently adds extra `@html` for no reason. Pngwn is aware of it.
+> ⚠️ known issue - syntax highlighting of mdsvex currently adds extra `@html` for no reason. [We use a workaround](https://github.com/pngwn/MDsveX/issues/392)
 
 ## Live Demo
 

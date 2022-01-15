@@ -64,7 +64,10 @@ export async function getBlogpost(slug) {
 	const content = (await compile(blogpost.content, {
 		remarkPlugins,
 		rehypePlugins
-	})).code;
+	})).code
+	// https://github.com/pngwn/MDsveX/issues/392
+  .replace(/{@html `/,'')
+  .replace(/`}<\/pre>/,'</pre>');
 
 	return { ...blogpost, content };
 }
