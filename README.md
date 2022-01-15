@@ -28,7 +28,8 @@ Feel free to rip out these opinions as you see fit of course.
     - [X-Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
     - [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
     - [X-XSS-Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection)
-    - [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+    - [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) with [nonce](https://content-security-policy.com/nonce/)
+  - [Builds and Deploys in ~40 seconds on Netlify](https://app.netlify.com/sites/swyxkit/deploys)
 - Minor design/UX touches
   - Top level blog URLs (`/myblog` instead of `/blog/myblog` - sliiightly better SEO/url design)
   - Blog index truncates at 20 posts to make sure to render quickly
