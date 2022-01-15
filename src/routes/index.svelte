@@ -58,7 +58,7 @@
 		<div class="flex gap-6 flex-col md:flex-row">
 			<FeatureCard title="Welcome to swyxkit 2022!" href="/welcome" date={'Jan 2022'} />
 			<FeatureCard title="Moving to a GitHub CMS" href="/moving-to-a-github-cms" date={'Jan 2022'} />
-			<FeatureCard title="Random filler blogpost" href="/moo" date={'Jan 2022'} />
+			<FeatureCard title="HTML Ipsum demo" href="/moo" date={'Jan 2022'} />
 		</div>
 		<a
 			class="flex mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg 

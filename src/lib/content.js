@@ -56,20 +56,26 @@ export async function getBlogpost(slug) {
 
 	// get all blogposts if not already done - or in development
 	if (dev ?? allBlogposts.length === 0) {
+		console.log('loading allBlogposts')
 		allBlogposts = await listBlogposts()
+		console.log('loaded ' + allBlogposts.length + ' blogposts')
 	}
 	// find the blogpost that matches this slug
 	const blogpost = allBlogposts.find(post => post.slug === slug)
-	// compile it with mdsvex
-	const content = (await compile(blogpost.content, {
-		remarkPlugins,
-		rehypePlugins
-	})).code
-	// https://github.com/pngwn/MDsveX/issues/392
-  .replace(/{@html `/,'')
-  .replace(/`}<\/pre>/,'</pre>');
-
-	return { ...blogpost, content };
+	if (blogpost) {
+		// compile it with mdsvex
+		const content = (await compile(blogpost.content, {
+			remarkPlugins,
+			rehypePlugins
+		})).code
+		// https://github.com/pngwn/MDsveX/issues/392
+		.replace(/{@html `/,'')
+		.replace(/`}<\/pre>/,'</pre>');
+	
+		return { ...blogpost, content };
+	} else {
+		throw new Error('Blogpost not found for slug: ' + slug)
+	}
 }
 
 function parseIssue(issue) {
@@ -83,11 +89,15 @@ function parseIssue(issue) {
 		slug = slugify(title)
 	}
 	let date = data.data.date ?? issue.created_at
+	let description = data.data.description ?? data.content.trim().split('\n')[0]
+		// (data.content.length > 300) ? data.content.slice(0, 300) + '...' : data.content
+	
 
 	return {
 		content: data.content,
 		data: data.data,
 		title,
+		description,
 		slug: slug.toLowerCase(),
 		date: new Date(date),
 		ghMetadata: {

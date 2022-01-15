@@ -48,18 +48,12 @@ export async function get(
   // let allBlogs = import.meta.globEager('/content/**/*.md')
   Object.entries(allBlogs).forEach(([path, obj]) => {
     feed.item({
-      title: obj.metadata.title,
+      title: obj.title,
       url: SITE_URL + `/${path.slice(9).slice(0, -3)}`,
-      date: obj.metadata.date,
-      // description: makeDescription(post)
+      date: obj.date,
+      description: obj.description
     });
   });
-
-  // function makeDescription(post) {
-  //   if (post.data.description) return post.data.description
-  //   if (post.content.length > 300) return post.content.slice(0, 300) + '\n [TRUNCATED]'
-  //   return post.content
-  // }
 
   // todo - nonindent if not human
   return {
