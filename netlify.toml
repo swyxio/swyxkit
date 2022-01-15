@@ -20,4 +20,4 @@
     X-XSS-Protection = "1; mode=block"
     Cache-Control = "public, max-age=60"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "default-src 'self'; script-src 'nonce-swyx'; img-src *"
+    ## Content-Security-Policy = "default-src 'self'; script-src 'nonce-swyx'; img-src *"

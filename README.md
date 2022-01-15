@@ -28,7 +28,7 @@ Feel free to rip out these opinions as you see fit of course.
     - [X-Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
     - [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
     - [X-XSS-Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection)
-    - [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) with [nonce](https://content-security-policy.com/nonce/)
+    - SvelteKit does not yet support [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) - [PR pending here](https://github.com/sveltejs/kit/pull/2394/files)
   - [Builds and Deploys in ~40 seconds on Netlify](https://app.netlify.com/sites/swyxkit/deploys)
 - Minor design/UX touches
   - Top level blog URLs (`/myblog` instead of `/blog/myblog` - sliiightly better SEO/url design)
