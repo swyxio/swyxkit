@@ -59,7 +59,9 @@ export async function getBlogpost(slug) {
 		console.log('loading allBlogposts')
 		allBlogposts = await listBlogposts()
 		console.log('loaded ' + allBlogposts.length + ' blogposts')
+		if (!allBlogposts.length) throw new Error('failed to load blogposts for some reason. check token' + process.env.GH_TOKEN)
 	}
+	if (!allBlogposts.length) throw new Error('no blogposts')
 	// find the blogpost that matches this slug
 	const blogpost = allBlogposts.find(post => post.slug === slug)
 	if (blogpost) {
