@@ -12,6 +12,9 @@ export async function get() {
 	return {
 		body: {
 			list
+		},
+		headers: {
+			'Cache-Control': `max-age=0, s-max-age=${60}`, // 1 minute.. for now
 		}
 	};
 }

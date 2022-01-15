@@ -23,6 +23,7 @@ Feel free to rip out these opinions as you see fit of course.
   - no `hydrate` on about and blog pages
     - *update: temporarily disabled while we figure out mobile nav without hydration*
   - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
+    - for API endpoints as well as pages
 - Minor design/UX touches
   - Top level blog URLs (`/myblog` instead of `/blog/myblog` - sliiightly better SEO/url design)
   - Blog index truncates at 20 posts to make sure to render quickly

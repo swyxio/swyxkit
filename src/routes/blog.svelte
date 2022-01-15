@@ -30,7 +30,7 @@
 	$: start = 1 + (page - 1) * PAGE_SIZE;
 	$: next = `/${list}/${+page + 1}`;
 
-	let isTruncated = items.list.length > 2
+	let isTruncated = items.list.length > 20
 	let search;
 	$: list = items.list.filter((item) => {
 		if (search) {

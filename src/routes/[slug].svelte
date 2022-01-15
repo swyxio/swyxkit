@@ -1,5 +1,5 @@
 <script context="module">
-	export const prerender = true;
+	// export const prerender = true; // you can uncomment to prerender as an optimization
 	export const hydrate = true;
 	import { REPO_URL } from '$lib/siteConfig';
 	import Comments from '../components/Comments.svelte';
@@ -25,7 +25,8 @@
 					ghMetadata: json.ghMetadata,
 					slug,
 					REPO_URL
-				}
+				},
+				maxage: 60 // 1 minute
 			};
 		} catch(err) {
 			console.error('error fetching blog post at [slug].svelte: ' + slug, err);

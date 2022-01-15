@@ -1,5 +1,6 @@
 <script context="module">
 	import { SITE_URL, REPO_URL } from '$lib/siteConfig';
+	export const prerender = true; // index page is most visited, lets prerender
 </script>
 
 <script>

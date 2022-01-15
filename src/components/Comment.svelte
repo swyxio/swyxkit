@@ -1,7 +1,7 @@
 <script>
-	import formatDistance from 'date-fns/formatDistance';
+	import formatDistance from 'date-fns/formatDistance/index.js';
 	import snarkdown from 'snarkdown';
-import Reactions from './Reactions.svelte';
+	import Reactions from './Reactions.svelte';
 	export let comment;
 	const doc = new DOMParser().parseFromString(
 		snarkdownEnhanced(comment.body.replace(/\r\n/g, '\n')), // https://github.com/developit/snarkdown/issues/69
