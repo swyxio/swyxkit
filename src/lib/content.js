@@ -58,7 +58,7 @@ export async function listBlogposts() {
 export async function getBlogpost(slug) {
 
 	// get all blogposts if not already done - or in development
-	if (dev ?? allBlogposts.length === 0) {
+	if (dev || allBlogposts.length === 0) {
 		console.log('loading allBlogposts')
 		allBlogposts = await listBlogposts()
 		console.log('loaded ' + allBlogposts.length + ' blogposts')
