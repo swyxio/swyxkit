@@ -28,7 +28,9 @@ let allBlogposts = [];
 
 
 export async function listBlogposts() {
-	allBlogposts = [] // reset to zero - make sure to handle this better when doing etags or cache restore
+	// use a diff var so as to not have race conditions while fetching
+	// TODO: make sure to handle this better when doing etags or cache restore
+	let _allBlogposts = [] 
 	let next = null;
 	let limit = 0 // just a failsafe against infinite loop - feel free to remove
 	const authheader = process.env.GH_TOKEN && {
@@ -43,13 +45,14 @@ export async function listBlogposts() {
 		if (res.status > 400) throw new Error(res.status + ' ' + res.statusText + '\n' + (issues && issues.message))
 		issues.forEach(issue => {
 			if (issue.labels.some(label => publishedTags.includes(label.name)) && allowedPosters.includes(issue.user.login)) {
-				allBlogposts.push(parseIssue(issue));
+				_allBlogposts.push(parseIssue(issue));
 			}
 		})
 		const headers = parse(res.headers.get('Link'))
 		next = headers && headers.next
 	} while (next && limit++ < 1000) // just a failsafe against infinite loop - feel free to remove
-	return allBlogposts
+	allBlogposts = _allBlogposts
+	return _allBlogposts
 }
 
 export async function getBlogpost(slug) {
