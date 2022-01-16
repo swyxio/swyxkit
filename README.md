@@ -38,7 +38,9 @@ Feel free to rip out these opinions as you see fit of course.
     - including nice error when github api rate limit exceeded
   - Navlink hover effect
   - Mobile menu with animation
-  - Accessible SVG Icons https://github.com/sw-yx/spark-joy/blob/master/README.md#general--misc
+  - Accessibility
+    - SVG Icons https://github.com/sw-yx/spark-joy/blob/master/README.md#general--misc
+    - [Tap targets](https://web.dev/tap-targets/?utm_source=lighthouse&utm_medium=lr)
   - Custom scrollbar https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
 
 > ⚠️ known issue - syntax highlighting of mdsvex currently adds extra `@html` for no reason. [We use a workaround](https://github.com/pngwn/MDsveX/issues/392)
