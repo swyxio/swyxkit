@@ -95,6 +95,7 @@ function parseIssue(issue) {
 	}
 	let date = data.data.date ?? issue.created_at
 	let description = data.data.description ?? data.content.trim().split('\n')[0]
+	let image = data.data.image
 		// (data.content.length > 300) ? data.content.slice(0, 300) + '...' : data.content
 	
 
@@ -102,6 +103,7 @@ function parseIssue(issue) {
 		content: data.content,
 		data: data.data,
 		title,
+		image,
 		description,
 		slug: slug.toLowerCase(),
 		date: new Date(date),

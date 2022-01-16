@@ -1,7 +1,7 @@
 <script context="module">
 	// export const prerender = true; // you can uncomment to prerender as an optimization
 	export const hydrate = true;
-	import { REPO_URL } from '$lib/siteConfig';
+	import { REPO_URL, SITE_URL } from '$lib/siteConfig';
 	import Comments from '../components/Comments.svelte';
 	export async function load({ url, params, fetch }) {
 		const slug = params.slug;
@@ -15,20 +15,16 @@
 			}
 			const x = (await res.json()).data;
 			const json = JSON.parse(x);
-	
+
 			return {
 				props: {
-					metadata: json.data,
-					title: json.title,
-					date: json.date,
-					content: json.content,
-					ghMetadata: json.ghMetadata,
+					json,
 					slug,
 					REPO_URL
 				},
 				maxage: 60 // 1 minute
 			};
-		} catch(err) {
+		} catch (err) {
 			console.error('error fetching blog post at [slug].svelte: ' + slug, err);
 			return {
 				status: 500,
@@ -42,10 +38,11 @@
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
 	import Newsletter from '../components/Newsletter.svelte';
 	import Reactions from '../components/Reactions.svelte';
-	export let title;
-	export let date;
-	export let content;
-	export let ghMetadata;
+	export let json
+	let title = json.title;
+	let date = json.date;
+	let content = json.content;
+	let ghMetadata = json.ghMetadata;
 	// export let slug;
 	// export let REPO_URL
 </script>
@@ -53,6 +50,21 @@
 <svelte:head>
 	<title>{title}</title>
 	<meta name="description" content="swyxkit blog" />
+
+	<link rel="canonical" href={SITE_URL} />
+	<meta property="og:url" content={SITE_URL} />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content={title} />
+	<meta name="Description" content={json.description} />
+	<meta property="og:description" content={json.description} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:creator" content="https://twitter.com/swyx/" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={json.description} />
+	{#if json.image}
+		<meta property="og:image" content={json.image} />
+		<meta name="twitter:image" content={json.image} />
+	{/if}
 </svelte:head>
 
 <article class="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
