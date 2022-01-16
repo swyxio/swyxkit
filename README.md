@@ -38,6 +38,7 @@ Feel free to rip out these opinions as you see fit of course.
     - including nice error when github api rate limit exceeded
   - Navlink hover effect
   - Mobile menu with animation
+  - Og:image and meta tags for social unfurls (not automatically generated though)
   - Accessibility
     - SVG Icons https://github.com/sw-yx/spark-joy/blob/master/README.md#general--misc
     - [Tap targets](https://web.dev/tap-targets/?utm_source=lighthouse&utm_medium=lr)
