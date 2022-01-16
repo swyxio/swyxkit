@@ -37,6 +37,7 @@ Feel free to rip out these opinions as you see fit of course.
   - Error page (try going to URL that doesnt exist)
     - including nice error when github api rate limit exceeded
   - Navlink hover effect
+  - [Mobile/Responsive styling](https://swyxkit.netlify.app/mobileresponsive-styling-with-tailwind)
   - Mobile menu with animation
   - Og:image and meta tags for social unfurls (not automatically generated though)
   - Accessibility
