@@ -30,14 +30,16 @@
 	$: start = 1 + (page - 1) * PAGE_SIZE;
 	$: next = `/${list}/${+page + 1}`;
 
-	let isTruncated = items.list.length > 20
+	let isTruncated = items.list.length > 20;
 	let search;
-	$: list = items.list.filter((item) => {
-		if (search) {
-			return item.data.title.toLowerCase().includes(search.toLowerCase());
-		}
-		return true;
-	}).slice(0, isTruncated ? 2 : items.list.length);
+	$: list = items.list
+		.filter((item) => {
+			if (search) {
+				return item.title.toLowerCase().includes(search.toLowerCase());
+			}
+			return true;
+		})
+		.slice(0, isTruncated ? 2 : items.list.length);
 </script>
 
 <svelte:head>
@@ -87,7 +89,6 @@
 		</IndexCard>
 		<IndexCard href="/moo" title="Hardcoded Blogpost # 3" date="106,255 views">
 			Just a hardcorded blogpost or you can use the metadata up to you
-
 		</IndexCard>
 
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
@@ -99,21 +100,34 @@
 			{#each list as item}
 				<li class="mb-8 text-lg">
 					<!-- <code class="mr-4">{item.data.date}</code> -->
-					<IndexCard href={item.slug} title={item.title} date={new Date(item.date).toISOString().slice(0,10)} ghMetadata={item.ghMetadata}>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ea. Voluptatum nam
-						voluptatibus optio corrupti.
+					<IndexCard
+						href={item.slug}
+						title={item.title}
+						date={new Date(item.date).toISOString().slice(0, 10)}
+						ghMetadata={item.ghMetadata}
+					>
+						{item.description}
 					</IndexCard>
 				</li>
 			{/each}
 		</ul>
 		{#if isTruncated}
 			<div class="flex justify-center">
-				<button on:click={() => isTruncated = false} class="inline-block text-lg font-bold tracking-tight text-black md:text-2xl dark:text-white bg-blue-100 dark:bg-blue-900 rounded p-4 hover:text-yellow-900 hover:dark:text-yellow-200">
+				<button
+					on:click={() => (isTruncated = false)}
+					class="inline-block text-lg font-bold tracking-tight text-black md:text-2xl dark:text-white bg-blue-100 dark:bg-blue-900 rounded p-4 hover:text-yellow-900 hover:dark:text-yellow-200"
+				>
 					Load More Posts...
 				</button>
 			</div>
 		{/if}
+	{:else if search}
+		<div class="prose dark:prose-invert">
+			No posts found for
+			<code>{search}</code>.
+		</div>
+		<button class="p-2 bg-slate-500" on:click={() => search = ""}>Clear your search</button>
 	{:else}
-		<div>no items found!</div>
+		<div class="prose dark:prose-invert">No blogposts found!</div>
 	{/if}
 </section>
