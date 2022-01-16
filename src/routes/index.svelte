@@ -36,7 +36,14 @@
 	<div class="flex flex-col-reverse sm:flex-row items-start">
 		<div class="flex flex-col pr-8">
 			<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-3 text-black dark:text-white">
-				This is SwyxKit!
+				This is
+
+				<span
+					class="ml-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-500 relative inline-block"
+				>
+					<span class="relative text-yellow-400 skew-y-3">SwyxKit</span>
+				</span>
+				!
 			</h1>
 			<h2 class="text-gray-700 dark:text-gray-200 mb-4">
 				An opinionated blog starter for <span class="font-semibold"
@@ -58,7 +65,11 @@
 		</h3>
 		<div class="flex gap-6 flex-col md:flex-row">
 			<FeatureCard title="Welcome to swyxkit 2022!" href="/welcome" date={'Jan 2022'} />
-			<FeatureCard title="Moving to a GitHub CMS" href="/moving-to-a-github-cms" date={'Jan 2022'} />
+			<FeatureCard
+				title="Moving to a GitHub CMS"
+				href="/moving-to-a-github-cms"
+				date={'Jan 2022'}
+			/>
 			<FeatureCard title="HTML Ipsum demo" href="/moo" date={'Jan 2022'} />
 		</div>
 		<a
