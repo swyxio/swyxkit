@@ -7,10 +7,10 @@
 
 <section class="mb-16 w-full" id="newsletter">
 	<div
-		class="border border-blue-200 rounded p-6 my-4 w-full dark:border-gray-600 bg-blue-50 dark:bg-gray-800"
+		class="border-y sm:border-x border-blue-200 sm:rounded p-6 my-4 w-full dark:border-gray-600 bg-blue-50 dark:bg-gray-800"
 	>
-		<div class="flex justify-between items-center space-x-4">
-			<p class="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100">
+		<div class="flex justify-between items-center space-x-4 text-gray-900 dark:text-gray-100">
+			<p class="text-lg md:text-xl font-bold">
 				Subscribe to the newsletter
 			</p>
 

@@ -67,15 +67,13 @@
 	{/if}
 </svelte:head>
 
-<article class="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
-	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white ">
+<article class="flex flex-col px-4 sm:px-8 items-start justify-center w-full max-w-2xl mx-auto mb-16">
+	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white ">
 		{title}
 	</h1>
-	<div class="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center bg">
-		<div class="flex items-center">
-			<p class="ml-2 text-sm text-gray-700 dark:text-gray-300">swyx</p>
-		</div>
-		<p class="mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
+	<div class="flex sm:flex-col sm:items-start justify-between w-full mt-2 md:flex-row md:items-center bg">
+		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">swyx</p>
+		<p class="flex items-center text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
 			<a href={ghMetadata.issueUrl} rel="external" class="no-underline" target="_blank">
 				<span class="mr-4 text-xs font-mono text-opacity-70 text-gray-700 dark:text-gray-300"
 					>{ghMetadata.reactions.total_count} reactions</span
@@ -84,11 +82,13 @@
 			{new Date(date).toISOString().slice(0, 10)}
 		</p>
 	</div>
-	<div class="flex h-1 w-full my-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500" />
+	<div class="flex h-1 w-[100vw] sm:w-full -mx-4 sm:mx-0 my-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500" />
 
 	<div class="w-full mt-16 mb-32 prose dark:prose-invert max-w-none">
 		{@html content}
 	</div>
+</article>
+<div class="max-w-2xl mx-auto">
 	<div class="prose dark:prose-invert border-t border-b p-4 border-blue-800 mb-12">
 		{#if ghMetadata.reactions.total_count > 0}
 			Reactions: <Reactions {ghMetadata} />
@@ -97,10 +97,9 @@
 			if you liked this post! 🧡
 		{/if}
 	</div>
-
 	<div class="mb-8">
 		<Comments {ghMetadata} />
 	</div>
 
 	<Newsletter />
-</article>
+</div>

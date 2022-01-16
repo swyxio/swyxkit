@@ -46,7 +46,7 @@
 	// }
 </script>
 
-<li class="mb-4 pt-4 px-4 border border-blue-200 dark:border-blue-700 border-opacity-40">
+<div class="mb-4 pt-4 px-2 sm:px-4 border-y-2 sm:border-x sm:border-blue-200 dark:border-blue-700 sm:border-opacity-40">
 	<div>
 		{@html body}
 		<div class="min-w-[8rem] text-xs flex flex-row-reverse items-center">
@@ -67,4 +67,4 @@
       }} />
 		</div>
 	</div>
-</li>
+</div>
