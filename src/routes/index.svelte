@@ -76,7 +76,7 @@
 			class="flex mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg 
 				 dark:hover:text-gray-200 transition-all h-6"
 			href="/blog"
-			>Read all posts<svg
+			>See latest posts<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"

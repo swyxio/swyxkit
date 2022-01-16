@@ -28,6 +28,21 @@
   ) {
     color: var(--brand-accent);
   }
+
+  /* https://css-tricks.com/two-issues-styling-the-details-element-and-how-to-solve-them/ */
+  details {
+    border: 2px solid var(--brand-accent);
+    padding: 0.5rem 1rem;
+  }
+  details > summary { 
+    cursor: pointer;
+  }
+  
+  details > summary > *:first-child {
+    display: inline;
+  }
+  
+
   img {
     /* https://ishadeed.com/article/defensive-css */
     max-width: 100%;
