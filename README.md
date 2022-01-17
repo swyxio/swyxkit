@@ -9,6 +9,14 @@ swyx's preferred starter for Svelte projects:
 
 Feel free to rip out these opinions as you see fit of course.
 
+## Live Demo
+
+See https://swyxkit.netlify.app/
+
+![image](https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png)
+
+![image](https://user-images.githubusercontent.com/6764957/147861337-d40a1798-e7ff-40e1-8dd8-ba1350fd3784.png)
+
 ## Key Features and Design Considerations:
 
 - Features
@@ -48,17 +56,10 @@ Feel free to rip out these opinions as you see fit of course.
 
 > ⚠️ known issue - syntax highlighting of mdsvex currently adds extra `@html` for no reason. [We use a workaround](https://github.com/pngwn/MDsveX/issues/392)
 
-## Live Demo
-
-See https://swyxkit.netlify.app/
-
-![image](https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png)
-
-![image](https://user-images.githubusercontent.com/6764957/147861337-d40a1798-e7ff-40e1-8dd8-ba1350fd3784.png)
-
 ## Setup
 
 ```bash
+npx degit https://github.com/sw-yx/swyxkit
 export GH_TOKEN=your_gh_token_here # can skip if just trying out this repo casually
 npm install
 npm run start
