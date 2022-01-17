@@ -69,6 +69,19 @@ You should be able to deploy this project straight to Netlify as is, just [like 
 
 Before deploying, remember to configure `/lib/siteConfig.js` - just some hardcoded vars i want you to remember to configure.
 
+```js
+export const SITE_URL = 'https://swyxkit.netlify.app'
+export const GH_USER_REPO = 'sw-yx/swyxkit' // used for pulling github issues and offering comments
+export const REPO_URL = 'https://github.com/' + GH_USER_REPO
+export const SITE_TITLE = 'SwyxKit'
+export const SITE_DESCRIPTION = "swyx's default SvelteKit + Tailwind starter"
+export const DEFAULT_OG_IMAGE = 'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
+export const MY_TWITTER = "https://twitter.com/swyx/"
+export const MY_YOUTUBE = "https://youtube.com/swyxTV"
+```
+
+Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items.
+
 This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give `process.env.GH_TOKEN` to raise rate limit from 60 to 5000. Just make a really basic personal access token, should be enough.
 https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
 
