@@ -5,7 +5,7 @@ swyx's preferred starter for Svelte projects:
 - SvelteKit
 - Tailwind 3 + Tailwind Typography
 - Netlify
-- GitHub Issues as CMS
+- [GitHub Issues as CMS](https://github.com/sw-yx/swyxkit/issues/10)
 
 Feel free to rip out these opinions as you see fit of course.
 
