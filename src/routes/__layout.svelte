@@ -1,5 +1,5 @@
 <script context="module">
-	import { REPO_URL } from '$lib/siteConfig';
+	import { MY_TWITTER, MY_YOUTUBE, REPO_URL } from '$lib/siteConfig';
 	/** @type {import('@sveltejs/kit').Load} */
 	export async function load({ url }) {
 		return {
@@ -16,10 +16,10 @@
 	export let origin = '';
 </script>
 
-<div class="flex flex-col justify-center px-2 sm:px-8 bg-gray-50 dark:bg-gray-900">
+<div class="flex flex-col justify-center px-4 sm:px-8 bg-gray-50 dark:bg-gray-900">
 	<Nav />
 </div>
-<main class="flex flex-col justify-center bg-gray-50 dark:bg-gray-900">
+<main class="flex flex-col justify-center px-4 sm:px-8 bg-gray-50 dark:bg-gray-900">
 	<slot />
 </main>
 
@@ -44,17 +44,17 @@
 				class="text-gray-500 hover:text-gray-300 transition"
 				target="_blank"
 				rel="noopener noreferrer"
-				href="https://twitter.com/swyx">Twitter</a
+				href={MY_TWITTER}>Twitter</a
 			><a
 				class="text-gray-500 hover:text-gray-300 transition"
 				target="_blank"
 				rel="noopener noreferrer"
-				href="https://github.com/sw-yx/swyxkit">GitHub</a
+				href={REPO_URL}>GitHub</a
 			><a
 				class="text-gray-500 hover:text-gray-300 transition"
 				target="_blank"
 				rel="noopener noreferrer"
-				href="https://youtube.com/swyxTV">YouTube</a
+				href={MY_YOUTUBE}>YouTube</a
 			>
 		</div>
 		<!-- <div class="flex flex-col space-y-4">

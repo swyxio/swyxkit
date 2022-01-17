@@ -1,33 +1,28 @@
 <script context="module">
-	import { SITE_URL, REPO_URL } from '$lib/siteConfig';
+	import { SITE_URL, REPO_URL, SITE_TITLE, SITE_DESCRIPTION, DEFAULT_OG_IMAGE, MY_TWITTER } from '$lib/siteConfig';
 	export const prerender = true; // index page is most visited, lets prerender
 </script>
 
 <script>
 	import Newsletter from '../components/Newsletter.svelte';
 	import FeatureCard from '../components/FeatureCard.svelte';
-	// meta tags
-	let Title = 'swyxkit';
-	let Description = "swyx's default SvelteKit + Tailwind starter";
-	let ogImage =
-		'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
 </script>
 
 <svelte:head>
-	<title>{Title}</title>
+	<title>{SITE_TITLE}</title>
 	<link rel="canonical" href={SITE_URL} />
 	<link rel="alternate" type="application/rss+xml" href={SITE_URL + '/api/rss.xml'} />
 	<meta property="og:url" content={SITE_URL} />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content={Title} />
-	<meta name="Description" content={Description} />
-	<meta property="og:description" content={Description} />
-	<meta property="og:image" content={ogImage} />
+	<meta property="og:title" content={SITE_TITLE} />
+	<meta name="Description" content={SITE_DESCRIPTION} />
+	<meta property="og:description" content={SITE_DESCRIPTION} />
+	<meta property="og:image" content={DEFAULT_OG_IMAGE} />
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:creator" content="https://twitter.com/swyx/" />
-	<meta name="twitter:title" content={Title} />
-	<meta name="twitter:description" content={Description} />
-	<meta name="twitter:image" content={ogImage} />
+	<meta name="twitter:creator" content={MY_TWITTER} />
+	<meta name="twitter:title" content={SITE_TITLE} />
+	<meta name="twitter:description" content={SITE_DESCRIPTION} />
+	<meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
 </svelte:head>
 
 <div
@@ -41,7 +36,7 @@
 				<span
 					class="ml-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-500 relative inline-block"
 				>
-					<span class="relative text-yellow-400 skew-y-3">SwyxKit</span>
+					<span class="relative text-yellow-400 skew-y-3">{SITE_TITLE}</span>
 				</span>
 				!
 			</h1>
