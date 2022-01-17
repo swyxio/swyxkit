@@ -37,7 +37,7 @@ export async function listBlogposts() {
 		'Authorization': `token ${process.env.GH_TOKEN}`
 	}
 	do {
-		const res = await fetch(next ?? `https://api.github.com/repos/${GH_USER_REPO}/issues?state=all&per_page=100`, {
+		const res = await fetch(next?.url ?? `https://api.github.com/repos/${GH_USER_REPO}/issues?state=all&per_page=100`, {
 			headers: authheader
 		});
 
@@ -51,6 +51,7 @@ export async function listBlogposts() {
 		const headers = parse(res.headers.get('Link'))
 		next = headers && headers.next
 	} while (next && limit++ < 1000) // just a failsafe against infinite loop - feel free to remove
+	_allBlogposts.sort((a, b) => b.date - a.date)
 	allBlogposts = _allBlogposts
 	return _allBlogposts
 }
@@ -85,28 +86,40 @@ export async function getBlogpost(slug) {
 
 function parseIssue(issue) {
 	const src = issue.body;
-	const data = grayMatter(src);
-	let title = data.data.title ?? issue.title;
+	const {content, data} = grayMatter(src);
+	let title = data.title ?? issue.title;
 	let slug
-	if (data.data.slug) {
-		slug = data.data.slug
+	if (data.slug) {
+		slug = data.slug
 	} else {
 		slug = slugify(title)
 	}
-	let date = data.data.date ?? issue.created_at
-	let description = data.data.description ?? data.content.trim().split('\n')[0]
-	let image = data.data.image
+	let description = data.description ?? content.trim().split('\n')[0]
 		// (data.content.length > 300) ? data.content.slice(0, 300) + '...' : data.content
 	
+	let tags = []
+	if (data.tags) tags = Array.isArray(data.tags) ? data.tags : [data.tags]
+	else if (data.categories) {
+		tags = Array.isArray(data.categories) ? data.categories : [data.categories]
+		console.log(`${slug} is still using the categories field`)
+	} else {
+		console.log(`WARN: ${slug} has no tags`)
+	}
+	tags = tags.map(tag => tag.toLowerCase())
+	console.log(slug, tags)
 
 	return {
-		content: data.content,
-		data: data.data,
+		content,
+		data,
 		title,
-		image,
+		subtitle: data.subtitle,
 		description,
+		category: data.category,
+		tags,
+		image: data.image ?? data.cover_image,
+		canonical: data.canonical, // for canonical URLs of something published elsewhere
 		slug: slug.toLowerCase(),
-		date: new Date(date),
+		date: new Date(data.date ?? issue.created_at),
 		ghMetadata: {
 			issueUrl: issue.html_url,
 			commentsUrl: issue.comments_url,
