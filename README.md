@@ -39,7 +39,7 @@ See https://swyxkit.netlify.app/
     - SvelteKit does not yet support [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) - [PR pending here](https://github.com/sveltejs/kit/pull/2394/files)
   - [Builds and Deploys in ~40 seconds on Netlify](https://app.netlify.com/sites/swyxkit/deploys)
 - Minor design/UX touches
-  - Top level blog URLs (`/myblog` instead of `/blog/myblog` - sliiightly better SEO/url design)
+  - Top level blog URLs (`/myblog` instead of `/blog/myblog` - [why](https://www.swyx.io/namespacing-sites/))
   - Blog index truncates at 20 posts to make sure to render quickly
   - [Comments are rendered and sanitized](https://github.com/developit/snarkdown/issues/70)
   - Error page (try going to URL that doesnt exist)
