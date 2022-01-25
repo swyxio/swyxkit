@@ -47,8 +47,8 @@
 	<meta name="description" content="Latest Hacker News stories in the {list} category" />
 </svelte:head>
 
-<section class="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16 px-4 sm:px-8">
-	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+<section class="mx-auto mb-16 flex max-w-2xl flex-col items-start justify-center px-4 sm:px-8">
+	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 		Blog
 	</h1>
 	<p class="mb-4 text-gray-600 dark:text-gray-400">
@@ -56,15 +56,15 @@
 		dolor impedit. In total, I've written {items.list.length} articles on my blog. Use the search below
 		to filter by title.
 	</p>
-	<div class="relative w-full mb-4">
+	<div class="relative mb-4 w-full">
 		<input
 			aria-label="Search articles"
 			type="text"
 			bind:value={search}
 			placeholder="Search articles"
-			class="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-200 rounded-md dark:border-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-gray-100"
+			class="block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
 		/><svg
-			class="absolute w-5 h-5 text-gray-400 right-3 top-3 dark:text-gray-300"
+			class="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"
 			viewBox="0 0 24 24"
@@ -78,7 +78,7 @@
 		>
 	</div>
 	{#if !search}
-		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 			Most Popular
 		</h3>
 		<IndexCard href="/foo" title="Hardcoded Blogpost # 1" date="106,255 views">
@@ -91,7 +91,7 @@
 			Just a hardcorded blogpost or you can use the metadata up to you
 		</IndexCard>
 
-		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 			All Posts
 		</h3>
 	{/if}
@@ -115,7 +115,7 @@
 			<div class="flex justify-center">
 				<button
 					on:click={() => (isTruncated = false)}
-					class="inline-block text-lg font-bold tracking-tight text-black md:text-2xl dark:text-white bg-blue-100 dark:bg-blue-900 rounded p-4 hover:text-yellow-900 hover:dark:text-yellow-200"
+					class="inline-block rounded bg-blue-100 p-4 text-lg font-bold tracking-tight text-black hover:text-yellow-900 dark:bg-blue-900 dark:text-white hover:dark:text-yellow-200 md:text-2xl"
 				>
 					Load More Posts...
 				</button>
@@ -126,7 +126,7 @@
 			No posts found for
 			<code>{search}</code>.
 		</div>
-		<button class="p-2 bg-slate-500" on:click={() => search = ""}>Clear your search</button>
+		<button class="p-2 bg-slate-500" on:click={() => (search = '')}>Clear your search</button>
 	{:else}
 		<div class="prose dark:prose-invert">No blogposts found!</div>
 	{/if}

@@ -1,5 +1,12 @@
 <script context="module">
-	import { SITE_URL, REPO_URL, SITE_TITLE, SITE_DESCRIPTION, DEFAULT_OG_IMAGE, MY_TWITTER } from '$lib/siteConfig';
+	import {
+		SITE_URL,
+		REPO_URL,
+		SITE_TITLE,
+		SITE_DESCRIPTION,
+		DEFAULT_OG_IMAGE,
+		MY_TWITTER
+	} from '$lib/siteConfig';
 	export const prerender = true; // index page is most visited, lets prerender
 </script>
 
@@ -26,26 +33,26 @@
 </svelte:head>
 
 <div
-	class="flex flex-col px-4 sm:px-8 justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16"
+	class="mx-auto flex max-w-2xl flex-col items-start justify-center border-gray-200 px-4 pb-16 dark:border-gray-700 sm:px-8"
 >
-	<div class="flex flex-col-reverse sm:flex-row items-start">
+	<div class="flex flex-col-reverse items-start sm:flex-row">
 		<div class="flex flex-col pr-8">
-			<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-3 text-black dark:text-white">
+			<h1 class="mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 				This is
 
 				<span
-					class="ml-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-500 relative inline-block"
+					class="relative ml-2 inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500"
 				>
-					<span class="relative text-yellow-400 skew-y-3">{SITE_TITLE}</span>
+					<span class="relative skew-y-3 text-yellow-400">{SITE_TITLE}</span>
 				</span>
 				!
 			</h1>
-			<h2 class="text-gray-700 dark:text-gray-200 mb-4">
+			<h2 class="mb-4 text-gray-700 dark:text-gray-200">
 				An opinionated blog starter for <span class="font-semibold"
 					>SvelteKit + Tailwind + Netlify.</span
 				> Refreshed for 2022!
 			</h2>
-			<p class="text-gray-600 dark:text-gray-400 mb-16">
+			<p class="mb-16 text-gray-600 dark:text-gray-400">
 				<a href={REPO_URL}>View source here!</a>
 			</p>
 		</div>
@@ -55,10 +62,10 @@
 	</div>
 
 	<section class="mb-16 w-full">
-		<h3 class="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
+		<h3 class="mb-6 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 			Featured Posts
 		</h3>
-		<div class="flex gap-6 flex-col md:flex-row">
+		<div class="flex flex-col gap-6 md:flex-row">
 			<FeatureCard title="Welcome to swyxkit 2022!" href="/welcome" date={'Jan 2022'} />
 			<FeatureCard
 				title="Moving to a GitHub CMS"
@@ -68,14 +75,14 @@
 			<FeatureCard title="HTML Ipsum demo" href="/moo" date={'Jan 2022'} />
 		</div>
 		<a
-			class="flex mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg 
-				 dark:hover:text-gray-200 transition-all h-6"
+			class="mt-8 flex h-6 rounded-lg leading-7 text-gray-600 
+				 transition-all dark:text-gray-400 dark:hover:text-gray-200"
 			href="/blog"
 			>See latest posts<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"
-				class="h-6 w-6 ml-1"
+				class="ml-1 h-6 w-6"
 				><path
 					stroke="currentColor"
 					stroke-linecap="round"

@@ -46,12 +46,14 @@
 	// }
 </script>
 
-<div class="mb-4 pt-4 px-2 sm:px-4 border-y-2 sm:border-x sm:border-blue-200 dark:border-blue-700 sm:border-opacity-40">
+<div
+	class="mb-4 border-y-2 px-2 pt-4 dark:border-blue-700 sm:border-x sm:border-blue-200 sm:border-opacity-40 sm:px-4"
+>
 	<div>
 		{@html body}
-		<div class="min-w-[8rem] text-xs flex flex-row-reverse items-center">
+		<div class="flex min-w-[8rem] flex-row-reverse items-center text-xs">
 			<img
-				class="w-8 h-8 rounded-full ml-4"
+				class="ml-4 h-8 w-8 rounded-full"
 				alt={`avatar of commenter ${comment.user.login}`}
 				src={comment.user.avatar_url}
 			/>
@@ -61,10 +63,12 @@
 				</a>
 				{comment.user.login}
 			</div>
-      <Reactions ghMetadata={{
-        issueUrl: comment.issue_url,
-        reactions: comment.reactions,
-      }} />
+			<Reactions
+				ghMetadata={{
+					issueUrl: comment.issue_url,
+					reactions: comment.reactions
+				}}
+			/>
 		</div>
 	</div>
 </div>

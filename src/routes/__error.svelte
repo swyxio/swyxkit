@@ -28,13 +28,13 @@
 	<title>{title}</title>
 </svelte:head>
 
-<section class="prose dark:prose-invert container mx-auto py-12">
+<section class="container prose mx-auto py-12 dark:prose-invert">
 	<h1>Error: {title}</h1>
 
 	<p class="font-mono">{message}</p>
 
 	{#if dev && error.stack}
-		<pre class="p-8 overflow-scroll bg-gray-800 mono">{error.stack}</pre>
+		<pre class="mono overflow-scroll bg-gray-800 p-8">{error.stack}</pre>
 	{/if}
 </section>
 

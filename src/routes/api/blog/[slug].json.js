@@ -5,7 +5,7 @@ import { getBlogpost } from '$lib/content';
  */
 export async function get({ params }) {
 	const { slug } = params;
-	let data
+	let data;
 	try {
 		data = await getBlogpost(slug);
 		return {
@@ -13,13 +13,13 @@ export async function get({ params }) {
 				data: JSON.stringify(data)
 			},
 			headers: {
-				'Cache-Control': `max-age=0, s-max-age=${60}`, // 1 minute.. for now
+				'Cache-Control': `max-age=0, s-max-age=${60}` // 1 minute.. for now
 			}
 		};
-	} catch(err) {
+	} catch (err) {
 		return {
 			status: 404,
-			body: err.message,
-		}
+			body: err.message
+		};
 	}
 }

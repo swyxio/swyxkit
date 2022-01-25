@@ -5,17 +5,17 @@
 </script>
 
 <a
-	class="transform hover:scale-[1.01] transition-all rounded-xl w-full md:w-1/3 bg-gradient-to-r p-1 from-yellow-400 via-red-500 to-pink-500"
+	class="w-full transform rounded-xl bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 p-1 transition-all hover:scale-[1.01] md:w-1/3"
 	{href}
-	><div class="flex flex-col justify-between h-full bg-white dark:bg-gray-900 rounded-lg p-4">
-		<div class="flex flex-col md:flex-row justify-between">
+	><div class="flex h-full flex-col justify-between rounded-lg bg-white p-4 dark:bg-gray-900">
+		<div class="flex flex-col justify-between md:flex-row">
 			<h4
-				class="text-lg md:text-lg font-medium mb-6 sm:mb-10 w-full text-gray-900 dark:text-gray-100 tracking-tight"
+				class="mb-6 w-full text-lg font-medium tracking-tight text-gray-900 dark:text-gray-100 sm:mb-10 md:text-lg"
 			>
 				{title}
 			</h4>
 		</div>
-		<div class="flex items-center text-gray-800 dark:text-gray-200 capsize">
+		<div class="capsize flex items-center text-gray-800 dark:text-gray-200">
 			{date}
 		</div>
 	</div></a

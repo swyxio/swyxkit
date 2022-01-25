@@ -38,7 +38,7 @@
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
 	import Newsletter from '../components/Newsletter.svelte';
 	import Reactions from '../components/Reactions.svelte';
-	export let json
+	export let json;
 	let title = json.title;
 	let date = json.date;
 	let content = json.content;
@@ -67,29 +67,35 @@
 	{/if}
 </svelte:head>
 
-<article class="flex flex-col px-4 sm:px-8 items-start justify-center w-full max-w-2xl mx-auto mb-16">
-	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white ">
+<article
+	class="mx-auto mb-16 flex w-full max-w-2xl flex-col items-start justify-center px-4 sm:px-8"
+>
+	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
 		{title}
 	</h1>
-	<div class="flex sm:flex-col sm:items-start justify-between w-full mt-2 md:flex-row md:items-center bg">
+	<div
+		class="bg mt-2 flex w-full justify-between sm:flex-col sm:items-start md:flex-row md:items-center"
+	>
 		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">swyx</p>
-		<p class="flex items-center text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
+		<p class="min-w-32 flex items-center text-sm text-gray-600 dark:text-gray-400 md:mt-0">
 			<a href={ghMetadata.issueUrl} rel="external" class="no-underline" target="_blank">
-				<span class="mr-4 text-xs font-mono text-opacity-70 text-gray-700 dark:text-gray-300"
+				<span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
 					>{ghMetadata.reactions.total_count} reactions</span
 				>
 			</a>
 			{new Date(date).toISOString().slice(0, 10)}
 		</p>
 	</div>
-	<div class="flex h-1 w-[100vw] sm:w-full -mx-4 sm:mx-0 my-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500" />
+	<div
+		class="-mx-4 my-2 flex h-1 w-[100vw] bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 sm:mx-0 sm:w-full"
+	/>
 
-	<div class="w-full mt-16 mb-32 prose dark:prose-invert max-w-none">
+	<div class="prose mt-16 mb-32 w-full max-w-none dark:prose-invert">
 		{@html content}
 	</div>
 </article>
-<div class="max-w-2xl mx-auto">
-	<div class="prose dark:prose-invert border-t border-b p-4 border-blue-800 mb-12">
+<div class="mx-auto max-w-2xl">
+	<div class="prose mb-12 border-t border-b border-blue-800 p-4 dark:prose-invert">
 		{#if ghMetadata.reactions.total_count > 0}
 			Reactions: <Reactions {ghMetadata} />
 		{:else}
