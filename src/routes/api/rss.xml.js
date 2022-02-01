@@ -41,16 +41,16 @@ export async function get() {
 		});
 	});
 
-	// use this if you want your content in a local '/content' folder rather than github issues
-	// let allBlogs = import.meta.globEager('/content/**/*.md')
-	Object.entries(allBlogs).forEach(([path, obj]) => {
-		feed.item({
-			title: obj.title,
-			url: SITE_URL + `/${path.slice(9).slice(0, -3)}`,
-			date: obj.date,
-			description: obj.description
-		});
-	});
+// 	// use this if you want your content in a local '/content' folder rather than github issues
+// 	// let allBlogs = import.meta.globEager('/content/**/*.md')
+// 	Object.entries(allBlogs).forEach(([path, obj]) => {
+// 		feed.item({
+// 			title: obj.title,
+// 			url: SITE_URL + `/${path.slice(9).slice(0, -3)}`,
+// 			date: obj.date,
+// 			description: obj.description
+// 		});
+// 	});
 
 	// todo - nonindent if not human
 	return {
