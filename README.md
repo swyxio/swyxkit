@@ -2,10 +2,9 @@
 
 swyx's preferred starter for Svelte projects:
 
-- SvelteKit
+- SvelteKit + Netlify adapter!
 - Tailwind 3 + Tailwind Typography (with [swyx fixes](https://youtu.be/-FzemNMcOGs))
-- JSDoc Typechecking
-- Netlify
+- [JSDoc Typechecking](https://swyxkit.netlify.app/how-to-add-jsdoc-typechecking-to-sveltekit)
 - [GitHub Issues as CMS](https://github.com/sw-yx/swyxkit/issues/10)
 
 Feel free to rip out these opinions as you see fit of course.
@@ -27,6 +26,7 @@ See https://swyxkit.netlify.app/
     - Comment and Reaction system from Github Issues
     - Consumes markdown/MDSveX
       - with syntax highlighting
+      - fixes for [known MDSvex render issue](https://github.com/pngwn/MDsveX/issues/392)
   - RSS (at `/api/rss.xml`) with caching
 - Performance touches
   - no `hydrate` on about and blog pages
@@ -55,8 +55,6 @@ See https://swyxkit.netlify.app/
   - Custom scrollbar https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
   - Defensive CSS touches https://ishadeed.com/article/defensive-css
 
-> ⚠️ known issue - syntax highlighting of mdsvex currently adds extra `@html` for no reason. [We use a workaround](https://github.com/pngwn/MDsveX/issues/392)
-
 ## Setup
 
 ```bash
@@ -72,7 +70,7 @@ You should be able to deploy this project straight to Netlify as is, just [like 
 
 ## Personalization Configuration
 
-As you are ready to seriously adopt this, reemember to configure `/lib/siteConfig.js` - just some hardcoded vars i want you to remember to configure.
+As you become ready to seriously adopt this, remember to configure `/lib/siteConfig.js` - just some hardcoded vars i want you to remember to configure.
 
 ```js
 export const SITE_URL = 'https://swyxkit.netlify.app';

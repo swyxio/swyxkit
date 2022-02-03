@@ -92,8 +92,8 @@ export async function getContent(slug) {
 			})
 		).code
 			// https://github.com/pngwn/MDsveX/issues/392
-			.replace(/{@html `/, '')
-			.replace(/`}<\/pre>/, '</pre>');
+			.replace(/>{@html `<code class="language-/g, '><code class="language-')
+			.replace(/<\/code>`}<\/pre>/g, '</code></pre>')
 
 		return { ...blogpost, content };
 	} else {
