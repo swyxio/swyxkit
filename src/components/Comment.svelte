@@ -2,7 +2,7 @@
 	import formatDistance from 'date-fns/formatDistance/index.js';
 	import snarkdown from 'snarkdown';
 	import Reactions from './Reactions.svelte';
-	/** @type {import('../../types').GHComment} */
+	/** @type {import('$lib/types').GHComment} */
 	export let comment;
 	const doc = new DOMParser().parseFromString(
 		snarkdownEnhanced(comment.body.replace(/\r\n/g, '\n')), // https://github.com/developit/snarkdown/issues/69

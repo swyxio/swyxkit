@@ -38,7 +38,7 @@
 	import Newsletter from '../components/Newsletter.svelte';
 	import Reactions from '../components/Reactions.svelte';
 
-	/** @type {import('../../types').ContentItem} */
+	/** @type {import('$lib/types').ContentItem} */
 	export let json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
 </script>
 

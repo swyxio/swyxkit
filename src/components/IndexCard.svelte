@@ -2,7 +2,7 @@
 	// href={item.slug} title={item.data.title} date={item.data.date}
 	export let href = '#';
 
-	/** @type {import('../../types').GHMetadata} */
+	/** @type {import('$lib/types').GHMetadata} */
 	export let ghMetadata = null;
 	export let title = 'Untitled post';
 	/** @type {string} */

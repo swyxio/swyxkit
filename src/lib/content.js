@@ -28,12 +28,12 @@ const allowedPosters = ['sw-yx'];
 const publishedTags = ['Published'];
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header
-
+``
 export async function listContent() {
 	// use a diff var so as to not have race conditions while fetching
 	// TODO: make sure to handle this better when doing etags or cache restore
 	
-	/** @type {import('../../types').ContentItem[]} */
+	/** @type {import('./types').ContentItem[]} */
 	let _allBlogposts = [];
 	let next = null;
 	let limit = 0; // just a failsafe against infinite loop - feel free to remove
@@ -52,7 +52,7 @@ export async function listContent() {
 		if ('message' in issues && res.status > 400)
 			throw new Error(res.status + ' ' + res.statusText + '\n' + (issues && issues.message));
 		issues.forEach(
-			/** @param {import('../../types').GithubIssue} issue */
+			/** @param {import('./types').GithubIssue} issue */
 			(issue) => {
 			if (
 				issue.labels.some((label) => publishedTags.includes(label.name)) &&
@@ -102,8 +102,8 @@ export async function getContent(slug) {
 }
 
 /**
- * @param {import('../../types').GithubIssue} issue
- * @returns {import('../../types').ContentItem} 
+ * @param {import('./types').GithubIssue} issue
+ * @returns {import('./types').ContentItem} 
  */
 function parseIssue(issue) {
 	const src = issue.body;

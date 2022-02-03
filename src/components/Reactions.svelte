@@ -1,5 +1,5 @@
 <script>
-	/** @type {import('../../types').GHReactions} */
+	/** @type {import('$lib/types').GHReactions} */
 	export let reactions;
 	/** @type {string}*/
 	export let issueUrl;

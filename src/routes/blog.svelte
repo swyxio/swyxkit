@@ -11,7 +11,7 @@
 			};
 		}
 
-		/** @type {import('../../types').ContentItem[]} */
+		/** @type {import('$lib/types').ContentItem[]} */
 		const items = await res.json();
 		return {
 			props: { items },
@@ -27,7 +27,7 @@
 	export let list;
 
 	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
-	/** @type {import('../../types').ContentItem[]} */
+	/** @type {import('$lib/types').ContentItem[]} */
 	export let items;
 
 	const PAGE_SIZE = 30;
