@@ -68,7 +68,11 @@ npm run start
 
 You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/).
 
-Before deploying, remember to configure `/lib/siteConfig.js` - just some hardcoded vars i want you to remember to configure.
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit/)
+
+## Personalization Configuration
+
+As you are ready to seriously adopt this, reemember to configure `/lib/siteConfig.js` - just some hardcoded vars i want you to remember to configure.
 
 ```js
 export const SITE_URL = 'https://swyxkit.netlify.app';
@@ -88,8 +92,11 @@ Of course, you should then go page by page (there aren't that many) and customiz
 - page `Cache-Control` policy
 - site favicons (use https://realfavicongenerator.net/ to make all the variants and stick it in `/static`)
 
-This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give `process.env.GH_TOKEN` to raise rate limit from 60 to 5000. Just make a really basic personal access token, should be enough.
+This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give the `GH_TOKEN` env variable to raise rate limit from 60 to 5000. 
+
+- Just make a really basic personal access token [here](https://github.com/settings/tokens/new), should be enough.
 https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
+- and [set the env variables in Netlify](https://docs.netlify.com/configure-builds/environment-variables/#declare-variables)
 
 When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites/YOUR_SITE/settings/deploys#environment
 
