@@ -85,6 +85,8 @@ export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
 Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items, for example
 
 - the Newsletter component needs to be wired up to a newsletter service (I like buttondown, tinyletter, and revue)
+- page `Cache-Control` policy
+- site favicons (use https://realfavicongenerator.net/ to make all the variants and stick it in `/static`)
 
 This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give `process.env.GH_TOKEN` to raise rate limit from 60 to 5000. Just make a really basic personal access token, should be enough.
 https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting

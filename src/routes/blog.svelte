@@ -10,6 +10,8 @@
 				error: await res.text()
 			};
 		}
+
+		/** @type {import('../../types').ContentItem[]} */
 		const items = await res.json();
 		return {
 			props: { items },
