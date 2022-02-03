@@ -1,9 +1,12 @@
 <script>
 	// href={item.slug} title={item.data.title} date={item.data.date}
 	export let href = '#';
+
+	/** @type {import('../../types').GHMetadata} */
 	export let ghMetadata = null;
 	export let title = 'Untitled post';
-	export let date = 'no date';
+	/** @type {string} */
+	export let stringData = 'no date'; 
 </script>
 
 <a
@@ -22,7 +25,7 @@
 						>{ghMetadata.reactions.total_count} ♥</span
 					>
 				{/if}
-				<p class="mb-4 w-32 text-left text-gray-500 md:mb-0 md:text-right">{date}</p>
+				<p class="mb-4 w-32 text-left text-gray-500 md:mb-0 md:text-right">{stringData}</p>
 			</div>
 		</div>
 		<p class="text-gray-600 dark:text-gray-400">

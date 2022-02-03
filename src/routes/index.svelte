@@ -66,17 +66,16 @@
 			Featured Posts
 		</h3>
 		<div class="flex flex-col gap-6 md:flex-row">
-			<FeatureCard title="Welcome to swyxkit 2022!" href="/welcome" date={'Jan 2022'} />
+			<FeatureCard title="Welcome to swyxkit 2022!" href="/welcome" stringData='Jan 2022' />
 			<FeatureCard
 				title="Moving to a GitHub CMS"
 				href="/moving-to-a-github-cms"
-				date={'Jan 2022'}
+				stringData='Jan 2022'
 			/>
-			<FeatureCard title="HTML Ipsum demo" href="/moo" date={'Jan 2022'} />
+			<FeatureCard title="HTML Ipsum demo" href="/moo" stringData='Jan 2022' />
 		</div>
 		<a
-			class="mt-8 flex h-6 rounded-lg leading-7 text-gray-600 
-				 transition-all dark:text-gray-400 dark:hover:text-gray-200"
+			class="mt-8 flex h-6 rounded-lg leading-7 text-gray-600 transition-all dark:text-gray-400 dark:hover:text-gray-200"
 			href="/blog"
 			>See latest posts<svg
 				xmlns="http://www.w3.org/2000/svg"

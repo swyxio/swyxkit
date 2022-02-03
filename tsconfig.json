@@ -32,5 +32,5 @@
 		"src/**/*.ts",
 		"src/**/*.svelte",
 		"src/lib/content.js"
-	]
+, "types.d.ts"	]
 }

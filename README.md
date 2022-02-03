@@ -3,7 +3,8 @@
 swyx's preferred starter for Svelte projects:
 
 - SvelteKit
-- Tailwind 3 + Tailwind Typography
+- Tailwind 3 + Tailwind Typography (with [swyx fixes](https://youtu.be/-FzemNMcOGs))
+- JSDoc Typechecking
 - Netlify
 - [GitHub Issues as CMS](https://github.com/sw-yx/swyxkit/issues/10)
 
@@ -81,7 +82,9 @@ export const MY_TWITTER = 'https://twitter.com/swyx/';
 export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
 ```
 
-Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items.
+Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items, for example
+
+- the Newsletter component needs to be wired up to a newsletter service (I like buttondown, tinyletter, and revue)
 
 This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give `process.env.GH_TOKEN` to raise rate limit from 60 to 5000. Just make a really basic personal access token, should be enough.
 https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
