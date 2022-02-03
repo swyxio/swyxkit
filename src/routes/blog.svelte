@@ -1,7 +1,7 @@
 <script context="module">
 	// export const prerender = true; // turned off so it refreshes quickly
 	export async function load({ params, fetch }) {
-		const res = await fetch(`/api/listBlogposts.json`);
+		const res = await fetch(`/api/listContent.json`);
 		// alternate strategy https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
 		// Object.entries(import.meta.glob('./*.md')).map(async ([path, page]) => {
 		if (res.status > 400) {
@@ -10,6 +10,8 @@
 				error: await res.text()
 			};
 		}
+
+		/** @type {import('../../types').ContentItem[]} */
 		const items = await res.json();
 		return {
 			props: { items },
@@ -23,6 +25,9 @@
 
 	export let page;
 	export let list;
+
+	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
+	/** @type {import('../../types').ContentItem[]} */
 	export let items;
 
 	const PAGE_SIZE = 30;
@@ -30,16 +35,16 @@
 	$: start = 1 + (page - 1) * PAGE_SIZE;
 	$: next = `/${list}/${+page + 1}`;
 
-	let isTruncated = items.list.length > 20;
+	let isTruncated = items.length > 20;
 	let search;
-	$: list = items.list
+	$: list = items
 		.filter((item) => {
 			if (search) {
 				return item.title.toLowerCase().includes(search.toLowerCase());
 			}
 			return true;
 		})
-		.slice(0, isTruncated ? 2 : items.list.length);
+		.slice(0, isTruncated ? 2 : items.length);
 </script>
 
 <svelte:head>
@@ -53,7 +58,7 @@
 	</h1>
 	<p class="mb-4 text-gray-600 dark:text-gray-400">
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sunt reprehenderit alias rerum
-		dolor impedit. In total, I've written {items.list.length} articles on my blog. Use the search below
+		dolor impedit. In total, I've written {items.length} articles on my blog. Use the search below
 		to filter by title.
 	</p>
 	<div class="relative mb-4 w-full">
@@ -81,13 +86,13 @@
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 			Most Popular
 		</h3>
-		<IndexCard href="/foo" title="Hardcoded Blogpost # 1" date="106,255 views">
+		<IndexCard href="/foo" title="Hardcoded Blogpost # 1" stringData="106,255 views">
 			Just a hardcorded blogpost or you can use the metadata up to you
 		</IndexCard>
-		<IndexCard href="/welcome" title="Welcome to Swyxkit" date="106,255 views">
+		<IndexCard href="/welcome" title="Welcome to Swyxkit" stringData="106,255 views">
 			Just a hardcorded blogpost or you can use the metadata up to you
 		</IndexCard>
-		<IndexCard href="/moo" title="Hardcoded Blogpost # 3" date="106,255 views">
+		<IndexCard href="/moo" title="Hardcoded Blogpost # 3" stringData="106,255 views">
 			Just a hardcorded blogpost or you can use the metadata up to you
 		</IndexCard>
 
@@ -103,7 +108,7 @@
 					<IndexCard
 						href={item.slug}
 						title={item.title}
-						date={new Date(item.date).toISOString().slice(0, 10)}
+						stringData={new Date(item.date).toISOString().slice(0, 10)}
 						ghMetadata={item.ghMetadata}
 					>
 						{item.description}

@@ -133,33 +133,4 @@
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 		transition-duration: 0.2s;
 	}
-	/* .nav-link {
-		@apply dark:hover:text-blue-100 hover:text-blue-400 
-	} */
-	/* Nav link pseudos */
-	/* .nav-link:hover {
-		--nav-scale: 1;
-	}
-	.nav-link:after,
-	.nav-link:before {
-		content: '';
-		width: 100%;
-		position: absolute;
-		transition: transform 150ms;
-		height: 2px;
-		background: var(--brand-accent);
-		transform: scale(var(--nav-scale, 0));
-	}
-
-	.nav-link:after {
-		bottom: 100%;
-		left: 0;
-		transform-origin: 0 50%;
-	}
-
-	.nav-link:before {
-		top: calc(100% + 2px);
-		right: 0;
-		transform-origin: 100% 50%;
-	} */
 </style>

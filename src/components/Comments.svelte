@@ -1,4 +1,5 @@
 <script>
+	/** @type {import('../../types').GHMetadata} */
 	export let ghMetadata;
 	let data = [];
 	import { onMount } from 'svelte';

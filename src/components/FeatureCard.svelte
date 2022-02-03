@@ -1,7 +1,8 @@
 <script>
 	export let title = 'Untitled post';
 	export let href = '#';
-	export let date;
+	/** @type {string} */
+	export let stringData;
 </script>
 
 <a
@@ -16,7 +17,7 @@
 			</h4>
 		</div>
 		<div class="capsize flex items-center text-gray-800 dark:text-gray-200">
-			{date}
+			{stringData}
 		</div>
 	</div></a
 >

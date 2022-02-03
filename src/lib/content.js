@@ -5,13 +5,11 @@ import fetch from 'node-fetch';
 import { GH_USER_REPO } from './siteConfig';
 import parse from 'parse-link-header';
 import slugify from 'slugify';
-// import remarkParse from 'remark-parse'
-// import remarkRehype from 'remark-rehype'
-// import rehypeDocument from 'rehype-document'
-// import rehypeFormat from 'rehype-format'
+
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutoLink from 'rehype-autolink-headings';
+
 
 const remarkPlugins = undefined;
 const rehypePlugins = [
@@ -31,9 +29,11 @@ const publishedTags = ['Published'];
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header
 
-export async function listBlogposts() {
+export async function listContent() {
 	// use a diff var so as to not have race conditions while fetching
 	// TODO: make sure to handle this better when doing etags or cache restore
+	
+	/** @type {import('../../types').ContentItem[]} */
 	let _allBlogposts = [];
 	let next = null;
 	let limit = 0; // just a failsafe against infinite loop - feel free to remove
@@ -49,9 +49,11 @@ export async function listBlogposts() {
 		);
 
 		const issues = await res.json();
-		if (res.status > 400)
+		if ('message' in issues && res.status > 400)
 			throw new Error(res.status + ' ' + res.statusText + '\n' + (issues && issues.message));
-		issues.forEach((issue) => {
+		issues.forEach(
+			/** @param {import('../../types').GithubIssue} issue */
+			(issue) => {
 			if (
 				issue.labels.some((label) => publishedTags.includes(label.name)) &&
 				allowedPosters.includes(issue.user.login)
@@ -62,16 +64,16 @@ export async function listBlogposts() {
 		const headers = parse(res.headers.get('Link'));
 		next = headers && headers.next;
 	} while (next && limit++ < 1000); // just a failsafe against infinite loop - feel free to remove
-	_allBlogposts.sort((a, b) => b.date - a.date);
+	_allBlogposts.sort((a, b) => b.date.valueOf() - a.date.valueOf()); // use valueOf to make TS happy https://stackoverflow.com/a/60688789/1106414
 	allBlogposts = _allBlogposts;
 	return _allBlogposts;
 }
 
-export async function getBlogpost(slug) {
+export async function getContent(slug) {
 	// get all blogposts if not already done - or in development
 	if (dev || allBlogposts.length === 0) {
 		console.log('loading allBlogposts');
-		allBlogposts = await listBlogposts();
+		allBlogposts = await listContent();
 		console.log('loaded ' + allBlogposts.length + ' blogposts');
 		if (!allBlogposts.length)
 			throw new Error(
@@ -99,6 +101,10 @@ export async function getBlogpost(slug) {
 	}
 }
 
+/**
+ * @param {import('../../types').GithubIssue} issue
+ * @returns {import('../../types').ContentItem} 
+ */
 function parseIssue(issue) {
 	const src = issue.body;
 	const { content, data } = grayMatter(src);
@@ -110,8 +116,10 @@ function parseIssue(issue) {
 		slug = slugify(title);
 	}
 	let description = data.description ?? content.trim().split('\n')[0];
-	// (data.content.length > 300) ? data.content.slice(0, 300) + '...' : data.content
+	// you may wish to use a truncation approach like this instead...
+	// let description = (data.content.length > 300) ? data.content.slice(0, 300) + '...' : data.content
 
+	/** @type {string[]} */
 	let tags = [];
 	if (data.tags) tags = Array.isArray(data.tags) ? data.tags : [data.tags];
 	else if (data.categories) {
@@ -124,8 +132,9 @@ function parseIssue(issue) {
 	console.log(slug, tags);
 
 	return {
+		type: 'blog', // futureproof in case you want to add other types of content
 		content,
-		data,
+		frontmatter: data,
 		title,
 		subtitle: data.subtitle,
 		description,
