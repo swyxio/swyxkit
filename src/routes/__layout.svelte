@@ -48,4 +48,5 @@
 			>
 		</div>
 	</div>
+	<p class="prose dark:prose-invert px-4 sm:px-8">This blog is based on the <a href="https://swyxkit.netlify.app/">swyxkit</a> template.</p>
 </footer>

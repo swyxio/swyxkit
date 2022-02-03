@@ -3,6 +3,9 @@
 	function toggleNewsletter() {
 		isNewsletterOpen = !isNewsletterOpen;
 	}
+	function onSubmit() {
+		alert('This newsletter section is not yet implemented! if you are seeing this outside of swyxkit then go remind the site author to update Newsletter.svelte.')
+	}
 </script>
 
 <section class="mb-16 w-full" id="newsletter">
@@ -52,7 +55,7 @@
 					>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero, ducimus.</span
 				>.
 			</p>
-			<form class="relative my-4">
+			<form class="relative my-4" on:submit={onSubmit}>
 				<input
 					type="email"
 					aria-label="Email for newsletter"
