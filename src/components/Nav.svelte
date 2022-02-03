@@ -48,7 +48,7 @@
 	</ul>
 	<div class="flex items-center space-x-4">
 		<!-- RSS -->
-		<a
+		<!-- <a
 			class="rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200 dark:hover:bg-yellow-800"
 			rel="external"
 			href={origin + '/api/rss.xml'}
@@ -69,8 +69,8 @@
 					d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"
 				/>
 			</svg>
-		</a>
-		<!-- GIthub -->
+		</a> -->
+		<!-- Github -->
 		<a
 			class="rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200 dark:hover:bg-yellow-800"
 			href={REPO_URL}
