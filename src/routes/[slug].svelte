@@ -5,8 +5,9 @@
 	import Comments from '../components/Comments.svelte';
 	export async function load({ url, params, fetch }) {
 		const slug = params.slug;
+		let res = null
 		try {
-			const res = await fetch(`/api/blog/${slug}.json`);
+			res = await fetch(`/api/blog/${slug}.json`);
 			if (res.status > 400) {
 				return {
 					status: res.status,
@@ -14,23 +15,19 @@
 				};
 			}
 
-			const x = await res.json();
-			// console.log({x}) // for easy debugging
-			const json = JSON.parse(x);
-
 			return {
 				props: {
-					json,
+					json: await res.json(),
 					slug,
 					REPO_URL
 				},
 				maxage: 60 // 1 minute
 			};
 		} catch (err) {
-			console.error('error fetching blog post at [slug].svelte: ' + slug, err);
+			console.error('error fetching blog post at [slug].svelte: ' + slug, res, err);
 			return {
 				status: 500,
-				error: new Error('error fetching blog post at [slug].svelte: ' + slug)
+				error: new Error('error fetching blog post at [slug].svelte: ' + slug + ': ' + res)
 			};
 		}
 	}
