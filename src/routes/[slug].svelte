@@ -52,7 +52,7 @@
 	<meta property="og:title" content={json.title} />
 	<meta name="Description" content={json.description} />
 	<meta property="og:description" content={json.description} />
-	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:card" content={json.image ? "summary_large_image" : "summary"} />
 	<meta name="twitter:creator" content="https://twitter.com/swyx/" />
 	<meta name="twitter:title" content={json.title} />
 	<meta name="twitter:description" content={json.description} />
