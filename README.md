@@ -19,18 +19,16 @@ See https://swyxkit.netlify.app/
 
 ## Key Features and Design Considerations:
 
-- Features
+- **Features**
   - Dark mode
   - Github-issues-driven Blog with blog index
-    - Blog content pulled from the GitHub Issues API - make to set your `GH_USER_REPO` variable!
+    - Blog content pulled from the GitHub Issues API
     - Comment and Reaction system from Github Issues
     - Consumes markdown/MDSveX
       - with syntax highlighting
       - fixes for [known MDSvex render issue](https://github.com/pngwn/MDsveX/issues/392)
   - RSS (at `/api/rss.xml`) with caching
-- Performance touches
-  - no `hydrate` on about and blog pages
-    - _update: temporarily disabled while we figure out mobile nav without hydration_
+- **Performance/Security touches**
   - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
     - for API endpoints as well as pages
   - Security headers in `netlify.toml`
@@ -39,12 +37,12 @@ See https://swyxkit.netlify.app/
     - [X-XSS-Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection)
     - SvelteKit does not yet support [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) - [PR pending here](https://github.com/sveltejs/kit/pull/2394/files)
   - [Builds and Deploys in ~40 seconds on Netlify](https://app.netlify.com/sites/swyxkit/deploys)
-- Minor design/UX touches
+- **Minor design/UX touches**
   - Top level blog URLs (`/myblog` instead of `/blog/myblog` - [why](https://www.swyx.io/namespacing-sites/))
   - Blog index truncates at 20 posts to make sure to render quickly
   - [Comments are rendered and sanitized](https://github.com/developit/snarkdown/issues/70)
   - Error page (try going to URL that doesnt exist)
-    - including nice error when github api rate limit exceeded
+    - including nice error when github api rate limit exceeded - fix with `GH_TOKEN`
   - Navlink hover effect
   - [Mobile/Responsive styling](https://swyxkit.netlify.app/mobileresponsive-styling-with-tailwind)
   - Mobile menu with animation
@@ -87,7 +85,7 @@ export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
 Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items, for example
 
 - the Newsletter component needs to be wired up to a newsletter service (I like buttondown, tinyletter, and revue)
-- page `Cache-Control` policy
+- page `Cache-Control` policy and SvelteKit `maxage`
 - site favicons (use https://realfavicongenerator.net/ to make all the variants and stick it in `/static`)
 - (if migrating content from previous blog) setup Netlify redirects at `/static/_redirects`
 
@@ -103,8 +101,10 @@ When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites
 
 You can read:
 
-- [Why I Enjoy Svelte](https://www.swyx.io/svelte-why/), [Svelte for Sites, React for Apps](https://www.swyx.io/svelte-sites-react-apps/)
+- [Why I Enjoy Svelte](https://www.swyx.io/svelte-why/)
+- [Svelte for Sites, React for Apps](https://www.swyx.io/svelte-sites-react-apps/)
 - [Why Tailwind CSS](https://www.swyx.io/why-tailwind/)
+- [Moving to a GitHub CMS](https://swyxkit.netlify.app/moving-to-a-github-cms)
 - [How to Setup Svelte with Tailwind](https://dev.to/swyx/how-to-set-up-svelte-with-tailwind-css-4fg5)
 
 ## Acknowledgements
@@ -119,13 +119,12 @@ You can read:
     - https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
     - Reasons it is hard to do dynamic RSS in Sveltekit:
       - Sveltekit Endpoints dont take over from Sveltekit dynamic param routes (`[slug].svelte` has precedence over `rss.xml.js`)
-      - RSS Endpoint runs locally but doesnt run in Netlify bc no access to the content in prod
-      - approach i went for is to use Vite's `import.meta.globEager` feature and that makes it static for the RSS...
+      - RSS Endpoint runs locally but doesnt run in Netlify bc no access to the content in prod ([SvelteKit issue](https://github.com/sveltejs/kit/issues/3535))
 - Find more sveltekit projects at https://github.com/janosh/awesome-svelte-kit
 
 ## Todos
 
 - implement etag header for github api
 - store results in netlify build cache
-- separate hydration path for mobile nav
+- separate hydration path for mobile nav (so that we could `hydrate=false` some pages)
 - custom components in MDX, and rehype plugins
