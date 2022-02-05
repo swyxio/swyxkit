@@ -4,8 +4,8 @@ name: 'Nightly'
 
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '0 12 * * *'
+    # Runs at 12:00 UTC on Fri.
+    - cron:  '0 12 * * 5'
   workflow_dispatch:
 
 jobs:
