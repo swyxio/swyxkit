@@ -30,10 +30,10 @@
 	/** @type {import('$lib/types').ContentItem[]} */
 	export let items;
 
-	const PAGE_SIZE = 30;
-
-	$: start = 1 + (page - 1) * PAGE_SIZE;
-	$: next = `/${list}/${+page + 1}`;
+	let inputEl;
+	function focusSearch(e) {
+		if (e.key === '/' && inputEl) inputEl.select();
+	}
 
 	let isTruncated = items.length > 20;
 	let search;
@@ -52,6 +52,8 @@
 	<meta name="description" content="Latest Hacker News stories in the {list} category" />
 </svelte:head>
 
+<svelte:window on:keyup={focusSearch} />
+
 <section class="mx-auto mb-16 flex max-w-2xl flex-col items-start justify-center px-4 sm:px-8">
 	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 		Blog
@@ -66,7 +68,8 @@
 			aria-label="Search articles"
 			type="text"
 			bind:value={search}
-			placeholder="Search articles"
+			bind:this={inputEl}
+			placeholder="Hit / to search"
 			class="block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
 		/><svg
 			class="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"

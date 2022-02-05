@@ -122,14 +122,8 @@ function parseIssue(issue) {
 	/** @type {string[]} */
 	let tags = [];
 	if (data.tags) tags = Array.isArray(data.tags) ? data.tags : [data.tags];
-	else if (data.categories) {
-		tags = Array.isArray(data.categories) ? data.categories : [data.categories];
-		console.log(`${slug} is still using the categories field`);
-	} else {
-		console.log(`WARN: ${slug} has no tags`);
-	}
 	tags = tags.map((tag) => tag.toLowerCase());
-	console.log(slug, tags);
+	// console.log(slug, tags);
 
 	return {
 		type: 'blog', // futureproof in case you want to add other types of content
