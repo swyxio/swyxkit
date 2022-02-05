@@ -47,6 +47,10 @@ const config = {
 	],
 
 	kit: {
+		// // uncomment this if you want to hide talenote in production
+		// routes: (filepath) => {
+		// 	return process.env.NODE_ENV === 'production' ? !filepath.includes('talenote') : true;
+		// },
 		adapter: adapter({
 			split: false
 		})
