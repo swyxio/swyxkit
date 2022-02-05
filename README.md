@@ -11,7 +11,7 @@ Feel free to rip out these opinions as you see fit of course.
 
 ## Live Demo
 
-See https://swyxkit.netlify.app/
+See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/sites/swyxkit/deploys))
 
 ![screenshot of swyxkit in action](https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png)
 
