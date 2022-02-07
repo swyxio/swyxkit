@@ -1,19 +1,6 @@
-<script context="module">
-	import { REPO_URL } from '$lib/siteConfig';
-	/** @type {import('@sveltejs/kit').Load} */
-	export async function load({ url }) {
-		return {
-			props: {
-				origin: url.origin
-			}
-		};
-	}
-</script>
-
 <script>
 	import MobileMenu from './MobileMenu.svelte';
 	import NavLink from './NavLink.svelte';
-	export let origin = '';
 	let isDark = false;
 	if (typeof localStorage !== 'undefined') {
 		if (

@@ -4,8 +4,8 @@ name: 'Nightly'
 
 on:
   schedule:
-    # Runs at 12:00 UTC on Fri.
-    - cron:  '0 12 * * 5'
+    # Runs at 12:00 UTC daily
+    - cron:  '0 12 * * *'
   workflow_dispatch:
 
 jobs:
