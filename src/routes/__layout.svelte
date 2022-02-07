@@ -1,5 +1,5 @@
 <script context="module">
-	import { MY_TWITTER, MY_YOUTUBE, REPO_URL, SITE_TITLE } from '$lib/siteConfig';
+	import { MY_TWITTER_HANDLE, MY_YOUTUBE, REPO_URL, SITE_TITLE } from '$lib/siteConfig';
 </script>
 
 <script>
@@ -39,7 +39,7 @@
 				class="text-gray-500 transition hover:text-gray-300"
 				target="_blank"
 				rel="noopener noreferrer"
-				href={MY_TWITTER}>Twitter</a
+				href={'https://twitter.com/intent/follow?screen_name=' + MY_TWITTER_HANDLE}>Twitter</a
 			><a
 				class="text-gray-500 transition hover:text-gray-300"
 				target="_blank"

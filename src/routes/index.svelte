@@ -5,7 +5,7 @@
 		SITE_TITLE,
 		SITE_DESCRIPTION,
 		DEFAULT_OG_IMAGE,
-		MY_TWITTER
+		MY_TWITTER_HANDLE
 	} from '$lib/siteConfig';
 	export const prerender = true; // index page is most visited, lets prerender
 </script>
@@ -26,7 +26,7 @@
 	<meta property="og:description" content={SITE_DESCRIPTION} />
 	<meta property="og:image" content={DEFAULT_OG_IMAGE} />
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:creator" content={MY_TWITTER} />
+	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={SITE_TITLE} />
 	<meta name="twitter:description" content={SITE_DESCRIPTION} />
 	<meta name="twitter:image" content={DEFAULT_OG_IMAGE} />

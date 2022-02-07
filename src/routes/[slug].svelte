@@ -1,7 +1,7 @@
 <script context="module">
 	// export const prerender = true; // you can uncomment to prerender as an optimization
 	export const hydrate = true;
-	import { REPO_URL, SITE_URL } from '$lib/siteConfig';
+	import { MY_TWITTER_HANDLE, REPO_URL, SITE_URL } from '$lib/siteConfig';
 	import Comments from '../components/Comments.svelte';
 	export async function load({ url, params, fetch }) {
 		const slug = params.slug;
@@ -53,7 +53,7 @@
 	<meta name="Description" content={json.description} />
 	<meta property="og:description" content={json.description} />
 	<meta name="twitter:card" content={json.image ? "summary_large_image" : "summary"} />
-	<meta name="twitter:creator" content="https://twitter.com/swyx/" />
+	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={json.title} />
 	<meta name="twitter:description" content={json.description} />
 	{#if json.image}

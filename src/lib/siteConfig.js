@@ -5,7 +5,7 @@ export const SITE_TITLE = 'SwyxKit';
 export const SITE_DESCRIPTION = "swyx's default SvelteKit + Tailwind starter";
 export const DEFAULT_OG_IMAGE =
 	'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
-export const MY_TWITTER = 'https://twitter.com/swyx/';
+export const MY_TWITTER_HANDLE = 'swyx';
 export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
 
 // dont forget process.env.GH_TOKEN
