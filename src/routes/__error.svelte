@@ -1,7 +1,6 @@
 <script context="module">
 	/** @type {import('@sveltejs/kit').ErrorLoad} */
 	export function load({ url, error, status }) {
-
 		return {
 			props: { error, status, url }
 		};
@@ -17,9 +16,9 @@
 	export let error;
 
 	const offline = typeof navigator !== 'undefined' && navigator.onLine === false;
-	
+
 	let message = offline ? 'Find the internet and try again' : error?.message;
-	
+
 	let title = offline ? 'Offline' : status;
 	if (status === 404) {
 		title = 'Page not found :(';
@@ -35,11 +34,11 @@
 	<h1>{status}: {title}</h1>
 
 	{#if status === 404}
-	<p class="">There is no post at the slug <code>{url.pathname}</code>.</p>
-	<p><a href={"/ideas/?filter=" + url.pathname.slice(1)}>Try searching for it here!</a></p>
-	<p class="">If you believe this was a bug, please let me know! Email swyx [at] swyx.io</p>
+		<p class="">There is no post at the slug <code>{url.pathname}</code>.</p>
+		<p><a href={'/ideas/?filter=' + url.pathname.slice(1)}>Try searching for it here!</a></p>
+		<p class="">If you believe this was a bug, please let me know! Email swyx [at] swyx.io</p>
 	{:else}
-	<p class="font-mono">{message}</p>
+		<p class="font-mono">{message}</p>
 	{/if}
 	{#if dev && error.stack}
 		<pre class="mono overflow-scroll bg-gray-800 p-8">{error.stack}</pre>

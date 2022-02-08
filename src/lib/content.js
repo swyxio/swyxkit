@@ -10,7 +10,6 @@ import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutoLink from 'rehype-autolink-headings';
 
-
 const remarkPlugins = undefined;
 const rehypePlugins = [
 	rehypeStringify,
@@ -28,11 +27,11 @@ const allowedPosters = ['sw-yx'];
 const publishedTags = ['Published'];
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header
-``
+``;
 export async function listContent() {
 	// use a diff var so as to not have race conditions while fetching
 	// TODO: make sure to handle this better when doing etags or cache restore
-	
+
 	/** @type {import('./types').ContentItem[]} */
 	let _allBlogposts = [];
 	let next = null;
@@ -54,13 +53,14 @@ export async function listContent() {
 		issues.forEach(
 			/** @param {import('./types').GithubIssue} issue */
 			(issue) => {
-			if (
-				issue.labels.some((label) => publishedTags.includes(label.name)) &&
-				allowedPosters.includes(issue.user.login)
-			) {
-				_allBlogposts.push(parseIssue(issue));
+				if (
+					issue.labels.some((label) => publishedTags.includes(label.name)) &&
+					allowedPosters.includes(issue.user.login)
+				) {
+					_allBlogposts.push(parseIssue(issue));
+				}
 			}
-		});
+		);
 		const headers = parse(res.headers.get('Link'));
 		next = headers && headers.next;
 	} while (next && limit++ < 1000); // just a failsafe against infinite loop - feel free to remove
@@ -93,7 +93,7 @@ export async function getContent(slug) {
 		).code
 			// https://github.com/pngwn/MDsveX/issues/392
 			.replace(/>{@html `<code class="language-/g, '><code class="language-')
-			.replace(/<\/code>`}<\/pre>/g, '</code></pre>')
+			.replace(/<\/code>`}<\/pre>/g, '</code></pre>');
 
 		return { ...blogpost, content };
 	} else {
@@ -103,7 +103,7 @@ export async function getContent(slug) {
 
 /**
  * @param {import('./types').GithubIssue} issue
- * @returns {import('./types').ContentItem} 
+ * @returns {import('./types').ContentItem}
  */
 function parseIssue(issue) {
 	const src = issue.body;

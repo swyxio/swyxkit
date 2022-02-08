@@ -1,8 +1,7 @@
-name: "githubstatusblogpostlink"
+name: 'githubstatusblogpostlink'
 on: # run on any PRs and main branch changes
   issues:
     types: [opened, edited, labeled, unlabeled]
-
 
 jobs:
   test_schedule:
@@ -11,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run the action # You would run your tests before this using the output to set state/desc
         uses: Sibz/github-status-action@v1
-        with: 
+        with:
           authToken: ${{secrets.GITHUB_TOKEN}}
           context: 'Test run'
           description: 'Passed'

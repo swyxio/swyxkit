@@ -5,7 +5,7 @@
 	import Comments from '../components/Comments.svelte';
 	export async function load({ url, params, fetch }) {
 		const slug = params.slug;
-		let res = null
+		let res = null;
 		try {
 			res = await fetch(`/api/blog/${slug}.json`);
 			if (res.status > 400) {
@@ -52,7 +52,7 @@
 	<meta property="og:title" content={json.title} />
 	<meta name="Description" content={json.description} />
 	<meta property="og:description" content={json.description} />
-	<meta name="twitter:card" content={json.image ? "summary_large_image" : "summary"} />
+	<meta name="twitter:card" content={json.image ? 'summary_large_image' : 'summary'} />
 	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={json.title} />
 	<meta name="twitter:description" content={json.description} />
@@ -92,7 +92,10 @@
 <div class="mx-auto max-w-2xl">
 	<div class="prose mb-12 border-t border-b border-blue-800 p-4 dark:prose-invert">
 		{#if json.ghMetadata.reactions.total_count > 0}
-			Reactions: <Reactions issueUrl={json.ghMetadata.issueUrl} reactions={json.ghMetadata.reactions} />
+			Reactions: <Reactions
+				issueUrl={json.ghMetadata.issueUrl}
+				reactions={json.ghMetadata.reactions}
+			/>
 		{:else}
 			<a href={json.ghMetadata.issueUrl}>Leave a reaction </a>
 			if you liked this post! 🧡

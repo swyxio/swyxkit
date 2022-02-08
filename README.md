@@ -89,10 +89,10 @@ Of course, you should then go page by page (there aren't that many) and customiz
 - site favicons (use https://realfavicongenerator.net/ to make all the variants and stick it in `/static`)
 - (if migrating content from previous blog) setup Netlify redirects at `/static/_redirects`
 
-This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give the `GH_TOKEN` env variable to raise rate limit from 60 to 5000. 
+This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give the `GH_TOKEN` env variable to raise rate limit from 60 to 5000.
 
 - Just make a really basic personal access token [here](https://github.com/settings/tokens/new), should be enough.
-https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
+  https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
 - and [set the env variables in Netlify](https://docs.netlify.com/configure-builds/environment-variables/#declare-variables)
 
 When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites/YOUR_SITE/settings/deploys#environment

@@ -20,7 +20,7 @@ export async function get() {
 			description: post.description
 		});
 	});
-	
+
 	return {
 		body: feed.xml({ indent: true }), // todo - nonindent if not human
 		headers: {
