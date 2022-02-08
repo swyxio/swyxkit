@@ -64,10 +64,7 @@
 				</a>
 				{comment.user.login}
 			</div>
-			<Reactions
-				issueUrl={comment.issue_url}
-				reactions={comment.reactions}
-			/>
+			<Reactions issueUrl={comment.issue_url} reactions={comment.reactions} />
 		</div>
 	</div>
 </div>

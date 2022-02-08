@@ -31,6 +31,7 @@
 		"src/**/*.js",
 		"src/**/*.ts",
 		"src/**/*.svelte",
-		"src/lib/content.js"
-, "src/lib/types.d.ts"	]
+		"src/lib/content.js",
+		"src/lib/types.d.ts"
+	]
 }

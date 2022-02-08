@@ -6,7 +6,7 @@
 	export let ghMetadata = null;
 	export let title = 'Untitled post';
 	/** @type {string} */
-	export let stringData = 'no date'; 
+	export let stringData = 'no date';
 </script>
 
 <a
