@@ -5,7 +5,6 @@
 
 [functions]
   directory = "functions"
-  node_bundler = "esbuild"
   external_node_modules = ["mdsvex"]
 
 [build.environment]
