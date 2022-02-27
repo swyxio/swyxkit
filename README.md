@@ -1,6 +1,7 @@
-# swyxkit!
+<img align="right" height=200 src="https://user-images.githubusercontent.com/6764957/155878641-c13ecdc0-ed2f-458c-88c6-cd34bdb38dae.png" />
 
-swyx's preferred starter for Svelte projects:
+
+A lightly opinionated starter for Svelte projects:
 
 - SvelteKit + Netlify adapter!
 - Tailwind 3 + Tailwind Typography (with [swyx fixes](https://youtu.be/-FzemNMcOGs))

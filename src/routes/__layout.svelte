@@ -14,8 +14,6 @@
 		title={'RSS Feed for ' + SITE_TITLE}
 		href="/rss.xml"
 	/>
-	<meta name="theme-color" content="#facc15" media="(prefers-color-scheme: light)" />
-	<meta name="theme-color" content="#3730a3" media="(prefers-color-scheme: dark)" />
 </svelte:head>
 
 <div class="flex flex-col justify-center bg-gray-50 px-4 dark:bg-gray-900 sm:px-8">
