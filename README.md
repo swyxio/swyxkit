@@ -1,6 +1,5 @@
 <img align="right" height=200 src="https://user-images.githubusercontent.com/6764957/155878641-c13ecdc0-ed2f-458c-88c6-cd34bdb38dae.png" />
 
-
 A lightly opinionated starter for Svelte projects:
 
 - SvelteKit + Netlify adapter!
