@@ -24,6 +24,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
   - Github-issues-driven Blog with blog index
     - Blog content pulled from the GitHub Issues API
     - Comment and Reaction system from Github Issues
+    - 🆕 Shortcodes for [embedding Tweets and YouTube videos](http://swyxkit.netlify.app/supporting-youtube-and-twitter-embeds)
     - Consumes markdown/MDSveX
       - with syntax highlighting
       - fixes for [known MDSvex render issue](https://github.com/pngwn/MDsveX/issues/392)

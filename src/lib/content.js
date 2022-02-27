@@ -84,18 +84,10 @@ export async function getContent(slug) {
 	// find the blogpost that matches this slug
 	const blogpost = allBlogposts.find((post) => post.slug === slug);
 	if (blogpost) {
-		// compile it with mdsvex
-		const content = (
-			await compile(blogpost.content, {
-				remarkPlugins,
-				rehypePlugins
-			})
-		).code
-			// https://github.com/pngwn/MDsveX/issues/392
-			.replace(/>{@html `<code class="language-/g, '><code class="language-')
-			.replace(/<\/code>`}<\/pre>/g, '</code></pre>')
+
+		const blogbody = blogpost.content
 			.replace(
-				/{% youtube (.*?) %}/g,
+				/\n{% youtube (.*?) %}/g,
 				(_, x) => {
 
 					// https://stackoverflow.com/a/27728417/1106414
@@ -120,7 +112,7 @@ export async function getContent(slug) {
 			aria-hidden="true"></iframe>`}
 			)
 			.replace(
-				/{% (tweet|twitter) (.*?) %}/g,
+				/\n{% (tweet|twitter) (.*?) %}/g,
 				(_, _2, x) => {
 					const url = x.startsWith('https://twitter.com/') ? x : `https://twitter.com/x/status/${x}`;
 					return `
@@ -130,6 +122,17 @@ export async function getContent(slug) {
 					`
 				}
 			);
+
+		// compile it with mdsvex
+		const content = (
+			await compile(blogbody, {
+				remarkPlugins,
+				rehypePlugins
+			})
+		).code
+			// https://github.com/pngwn/MDsveX/issues/392
+			.replace(/>{@html `<code class="language-/g, '><code class="language-')
+			.replace(/<\/code>`}<\/pre>/g, '</code></pre>')
 
 		return { ...blogpost, content };
 	} else {
