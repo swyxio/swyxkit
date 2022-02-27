@@ -98,6 +98,10 @@ This blog uses GitHub as a CMS - if you are doing any serious development at all
 
 When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites/YOUR_SITE/settings/deploys#environment
 
+## Optimizations to try after you are done deploying
+
+- Customize your JSON+LD for [FAQ pages](https://rodneylab.com/sveltekit-faq-page-seo/), [organization, or products](https://navillus.dev/blog/json-ld-in-sveltekit). There is a schema for blogposts, but it is so dead simple that swyxkit does not include it.
+
 ## Further Reading
 
 You can read:
