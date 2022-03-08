@@ -1,4 +1,4 @@
-<img align="right" height=200 src="https://user-images.githubusercontent.com/6764957/155878641-c13ecdc0-ed2f-458c-88c6-cd34bdb38dae.png" />
+<img height=200 src="https://user-images.githubusercontent.com/6764957/155878641-c13ecdc0-ed2f-458c-88c6-cd34bdb38dae.png" />
 
 A lightly opinionated starter for Svelte projects:
 
@@ -16,6 +16,12 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
 ![screenshot of swyxkit in action](https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png)
 
 ![screenshot of swyxkit in action](https://user-images.githubusercontent.com/6764957/147861337-d40a1798-e7ff-40e1-8dd8-ba1350fd3784.png)
+
+## Users in the wild
+
+- https://swyx.io
+- https://twitter.com/iambenwis/status/1500998985388937216?s=21
+- add yourself here!
 
 ## Key Features and Design Considerations:
 
