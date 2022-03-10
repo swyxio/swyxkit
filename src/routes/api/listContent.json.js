@@ -14,7 +14,7 @@ export async function get() {
 		// 	return item
 		// })
 		headers: {
-			'Cache-Control': `max-age=0, s-max-age=${60}` // 1 minute.. for now
+			'Cache-Control': `max-age=0, s-maxage=${60}` // 1 minute.. for now
 		}
 	};
 }
