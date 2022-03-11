@@ -11,7 +11,7 @@ export async function get({ params }) {
 		return {
 			body: JSON.stringify(data),
 			headers: {
-				'Cache-Control': `max-age=0, s-max-age=${60}` // 1 minute.. for now
+				'Cache-Control': `max-age=0, s-maxage=${60}` // 1 minute.. for now
 			}
 		};
 	} catch (err) {
