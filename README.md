@@ -36,7 +36,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
       - fixes for [known MDSvex render issue](https://github.com/pngwn/MDsveX/issues/392)
   - RSS (at `/api/rss.xml`) with caching
 - **Performance/Security touches**
-  - set `maxage` to 1 minute to cache (consider making it 1-7 days on older posts)
+  - set [`s-maxage`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#s-maxage) (not `max-age`) to 1 minute to cache (consider making it 1-7 days on older posts)
     - for API endpoints as well as pages
   - Security headers in `netlify.toml`
     - [X-Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
@@ -52,13 +52,17 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
     - including nice error when github api rate limit exceeded - fix with `GH_TOKEN`
   - Navlink hover effect
   - [Mobile/Responsive styling](https://swyxkit.netlify.app/mobileresponsive-styling-with-tailwind)
-  - Mobile menu with animation
+    - Mobile menu with animation
   - Og:image and meta tags for social unfurls (not automatically generated though)
   - Accessibility
     - SVG Icons https://github.com/sw-yx/spark-joy/blob/master/README.md#general--misc
     - [Tap targets](https://web.dev/tap-targets/?utm_source=lighthouse&utm_medium=lr)
   - Custom scrollbar https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
   - Defensive CSS touches https://ishadeed.com/article/defensive-css
+- **Code Quality**
+  - [JSDoc Typechecking](https://swyxkit.netlify.app/how-to-add-jsdoc-typechecking-to-sveltekit)
+  - ESLint + Prettier
+  - [Nightly lockfile upgrades](https://mobile.twitter.com/FredKSchott/status/1489287560387956736)
 
 ## Setup
 
