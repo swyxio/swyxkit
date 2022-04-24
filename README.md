@@ -1,4 +1,4 @@
-<img height=200 src="https://user-images.githubusercontent.com/6764957/155878641-c13ecdc0-ed2f-458c-88c6-cd34bdb38dae.png" />
+# SwyxKit: A SvelteKit blog template for devs who learn in public
 
 A lightly opinionated starter for Svelte projects:
 
@@ -75,6 +75,8 @@ npm run start
 
 You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/).
 
+However, to have new posts show up, you will need to personalize the siteConfig below - take note of `APPROVED_POSTERS_GH_USERNAME` in particular (this is an allowlist of people who can post a blog by opening a github issue, otherwise any rando can blog and thats not good).
+
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit)
 
 ## Personalization Configuration
@@ -83,6 +85,7 @@ As you become ready to seriously adopt this, remember to configure `/lib/siteCon
 
 ```js
 export const SITE_URL = 'https://swyxkit.netlify.app';
+export const APPROVED_POSTERS_GH_USERNAME = ['sw-yx']; // IMPORTANT - change this to at least your github username, or add others if you want
 export const GH_USER_REPO = 'sw-yx/swyxkit'; // used for pulling github issues and offering comments
 export const REPO_URL = 'https://github.com/' + GH_USER_REPO;
 export const SITE_TITLE = 'SwyxKit';
