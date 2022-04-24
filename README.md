@@ -1,6 +1,6 @@
-# SwyxKit: A SvelteKit blog template for devs who learn in public
+# SwyxKit
 
-A lightly opinionated starter for Svelte projects:
+A lightly opinionated starter for SvelteKit blogs:
 
 - SvelteKit + Netlify adapter!
 - Tailwind 3 + Tailwind Typography (with [swyx fixes](https://youtu.be/-FzemNMcOGs))
