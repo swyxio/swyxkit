@@ -1,4 +1,8 @@
 <script context="module">
+	import {
+		SITE_TITLE
+	} from '$lib/siteConfig';
+
 	// export const prerender = true; // turned off so it refreshes quickly
 	export async function load({ params, fetch }) {
 		const res = await fetch(`/api/listContent.json`);
@@ -48,7 +52,7 @@
 </script>
 
 <svelte:head>
-	<title>Swyxkit Blog Index</title>
+	<title>{SITE_TITLE}</title>
 	<meta name="description" content="Latest Hacker News stories in the {list} category" />
 </svelte:head>
 
