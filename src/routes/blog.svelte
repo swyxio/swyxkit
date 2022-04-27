@@ -52,8 +52,8 @@
 </script>
 
 <svelte:head>
-	<title>{SITE_TITLE}</title>
-	<meta name="description" content="Latest Hacker News stories in the {list} category" />
+	<title>{SITE_TITLE} Blog Index</title>
+	<meta name="description" content={`Latest ${SITE_TITLE} posts`} />
 </svelte:head>
 
 <svelte:window on:keyup={focusSearch} />
