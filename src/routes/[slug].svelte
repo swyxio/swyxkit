@@ -21,7 +21,9 @@
 					slug,
 					REPO_URL
 				},
-				maxage: 60 // 1 minute
+				cache: {
+					maxage: 60 // 1 minute
+				}
 			};
 		} catch (err) {
 			console.error('error fetching blog post at [slug].svelte: ' + slug, res, err);

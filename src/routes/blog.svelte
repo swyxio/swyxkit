@@ -15,7 +15,9 @@
 		const items = await res.json();
 		return {
 			props: { items },
-			maxage: 60 // 1 minute
+			cache: {
+				maxage: 60 // 1 minute
+			}
 		};
 	}
 </script>
