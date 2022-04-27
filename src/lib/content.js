@@ -2,7 +2,7 @@ import { compile } from 'mdsvex';
 import { dev } from '$app/env';
 import grayMatter from 'gray-matter';
 import fetch from 'node-fetch';
-import { GH_USER_REPO } from './siteConfig';
+import { GH_USER_REPO, APPROVED_POSTERS_GH_USERNAME } from './siteConfig';
 import parse from 'parse-link-header';
 import slugify from 'slugify';
 
@@ -23,7 +23,7 @@ const rehypePlugins = [
 	]
 ];
 
-const allowedPosters = ['sw-yx'];
+const allowedPosters = APPROVED_POSTERS_GH_USERNAME; // array of strings of github username
 const publishedTags = ['Published'];
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header

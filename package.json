@@ -57,6 +57,7 @@
 	"type": "module",
 	"dependencies": {
 		"date-fns": "^2.28.0",
+		"node": "^17.7.2",
 		"node-fetch": "^2.6.6",
 		"parse-link-header": "^2.0.0",
 		"prism-themes": "^1.9.0",
