@@ -68,6 +68,8 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
 
 ## Setup
 
+### Step 0: Clone project (and deploy)
+
 ```bash
 npx degit https://github.com/sw-yx/swyxkit
 export GH_TOKEN=your_gh_token_here # can skip if just trying out this repo casually
@@ -81,7 +83,17 @@ However, to have new posts show up, you will need to personalize the siteConfig 
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit)
 
-## Personalization Configuration
+```bash
+# these are just untested, suggested commands, use your discretion to hook it up or deploy wherever
+git init
+git add .
+git commit -m "initial commit"
+gh repo create # make a new public github repo and name it whatever
+git push origin master
+ntl init # use the netlify cli to deploy, assuming you already installed it and logged in. can also use `ntl deploy`
+```
+
+### Step 1: Personalization Configuration
 
 As you become ready to seriously adopt this, remember to configure `/lib/siteConfig.js` - just some hardcoded vars i want you to remember to configure.
 
@@ -112,6 +124,16 @@ This blog uses GitHub as a CMS - if you are doing any serious development at all
 - and [set the env variables in Netlify](https://docs.netlify.com/configure-builds/environment-variables/#declare-variables)
 
 When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites/YOUR_SITE/settings/deploys#environment
+
+### Step 2: Make your first post
+
+Open a new Github issue on your new repo, write some title and markdown in the body, **add a `Published` tag**, and then save.
+
+You should see it refetched in local dev or in the deployed site pretty quickly. You can configure Sveltekit to build each blog page up front, or on demand. Up to you to trade off speed and flexibility.
+
+If your `Published` post doesn't show up, you may have forgotten to set `APPROVED_POSTERS_GH_USERNAME` to your github username, as above.
+
+If all of this is annoying feel free to rip out the GitHub Issues CMS wiring and do your own content pipeline, I'm not your boss. MDSveX is already set up in this repo if you prefer not having a disconnected content toolchain from your codebase (which is fine, i just like having it in a different place for a better editing experience). See also my blogpost on [the benefits of using Github Issues as CMS](https://swyxkit.netlify.app/moving-to-a-github-cms).
 
 ## Optimizations to try after you are done deploying
 
