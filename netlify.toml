@@ -9,8 +9,7 @@
   external_node_modules = ["mdsvex"]
 
 [build.environment]
-  NODE_VERSION = "14"
-  ## https://github.com/sveltejs/kit/issues/2687
+  NODE_VERSION = "16" ## as of alpha.300+ sveltekit seems to require node 16
 
 [[headers]]
   ## https://answers.netlify.com/t/content-type-header-not-working-in-netlify-toml/7718
