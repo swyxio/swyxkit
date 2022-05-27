@@ -14,6 +14,7 @@
 	export let url;
 	export let status;
 	export let error;
+	console.log({error,status, url})
 
 	const offline = typeof navigator !== 'undefined' && navigator.onLine === false;
 
@@ -31,6 +32,7 @@
 </svelte:head>
 
 <section class="container prose mx-auto py-12 dark:prose-invert">
+	checking error
 	<h1>{status}: {title}</h1>
 
 	{#if status === 404}
