@@ -3,7 +3,7 @@
 	export const hydrate = true;
 	import { MY_TWITTER_HANDLE, REPO_URL, SITE_URL } from '$lib/siteConfig';
 	import Comments from '../components/Comments.svelte';
-	export async function load({ url, params, fetch }) {
+	export async function load({ params, fetch }) {
 		const slug = params.slug;
 		let res = null;
 		try {
