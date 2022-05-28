@@ -9,7 +9,7 @@
   external_node_modules = ["mdsvex"]
 
 [build.environment]
-  NODE_VERSION = "14"
+  NODE_VERSION = "16"
   ## https://github.com/sveltejs/kit/issues/2687
 
 [[headers]]
