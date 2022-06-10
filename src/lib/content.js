@@ -99,13 +99,24 @@ export async function getContent(slug) {
 					return `<iframe
 			class="w-full object-contain"
 			srcdoc="
+				<style>
+				    body, .youtubeembed {
+					width: 100%;
+					height: 100%;
+					margin: 0;
+					position: absolute;
+					display: flex;
+					justify-content: center;
+					object-fit: cover;
+				    }
+				</style>
 				<a
 				    href='https://www.youtube.com/embed/${videoId}?autoplay=1'
-				    class='full'
+				    class='youtubeembed'
 				>
 				    <img
 					src='https://img.youtube.com/vi/${videoId}/sddefault.jpg'
-					class='full'
+					class='youtubeembed'
 				    />
 				    <svg
 					version='1.1'
