@@ -104,7 +104,7 @@ export async function getContent(slug) {
 				    class='full'
 				>
 				    <img
-					src='https://img.youtube.com/vi/${videoId}/mqdefault.jpg'
+					src='https://img.youtube.com/vi/${videoId}/sddefault.jpg'
 					class='full'
 				    />
 				    <svg
