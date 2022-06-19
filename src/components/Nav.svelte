@@ -2,26 +2,10 @@
 	import MobileMenu from './MobileMenu.svelte';
 	import { REPO_URL } from '$lib/siteConfig';
 	import NavLink from './NavLink.svelte';
-	let isDark = false;
-	if (typeof localStorage !== 'undefined') {
-		if (
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-		) {
-			isDark = true;
-		}
-	}
-	function toggleDarkMode() {
-		if (isDark) {
-			document.documentElement.classList.remove('dark');
-			localStorage.theme = 'light';
-			isDark = false;
-		} else {
-			document.documentElement.classList.add('dark');
-			localStorage.theme = 'dark';
-			isDark = true;
-		}
-	}
+	import {darkModeStore} from 'everything-store';
+
+	const darkModeState = darkModeStore()
+	
 </script>
 
 <nav
@@ -93,9 +77,9 @@
 			aria-label="Toggle Dark Mode"
 			class="ml-1 flex h-9 w-9 items-center justify-center rounded-lg bg-yellow-400 ring-yellow-400
 			transition-all hover:ring-2 dark:bg-yellow-800"
-			on:click={toggleDarkMode}
+			on:click={darkModeState.toggleDark}
 		>
-			{#if isDark}
+			{#if $darkModeState !== 'dark'}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 24 24"
