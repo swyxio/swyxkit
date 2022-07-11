@@ -79,6 +79,8 @@ npm run start
 
 You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/).
 
+> July 2022 note: there was a [breaking change in Sveltekit](https://github.com/sveltejs/kit/issues/5337) where you may have to set a Netlify environment variable `AWS_LAMBDA_JS_RUNTIME` to `nodejs16.x` to get serverless rendering to work.
+
 However, to have new posts show up, you will need to personalize the siteConfig below - take note of `APPROVED_POSTERS_GH_USERNAME` in particular (this is an allowlist of people who can post a blog by opening a github issue, otherwise any rando can blog and thats not good).
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit)
