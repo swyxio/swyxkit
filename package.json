@@ -3,10 +3,10 @@
 	"private": true,
 	"version": "0.0.1",
 	"scripts": {
-		"start": "svelte-kit dev",
-		"build": "svelte-kit build",
+		"start": "vite dev",
+		"build": "vite build",
 		"package": "svelte-kit package",
-		"preview": "svelte-kit preview",
+		"preview": "vite preview",
 		"prepare": "svelte-kit sync",
 		"check": "svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",
@@ -17,7 +17,7 @@
 	"devDependencies": {
 		"@playwright/test": "^1.22.2",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.62",
-		"@sveltejs/kit": "^1.0.0-next.345",
+		"@sveltejs/kit": "^1.0.0-next.373",
 		"@tailwindcss/typography": "^0.5.2",
 		"@typescript-eslint/eslint-plugin": "^5.26.0",
 		"@typescript-eslint/parser": "^5.26.0",
@@ -53,7 +53,8 @@
 		"typescript": "^4.7.2",
 		"unified": "^10.1.2",
 		"vfile": "^5.3.2",
-		"vfile-reporter": "^7.0.4"
+		"vfile-reporter": "^7.0.4",
+		"vite": "^3.0.0"
 	},
 	"engines": {
 		"node": ">=16.7"
