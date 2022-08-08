@@ -39,17 +39,20 @@
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
 	import Newsletter from '../components/Newsletter.svelte';
 	import Reactions from '../components/Reactions.svelte';
+	import { page } from '$app/stores';
 
 	/** @type {import('$lib/types').ContentItem} */
 	export let json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
+
+	$: canonical = SITE_URL + $page.url.pathname;
 </script>
 
 <svelte:head>
 	<title>{json.title}</title>
 	<meta name="description" content="swyxkit blog" />
 
-	<link rel="canonical" href={SITE_URL} />
-	<meta property="og:url" content={SITE_URL} />
+	<link rel="canonical" href={canonical} />
+	<meta property="og:url" content={canonical} />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={json.title} />
 	<meta name="Description" content={json.description} />

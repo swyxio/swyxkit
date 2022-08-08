@@ -55,7 +55,7 @@
 		"vfile-reporter": "^7.0.4"
 	},
 	"engines": {
-		"node": ">=14.17"
+		"node": ">=16.7"
 	},
 	"type": "module",
 	"dependencies": {
