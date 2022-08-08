@@ -14,6 +14,7 @@
 	export let url;
 	export let status;
 	export let error;
+	console.log({error,status, url})
 
 	const offline = typeof navigator !== 'undefined' && navigator.onLine === false;
 

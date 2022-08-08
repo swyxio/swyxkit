@@ -3,7 +3,7 @@ import { listContent } from '$lib/content';
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
  */
-export async function get() {
+export async function GET() {
 	const list = await listContent();
 	return {
 		body: list,
