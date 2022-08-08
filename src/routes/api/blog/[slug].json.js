@@ -3,7 +3,7 @@ import { getContent } from '$lib/content';
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
  */
-export async function get({ params }) {
+export async function GET({ params }) {
 	const { slug } = params;
 	let data;
 	try {
