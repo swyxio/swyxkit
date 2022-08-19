@@ -1,6 +1,8 @@
 <script>
 	import { SITE_TITLE } from '$lib/siteConfig';
 
+	import queryString from 'query-string';
+	import { onMount } from 'svelte';
 
 	import IndexCard from '../../components/IndexCard.svelte';
 
@@ -11,16 +13,74 @@
 	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
 	/** @type {import('$lib/types').ContentItem[]} */
 	$: items = data.items; 
-
-
 	
+
 	let inputEl;
+	let search;
+
+	let urlState = { filter: '', show: [] };
+	let defaultURLState = { filter: '', show: [] };
+
+	const setURLState = (newState) => {
+		const finalState = { ...urlState, ...newState }; // merge with existing urlstate
+		urlState = finalState;
+		Object.keys(finalState).forEach(function (k) {
+			if (
+				// don't save some state values if it meets the conditions below
+				!finalState[k] || // falsy
+				finalState[k] === '' || // string
+				(Array.isArray(finalState[k]) && !finalState[k].length) || // array
+				finalState[k] === defaultURLState[k] // same as default state, unnecessary
+			) {
+				delete finalState[k]; // drop query params with new values = falsy
+			}
+		});
+		if (typeof window !== 'undefined')
+			history.pushState(
+				{},
+				'',
+				document.location.origin +
+					document.location.pathname +
+					'?' +
+					queryString.stringify(finalState)
+			);
+	};
+
+	onMount(() => {
+		if (location.search.length < 1) return; // early terminate if no search
+		let givenstate = queryString.parse(location.search);
+		if (!Array.isArray(givenstate.show)) givenstate.show = [givenstate.show];
+		// if (!givenstate.show.includes('Essays')) essays = false;
+		// if (!givenstate.show.includes('Talks')) talks = false;
+		// if (!givenstate.show.includes('Podcasts')) podcasts = false;
+		// if (!givenstate.show.includes('Tutorials')) tutorials = false;
+		// if (!givenstate.show.includes('Snippets')) snippets = false;
+		// if (!givenstate.show.includes('Notes')) notes = false;
+		if (givenstate.filter) search = givenstate.filter;
+		urlState = { ...defaultURLState, ...givenstate };
+	});
+	function saveURLState() {
+		setTimeout(() => {
+			setURLState({
+				filter: search,
+				show: [
+					// essays && 'Essays',
+					// talks && 'Talks',
+					// podcasts && 'Podcasts',
+					// snippets && 'Snippets',
+					// tutorials && 'Tutorials',
+					// notes && 'Notes'
+				].filter(Boolean)
+			});
+		}, 100);
+	}
+
+
 	function focusSearch(e) {
 		if (e.key === '/' && inputEl) inputEl.select();
 	}
 
 	let isTruncated = items?.length > 20;
-	let search;
 	$: list = items
 		.filter((item) => {
 			if (search) {
