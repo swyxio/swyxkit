@@ -1,4 +1,6 @@
-<script context="module">
+<script>
+	import Newsletter from '../components/Newsletter.svelte';
+	import FeatureCard from '../components/FeatureCard.svelte';
 	import {
 		SITE_URL,
 		REPO_URL,
@@ -8,11 +10,7 @@
 		MY_TWITTER_HANDLE
 	} from '$lib/siteConfig';
 	export const prerender = true; // index page is most visited, lets prerender
-</script>
 
-<script>
-	import Newsletter from '../components/Newsletter.svelte';
-	import FeatureCard from '../components/FeatureCard.svelte';
 </script>
 
 <svelte:head>
@@ -50,7 +48,7 @@
 			<h2 class="mb-4 text-gray-700 dark:text-gray-200">
 				An opinionated blog starter for <span class="font-semibold"
 					>SvelteKit + Tailwind + Netlify.</span
-				> Refreshed for 2022!
+				> Refreshed <a href="https://github.com/sveltejs/kit/discussions/5774">the great SvelteKit redesign of Summer 2022</a>
 			</h2>
 			<p class="mb-16 text-gray-600 dark:text-gray-400">
 				<a href={REPO_URL}>View source here!</a>
