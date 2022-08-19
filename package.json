@@ -14,14 +14,14 @@
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.24.2",
+		"@playwright/test": "^1.25.0",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.71",
-		"@sveltejs/kit": "^1.0.0-next.405",
+		"@sveltejs/kit": "^1.0.0-next.423",
 		"@tailwindcss/typography": "^0.5.4",
-		"@typescript-eslint/eslint-plugin": "^5.32.0",
-		"@typescript-eslint/parser": "^5.32.0",
+		"@typescript-eslint/eslint-plugin": "^5.33.1",
+		"@typescript-eslint/parser": "^5.33.1",
 		"autoprefixer": "^10.4.8",
-		"eslint": "^8.21.0",
+		"eslint": "^8.22.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"gray-matter": "^4.0.3",
@@ -45,7 +45,7 @@
 		"remark-toc": "^8.0.1",
 		"rss": "^1.2.2",
 		"svelte": "^3.49.0",
-		"svelte-check": "^2.8.0",
+		"svelte-check": "^2.8.1",
 		"svelte-preprocess": "^4.10.7",
 		"tailwindcss": "^3.1.8",
 		"tslib": "^2.4.0",
@@ -59,11 +59,11 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"date-fns": "^2.29.1",
+		"date-fns": "^2.29.2",
 		"node-fetch": "2.6.7",
 		"parse-link-header": "^2.0.0",
 		"prism-themes": "^1.9.0",
-		"shiki": "^0.10.1",
+		"shiki": "^0.11.1",
 		"slugify": "^1.6.5",
 		"snarkdown": "^2.0.0"
 	}

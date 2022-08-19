@@ -1,20 +1,17 @@
+// import { json } from '@sveltejs/kit';
 import { listContent } from '$lib/content';
 
 /**
- * @type {import('@sveltejs/kit').RequestHandler}
+ * @type {import('./$types').RequestHandler}
  */
-export async function GET() {
+export async function GET({ setHeaders }) {
 	const list = await listContent();
-	return {
-		body: list,
-		// .map(item => {
-		// 	delete item.content // so that you dont send so much over the wire
-		// 	// this is an ok strategy until you get to thousands of content,
-		// 	// in that case you should probably redo the list/item data fetch strategy
-		// 	return item
-		// })
+	setHeaders({
+		'Cache-Control': `max-age=0, s-maxage=${60}` // 1 minute.. for now
+	})
+	return new Response(JSON.stringify(list), {
 		headers: {
-			'Cache-Control': `max-age=0, s-maxage=${60}` // 1 minute.. for now
+			'content-type': 'application/json; charset=utf-8'
 		}
-	};
+	})
 }

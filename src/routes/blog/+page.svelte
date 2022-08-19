@@ -1,46 +1,25 @@
-<script context="module">
-	import {
-		SITE_TITLE
-	} from '$lib/siteConfig';
-
-	// export const prerender = true; // turned off so it refreshes quickly
-	export async function load({ params, fetch }) {
-		const res = await fetch(`/api/listContent.json`);
-		// alternate strategy https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
-		// Object.entries(import.meta.glob('./*.md')).map(async ([path, page]) => {
-		if (res.status > 400) {
-			return {
-				status: res.status,
-				error: await res.text()
-			};
-		}
-
-		/** @type {import('$lib/types').ContentItem[]} */
-		const items = await res.json();
-		return {
-			props: { items },
-			cache: {
-				maxage: 60 // 1 minute
-			}
-		};
-	}
-</script>
-
 <script>
-	import IndexCard from '../components/IndexCard.svelte';
+	import { SITE_TITLE } from '$lib/siteConfig';
 
-	export let list;
+
+	import IndexCard from '../../components/IndexCard.svelte';
+
+
+	/** @type {import('./$types').PageData} */
+	export let data;
 
 	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
 	/** @type {import('$lib/types').ContentItem[]} */
-	export let items;
+	$: items = data.items; 
 
+
+	
 	let inputEl;
 	function focusSearch(e) {
 		if (e.key === '/' && inputEl) inputEl.select();
 	}
 
-	let isTruncated = items.length > 20;
+	let isTruncated = items?.length > 20;
 	let search;
 	$: list = items
 		.filter((item) => {
