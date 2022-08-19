@@ -12,6 +12,10 @@
 		title = 'Page not found :(';
 		message = 'Sorry! If you think this URL is broken, please let me know!';
 	}
+
+	function displayPathname(str) {
+		return decodeURIComponent(str).replace(/-/g, ' ');
+	}
 </script>
 
 <svelte:head>
@@ -23,7 +27,7 @@
 
 	{#if $page.status === 404}
 		<p class="">There is no post at the slug <code>{$page.url.pathname}</code>.</p>
-		<p><a href={'/blog/?filter=' + $page.url.pathname.slice(1)}>Try searching for "{$page.url.pathname.slice(1)}" here!</a></p>
+		<p><a href={'/blog/?filter=' + $page.url.pathname.slice(1)}>Try searching for "{displayPathname($page.url.pathname.slice(1))}" here!</a></p>
 		<p class="">If you believe this was a bug, please let me know!</p>
 	{:else}
 		<p class="font-mono">{message}</p>

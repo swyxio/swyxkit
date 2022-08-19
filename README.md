@@ -52,6 +52,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
   - [Comments are rendered and sanitized](https://github.com/developit/snarkdown/issues/70)
   - Error page (try going to URL that doesnt exist)
     - including nice error when github api rate limit exceeded - fix with `GH_TOKEN`
+    - the 404 page includes a link you can click that sends you back to the search index with the search terms
   - Navlink hover effect
   - [Mobile/Responsive styling](https://swyxkit.netlify.app/mobileresponsive-styling-with-tailwind)
     - Mobile menu with animation
