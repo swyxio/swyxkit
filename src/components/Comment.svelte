@@ -43,7 +43,6 @@
 	//   const snarkdown = await import('snarkdown')
 	//   const res = await (await fetch(comment.url)).json()
 	//   html = snarkdown.default(res.body);
-	//   console.log(html);
 	// }
 </script>
 

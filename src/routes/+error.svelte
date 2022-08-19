@@ -14,7 +14,7 @@
 	}
 
 	function displayPathname(str) {
-		return decodeURIComponent(str).replace(/-/g, ' ');
+		return decodeURIComponent(str).replaceAll('-', ' ');
 	}
 </script>
 
