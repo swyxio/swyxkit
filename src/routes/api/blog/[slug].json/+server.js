@@ -14,6 +14,6 @@ export async function GET({ params }) {
 			}
 		});
 	} catch (err) {
-		error(404, err.message)
+		throw error(404, err.message)
 	}
 }
