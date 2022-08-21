@@ -205,7 +205,7 @@ function parseIssue(issue) {
 		tags,
 		image: data.image ?? data.cover_image,
 		canonical: data.canonical, // for canonical URLs of something published elsewhere
-		slug: slug.toLowerCase(),
+		slug: slug.toString().toLowerCase(),
 		date: new Date(data.date ?? issue.created_at),
 		ghMetadata: {
 			issueUrl: issue.html_url,
