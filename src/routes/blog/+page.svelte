@@ -1,11 +1,11 @@
 <script>
-	import { SITE_TITLE } from '$lib/siteConfig';
+	import { browser } from '$app/env';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 
-	import queryString from 'query-string';
-	import { onMount } from 'svelte';
+	import { SITE_TITLE, POST_CATEGORIES } from '$lib/siteConfig';
 
 	import IndexCard from '../../components/IndexCard.svelte';
-
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -13,68 +13,20 @@
 	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
 	/** @type {import('$lib/types').ContentItem[]} */
 	$: items = data.items; 
-	
+
+	function searchParamToArray(key) {
+		return ($page.url.searchParams.get(key) || '').split(',').filter((e) => e);
+	}
+
+	$: categories = searchParamToArray('show')
+	let selectedCategories = categories || []
+	$: if (browser) {
+		$page.url.searchParams.set('show', selectedCategories.toString());
+		goto(`?${$page.url.searchParams.toString()}`, { noscroll: true, keepfocus: true });
+	}
 
 	let inputEl;
 	let search;
-
-	let urlState = { filter: '', show: [] };
-	let defaultURLState = { filter: '', show: [] };
-
-	const setURLState = (newState) => {
-		const finalState = { ...urlState, ...newState }; // merge with existing urlstate
-		urlState = finalState;
-		Object.keys(finalState).forEach(function (k) {
-			if (
-				// don't save some state values if it meets the conditions below
-				!finalState[k] || // falsy
-				finalState[k] === '' || // string
-				(Array.isArray(finalState[k]) && !finalState[k].length) || // array
-				finalState[k] === defaultURLState[k] // same as default state, unnecessary
-			) {
-				delete finalState[k]; // drop query params with new values = falsy
-			}
-		});
-		if (typeof window !== 'undefined')
-			history.pushState(
-				{},
-				'',
-				document.location.origin +
-					document.location.pathname +
-					'?' +
-					queryString.stringify(finalState)
-			);
-	};
-
-	onMount(() => {
-		if (location.search.length < 1) return; // early terminate if no search
-		let givenstate = queryString.parse(location.search);
-		if (!Array.isArray(givenstate.show)) givenstate.show = [givenstate.show];
-		// if (!givenstate.show.includes('Essays')) essays = false;
-		// if (!givenstate.show.includes('Talks')) talks = false;
-		// if (!givenstate.show.includes('Podcasts')) podcasts = false;
-		// if (!givenstate.show.includes('Tutorials')) tutorials = false;
-		// if (!givenstate.show.includes('Snippets')) snippets = false;
-		// if (!givenstate.show.includes('Notes')) notes = false;
-		if (givenstate.filter) search = givenstate.filter;
-		urlState = { ...defaultURLState, ...givenstate };
-	});
-	function saveURLState() {
-		setTimeout(() => {
-			setURLState({
-				filter: search,
-				show: [
-					// essays && 'Essays',
-					// talks && 'Talks',
-					// podcasts && 'Podcasts',
-					// snippets && 'Snippets',
-					// tutorials && 'Tutorials',
-					// notes && 'Notes'
-				].filter(Boolean)
-			});
-		}, 100);
-	}
-
 
 	function focusSearch(e) {
 		if (e.key === '/' && inputEl) inputEl.select();
@@ -82,6 +34,14 @@
 
 	let isTruncated = items?.length > 20;
 	$: list = items
+		.filter((item) => {
+				if (selectedCategories.length) {
+					return selectedCategories.map(
+						element => {return element.toLowerCase();}
+					).includes(item.category.toLowerCase());
+				}
+				return true
+			})
 		.filter((item) => {
 			if (search) {
 				return item.title.toLowerCase().includes(search.toLowerCase());
@@ -129,6 +89,24 @@
 			/></svg
 		>
 	</div>
+	<div class="mb-12 mt-2 flex items-center ">
+		<div class="mr-2 text-gray-900 dark:text-gray-400">Filter:</div>
+		<div class="grid grid-cols-3 rounded-md shadow-sm sm:grid-cols-6">
+			{#each POST_CATEGORIES as availableCategory}
+				<div>
+					<input
+						id="category-{availableCategory}"
+						class="peer sr-only"
+						type="checkbox" bind:group={selectedCategories} value={availableCategory} 
+					/>
+					<label for="category-{availableCategory}" class="inline-flex justify-between items-center px-4 py-2 w-full text-gray-500 bg-white border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-purple-500 peer-checked:border-purple-600 peer-checked:text-purple-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+						{availableCategory}
+					</label>
+				</div>
+			{/each}
+		</div>
+	</div>
+
 	{#if !search}
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 			Most Popular
@@ -147,6 +125,7 @@
 			All Posts
 		</h3>
 	{/if}
+
 	{#if list.length}
 		<ul class="">
 			{#each list as item}

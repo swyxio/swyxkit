@@ -111,6 +111,7 @@ export const DEFAULT_OG_IMAGE =
 	'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
 export const MY_TWITTER_HANDLE = 'swyx';
 export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
+export const POST_CATEGORIES = ['Blog']
 ```
 
 Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items, for example
