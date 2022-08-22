@@ -67,6 +67,8 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
   - ESLint + Prettier
   - [Nightly lockfile upgrades](https://mobile.twitter.com/FredKSchott/status/1489287560387956736)
 
+This is a partial implementation of https://www.swyx.io/the-surprisingly-high-table-stakes-of-modern-blogs/
+
 ## Setup
 
 ### Step 0: Clone project (and deploy)
