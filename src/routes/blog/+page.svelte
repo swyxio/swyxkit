@@ -23,7 +23,8 @@
 	
 
 	let inputEl;
-	let search;
+	let search = $page.url.searchParams.get('filter') || ''
+	
 	$: if (browser) {
 		if (selectedCategories.length) {
 			$page.url.searchParams.set('show', selectedCategories.toString());
