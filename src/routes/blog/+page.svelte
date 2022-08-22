@@ -20,13 +20,23 @@
 
 	$: categories = searchParamToArray('show')
 	let selectedCategories = categories || []
-	$: if (browser) {
-		$page.url.searchParams.set('show', selectedCategories.toString());
-		goto(`?${$page.url.searchParams.toString()}`, { noscroll: true, keepfocus: true });
-	}
+	
 
 	let inputEl;
 	let search;
+	$: if (browser) {
+		if (selectedCategories.length) {
+			$page.url.searchParams.set('show', selectedCategories.toString());
+		} else {
+			$page.url.searchParams.delete('show');
+		}
+		if (search) {
+			$page.url.searchParams.set('filter', search);
+		} else {
+			$page.url.searchParams.delete('filter');
+		}
+		goto(`?${$page.url.searchParams.toString()}`, { noscroll: true, keepfocus: true });
+	}
 
 	function focusSearch(e) {
 		if (e.key === '/' && inputEl) inputEl.select();
