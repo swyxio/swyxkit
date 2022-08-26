@@ -7,7 +7,7 @@ test('about page has expected h1', async ({ page }) => {
 
 test.describe('test blog page', () => {
     test('blog page to preserve url params', async ({ page }) => {
-        // Go to http://127.0.0.1:4173/
+        // Go to http://localhost:4173/
         await page.goto('/blog');
     
         // Click [placeholder="Hit \/ to search"]
@@ -19,6 +19,11 @@ test.describe('test blog page', () => {
     
         // Click label:has-text("Blog")
         await page.locator('label:has-text("Blog")').click();
+        await expect(page).toHaveURL('http://localhost:4173/blog?filter=test&show=Blog');
+    });
+    
+    test('blog to honour existing params', async ({ page }) => {
+        await page.goto('http://localhost:4173/blog?filter=test&show=Blog');
         await expect(page).toHaveURL('http://localhost:4173/blog?filter=test&show=Blog');
     });
 });

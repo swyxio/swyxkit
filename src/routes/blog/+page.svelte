@@ -18,13 +18,10 @@
 		return ($page.url.searchParams.get(key) || '').split(',').filter((e) => e);
 	}
 
-	$: categories = searchParamToArray('show')
-	let selectedCategories = categories || []
-	
-
-	let inputEl;
+	let selectedCategories = searchParamToArray('show')
 	let search = $page.url.searchParams.get('filter') || ''
-	
+	let inputEl;
+
 	$: if (browser) {
 		if (selectedCategories.length) {
 			$page.url.searchParams.set('show', selectedCategories.toString());
