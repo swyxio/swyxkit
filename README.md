@@ -9,6 +9,10 @@ A lightly opinionated starter for SvelteKit blogs:
 
 Feel free to rip out these opinions as you see fit of course.
 
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit)
+
+
 ## Live Demo
 
 See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/sites/swyxkit/deploys))
@@ -76,12 +80,30 @@ This is a partial implementation of https://www.swyx.io/the-surprisingly-high-ta
 
 ```bash
 npx degit https://github.com/sw-yx/swyxkit
-cp .env.example .env
+cp .env.example .env # copies out .env example
 npm install
-npm run start
+# npm run start # optional: This will start the site, without any content.
 ```
 
-### Update the values in .env file
+You can also try deploying to Netlify (multiple ways to do this, we show using the Netlify CLI):
+
+```bash
+# these are just untested, suggested commands, use your discretion to hook it up or deploy wherever
+git init
+git add .
+git commit -m "initial commit"
+gh repo create # make a new public github repo and name it whatever
+git push origin master
+ntl init # use the netlify cli to deploy, assuming you already installed it and logged in. can also use `ntl deploy`
+```
+
+</details>
+
+
+### Step 1: Update the values in `.env` file
+
+To have new posts show up [when you make new posts](#step-2-make-your-first-post), you will need to personalize the siteConfig below - take note of `APPROVED_POSTERS_GH_USERNAME` in particular (this is an allowlist of people who can post a blog by opening a github issue, otherwise any rando can blog and thats not good).
+
 ```
 PUBLIC_SITE_URL=https://swyxkit.netlify.app
 PUBLIC_APPROVED_POSTERS_GH_USERNAME=sw-yx // (comma separated github usernames allowed to create post in the blog)
@@ -95,26 +117,16 @@ PUBLIC_POST_CATEGORIES=Blog // (comma separated Tags to allow post filtering)
 GH_TOKEN=
 ```
 
-If `GH_TOKEN` is supplied, it [raises GitHub issue request rate limit from 60 to 5000](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting).
-If you do not want to add `GH_TOKEN`, just leave it empty.
+#### Side note on GH_TOKEN
 
-> July 2022 note: there was a [breaking change in Sveltekit](https://github.com/sveltejs/kit/issues/5337) where you may have to set a Netlify environment variable `AWS_LAMBDA_JS_RUNTIME` to `nodejs16.x` to get serverless rendering to work.
+This blog uses GitHub Issues as a CMS - meaning it reads content from the same github repo the blog deploys from, instead of from static markdown files. if you are doing any serious development at all, you should give the `GH_TOKEN` env variable to [raise the rate limit from 60 to 5000](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting).
 
-However, to have new posts show up, you will need to personalize the siteConfig below - take note of `APPROVED_POSTERS_GH_USERNAME` in particular (this is an allowlist of people who can post a blog by opening a github issue, otherwise any rando can blog and thats not good).
+- to get a `GH_TOKEN`, make a personal access token [here](https://github.com/settings/tokens/new) with default permissions, should be enough.
+- run this project with the token exported, e.g. `export GH_TOKEN=ghp_7dM4woWnUWFk9tsMZXZSxeSI5exampletoken`
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit)
+When deploying, don't forget to [set the env variable in Netlify](https://docs.netlify.com/configure-builds/environment-variables/#declare-variables): https://app.netlify.com/sites/**YOUR_SITE**/settings/deploys#environment
 
-```bash
-# these are just untested, suggested commands, use your discretion to hook it up or deploy wherever
-git init
-git add .
-git commit -m "initial commit"
-gh repo create # make a new public github repo and name it whatever
-git push origin master
-ntl init # use the netlify cli to deploy, assuming you already installed it and logged in. can also use `ntl deploy`
-```
-
-### Step 1: Personalization Configuration
+### Step 2: Personalization Configuration
 
 Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items, for example
 
@@ -123,15 +135,7 @@ Of course, you should then go page by page (there aren't that many) and customiz
 - site favicons (use https://realfavicongenerator.net/ to make all the variants and stick it in `/static`)
 - (if migrating content from previous blog) setup Netlify redirects at `/static/_redirects`
 
-This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give the `GH_TOKEN` env variable to raise rate limit from 60 to 5000.
-
-- Just make a really basic personal access token [here](https://github.com/settings/tokens/new), should be enough.
-  https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
-- and [set the env variables in Netlify](https://docs.netlify.com/configure-builds/environment-variables/#declare-variables)
-
-When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites/YOUR_SITE/settings/deploys#environment
-
-### Step 2: Make your first post
+### Step 3: Make your first post
 
 Open a new Github issue on your new repo, write some title and markdown in the body, **add a `Published` tag**, and then save.
 
@@ -144,7 +148,7 @@ If all of this is annoying feel free to rip out the GitHub Issues CMS wiring and
 ## Optimizations to try after you are done deploying
 
 - Customize your JSON+LD for [FAQ pages](https://rodneylab.com/sveltekit-faq-page-seo/), [organization, or products](https://navillus.dev/blog/json-ld-in-sveltekit). There is a schema for blogposts, but it is so dead simple that swyxkit does not include it.
-- Testing - make sure you have run `npx playwright install` and then you can run `npm run test`
+- **Testing** - make sure you have run `npx playwright install` and then you can run `npm run test`
 
 ## Further Reading
 
