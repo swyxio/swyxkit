@@ -36,7 +36,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
     - Consumes markdown/MDSveX
       - with syntax highlighting
       - fixes for [known MDSvex render issue](https://github.com/pngwn/MDsveX/issues/392)
-  - RSS (at `/api/rss.xml`) with caching
+  - RSS (at `/api/rss.xml`), and [sitemap.xml](https://github.com/sw-yx/swyxkit/pull/98) with caching
 - **Performance/Security touches**
   - set [`s-maxage`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#s-maxage) (not `max-age`) to 1 minute to cache (consider making it 1-7 days on older posts)
     - for API endpoints as well as pages
