@@ -95,9 +95,8 @@ PUBLIC_POST_CATEGORIES=Blog // (comma separated Tags to allow post filtering)
 GH_TOKEN=
 ```
 
-If you do not want to add GH_TOKEN just leave it empty in environment varioable but do not remove it.
-GH_TOKEN if supplied, raises rate limit from 60 to 5000
-https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
+If `GH_TOKEN` is supplied, it [raises GitHub issue request rate limit from 60 to 5000](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting).
+If you do not want to add `GH_TOKEN`, just leave it empty.
 
 > July 2022 note: there was a [breaking change in Sveltekit](https://github.com/sveltejs/kit/issues/5337) where you may have to set a Netlify environment variable `AWS_LAMBDA_JS_RUNTIME` to `nodejs16.x` to get serverless rendering to work.
 
