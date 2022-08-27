@@ -4,7 +4,7 @@ import grayMatter from 'gray-matter';
 import fetch from 'node-fetch';
 import { GH_USER_REPO, APPROVED_POSTERS_GH_USERNAME } from './siteConfig';
 import parse from 'parse-link-header';
-import slugify from 'slugify';
+import slugify from '@sindresorhus/slugify';
 
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
