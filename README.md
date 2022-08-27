@@ -49,6 +49,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
 - **Minor design/UX touches**
   - Top level blog URLs (`/myblog` instead of `/blog/myblog` - [why](https://www.swyx.io/namespacing-sites/))
   - Blog index truncates at 20 posts to make sure to render quickly
+  - Blog search/facets serialize to URLs for easy copy paste ([thanks @Ak4zh](https://github.com/sw-yx/swyxkit/pull/97))
   - [Comments are rendered and sanitized](https://github.com/developit/snarkdown/issues/70)
   - Error page (try going to URL that doesnt exist)
     - including nice error when github api rate limit exceeded - fix with `GH_TOKEN`
