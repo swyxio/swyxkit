@@ -49,6 +49,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
 - **Minor design/UX touches**
   - Top level blog URLs (`/myblog` instead of `/blog/myblog` - [why](https://www.swyx.io/namespacing-sites/))
   - Blog index truncates at 20 posts to make sure to render quickly
+  - Blog search/facets serialize to URLs for easy copy paste ([thanks @Ak4zh](https://github.com/sw-yx/swyxkit/pull/97))
   - [Comments are rendered and sanitized](https://github.com/developit/snarkdown/issues/70)
   - Error page (try going to URL that doesnt exist)
     - including nice error when github api rate limit exceeded - fix with `GH_TOKEN`
@@ -113,6 +114,7 @@ export const DEFAULT_OG_IMAGE =
 	'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
 export const MY_TWITTER_HANDLE = 'swyx';
 export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
+export const POST_CATEGORIES = ['Blog'] // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
 ```
 
 Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items, for example
