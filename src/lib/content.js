@@ -2,7 +2,7 @@ import { compile } from 'mdsvex';
 import { dev } from '$app/env';
 import grayMatter from 'gray-matter';
 import fetch from 'node-fetch';
-import { GH_USER_REPO, APPROVED_POSTERS_GH_USERNAME } from './siteConfig';
+import { GH_USER_REPO, APPROVED_POSTERS_GH_USERNAME, GH_TOKEN } from './siteConfig';
 import parse from 'parse-link-header';
 import slugify from 'slugify';
 
@@ -36,8 +36,8 @@ export async function listContent() {
 	let _allBlogposts = [];
 	let next = null;
 	let limit = 0; // just a failsafe against infinite loop - feel free to remove
-	const authheader = process.env.GH_TOKEN && {
-		Authorization: `token ${process.env.GH_TOKEN}`
+	const authheader = GH_TOKEN && {
+		Authorization: `token ${GH_TOKEN}`
 	};
 	do {
 		const res = await fetch(
@@ -77,7 +77,7 @@ export async function getContent(slug) {
 		console.log('loaded ' + allBlogposts.length + ' blogposts');
 		if (!allBlogposts.length)
 			throw new Error(
-				'failed to load blogposts for some reason. check token' + process.env.GH_TOKEN
+				'failed to load blogposts for some reason. check token' + GH_TOKEN
 			);
 	}
 	if (!allBlogposts.length) throw new Error('no blogposts');
