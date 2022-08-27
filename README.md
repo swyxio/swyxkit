@@ -76,12 +76,28 @@ This is a partial implementation of https://www.swyx.io/the-surprisingly-high-ta
 
 ```bash
 npx degit https://github.com/sw-yx/swyxkit
-export GH_TOKEN=your_gh_token_here # can skip if just trying out this repo casually
+cp .env.example .env
 npm install
 npm run start
 ```
 
-You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/).
+### Update the values in .env file
+```
+PUBLIC_SITE_URL=https://swyxkit.netlify.app
+PUBLIC_APPROVED_POSTERS_GH_USERNAME=sw-yx // (comma separated github usernames allowed to create post in the blog)
+PUBLIC_GH_USER_REPO=sw-yx/swyxkit
+PUBLIC_SITE_TITLE=SwyxKit
+PUBLIC_SITE_DESCRIPTION=swyxs default SvelteKit + Tailwind starter
+PUBLIC_DEFAULT_OG_IMAGE=https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png
+PUBLIC_MY_TWITTER_HANDLE=swyx
+PUBLIC_MY_YOUTUBE=https://youtube.com/swyxTV
+PUBLIC_POST_CATEGORIES=Blog // (comma separated Tags to allow post filtering)
+PUBLIC_GH_TOKEN=
+```
+
+If you do not want to add PUBLIC_GH_TOKEN just leave it empty in environment varioable but do not remove it.
+PUBLIC_GH_TOKEN if supplied, raises rate limit from 60 to 5000
+https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
 
 > July 2022 note: there was a [breaking change in Sveltekit](https://github.com/sveltejs/kit/issues/5337) where you may have to set a Netlify environment variable `AWS_LAMBDA_JS_RUNTIME` to `nodejs16.x` to get serverless rendering to work.
 
@@ -100,22 +116,6 @@ ntl init # use the netlify cli to deploy, assuming you already installed it and 
 ```
 
 ### Step 1: Personalization Configuration
-
-As you become ready to seriously adopt this, remember to configure `/lib/siteConfig.js` - just some hardcoded vars i want you to remember to configure.
-
-```js
-export const SITE_URL = 'https://swyxkit.netlify.app';
-export const APPROVED_POSTERS_GH_USERNAME = ['sw-yx']; // IMPORTANT - change this to at least your github username, or add others if you want
-export const GH_USER_REPO = 'sw-yx/swyxkit'; // used for pulling github issues and offering comments
-export const REPO_URL = 'https://github.com/' + GH_USER_REPO;
-export const SITE_TITLE = 'SwyxKit';
-export const SITE_DESCRIPTION = "swyx's default SvelteKit + Tailwind starter";
-export const DEFAULT_OG_IMAGE =
-	'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
-export const MY_TWITTER_HANDLE = 'swyx';
-export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
-export const POST_CATEGORIES = ['Blog'] // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
-```
 
 Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items, for example
 
