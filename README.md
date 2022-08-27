@@ -92,11 +92,11 @@ PUBLIC_DEFAULT_OG_IMAGE=https://user-images.githubusercontent.com/6764957/147861
 PUBLIC_MY_TWITTER_HANDLE=swyx
 PUBLIC_MY_YOUTUBE=https://youtube.com/swyxTV
 PUBLIC_POST_CATEGORIES=Blog // (comma separated Tags to allow post filtering)
-PUBLIC_GH_TOKEN=
+GH_TOKEN=
 ```
 
-If you do not want to add PUBLIC_GH_TOKEN just leave it empty in environment varioable but do not remove it.
-PUBLIC_GH_TOKEN if supplied, raises rate limit from 60 to 5000
+If you do not want to add GH_TOKEN just leave it empty in environment varioable but do not remove it.
+GH_TOKEN if supplied, raises rate limit from 60 to 5000
 https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
 
 > July 2022 note: there was a [breaking change in Sveltekit](https://github.com/sveltejs/kit/issues/5337) where you may have to set a Netlify environment variable `AWS_LAMBDA_JS_RUNTIME` to `nodejs16.x` to get serverless rendering to work.

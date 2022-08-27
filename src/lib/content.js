@@ -2,7 +2,8 @@ import { compile } from 'mdsvex';
 import { dev } from '$app/env';
 import grayMatter from 'gray-matter';
 import fetch from 'node-fetch';
-import { GH_USER_REPO, APPROVED_POSTERS_GH_USERNAME, GH_TOKEN } from './siteConfig';
+import { GH_USER_REPO, APPROVED_POSTERS_GH_USERNAME } from './siteConfig';
+import { GH_TOKEN } from '$env/static/private'
 import parse from 'parse-link-header';
 import slugify from 'slugify';
 
