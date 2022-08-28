@@ -1,19 +1,17 @@
 import { SITE_URL } from '$lib/siteConfig';
 import { listContent } from '$lib/content';
 
-export async function get() {
+export async function GET() {
 	const posts = await listContent();
 	const pages = [`about`];
 	const body = sitemap(posts, pages);
 
-	const headers = {
-		'Cache-Control': 'max-age=0, s-maxage=3600',
-		'Content-Type': 'application/xml'
-	};
-	return {
-		headers,
-		body
-	};
+  return new Response(body, {
+    headers: {
+      'Cache-Control': `max-age=0, s-maxage=${3600}`,
+      'Content-Type': 'application/xml'
+    }
+  });
 }
 
 const sitemap = (posts, pages) => `<?xml version="1.0" encoding="UTF-8" ?>

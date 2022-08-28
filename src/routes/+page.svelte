@@ -16,7 +16,7 @@
 <svelte:head>
 	<title>{SITE_TITLE}</title>
 	<link rel="canonical" href={SITE_URL} />
-	<link rel="alternate" type="application/rss+xml" href={SITE_URL + '/api/rss.xml'} />
+	<link rel="alternate" type="application/rss+xml" href={SITE_URL + '/rss.xml'} />
 	<meta property="og:url" content={SITE_URL} />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={SITE_TITLE} />
