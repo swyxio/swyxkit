@@ -10,7 +10,7 @@ A lightly opinionated starter for SvelteKit blogs:
 Feel free to rip out these opinions as you see fit of course.
 
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit#PUBLIC_SITE_URL=https://swyxkit.netlify.app&PUBLIC_APPROVED_POSTERS_GH_USERNAME=sw-yx&PUBLIC_GH_USER_REPO=sw-yx/swyxkit&PUBLIC_SITE_TITLE=SwyxKit&PUBLIC_SITE_DESCRIPTION=SvelteKit+Tailwind+starter&PUBLIC_DEFAULT_OG_IMAGE=https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png&PUBLIC_MY_TWITTER_HANDLE=swyx&PUBLIC_MY_YOUTUBE=https://youtube.com/swyxTV&PUBLIC_POST_CATEGORIES=Blog&GH_TOKEN=)
 
 
 ## Live Demo
@@ -74,9 +74,18 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
 
 This is a partial implementation of https://www.swyx.io/the-surprisingly-high-table-stakes-of-modern-blogs/
 
-## Setup
+
+## Quick Deploy
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit#PUBLIC_SITE_URL=https://swyxkit.netlify.app&PUBLIC_APPROVED_POSTERS_GH_USERNAME=sw-yx&PUBLIC_GH_USER_REPO=sw-yx/swyxkit&PUBLIC_SITE_TITLE=SwyxKit&PUBLIC_SITE_DESCRIPTION=SvelteKit+Tailwind+starter&PUBLIC_DEFAULT_OG_IMAGE=https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png&PUBLIC_MY_TWITTER_HANDLE=swyx&PUBLIC_MY_YOUTUBE=https://youtube.com/swyxTV&PUBLIC_POST_CATEGORIES=Blog&GH_TOKEN=)
+
+Clicking on this button will deploy the site to your netlify account with all default environment variables. You can then configure the various environment variables from `Site Settings > Build & Deploy > Environment`. This will also create a repository in your GitHub account with your chosen name.
+
+## Local Development
 
 ### Step 0: Clone project (and deploy)
+
+If you have used the deploy button above simply close the new repository created by Netlify and skip this step.
 
 ```bash
 npx degit https://github.com/sw-yx/swyxkit
@@ -97,12 +106,9 @@ git push origin master
 ntl init # use the netlify cli to deploy, assuming you already installed it and logged in. can also use `ntl deploy`
 ```
 
-</details>
-
-
 ### Step 1: Update the values in `.env` file
 
-To have new posts show up [when you make new posts](#step-2-make-your-first-post), you will need to personalize the siteConfig below - take note of `APPROVED_POSTERS_GH_USERNAME` in particular (this is an allowlist of people who can post a blog by opening a github issue, otherwise any rando can blog and thats not good).
+To have new posts show up [when you make new posts](#step-2-make-your-first-post), you will need to personalize the siteConfig below - take note of `APPROVED_POSTERS_GH_USERNAME` in particular (this is an allowlist of people who can post a blog by opening a github issue, otherwise any random can blog and thats not good).
 
 ```
 PUBLIC_SITE_URL=https://swyxkit.netlify.app
@@ -135,7 +141,7 @@ Of course, you should then go page by page (there aren't that many) and customiz
 - site favicons (use https://realfavicongenerator.net/ to make all the variants and stick it in `/static`)
 - (if migrating content from previous blog) setup Netlify redirects at `/static/_redirects`
 
-### Step 3: Make your first post
+## Make your first post
 
 Open a new Github issue on your new repo, write some title and markdown in the body, **add a `Published` tag**, and then save.
 
