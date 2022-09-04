@@ -30,6 +30,7 @@
 		"postcss-load-config": "^4.0.1",
 		"prettier": "~2.7.1",
 		"prettier-plugin-tailwindcss": "^0.1.13",
+		"reading-time": "^1.5.0",
 		"rehype-autolink-headings": "^6.1.1",
 		"rehype-format": "^4.0.1",
 		"rehype-slug": "^5.0.1",

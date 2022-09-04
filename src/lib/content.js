@@ -1,6 +1,6 @@
 import { compile } from 'mdsvex';
 import { dev } from '$app/env';
-import grayMatter from 'gray-matter';
+import grayMatter, { read } from 'gray-matter';
 import fetch from 'node-fetch';
 import { GH_USER_REPO, APPROVED_POSTERS_GH_USERNAME } from './siteConfig';
 import parse from 'parse-link-header';
@@ -8,6 +8,7 @@ import slugify from '@sindresorhus/slugify';
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutoLink from 'rehype-autolink-headings';
+import readingTime from 'reading-time'
 
 const remarkPlugins = undefined;
 const rehypePlugins = [
@@ -206,6 +207,7 @@ function parseIssue(issue) {
 		canonical: data.canonical, // for canonical URLs of something published elsewhere
 		slug: slug.toString().toLowerCase(),
 		date: new Date(data.date ?? issue.created_at),
+		readingTime: readingTime(content),
 		ghMetadata: {
 			issueUrl: issue.html_url,
 			commentsUrl: issue.comments_url,
