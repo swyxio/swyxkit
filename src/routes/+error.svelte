@@ -1,6 +1,6 @@
 <script>
 	// import Nav from '../components/Nav.svelte';
-	import { dev } from '$app/env';
+	import { dev } from '$app/environment';
   import { page } from '$app/stores';
 
 	const offline = typeof navigator !== 'undefined' && navigator.onLine === false;
