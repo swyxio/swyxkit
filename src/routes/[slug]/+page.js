@@ -1,7 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { REPO_URL } from '$lib/siteConfig';
-// export const prerender = true; // you can uncomment to prerender as an optimization
-export const hydrate = true;
+export const csr = true; // https://github.com/sveltejs/kit/pull/6446
 export async function load({ params, fetch, setHeaders }) {
 	const slug = params.slug;
 	let res = null;

@@ -26,7 +26,7 @@ See https://swyxkit.netlify.app/
     - Comment and Reaction system from Github Issues
     - Consumes markdown/MDSveX
       - with syntax highlighting
-  - RSS (at `/api/rss.xml`) with caching
+  - RSS (at `/rss.xml`) with caching
 - Performance touches
   - no `hydrate` on about and blog pages
     - *update: temporarily disabled while we figure out mobile nav without hydration*
@@ -92,10 +92,6 @@ You can read:
   - RSS
     - https://scottspence.com/posts/make-an-rss-feed-with-sveltekit
     - https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
-    - Reasons it is hard to do dynamic RSS in Sveltekit:
-      - Sveltekit Endpoints dont take over from Sveltekit dynamic param routes (`[slug].svelte` has precedence over `rss.xml.js`)
-      - RSS Endpoint runs locally but doesnt run in Netlify bc no access to the content in prod
-      - approach i went for is to use Vite's `import.meta.globEager` feature and that makes it static for the RSS... 
 - Find more sveltekit projects at https://github.com/janosh/awesome-svelte-kit
 
 ## Todos

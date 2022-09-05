@@ -27,7 +27,7 @@
 			<a class="text-gray-500 transition hover:text-gray-300" href="/">Home</a>
 			<a class="text-gray-500 transition hover:text-gray-300" href="/about">About</a>
 			<a class="text-gray-500 transition hover:text-gray-300" href="/#newsletter">Newsletter</a>
-			<a class="text-gray-500 transition hover:text-gray-300" href="/api/rss.xml" rel="external">
+			<a class="text-gray-500 transition hover:text-gray-300" href="/rss.xml" rel="external">
 				RSS
 			</a>
 		</div>

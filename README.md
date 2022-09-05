@@ -36,7 +36,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
     - Consumes markdown/MDSveX
       - with syntax highlighting
       - fixes for [known MDSvex render issue](https://github.com/pngwn/MDsveX/issues/392)
-  - RSS (at `/api/rss.xml`) with caching
+  - RSS (at `/rss.xml`), and Sitemap (at `sitemap.xml`) with caching
 - **Performance/Security touches**
   - set [`s-maxage`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#s-maxage) (not `max-age`) to 1 minute to cache (consider making it 1-7 days on older posts)
     - for API endpoints as well as pages
@@ -145,6 +145,7 @@ If all of this is annoying feel free to rip out the GitHub Issues CMS wiring and
 ## Optimizations to try after you are done deploying
 
 - Customize your JSON+LD for [FAQ pages](https://rodneylab.com/sveltekit-faq-page-seo/), [organization, or products](https://navillus.dev/blog/json-ld-in-sveltekit). There is a schema for blogposts, but it is so dead simple that swyxkit does not include it.
+- Have a process to [submit your sitemap to Google](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap#addsitemap)? (or configure `robots.txt` and hope it works)
 - Testing - make sure you have run `npx playwright install` and then you can run `npm run test`
 
 ## Further Reading
@@ -169,7 +170,9 @@ You can read:
     - https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
     - Reasons it is hard to do dynamic RSS in Sveltekit:
       - Sveltekit Endpoints dont take over from Sveltekit dynamic param routes (`[slug].svelte` has precedence over `rss.xml.js`)
+        - Aug 2022: now solved due to PlusKit
       - RSS Endpoint runs locally but doesnt run in Netlify bc no access to the content in prod ([SvelteKit issue](https://github.com/sveltejs/kit/issues/3535))
+  - Sitemap.xml https://github.com/sveltejs/kit/issues/1142#issuecomment-1107667691
 - Find more sveltekit projects at https://github.com/janosh/awesome-svelte-kit
 
 ## Todos
