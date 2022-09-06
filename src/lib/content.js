@@ -8,6 +8,7 @@ import slugify from '@sindresorhus/slugify';
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutoLink from 'rehype-autolink-headings';
+import { env as privateEnv } from '$env/dynamic/private';
 
 const remarkPlugins = undefined;
 const rehypePlugins = [
@@ -35,8 +36,8 @@ export async function listContent() {
 	let _allBlogposts = [];
 	let next = null;
 	let limit = 0; // just a failsafe against infinite loop - feel free to remove
-	const authheader = process.env.GH_TOKEN && {
-		Authorization: `token ${process.env.GH_TOKEN}`
+	const authheader = privateEnv.GH_TOKEN && {
+		Authorization: `token ${privateEnv.GH_TOKEN}`
 	};
 	do {
 		const res = await fetch(
@@ -76,7 +77,7 @@ export async function getContent(slug) {
 		console.log('loaded ' + allBlogposts.length + ' blogposts');
 		if (!allBlogposts.length)
 			throw new Error(
-				'failed to load blogposts for some reason. check token' + process.env.GH_TOKEN
+				'failed to load blogposts for some reason. check token' + privateEnv.GH_TOKEN
 			);
 	}
 	if (!allBlogposts.length) throw new Error('no blogposts');
