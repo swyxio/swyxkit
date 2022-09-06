@@ -8,7 +8,6 @@ import slugify from '@sindresorhus/slugify';
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutoLink from 'rehype-autolink-headings';
-import readingTime from 'reading-time'
 
 const remarkPlugins = undefined;
 const rehypePlugins = [
@@ -28,6 +27,16 @@ const publishedTags = ['Published'];
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header
 ``;
+
+/**
+ * @param {string} text
+ * @returns {string}
+ */
+ function readingTime(text) {
+    let minutes = Math.ceil(text.trim().split(' ').length / 225)
+    return minutes > 1 ? `${minutes} minutes` : `${minutes} minute`
+}
+
 export async function listContent() {
 	// use a diff var so as to not have race conditions while fetching
 	// TODO: make sure to handle this better when doing etags or cache restore

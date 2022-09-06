@@ -1,10 +1,3 @@
-interface ReadingTime {
-	text: string,
-	minutes: number,
-	time: number,
-	words: number
-}
-
 export type ContentItem = {
 	type: 'blog';
 	content: string;
@@ -20,7 +13,7 @@ export type ContentItem = {
 	canonical: string;
 	slug: string;
 	date: Date;
-	readingTime: ReadingTime,
+	readingTime: string,
 	ghMetadata: GHMetadata;
 };
 

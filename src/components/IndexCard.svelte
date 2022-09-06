@@ -28,7 +28,7 @@
 			<!-- {JSON.stringify(item.readingTime)} -->
 			<p>{stringData}</p>
 			{#if item?.readingTime}
-				<p>{item?.readingTime.text}</p>
+				<p>{item?.readingTime}</p>
 			{/if}
 			{#if ghMetadata && ghMetadata.reactions.total_count}
 				<p
