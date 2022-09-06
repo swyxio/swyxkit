@@ -10,7 +10,7 @@ A lightly opinionated starter for SvelteKit blogs:
 Feel free to rip out these opinions as you see fit of course.
 
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit#PUBLIC_SITE_URL=https://swyxkit.netlify.app&PUBLIC_APPROVED_POSTERS_GH_USERNAME=sw-yx&PUBLIC_GH_USER_REPO=sw-yx/swyxkit&PUBLIC_SITE_TITLE=SwyxKit&PUBLIC_SITE_DESCRIPTION=SvelteKit+Tailwind+starter&PUBLIC_DEFAULT_OG_IMAGE=https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png&PUBLIC_MY_TWITTER_HANDLE=swyx&PUBLIC_MY_YOUTUBE=https://youtube.com/swyxTV&PUBLIC_POST_CATEGORIES=Blog&GH_TOKEN=)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit)
 
 
 ## Live Demo
@@ -77,7 +77,7 @@ This is a partial implementation of https://www.swyx.io/the-surprisingly-high-ta
 
 ## Quick Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit#PUBLIC_SITE_URL=https://swyxkit.netlify.app&PUBLIC_APPROVED_POSTERS_GH_USERNAME=sw-yx&PUBLIC_GH_USER_REPO=sw-yx/swyxkit&PUBLIC_SITE_TITLE=SwyxKit&PUBLIC_SITE_DESCRIPTION=SvelteKit+Tailwind+starter&PUBLIC_DEFAULT_OG_IMAGE=https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png&PUBLIC_MY_TWITTER_HANDLE=swyx&PUBLIC_MY_YOUTUBE=https://youtube.com/swyxTV&PUBLIC_POST_CATEGORIES=Blog&GH_TOKEN=)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/swyxkit)
 
 Clicking on this button will deploy the site to your netlify account with all default environment variables. You can then configure the various environment variables from `Site Settings > Build & Deploy > Environment`. This will also create a repository in your GitHub account with your chosen name.
 
