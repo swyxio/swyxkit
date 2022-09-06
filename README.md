@@ -99,20 +99,19 @@ ntl init # use the netlify cli to deploy, assuming you already installed it and 
 
 ### Step 1: Personalization Configuration
 
-As you become ready to seriously adopt this, remember to configure `/lib/siteConfig.js` - just some hardcoded vars i want you to remember to configure.
+You can personalise the site by editing directly the `/lib/siteConfig.js` or passing following environment variables.
 
-```js
-export const SITE_URL = 'https://swyxkit.netlify.app';
-export const APPROVED_POSTERS_GH_USERNAME = ['sw-yx']; // IMPORTANT - change this to at least your github username, or add others if you want
-export const GH_USER_REPO = 'sw-yx/swyxkit'; // used for pulling github issues and offering comments
-export const REPO_URL = 'https://github.com/' + GH_USER_REPO;
-export const SITE_TITLE = 'SwyxKit';
-export const SITE_DESCRIPTION = "swyx's default SvelteKit + Tailwind starter";
-export const DEFAULT_OG_IMAGE =
-	'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
-export const MY_TWITTER_HANDLE = 'swyx';
-export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
-export const POST_CATEGORIES = ['Blog'] // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
+```
+PUBLIC_SITE_URL=https://swyxkit.netlify.app
+PUBLIC_GH_USER_REPO=sw-yx/swyxkit
+PUBLIC_SITE_TITLE=SwyxKit
+PUBLIC_SITE_DESCRIPTION=swyx's default SvelteKit + Tailwind starter
+PUBLIC_DEFAULT_OG_IMAGE=https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png
+PUBLIC_MY_TWITTER_HANDLE=swyx
+PUBLIC_MY_YOUTUBE=https://youtube.com/swyxTV
+PUBLIC_POST_CATEGORIES=Blog
+
+GH_TOKEN=your-github_token
 ```
 
 Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items, for example
