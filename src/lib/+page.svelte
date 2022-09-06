@@ -144,7 +144,6 @@
 						title={item.title}
 						stringData={new Date(item.date).toISOString().slice(0, 10)}
 						ghMetadata={item.ghMetadata}
-						{item}
 					>
 						{item.description}
 					</IndexCard>
