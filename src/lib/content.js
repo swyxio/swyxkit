@@ -27,6 +27,16 @@ const publishedTags = ['Published'];
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header
 ``;
+
+/**
+ * @param {string} text
+ * @returns {string}
+ */
+ function readingTime(text) {
+    let minutes = Math.ceil(text.trim().split(' ').length / 225)
+    return minutes > 1 ? `${minutes} minutes` : `${minutes} minute`
+}
+
 export async function listContent() {
 	// use a diff var so as to not have race conditions while fetching
 	// TODO: make sure to handle this better when doing etags or cache restore
@@ -206,6 +216,7 @@ function parseIssue(issue) {
 		canonical: data.canonical, // for canonical URLs of something published elsewhere
 		slug: slug.toString().toLowerCase(),
 		date: new Date(data.date ?? issue.created_at),
+		readingTime: readingTime(content),
 		ghMetadata: {
 			issueUrl: issue.html_url,
 			commentsUrl: issue.comments_url,
