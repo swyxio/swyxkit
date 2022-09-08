@@ -8,7 +8,6 @@
 	export let title = 'Untitled post';
 	/** @type {string} */
 	export let stringData = 'no date';
-	console.log(item)
 </script>
 
 <a
