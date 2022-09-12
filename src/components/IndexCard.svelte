@@ -11,7 +11,6 @@
 </script>
 
 <a
-	sveltekit:prefetch
 	class="w-full text-gray-900 hover:text-yellow-600 dark:text-gray-100 dark:hover:text-yellow-100"
 	{href}
 	><div class="mb-8 w-full">
