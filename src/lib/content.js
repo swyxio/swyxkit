@@ -52,7 +52,7 @@ export async function listContent() {
 		Authorization: `token ${process.env.GH_TOKEN}`
 	};
 	let url =
-		`https://api.github.com/repos//${GH_USER_REPO}/issues?` +
+		`https://api.github.com/repos/${GH_USER_REPO}/issues?` +
 		new URLSearchParams({
 			state: 'all',
 			labels: GH_PUBLISHED_TAGS.toString(),
