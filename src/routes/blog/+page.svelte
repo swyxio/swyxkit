@@ -12,14 +12,14 @@
 
 	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
 	/** @type {import('$lib/types').ContentItem[]} */
-	$: items = data.items; 
+	$: items = data.items;
 
 	function searchParamToArray(key) {
 		return ($page.url.searchParams.get(key) || '').split(',').filter((e) => e);
 	}
 
-	let selectedCategories = searchParamToArray('show')
-	let search = $page.url.searchParams.get('filter') || ''
+	let selectedCategories = searchParamToArray('show');
+	let search = $page.url.searchParams.get('filter') || '';
 	let inputEl;
 
 	$: if (browser) {
@@ -43,13 +43,15 @@
 	let isTruncated = items?.length > 20;
 	$: list = items
 		.filter((item) => {
-				if (selectedCategories.length) {
-					return selectedCategories.map(
-						element => {return element.toLowerCase();}
-					).includes(item.category.toLowerCase());
-				}
-				return true
-			})
+			if (selectedCategories.length) {
+				return selectedCategories
+					.map((element) => {
+						return element.toLowerCase();
+					})
+					.includes(item.category.toLowerCase());
+			}
+			return true;
+		})
 		.filter((item) => {
 			if (search) {
 				return item.title.toLowerCase().includes(search.toLowerCase());
@@ -105,9 +107,14 @@
 					<input
 						id="category-{availableCategory}"
 						class="peer sr-only"
-						type="checkbox" bind:group={selectedCategories} value={availableCategory} 
+						type="checkbox"
+						bind:group={selectedCategories}
+						value={availableCategory}
 					/>
-					<label for="category-{availableCategory}" class="inline-flex justify-between items-center px-4 py-2 w-full text-gray-500 bg-white border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-purple-500 peer-checked:border-purple-600 peer-checked:text-purple-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+					<label
+						for="category-{availableCategory}"
+						class="inline-flex w-full cursor-pointer items-center justify-between border border-gray-200 bg-white px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 peer-checked:border-purple-600 peer-checked:text-purple-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-purple-500"
+					>
 						{availableCategory}
 					</label>
 				</div>
@@ -166,7 +173,7 @@
 			No posts found for
 			<code>{search}</code>.
 		</div>
-		<button class="p-2 bg-slate-500" on:click={() => (search = '')}>Clear your search</button>
+		<button class="bg-slate-500 p-2" on:click={() => (search = '')}>Clear your search</button>
 	{:else}
 		<div class="prose dark:prose-invert">No blogposts found!</div>
 	{/if}

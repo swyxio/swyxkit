@@ -2,7 +2,12 @@ import { compile } from 'mdsvex';
 import { dev } from '$app/environment';
 import grayMatter from 'gray-matter';
 import fetch from 'node-fetch';
-import { GH_USER_REPO, APPROVED_POSTERS_GH_USERNAME } from './siteConfig';
+import {
+	GH_USER_REPO,
+	APPROVED_POSTERS_GH_USERNAME,
+	GH_PUBLISHED_TAGS,
+	REPO_OWNER
+} from './siteConfig';
 import parse from 'parse-link-header';
 import slugify from '@sindresorhus/slugify';
 import rehypeStringify from 'rehype-stringify';
@@ -22,8 +27,6 @@ const rehypePlugins = [
 	]
 ];
 
-const allowedPosters = APPROVED_POSTERS_GH_USERNAME; // array of strings of github username
-const publishedTags = ['Published'];
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header
 ``;
@@ -32,9 +35,9 @@ let allBlogposts = [];
  * @param {string} text
  * @returns {string}
  */
- function readingTime(text) {
-    let minutes = Math.ceil(text.trim().split(' ').length / 225)
-    return minutes > 1 ? `${minutes} minutes` : `${minutes} minute`
+function readingTime(text) {
+	let minutes = Math.ceil(text.trim().split(' ').length / 225);
+	return minutes > 1 ? `${minutes} minutes` : `${minutes} minute`;
 }
 
 export async function listContent() {
@@ -48,13 +51,21 @@ export async function listContent() {
 	const authheader = process.env.GH_TOKEN && {
 		Authorization: `token ${process.env.GH_TOKEN}`
 	};
+	let url =
+		`https://api.github.com/repos/${GH_USER_REPO}/issues?` +
+		new URLSearchParams({
+			state: 'all',
+			labels: GH_PUBLISHED_TAGS.toString(),
+			per_page: '100',
+		});
+	// pull issues created by owner only if allowed author = repo owner
+	if (APPROVED_POSTERS_GH_USERNAME.length === 1 && APPROVED_POSTERS_GH_USERNAME[0] === REPO_OWNER) {
+		url += '&' + new URLSearchParams({ creator: REPO_OWNER });
+	}
 	do {
-		const res = await fetch(
-			next?.url ?? `https://api.github.com/repos/${GH_USER_REPO}/issues?state=all&per_page=100`,
-			{
-				headers: authheader
-			}
-		);
+		const res = await fetch(next?.url ?? url, {
+			headers: authheader
+		});
 
 		const issues = await res.json();
 		if ('message' in issues && res.status > 400)
@@ -63,8 +74,9 @@ export async function listContent() {
 			/** @param {import('./types').GithubIssue} issue */
 			(issue) => {
 				if (
-					issue.labels.some((label) => publishedTags.includes(label.name)) &&
-					allowedPosters.includes(issue.user.login)
+					// labels check not needed anymore as we have set the labels param in github api
+					// issue.labels.some((label) => GH_PUBLISHED_TAGS.includes(label.name)) &&
+					APPROVED_POSTERS_GH_USERNAME.includes(issue.user.login)
 				) {
 					_allBlogposts.push(parseIssue(issue));
 				}
@@ -93,19 +105,16 @@ export async function getContent(slug) {
 	// find the blogpost that matches this slug
 	const blogpost = allBlogposts.find((post) => post.slug === slug);
 	if (blogpost) {
-
 		const blogbody = blogpost.content
-			.replace(
-				/\n{% youtube (.*?) %}/g,
-				(_, x) => {
-
-					// https://stackoverflow.com/a/27728417/1106414
-					function youtube_parser(url) {
-						var rx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
-						return url.match(rx)[1]
-					}
-					const videoId = x.startsWith('https://') ? youtube_parser(x) : x;
-					return `<iframe
+			.replace(/\n{% youtube (.*?) %}/g, (_, x) => {
+				// https://stackoverflow.com/a/27728417/1106414
+				function youtube_parser(url) {
+					var rx =
+						/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
+					return url.match(rx)[1];
+				}
+				const videoId = x.startsWith('https://') ? youtube_parser(x) : x;
+				return `<iframe
 			class="w-full object-contain"
 			srcdoc="
 				<style>
@@ -148,19 +157,16 @@ export async function getContent(slug) {
 			width="600"
 			height="400"
 			allowFullScreen
-			aria-hidden="true"></iframe>`}
-			)
-			.replace(
-				/\n{% (tweet|twitter) (.*?) %}/g,
-				(_, _2, x) => {
-					const url = x.startsWith('https://twitter.com/') ? x : `https://twitter.com/x/status/${x}`;
-					return `
+			aria-hidden="true"></iframe>`;
+			})
+			.replace(/\n{% (tweet|twitter) (.*?) %}/g, (_, _2, x) => {
+				const url = x.startsWith('https://twitter.com/') ? x : `https://twitter.com/x/status/${x}`;
+				return `
 					<blockquote class="twitter-tweet" data-lang="en" data-dnt="true" data-theme="dark">
 					<a href="${url}"></a></blockquote> 
 					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-					`
-				}
-			);
+					`;
+			});
 
 		// compile it with mdsvex
 		const content = (
@@ -171,7 +177,7 @@ export async function getContent(slug) {
 		).code
 			// https://github.com/pngwn/MDsveX/issues/392
 			.replace(/>{@html `<code class="language-/g, '><code class="language-')
-			.replace(/<\/code>`}<\/pre>/g, '</code></pre>')
+			.replace(/<\/code>`}<\/pre>/g, '</code></pre>');
 
 		return { ...blogpost, content };
 	} else {

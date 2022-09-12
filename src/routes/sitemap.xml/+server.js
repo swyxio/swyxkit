@@ -6,12 +6,12 @@ export async function GET() {
 	const pages = [`about`];
 	const body = sitemap(posts, pages);
 
-  return new Response(body, {
-    headers: {
-      'Cache-Control': `max-age=0, s-maxage=${3600}`,
-      'Content-Type': 'application/xml'
-    }
-  });
+	return new Response(body, {
+		headers: {
+			'Cache-Control': `max-age=0, s-maxage=${3600}`,
+			'Content-Type': 'application/xml'
+		}
+	});
 }
 
 const sitemap = (posts, pages) => `<?xml version="1.0" encoding="UTF-8" ?>
