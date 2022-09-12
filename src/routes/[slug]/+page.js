@@ -6,7 +6,7 @@ export async function load({ params, fetch, setHeaders }) {
 	let res = null;
 	res = await fetch(`/api/blog/${slug}.json`);
 	if (res.status > 400) {
-		throw error(res.status, await res.text())
+		throw error(res.status, await res.text());
 	}
 	setHeaders({
 		'cache-control': 'public, max-age=60'
@@ -15,7 +15,7 @@ export async function load({ params, fetch, setHeaders }) {
 		json: await res.json(),
 		slug,
 		REPO_URL
-	}
+	};
 	// } catch (err) {
 	// 	console.error('error fetching blog post at [slug].svelte: ' + slug, res, err);
 	// 	throw error(500, 'error fetching blog post at [slug].svelte: ' + slug + ': ' + res);

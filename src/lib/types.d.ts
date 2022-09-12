@@ -13,7 +13,7 @@ export type ContentItem = {
 	canonical: string;
 	slug: string;
 	date: Date;
-	readingTime: string,
+	readingTime: string;
 	ghMetadata: GHMetadata;
 };
 

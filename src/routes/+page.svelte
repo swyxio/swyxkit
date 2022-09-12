@@ -10,7 +10,6 @@
 		MY_TWITTER_HANDLE
 	} from '$lib/siteConfig';
 	export const prerender = true; // index page is most visited, lets prerender
-
 </script>
 
 <svelte:head>
@@ -48,7 +47,11 @@
 			<h2 class="mb-4 text-gray-700 dark:text-gray-200">
 				An opinionated blog starter for <span class="font-semibold"
 					>SvelteKit + Tailwind + Netlify.</span
-				> Refreshed <a href="https://github.com/sveltejs/kit/discussions/5774">the great SvelteKit redesign of Summer 2022</a>
+				>
+				Refreshed
+				<a href="https://github.com/sveltejs/kit/discussions/5774"
+					>the great SvelteKit redesign of Summer 2022</a
+				>
 			</h2>
 			<p class="mb-16 text-gray-600 dark:text-gray-400">
 				<a href={REPO_URL}>View source here!</a>

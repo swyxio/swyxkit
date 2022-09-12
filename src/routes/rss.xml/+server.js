@@ -4,7 +4,7 @@ import { listContent } from '$lib/content';
 
 // Reference: https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function GET({setHeaders}) {
+export async function GET({ setHeaders }) {
 	const feed = new RSS({
 		title: SITE_TITLE + ' RSS Feed',
 		site_url: SITE_URL,
