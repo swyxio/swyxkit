@@ -113,6 +113,7 @@ export const DEFAULT_OG_IMAGE =
 export const MY_TWITTER_HANDLE = 'swyx';
 export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
 export const POST_CATEGORIES = ['Blog']; // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
+export const GH_PUBLISHED_TAGS = ['Published']; // List of allowed issue labels, only the issues having at least one of these labels will show on the blog.
 ```
 
 Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items, for example
@@ -132,11 +133,11 @@ When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites
 
 ### Step 2: Make your first post
 
-Open a new Github issue on your new repo, write some title and markdown in the body, **add a `Published` tag**, and then save.
+Open a new Github issue on your new repo, write some title and markdown in the body, **add a `Published` tag** (or any one of the label set in `GH_PUBLISHED_TAGS`), and then save.
 
 You should see it refetched in local dev or in the deployed site pretty quickly. You can configure Sveltekit to build each blog page up front, or on demand. Up to you to trade off speed and flexibility.
 
-If your `Published` post doesn't show up, you may have forgotten to set `APPROVED_POSTERS_GH_USERNAME` to your github username, as above.
+If your `Published` post (any post with one of the labels set in `GH_PUBLISHED_TAGS`) doesn't show up, you may have forgotten to set `APPROVED_POSTERS_GH_USERNAME` to your github username, as above.
 
 If all of this is annoying feel free to rip out the GitHub Issues CMS wiring and do your own content pipeline, I'm not your boss. MDSveX is already set up in this repo if you prefer not having a disconnected content toolchain from your codebase (which is fine, i just like having it in a different place for a better editing experience). See also my blogpost on [the benefits of using Github Issues as CMS](https://swyxkit.netlify.app/moving-to-a-github-cms).
 
