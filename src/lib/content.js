@@ -9,7 +9,6 @@ import {
 	REPO_OWNER
 } from './siteConfig';
 import parse from 'parse-link-header';
-import slugify from '@sindresorhus/slugify';
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutoLink from 'rehype-autolink-headings';
@@ -30,6 +29,22 @@ const rehypePlugins = [
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header
 ``;
+
+/**
+ * @param {string | number} text
+ * @returns {string}
+ */
+function slugify(text) {
+    return text
+        .toString()                 // Cast to string (optional)
+        .normalize('NFKD')          // The normalize() using NFKD method returns the Unicode Normalization Form of a given string.
+        .toLowerCase()              // Convert the string to lowercase letters
+        .trim()                     // Remove whitespace from both sides of a string (optional)
+        .replace(/\s+/g, '-')       // Replace spaces with hyphen
+        .replace(/[^\w\-]+/g, '')   // Remove all non-word chars
+        .replace(/\-\-+/g, '-')     // Replace multiple hyphen with single hyphen
+        .replace(/(^\-|\-$)/g, ''); // Remove leading or trailing hyphen
+}
 
 /**
  * @param {string} text

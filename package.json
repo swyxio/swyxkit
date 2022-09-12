@@ -59,7 +59,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sindresorhus/slugify": "^2.1.0",
 		"date-fns": "^2.29.2",
 		"node-fetch": "3.2.10",
 		"parse-link-header": "^2.0.0",

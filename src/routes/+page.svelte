@@ -70,7 +70,7 @@
 			<FeatureCard title="Welcome to swyxkit 2022!" href="/welcome" stringData="Jan 2022" />
 			<FeatureCard
 				title="Moving to a GitHub CMS"
-				href="/moving-to-a-git-hub-cms"
+				href="/moving-to-a-github-cms"
 				stringData="Jan 2022"
 			/>
 			<FeatureCard title="HTML Ipsum demo" href="/moo" stringData="Jan 2022" />
