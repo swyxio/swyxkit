@@ -57,11 +57,10 @@ export async function listContent() {
 			state: 'all',
 			labels: GH_PUBLISHED_TAGS.toString(),
 			per_page: '100',
-			pulls: 'false'
 		});
 	// pull issues created by owner only if allowed author = repo owner
 	if (APPROVED_POSTERS_GH_USERNAME.length === 1 && APPROVED_POSTERS_GH_USERNAME[0] === REPO_OWNER) {
-		url += '&' + new URLSearchParams({ filter: 'created' });
+		url += '&' + new URLSearchParams({ creator: REPO_OWNER });
 	}
 	do {
 		const res = await fetch(next?.url ?? url, {
