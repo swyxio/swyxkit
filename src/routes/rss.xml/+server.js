@@ -24,7 +24,7 @@ export async function GET({ setHeaders }) {
 	// Suggestion (check for correctness before using):
 	return new Response(feed.xml({ indent: true }), {
 		headers: {
-			'Cache-Control': `max-age=0, s-maxage=${600}`, // 10 minutes
+			'Cache-Control': `public, max-age=0, s-maxage=${3600}`,  // todo: if your pages are quite stable, you can increase this to 86400 (1 day)
 			'Content-Type': 'application/rss+xml'
 		}
 	});

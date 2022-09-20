@@ -9,7 +9,7 @@ export async function load({ params, fetch, setHeaders }) {
 		throw error(res.status, await res.text());
 	}
 	setHeaders({
-		'cache-control': 'public, max-age=60'
+		'cache-control': 'public, max-age=60' // todo: if your pages are quite stable, you can increase this to 86400 (1 day)
 	});
 	return {
 		json: await res.json(),

@@ -39,6 +39,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
   - RSS (at `/rss.xml`), and Sitemap (at `sitemap.xml`) with caching
 - **Performance/Security touches**
   - set [`s-maxage`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#s-maxage) (not `max-age`) to 1 minute to cache (consider making it 1-7 days on older posts)
+    - with [CORS Caching](https://httptoolkit.tech/blog/cache-your-cors/)
     - for API endpoints as well as pages
   - Security headers in `netlify.toml`
     - [X-Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
@@ -120,6 +121,7 @@ Of course, you should then go page by page (there aren't that many) and customiz
 
 - the Newsletter component needs to be wired up to a newsletter service (I like buttondown, tinyletter, and revue)
 - page `Cache-Control` policy and SvelteKit `maxage`
+  - note [CORS caching](https://httptoolkit.tech/blog/cache-your-cors/)
 - site favicons (use https://realfavicongenerator.net/ to make all the variants and stick it in `/static`)
 - (if migrating content from previous blog) setup Netlify redirects at `/static/_redirects`
 

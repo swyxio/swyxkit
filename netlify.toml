@@ -19,7 +19,11 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    Cache-Control = "public, max-age=4000" 
+    # https://httptoolkit.tech/blog/cache-your-cors/
+    Cache-Control = "public, max-age=86400" 
+    ## The Vary header here is important: this tells the cache to use this response only for other requests with the same Origin header (requests from the same cross-origin source), in addition to using the same URL.
+    ## If you don't set a Vary header, you can have big problems. Preflight responses often include an Access-Control-Allow-Origin header that matches the incoming Origin value. If you cache the response without setting Vary then the response with one origin might be used for a request with a different origin, which will fail the CORS checks and block the request completely.
+    Vary: origin
     # cache just over 1 hour for webpagetest to be happy
     X-Content-Type-Options = "nosniff"
     ## Content-Security-Policy = "default-src 'self'; script-src 'nonce-swyx'; img-src *"

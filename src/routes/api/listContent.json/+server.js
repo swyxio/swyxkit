@@ -7,7 +7,7 @@ import { listContent } from '$lib/content';
 export async function GET({ setHeaders }) {
 	const list = await listContent();
 	setHeaders({
-		'Cache-Control': `max-age=0, s-maxage=${60}` // 1 minute.. for now
+		'Cache-Control': `public, max-age=0, s-maxage=${3600}`  // todo: if your pages are quite stable, you can increase this to 86400 (1 day)
 	});
 	return new Response(JSON.stringify(list), {
 		headers: {
