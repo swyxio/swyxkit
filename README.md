@@ -9,6 +9,8 @@ A lightly opinionated starter for SvelteKit blogs:
 
 Feel free to rip out these opinions as you see fit of course.
 
+> "Does anyone know what theme that blog is using? It looks really nice." - [anon](https://news.ycombinator.com/item?id=32972871)
+
 ## Live Demo
 
 See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/sites/swyxkit/deploys))
