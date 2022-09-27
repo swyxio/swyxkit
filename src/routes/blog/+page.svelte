@@ -23,6 +23,7 @@
 	let inputEl;
 
 	$: if (browser) {
+		const initialParams = $page.url.searchParams.toString();
 		if (selectedCategories.length) {
 			$page.url.searchParams.set('show', selectedCategories.toString());
 		} else {
@@ -33,7 +34,10 @@
 		} else {
 			$page.url.searchParams.delete('filter');
 		}
-		goto(`?${$page.url.searchParams.toString()}`, { noscroll: true, keepfocus: true });
+		const newParams = $page.url.searchParams.toString();
+		if (newParams !== initialParams) {
+			goto(`?${$page.url.searchParams.toString()}`, { noscroll: true, keepfocus: true });
+		}
 	}
 
 	function focusSearch(e) {
