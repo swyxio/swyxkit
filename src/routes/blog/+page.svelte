@@ -36,7 +36,7 @@
 		}
 		const newParams = $page.url.searchParams.toString();
 		if (newParams !== initialParams) {
-			goto(`?${$page.url.searchParams.toString()}`, { noscroll: true, keepfocus: true });
+			goto(`?${newParams}`, { noscroll: true, keepfocus: true });
 		}
 	}
 
