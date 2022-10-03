@@ -23,3 +23,5 @@
     # cache just over 1 hour for webpagetest to be happy
     X-Content-Type-Options = "nosniff"
     ## Content-Security-Policy = "default-src 'self'; script-src 'nonce-swyx'; img-src *"
+    # in loving memory
+    X-Clacks-Overhead = "GNU Terry Pratchett"
