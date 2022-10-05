@@ -2,6 +2,7 @@
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import Fuse from 'fuse.js';
 
 	import { SITE_TITLE, POST_CATEGORIES } from '$lib/siteConfig';
 
@@ -41,24 +42,15 @@
 	}
 
 	let isTruncated = items?.length > 20;
-	$: list = items
-		.filter((item) => {
-			if (selectedCategories.length) {
-				return selectedCategories
-					.map((element) => {
-						return element.toLowerCase();
-					})
-					.includes(item.category.toLowerCase());
-			}
-			return true;
-		})
-		.filter((item) => {
-			if (search) {
-				return item.title.toLowerCase().includes(search.toLowerCase());
-			}
-			return true;
-		})
-		.slice(0, isTruncated ? 2 : items.length);
+
+	const options = {
+		keys: ['title', 'content']
+	};
+
+	const fuse = new Fuse(items, options);
+
+	$: list = fuse.search(search).slice(0, isTruncated ? 2 : items.length);
+	console.log(list);
 </script>
 
 <svelte:head>

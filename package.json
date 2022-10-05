@@ -60,6 +60,7 @@
 	"type": "module",
 	"dependencies": {
 		"date-fns": "^2.29.2",
+		"fuse.js": "^6.6.2",
 		"node-fetch": "3.2.10",
 		"parse-link-header": "^2.0.0",
 		"prism-themes": "^1.9.0",
