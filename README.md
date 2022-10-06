@@ -83,7 +83,7 @@ npm install
 npm run start
 ```
 
-You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/). This project [recently switched](https://github.com/sw-yx/swyxkit/pull/100#issue-1352898457) to use `sveltejs/adapter-auto`, so you should also be able to deploy to Vercel and Cloudflare, but this is not regularly tested (please report/help fix issues if you find them)!
+You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/). This project [recently switched](https://github.com/sw-yx/swyxkit/pull/100#issue-1352898457) to use `sveltejs/adapter-auto` (Oct 2022: currently pinned to v72 [because of a netlify issue](https://github.com/sveltejs/kit/issues/6440#issuecomment-1269274541)), so you should also be able to deploy to Vercel and Cloudflare, but this is not regularly tested (please report/help fix issues if you find them)!
 
 However, to have new posts show up, you will need to personalize the siteConfig below - take note of `APPROVED_POSTERS_GH_USERNAME` in particular (this is an allowlist of people who can post a blog by opening a github issue, otherwise any rando can blog and thats not good).
 
