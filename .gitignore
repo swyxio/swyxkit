@@ -10,3 +10,4 @@ node_modules
 
 # Local Netlify folder
 .netlify
+.histoire
