@@ -1,5 +1,4 @@
 ---
-group: 'top'
 icon: 'carbon:bookmark'
 ---
 
