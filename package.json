@@ -3,7 +3,8 @@
 	"private": true,
 	"version": "0.0.1",
 	"scripts": {
-		"start": "vite dev",
+		"dev": "vite dev",
+		"start": "concurrently --names \"APP,HISTOIRE\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run dev\" \"npm run story:dev\"",
 		"build": "vite build",
 		"package": "vite package",
 		"preview": "vite preview",
@@ -24,6 +25,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.39.0",
 		"@typescript-eslint/parser": "^5.39.0",
 		"autoprefixer": "^10.4.12",
+		"concurrently": "^7.4.0",
 		"eslint": "^8.24.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
