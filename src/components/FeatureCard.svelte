@@ -2,7 +2,7 @@
 	export let title = 'Untitled post';
 	export let href = '#';
 	/** @type {string} */
-	export let stringData;
+	export let stringData; // we intentionally force this prop to be a string, not children, because dont want to allow arbitrary display of components for such a small contained component. feel free to refactor this if you need to
 </script>
 
 <a

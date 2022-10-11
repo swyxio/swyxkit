@@ -65,10 +65,13 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
     - [Tap targets](https://web.dev/tap-targets/?utm_source=lighthouse&utm_medium=lr)
   - Custom scrollbar https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
   - Defensive CSS touches https://ishadeed.com/article/defensive-css
-- **Code Quality**
+- **Developer Experience**
   - [JSDoc Typechecking](https://swyxkit.netlify.app/how-to-add-jsdoc-typechecking-to-sveltekit)
   - ESLint + Prettier
   - [Nightly lockfile upgrades](https://mobile.twitter.com/FredKSchott/status/1489287560387956736)
+  - Design system sandbox/"Storybook" setup:
+    - `npm run story:dev` to view on http://localhost:6006/. This is also included in your `npm start` command.
+
 
 This is a partial implementation of https://www.swyx.io/the-surprisingly-high-table-stakes-of-modern-blogs/
 
@@ -80,7 +83,7 @@ This is a partial implementation of https://www.swyx.io/the-surprisingly-high-ta
 npx degit https://github.com/sw-yx/swyxkit
 export GH_TOKEN=your_gh_token_here # can skip if just trying out this repo casually
 npm install
-npm run start
+npm run start # launches site locally at http://localhost:5173/ and histoire at http://localhost:6006/
 ```
 
 You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/). This project [recently switched](https://github.com/sw-yx/swyxkit/pull/100#issue-1352898457) to use `sveltejs/adapter-auto` (Oct 2022: currently pinned to v72 [because of a netlify issue](https://github.com/sveltejs/kit/issues/6440#issuecomment-1269274541)), so you should also be able to deploy to Vercel and Cloudflare, but this is not regularly tested (please report/help fix issues if you find them)!

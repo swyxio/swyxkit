@@ -1,7 +1,7 @@
 <script>
 	/** @type {import('$lib/types').GHReactions} */
 	export let reactions;
-	/** @type {string}*/
+	/** @type {string} */
 	export let issueUrl;
 	let emojiMap = {
 		'+1': '👍',
