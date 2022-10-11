@@ -1,11 +1,9 @@
 ---
 icon: 'carbon:bookmark'
+group: 'top'
 ---
 
-# Welcome
+# Welcome to Swyxkit Components
 
-This is a demo book using Svelte 3.
+This is a design system sandbox/display built with [Histoire](https://histoire.dev/).
 
----
-
-Learn more about Histoire [here](https://histoire.dev/).

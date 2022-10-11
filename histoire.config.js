@@ -6,4 +6,21 @@ export default defineConfig({
   plugins: [
     HstSvelte(),
   ],
+  // https://histoire.dev/guide/svelte3/hierarchy.html
+  tree: {
+    groups: [
+      {
+        id: 'top',
+        title: '', // No toggle
+      },
+      // {
+      //   title: 'Components',
+      //   include: file => !file.title.includes('Serialize'),
+      // },
+      {
+        title: 'Others',
+        include: () => true,
+      },
+    ],
+  },
 })

@@ -1,5 +1,5 @@
-<!-- histoire is set up for any *.story.svelte file in this directory; so feel free to make more
-we are just making a consolidated file here for small little stories -->
+<!-- https://histoire.dev/guide/svelte3/stories.html -->
+<!-- https://histoire.dev/guide/svelte3/controls.html -->
 <script>
 	import FeatureCard from './FeatureCard.svelte';
 	export let Hst;
@@ -43,14 +43,16 @@ we are just making a consolidated file here for small little stories -->
 			>
 		</section>
 	</Hst.Variant>
-	<Hst.Variant title="Fast">
+
+	<Hst.Variant title="Fastxx">
     <div class="flex flex-col gap-6 md:flex-row">
       <FeatureCard title={prefixString + " Fast 2022!"} href="/welcome" stringData="Jan 2022" />
     </div>
 	</Hst.Variant>
-	<Hst.Variant title="Slow">
+	<Hst.Variant title="Slowxx">
     <div class="flex flex-col gap-6 md:flex-row">
       <FeatureCard title={prefixString + " Slow 2022!"} href="/welcome" stringData="Jan 2022" />
     </div>
 	</Hst.Variant>
+
 </Hst.Story>
