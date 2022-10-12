@@ -36,12 +36,12 @@
 	{/if}
 </svelte:head>
 
-<article class="swyxcontent prose dark:prose-invert mx-auto mt-16 mb-32 w-full max-w-none items-start justify-center sm:px-8">
+<article class="swyxcontent prose dark:prose-invert mx-auto mt-16 mb-32 w-full max-w-none items-start justify-center">
 	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
 		{json.title}
 	</h1>
 	<div
-		class="bg mt-2 flex w-full justify-between sm:flex-col sm:items-start md:flex-row md:items-center"
+		class="bg mt-2 flex w-full justify-between border-red sm:flex-col sm:items-start md:flex-row md:items-center"
 	>
 		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">swyx</p>
 		<p class="min-w-32 flex items-center text-sm text-gray-600 dark:text-gray-400 md:mt-0">
@@ -122,5 +122,20 @@
 		grid-column: feature;
 		margin-left: -1rem;
 		margin-right: -1rem;
+	}
+
+	article :global(.popout) {
+		grid-column: popout;
+	}
+	article :global(.feature) {
+		grid-column: feature;
+	}
+	article :global(.full) {
+		grid-column: full;
+		width: 100%;
+	}
+
+	article :global(.admonition) {
+		@apply p-8 border-4 border-red-500
 	}
 </style>
