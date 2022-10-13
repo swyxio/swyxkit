@@ -34,6 +34,9 @@ module.exports = {
 							borderWidth: '2px',
 							borderColor: 'rgba(0,0,0,0.1)'
 						},
+						pre: {
+							'border-radius': '0rem',
+						},
 						'a:hover': {
 							color: '#31cdce !important',
 							textDecoration: 'underline !important'
