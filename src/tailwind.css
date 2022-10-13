@@ -55,7 +55,7 @@
 }
 /* bg-yellow-200 dark:hover:bg-yellow-800 */
 a {
-	@apply text-yellow-600 hover:text-yellow-700 hover:underline dark:text-yellow-400 dark:hover:text-yellow-200;
+	@apply font-bold text-yellow-700 hover:text-yellow-700 hover:underline dark:text-yellow-400 dark:hover:text-yellow-200 dark:font-normal;
 }
 
 .prose h1 a,
