@@ -103,6 +103,9 @@
 			/></svg
 		>
 	</div>
+	
+	<!-- if you have multiple categories enabled -->
+	{#if POST_CATEGORIES.length > 1}
 	<div class="flex items-center mt-2 mb-12 ">
 		<div class="mr-2 text-gray-900 dark:text-gray-400">Filter:</div>
 		<div class="grid grid-cols-3 rounded-md shadow-sm sm:grid-cols-6">
@@ -125,6 +128,7 @@
 			{/each}
 		</div>
 	</div>
+	{/if}
 
 	<!-- you can hardcode yourmost popular posts or pinned post here if you wish -->
 	{#if !search}
