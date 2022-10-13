@@ -91,14 +91,13 @@
 
 			display: grid;
 			grid-template-columns: 
-				[full-start]
-				[feature-start]
-				[popout-start]
+				[full-start] var(--full)
+				[feature-start] 0rem
+				[popout-start] 0rem
 				[content-start] var(--content) [content-end]
-				[feature-end]
-				[popout-end]
-				[feature-end]
-				[full-end]
+				[popout-end] 0rem
+				[feature-end] 0rem
+				var(--full) [full-end]
 		}
 
 		@media (min-width: 768px) {
