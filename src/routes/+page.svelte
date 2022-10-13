@@ -9,7 +9,15 @@
 		DEFAULT_OG_IMAGE,
 		MY_TWITTER_HANDLE
 	} from '$lib/siteConfig';
+	import { stringify } from 'gray-matter';
 	export const prerender = true; // index page is most visited, lets prerender
+
+
+	/** @type {import('./$types').PageData} */
+	export let data;
+	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
+	/** @type {import('$lib/types').ContentItem[]} */
+	$: items = data.items.slice(0, 10);
 </script>
 
 <svelte:head>
@@ -30,7 +38,7 @@
 </svelte:head>
 
 <div
-	class="mx-auto flex max-w-2xl flex-col items-start justify-center border-gray-200 px-4 pb-16 dark:border-gray-700 sm:px-8"
+	class="flex flex-col items-start justify-center max-w-2xl px-4 pb-16 mx-auto border-gray-200 dark:border-gray-700 sm:px-8"
 >
 	<div class="flex flex-col-reverse items-start sm:flex-row">
 		<div class="flex flex-col pr-8">
@@ -38,9 +46,9 @@
 				This is
 
 				<span
-					class="relative ml-2 inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500"
+					class="relative inline-block ml-2 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500"
 				>
-					<span class="relative skew-y-3 text-yellow-400">{SITE_TITLE}</span>
+					<span class="relative text-yellow-400 skew-y-3">{SITE_TITLE}</span>
 				</span>
 				!
 			</h1>
@@ -62,7 +70,7 @@
 			/> -->
 	</div>
 
-	<section class="mb-16 w-full">
+	<section class="w-full mb-16">
 		<h3 class="mb-6 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 			Featured Posts
 		</h3>
@@ -75,14 +83,30 @@
 			/>
 			<FeatureCard title="HTML Ipsum demo" href="/moo" stringData="Jan 2022" />
 		</div>
+	</section>
+	<!-- <section class="w-full mb-16">
+		<pre>{JSON.stringify(speaking, null, 2)}</pre>
+	</section> -->
+	<section class="w-full mb-8">
+		<h3 id="latest" class="mb-6 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
+			Latest Posts
+		</h3>
+		<ul class="space-y-2 text-white">
+			{#each items as item (item.slug)}
+				<li>
+					<a class="font-bold" sveltekit:prefetch href={item.slug}>{item.title}</a>
+					<span class="hidden text-xs text-black sm:inline dark:text-gray-400">{new Date(item.date).toISOString().slice(0, 10)}</span>
+				</li>
+			{/each}
+		</ul>
 		<a
-			class="mt-8 flex h-6 rounded-lg leading-7 text-gray-600 transition-all dark:text-gray-400 dark:hover:text-gray-200"
-			href="/blog"
-			>See latest posts<svg
+			class="flex h-6 mt-2 leading-7 text-gray-600 transition-all rounded-lg dark:text-gray-400 dark:hover:text-gray-200"
+			href="/ideas"
+			>Search and see all posts<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"
-				class="ml-1 h-6 w-6"
+				class="w-6 h-6 ml-1"
 				><path
 					stroke="currentColor"
 					stroke-linecap="round"

@@ -13,27 +13,28 @@
 <a
 	class="w-full text-gray-900 hover:text-yellow-600 dark:text-gray-100 dark:hover:text-yellow-100"
 	{href}
-	><div class="mb-8 w-full">
+	><div class="w-full mb-8">
 		<div class="flex flex-col justify-between md:flex-row">
-			<h4 class="mb-2 w-full flex-auto text-lg font-medium md:text-xl">
+			<h4 class="flex-auto w-full mb-2 text-lg font-medium md:text-xl">
 				{title}
 			</h4>
 		</div>
-		<p class="text-gray-600 dark:text-gray-400">
+		<p class="text-gray-600 break-all sm:break-words dark:text-gray-400">
 			<slot />
 		</p>
-		<div class="m-2 flex gap-4 text-left text-gray-500 md:mb-0 md:text-sm">
+		<div class="flex justify-between gap-1 text-left text-gray-500 sm:justify-start sm:flex-row sm:gap-4 md:mb-0 md:text-sm">
 			<!-- {JSON.stringify(item.readingTime)} -->
 			<p>{stringData}</p>
 			{#if item?.readingTime}
-				<p>{item?.readingTime}</p>
+				<p class="hidden sm:inline-block">{item?.readingTime}</p>
 			{/if}
 			{#if ghMetadata && ghMetadata.reactions.total_count}
 				<p class="">{ghMetadata.reactions.total_count} ♥</p>
 			{/if}
-			<button class="rounded-xl bg-gray-200 px-4 capitalize dark:bg-gray-700 dark:text-gray-400"
+			<!-- comment this in if you have multiple categories -->
+			<!-- <button class="px-4 capitalize bg-gray-200 rounded-xl dark:bg-gray-700 dark:text-gray-400"
 				>{item?.category || 'blog'}</button
-			>
+			> -->
 		</div>
 	</div></a
 >

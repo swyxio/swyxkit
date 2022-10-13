@@ -9,6 +9,9 @@ import {
 	REPO_OWNER
 } from './siteConfig';
 import parse from 'parse-link-header';
+import { remark } from 'remark';
+import remarkParse from 'remark-parse';
+import remarkStringify from 'remark-stringify';
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutoLink from 'rehype-autolink-headings';
@@ -215,6 +218,20 @@ function parseIssue(issue) {
 		slug = slugify(title);
 	}
 	let description = data.description ?? content.trim().split('\n')[0];
+	// extract plain text from markdown
+	description = remark()
+		.use(remarkParse)
+		.use(remarkStringify)
+		.processSync(description)
+		.toString();
+	description = description.replace(/\n/g, ' ');
+	// strip html
+	description = description.replace(/<[^>]*>?/gm, '');
+	// strip markdown
+	description = description.replace(/[[\]]/gm, '');
+	// strip markdown
+	description = description.replace(/[[\]]/gm, '');
+
 	// you may wish to use a truncation approach like this instead...
 	// let description = (data.content.length > 300) ? data.content.slice(0, 300) + '...' : data.content
 

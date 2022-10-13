@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
 		'./src/**/*.svelte',
@@ -33,6 +34,9 @@ module.exports = {
 							borderWidth: '2px',
 							borderColor: 'rgba(0,0,0,0.1)'
 						},
+						pre: {
+							'border-radius': '0rem',
+						},
 						'a:hover': {
 							color: '#31cdce !important',
 							textDecoration: 'underline !important'
@@ -43,6 +47,9 @@ module.exports = {
 						},
 						'a code': {
 							color: 'unset'
+						},
+						table: {
+							overflow: 'hidden'
 						},
 						'li, ul, ol': {
 							margin: 0
@@ -63,5 +70,7 @@ module.exports = {
 		}
 	},
 	variants: {},
-	plugins: [require('@tailwindcss/typography')]
+	plugins: [
+		require('@tailwindcss/typography')
+	]
 };
