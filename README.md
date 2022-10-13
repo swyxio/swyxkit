@@ -49,6 +49,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
     - SvelteKit does not yet support [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) - [PR pending here](https://github.com/sveltejs/kit/pull/2394/files)
   - [Builds and Deploys in ~40 seconds on Netlify](https://app.netlify.com/sites/swyxkit/deploys)
 - **Minor design/UX touches**
+  - `full`, `feature`, and `popout` [bleed layout](https://ryanmulligan.dev/blog/layout-breakouts/) classes on desktop - `feature` enabled by default for code samples! ([details and code samples here](https://swyxkit.netlify.app/layout-breakouts-in-swyxkit))
   - Top level blog URLs (`/myblog` instead of `/blog/myblog` - [why](https://www.swyx.io/namespacing-sites/))
   - Blog index truncates at 20 posts to make sure to render quickly
   - Blog search/facets serialize to URLs for easy copy paste ([thanks @Ak4zh](https://github.com/sw-yx/swyxkit/pull/97))
