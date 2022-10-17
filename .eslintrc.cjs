@@ -16,6 +16,11 @@ module.exports = {
 		sourceType: 'module',
 		ecmaVersion: 2019
 	},
+	rules: {
+		"no-unused-expressions": "warn",
+		"no-constant-binary-expression": "warn",
+		"no-sequences": "warn",
+	},
 	env: {
 		browser: true,
 		es2017: true,

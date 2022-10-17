@@ -9,7 +9,6 @@
 		DEFAULT_OG_IMAGE,
 		MY_TWITTER_HANDLE
 	} from '$lib/siteConfig';
-	import { stringify } from 'gray-matter';
 	export const prerender = true; // index page is most visited, lets prerender
 
 
