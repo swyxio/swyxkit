@@ -31,7 +31,6 @@ const rehypePlugins = [
 
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header
-``;
 
 /**
  * @param {string | number} text
@@ -44,9 +43,9 @@ function slugify(text) {
         .toLowerCase()              // Convert the string to lowercase letters
         .trim()                     // Remove whitespace from both sides of a string (optional)
         .replace(/\s+/g, '-')       // Replace spaces with hyphen
-        .replace(/[^\w\-]+/g, '')   // Remove all non-word chars
-        .replace(/\-\-+/g, '-')     // Replace multiple hyphen with single hyphen
-        .replace(/(^\-|\-$)/g, ''); // Remove leading or trailing hyphen
+		.replace(/[^\w-]+/g, '')   // Remove all non-word chars
+		.replace(/--+/g, '-')     // Replace multiple hyphen with single hyphen
+		.replace(/(^-|-$)/g, ''); // Remove leading or trailing hyphen
 }
 
 /**
@@ -128,7 +127,7 @@ export async function getContent(slug) {
 				// https://stackoverflow.com/a/27728417/1106414
 				function youtube_parser(url) {
 					var rx =
-						/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
+						/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|&v(?:i)?=))([^#&?]*).*/;
 					return url.match(rx)[1];
 				}
 				const videoId = x.startsWith('https://') ? youtube_parser(x) : x;
@@ -190,6 +189,7 @@ export async function getContent(slug) {
 		const content = (
 			await compile(blogbody, {
 				remarkPlugins,
+				// @ts-ignore
 				rehypePlugins
 			})
 		).code

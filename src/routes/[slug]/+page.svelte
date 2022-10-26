@@ -135,6 +135,6 @@
 	}
 
 	article :global(.admonition) {
-		@apply p-8 border-4 border-red-500
+		@apply p-8 border-4 border-red-500;
 	}
 </style>
