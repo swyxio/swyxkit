@@ -100,7 +100,7 @@
 		</ul>
 		<a
 			class="flex h-6 mt-2 leading-7 text-gray-600 transition-all rounded-lg dark:text-gray-400 dark:hover:text-gray-200"
-			href="/ideas"
+			href="/blog"
 			>Search and see all posts<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
