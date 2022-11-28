@@ -4,8 +4,8 @@ import { listContent } from '$lib/content';
 /**
  * @type {import('./$types').RequestHandler}
  */
-export async function GET({ setHeaders }) {
-	const list = await listContent();
+export async function GET({ fetch, setHeaders }) {
+	const list = await listContent(fetch);
 	setHeaders({
 		'Cache-Control': `max-age=0, s-maxage=${60}` // 1 minute.. for now
 	});
