@@ -87,7 +87,7 @@ npm install
 npm run start # Launches site locally at http://localhost:5173/ and histoire at http://localhost:6006/
 ```
 
-You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/). This project [recently switched](https://github.com/sw-yx/swyxkit/pull/100#issue-1352898457) to use `sveltejs/adapter-auto` (Oct, Nov 2022: currently pinned to v72 [because of a Netlify issue](https://github.com/sveltejs/kit/issues/6440#issuecomment-1269274541)), so you should also be able to deploy to Vercel and Cloudflare, but this is not regularly tested (please report/help fix issues if you find them)!
+You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/). This project [recently switched](https://github.com/sw-yx/swyxkit/pull/100#issue-1352898457) to use `sveltejs/adapter-auto` (Oct, Nov 2022: currently pinned to v72 [because of a Netlify issue](https://github.com/sveltejs/kit/issues/6440#issuecomment-1269274541) - resolved by [not using esbuild](https://github.com/sveltejs/kit/issues/7839#issuecomment-1328605300)), so you should also be able to deploy to Vercel and Cloudflare, but this is not regularly tested (please report/help fix issues if you find them)!
 
 However, to have new posts show up, you will need to personalize the `siteConfig` (see next step) - take note of `APPROVED_POSTERS_GH_USERNAME` in particular (this is an allowlist of people who can post to the blog by opening a GitHub issue, otherwise any rando can blog and that's not good).
 
