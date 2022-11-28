@@ -5,7 +5,7 @@
 
 [functions]
   directory = "functions"
-  node_bundler = "esbuild"
+  # node_bundler = "esbuild" # normally want to use esbuild, but there is a bug with netlify and esbuild right now https://github.com/sveltejs/kit/issues/7839#issuecomment-1328605300
   external_node_modules = ["mdsvex"]
 
 [build.environment]
