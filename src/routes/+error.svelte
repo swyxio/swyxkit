@@ -28,7 +28,7 @@
 	{#if $page.status === 404}
 		<p class="">There is no post at the slug <code>{$page.url.pathname}</code>.</p>
 		<p>
-			<a href={'/blog/?filter=' + $page.url.pathname.slice(1)}
+			<a href={'/blog?filter=' + $page.url.pathname.slice(1)}
 				>Try searching for "{displayPathname($page.url.pathname.slice(1))}" here!</a
 			>
 		</p>

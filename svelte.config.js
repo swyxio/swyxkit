@@ -43,9 +43,16 @@ const config = {
 		})
 	],
 
+	// Docs: https://github.com/sveltejs/kit/blob/master/packages/adapter-netlify/README.md
 	kit: {
 		adapter: adapter({
-			split: false
+			split: false,
+
+
+			// if true, will create a Netlify Edge Function rather
+			// than using standard Node-based functions. however, also uses esbuild, which as of nov 2022 has a bug on netlify
+			// https://github.com/sveltejs/kit/issues/7839#issuecomment-1328605300
+			edge: false,
 		})
 	}
 };
