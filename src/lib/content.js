@@ -1,7 +1,6 @@
 import { compile } from 'mdsvex';
 import { dev } from '$app/environment';
 import grayMatter from 'gray-matter';
-import fetch from 'node-fetch';
 import {
 	GH_USER_REPO,
 	APPROVED_POSTERS_GH_USERNAME,
@@ -57,7 +56,7 @@ function readingTime(text) {
 	return minutes > 1 ? `${minutes} minutes` : `${minutes} minute`;
 }
 
-export async function listContent() {
+export async function listContent(providedFetch) {
 	// use a diff var so as to not have race conditions while fetching
 	// TODO: make sure to handle this better when doing etags or cache restore
 
@@ -80,7 +79,7 @@ export async function listContent() {
 		url += '&' + new URLSearchParams({ creator: REPO_OWNER });
 	}
 	do {
-		const res = await fetch(next?.url ?? url, {
+		const res = await providedFetch(next?.url ?? url, {
 			headers: authheader
 		});
 
@@ -107,11 +106,11 @@ export async function listContent() {
 	return _allBlogposts;
 }
 
-export async function getContent(slug) {
+export async function getContent(providedFetch, slug) {
 	// get all blogposts if not already done - or in development
 	if (dev || allBlogposts.length === 0) {
 		console.log('loading allBlogposts');
-		allBlogposts = await listContent();
+		allBlogposts = await listContent(providedFetch);
 		console.log('loaded ' + allBlogposts.length + ' blogposts');
 		if (!allBlogposts.length)
 			throw new Error(
