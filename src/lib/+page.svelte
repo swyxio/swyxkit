@@ -33,7 +33,7 @@
 		} else {
 			$page.url.searchParams.delete('filter');
 		}
-		goto(`?${$page.url.searchParams.toString()}`, { noscroll: true, keepfocus: true });
+		goto(`?${$page.url.searchParams.toString()}`, { noScroll: true, keepFocus: true });
 	}
 
 	function focusSearch(e) {
