@@ -36,7 +36,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
     - Comment and Reaction system from GitHub Issues
     - 🆕 Shortcodes for [embedding Tweets and YouTube videos](http://swyxkit.netlify.app/supporting-youtube-and-twitter-embeds)
     - Consumes markdown/MDSveX
-      - With syntax highlighting
+      - With syntax highlighting (MDSvex uses `prism-svelte` under the hood)
       - Fixes for [known MDSveX render issue](https://github.com/pngwn/MDsveX/issues/392)
   - RSS (at `/rss.xml`), and Sitemap (at `sitemap.xml`) with caching
 - **Performance/Security touches**
