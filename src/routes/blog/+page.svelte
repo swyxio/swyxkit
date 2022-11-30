@@ -2,6 +2,7 @@
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { queryParam } from "sveltekit-search-params";
 
 	import { SITE_TITLE, POST_CATEGORIES } from '$lib/siteConfig';
 
@@ -14,31 +15,12 @@
 	/** @type {import('$lib/types').ContentItem[]} */
 	$: items = data.items;
 
-	function searchParamToArray(key) {
-		return ($page.url.searchParams.get(key) || '').split(',').filter((e) => e);
-	}
-
-	let selectedCategories = searchParamToArray('show');
-	let search = $page.url.searchParams.get('filter') || '';
+	let selectedCategories = queryParam("show", {
+		encode: (arr)=> arr?.toString(),
+		decode: (str)=> str?.split(",")?.filter((e) => e) ?? [],
+	});
+	let search = queryParam("filter");
 	let inputEl;
-
-	$: if (browser) {
-		const initialParams = $page.url.searchParams.toString();
-		if (selectedCategories.length) {
-			$page.url.searchParams.set('show', selectedCategories.toString());
-		} else {
-			$page.url.searchParams.delete('show');
-		}
-		if (search) {
-			$page.url.searchParams.set('filter', search);
-		} else {
-			$page.url.searchParams.delete('filter');
-		}
-		const newParams = $page.url.searchParams.toString();
-		if (newParams !== initialParams) {
-			goto(`?${newParams}`, { noScroll: true, keepFocus: true });
-		}
-	}
 
 	function focusSearch(e) {
 		if (e.key === '/' && inputEl) inputEl.select();
@@ -47,8 +29,8 @@
 	let isTruncated = items?.length > 20;
 	$: list = items
 		.filter((item) => {
-			if (selectedCategories.length) {
-				return selectedCategories
+			if ($selectedCategories?.length) {
+				return $selectedCategories
 					.map((element) => {
 						return element.toLowerCase();
 					})
@@ -57,8 +39,8 @@
 			return true;
 		})
 		.filter((item) => {
-			if (search) {
-				return item.title.toLowerCase().includes(search.toLowerCase());
+			if ($search) {
+				return item.title.toLowerCase().includes($search.toLowerCase());
 			}
 			return true;
 		})
@@ -85,7 +67,7 @@
 		<input
 			aria-label="Search articles"
 			type="text"
-			bind:value={search}
+			bind:value={$search}
 			bind:this={inputEl}
 			placeholder="Hit / to search"
 			class="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
@@ -115,7 +97,7 @@
 						id="category-{availableCategory}"
 						class="sr-only peer"
 						type="checkbox"
-						bind:group={selectedCategories}
+						bind:group={$selectedCategories}
 						value={availableCategory}
 					/>
 					<label
@@ -131,7 +113,7 @@
 	{/if}
 
 	<!-- you can hardcode yourmost popular posts or pinned post here if you wish -->
-	{#if !search}
+	{#if !$search}
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 			Most Popular
 		</h3>
@@ -171,12 +153,12 @@
 				</button>
 			</div>
 		{/if}
-	{:else if search}
+	{:else if $search}
 		<div class="prose dark:prose-invert">
 			No posts found for
-			<code>{search}</code>.
+			<code>{$search}</code>.
 		</div>
-		<button class="p-2 bg-slate-500" on:click={() => (search = '')}>Clear your search</button>
+		<button class="p-2 bg-slate-500" on:click={() => ($search = '')}>Clear your search</button>
 	{:else}
 		<div class="prose dark:prose-invert">No blogposts found!</div>
 	{/if}
