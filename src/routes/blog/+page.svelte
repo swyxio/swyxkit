@@ -93,21 +93,19 @@
 		<div class="grid grid-cols-3 rounded-md shadow-sm sm:grid-cols-6">
 			{#each POST_CATEGORIES as availableCategory}
 				<div>
-					{#if $selectedCategories}
-						<input
-							id="category-{availableCategory}"
-							class="sr-only peer"
-							type="checkbox"
-							bind:group={$selectedCategories}
-							value={availableCategory}
-						/>
-						<label
-							for="category-{availableCategory}"
-							class="inline-flex items-center justify-between w-full px-4 py-2 text-gray-500 bg-white border border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-gray-600 peer-checked:border-purple-600 peer-checked:text-purple-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-purple-500"
-						>
-							{availableCategory}
-						</label>
-					{/if}
+					<input
+						id="category-{availableCategory}"
+						class="sr-only peer"
+						type="checkbox"
+						bind:group={$selectedCategories}
+						value={availableCategory}
+					/>
+					<label
+						for="category-{availableCategory}"
+						class="inline-flex items-center justify-between w-full px-4 py-2 text-gray-500 bg-white border border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-gray-600 peer-checked:border-purple-600 peer-checked:text-purple-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-purple-500"
+					>
+						{availableCategory}
+					</label>
 				</div>
 			{/each}
 		</div>
