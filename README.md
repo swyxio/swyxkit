@@ -1,3 +1,5 @@
+> NOTICE TO NEW USERS - THERE IS A KNOWN BUG WITH RENDERING PAGES WITH CODE BLOCKS right now - issue tracked in https://github.com/pngwn/MDsveX/issues/484 -  https://github.com/sw-yx/swyxkit/commit/3e9908874660241960c717dc9f49b0e292f9da0e is a good working version, use that one for now
+
 # SwyxKit
 
 A lightly opinionated starter for SvelteKit blogs:
