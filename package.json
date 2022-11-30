@@ -70,6 +70,7 @@
 		"prism-themes": "^1.9.0",
 		"remark": "^14.0.2",
 		"shiki": "^0.11.1",
-		"snarkdown": "^2.0.0"
+		"snarkdown": "^2.0.0",
+		"sveltekit-search-params": "^0.1.10"
 	}
 }
