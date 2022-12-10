@@ -2,13 +2,10 @@
 	import { MY_TWITTER_HANDLE, SITE_URL } from '$lib/siteConfig';
 	import Comments from '../../components/Comments.svelte';
 
-	import * as Prism from "prismjs";
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
 	import Newsletter from '../../components/Newsletter.svelte';
 	import Reactions from '../../components/Reactions.svelte';
 	import { page } from '$app/stores';
-
-	console.log({Prism})
 
 	/** @type {import('./$types').PageData} */
 	export let data;
