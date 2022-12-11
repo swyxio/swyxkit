@@ -105,6 +105,10 @@ a {
 	@apply text-yellow-700 hover:text-yellow-700 hover:underline dark:text-yellow-400 dark:hover:text-yellow-200;
 }
 
+/* for the super long github links i drop */
+.prose a {
+	word-break: break-all;
+}
 .prose h1 a,
 h2 a,
 h3 a,
