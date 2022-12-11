@@ -1,7 +1,8 @@
 // vite.config.js
 import { sveltekit } from '@sveltejs/kit/vite';
 import { ssp } from "sveltekit-search-params/plugin";
-import fs from 'fs'
+import fs from 'fs';
+
 /** @type {import('vite').UserConfig} */
 const config = {
 	plugins: [ssp(), sveltekit(), rawFonts(['.ttf']), nativeNodeModulesPlugin],
