@@ -7,7 +7,12 @@ const config = {
 	plugins: [ssp(), sveltekit(), rawFonts(['.ttf']), nativeNodeModulesPlugin],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
-	}
+	},
+	optimizeDeps: {
+		exclude: [
+			'@resvg/resvg-js',
+		],
+	},
 };
 
 export default config;
