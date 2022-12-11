@@ -36,7 +36,7 @@
 	{/if}
 </svelte:head>
 
-<article class="swyxcontent prose dark:prose-invert mx-auto mt-16 mb-32 w-full max-w-none items-start justify-center">
+<article class="swyxcontent prose dark:prose-invert mx-auto mt-16 mb-32 w-full max-w-none items-start justify-center break-all">
 	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
 		{json.title}
 	</h1>
