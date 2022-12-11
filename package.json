@@ -19,7 +19,6 @@
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
 		"@playwright/test": "^1.28.1",
-		"@resvg/resvg-js": "^2.2.0",
 		"@sveltejs/adapter-auto": "1.0.0-next.72",
 		"@sveltejs/kit": "1.0.0-next.582",
 		"@tailwindcss/typography": "^0.5.8",
@@ -70,6 +69,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/noto-sans": "^4.5.11",
+		"@resvg/resvg-js": "^2.2.0",
 		"date-fns": "^2.29.3",
 		"parse-link-header": "^2.0.0",
 		"prism-themes": "^1.9.0",
