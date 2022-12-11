@@ -1,6 +1,10 @@
 import { error } from '@sveltejs/kit';
 import { REPO_URL } from '$lib/siteConfig';
-export const csr = true; // https://github.com/sveltejs/kit/pull/6446
+
+export const prerender = true // The basic rule is this: for a page to be prerenderable, any two users hitting it directly must get the same content from the server.
+
+
+/** @type {import('./$types').PageLoad} */
 export async function load({ params, fetch, setHeaders }) {
 	const slug = params.slug;
 	let res = null;

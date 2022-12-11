@@ -1,5 +1,3 @@
-> NOTICE TO NEW USERS - THERE IS A KNOWN BUG WITH RENDERING PAGES WITH CODE BLOCKS right now - issue tracked in https://github.com/pngwn/MDsveX/issues/484 -  https://github.com/sw-yx/swyxkit/commit/3e9908874660241960c717dc9f49b0e292f9da0e is a good working version, use that one for now
-
 # SwyxKit
 
 A lightly opinionated starter for SvelteKit blogs:
@@ -78,8 +76,9 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
   - [JSDoc Typechecking](https://swyxkit.netlify.app/how-to-add-jsdoc-typechecking-to-sveltekit)
   - ESLint + Prettier
   - [Nightly lockfile upgrades](https://mobile.twitter.com/FredKSchott/status/1489287560387956736)
-  - Design system sandbox/"Storybook" setup:
-    - `npm run story:dev` to view it on http://localhost:6006/. This is also included in your `npm start` command.
+  - Design system sandbox/"Storybook" setup with [Histoire](https://histoire.dev/guide/svelte3/hierarchy.html):
+    - (Dec 2022): This is normally included in your `npm start` command - but has been temporarily disabled due to Sveltekit moving to Vite 4 and Histoire being behind.
+    - `npm run story:dev` to view it on http://localhost:6006/. (currently not working)
 
 
 This is a partial implementation of https://www.swyx.io/the-surprisingly-high-table-stakes-of-modern-blogs/
@@ -95,7 +94,7 @@ npm install
 npm run start # Launches site locally at http://localhost:5173/ and histoire at http://localhost:6006/
 ```
 
-You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/). This project [recently switched](https://github.com/sw-yx/swyxkit/pull/100#issue-1352898457) to use `sveltejs/adapter-auto` (Oct, Nov 2022: currently pinned to v72 [because of a Netlify issue](https://github.com/sveltejs/kit/issues/6440#issuecomment-1269274541) - resolved by [not using esbuild](https://github.com/sveltejs/kit/issues/7839#issuecomment-1328605300)), so you should also be able to deploy to Vercel and Cloudflare, but this is not regularly tested (please report/help fix issues if you find them)!
+You should be able to deploy this project straight to Netlify as is, just [like this project is](https://app.netlify.com/sites/swyxkit/deploys/). This project [recently switched](https://github.com/sw-yx/swyxkit/pull/100#issue-1352898457) to use `sveltejs/adapter-auto` (Oct, Nov 2022: currently pinned to v72 [because of a Netlify issue](https://github.com/sveltejs/kit/issues/6440#issuecomment-1269274541) - resolved by [not using esbuild](https://github.com/sveltejs/kit/issues/7839#issuecomment-1328605300) - Dec 2022: reverted because mdsvex [wasnt compatible](https://github.com/pngwn/MDsveX/issues/484)), so you should also be able to deploy to Vercel and Cloudflare, but this is not regularly tested (please report/help fix issues if you find them)!
 
 However, to have new posts show up, you will need to personalize the `siteConfig` (see next step) - take note of `APPROVED_POSTERS_GH_USERNAME` in particular (this is an allowlist of people who can post to the blog by opening a GitHub issue, otherwise any rando can blog and that's not good).
 
