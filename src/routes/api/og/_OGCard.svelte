@@ -12,8 +12,10 @@
  ${size} flex h-full
  w-full items-center p-4`}
 >
-	<div class="flex-1">
-		{title}
+	<div class="flex flex-col flex-1">
+		<div>
+      {title}
+    </div>
 		{#if subtitle}
 			<div class="text-3xl text-blue-400">{subtitle}</div>
 		{/if}
