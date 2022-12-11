@@ -40,6 +40,11 @@
 	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
 		{json.title}
 	</h1>
+	{#if json.subtitle}
+		<h2 class="text-xl italic text-black dark:text-white mb-4">
+			{json.subtitle}
+		</h2>
+	{/if}
 	<div
 		class="bg mt-2 flex w-full justify-between border-red sm:flex-col sm:items-start md:flex-row md:items-center"
 	>

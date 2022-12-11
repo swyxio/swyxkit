@@ -5,7 +5,8 @@ import {
 	GH_USER_REPO,
 	APPROVED_POSTERS_GH_USERNAME,
 	GH_PUBLISHED_TAGS,
-	REPO_OWNER
+	REPO_OWNER,
+	SITE_URL
 } from './siteConfig';
 import parse from 'parse-link-header';
 import { remark } from 'remark';
@@ -240,16 +241,20 @@ function parseIssue(issue) {
 	tags = tags.map((tag) => tag.toLowerCase());
 	// console.log(slug, tags);
 
+	let subtitle = data.subtitle
+	let image = data.image ?? data.cover_image
+	if (!image) image = SITE_URL + `/api/og?title=${title}&subtitle=${subtitle}`
+
 	return {
 		type: 'blog', // futureproof in case you want to add other types of content
 		content,
 		frontmatter: data,
 		title,
-		subtitle: data.subtitle,
+		subtitle,
 		description,
 		category: data.category?.toLowerCase() || 'blog',
 		tags,
-		image: data.image ?? data.cover_image,
+		image,
 		canonical: data.canonical, // for canonical URLs of something published elsewhere
 		slug: slug.toString().toLowerCase(),
 		date: new Date(data.date ?? issue.created_at),
