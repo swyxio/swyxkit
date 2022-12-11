@@ -107,7 +107,7 @@ a {
 
 /* for the super long github links i drop */
 .prose a {
-	word-break: break-all;
+	word-break: break-word;
 }
 .prose h1 a,
 h2 a,
