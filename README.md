@@ -7,7 +7,7 @@ A lightly opinionated starter for SvelteKit blogs:
 - [GitHub Issues as CMS](https://github.com/sw-yx/swyxkit/issues/10)
 - Lots of minor UX opinions (see below)
 
-Feel free to rip out these opinions as you see fit of course.
+It is designed to hopefully be *easy* to rip out these opinions as you see fit.
 
 > "Does anyone know what theme that blog is using? It looks really nice." - [anon](https://news.ycombinator.com/item?id=32972871)
 
@@ -62,6 +62,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
 		- [Comments are rendered and sanitized](https://github.com/developit/snarkdown/issues/70)
 		- `full`, `feature`, and `popout` [bleed layout](https://ryanmulligan.dev/blog/layout-breakouts/) classes on desktop - `feature` enabled by default for code samples! ([details and code samples here](https://swyxkit.netlify.app/layout-breakouts-in-swyxkit))
 		- Top level blog URLs (`/myblog` instead of `/blog/myblog` - [why](https://www.swyx.io/namespacing-sites/))
+    - Dynamic OG images [generated from subtitle and title](https://github.com/sw-yx/swyxkit/issues/146)
 	- General features
 		- Navlink hover effect
 		- [Mobile/Responsive styling](https://swyxkit.netlify.app/mobileresponsive-styling-with-tailwind)
@@ -134,6 +135,8 @@ Of course, you should then go page by page (there aren't that many) and customiz
 - The `Newsletter` component needs to be wired up to a newsletter service (I like Buttondown, TinyLetter, and Revue)
 - Page `Cache-Control` policy and SvelteKit `maxage`
 - Site favicons (use https://realfavicongenerator.net/ to make all the variants and stick it in `/static`)
+- Customize the `<meta>` tags in `/[slug]/+page.svelte` and the upstream data dependency in `/lib/content.js`
+- change the [dynamic `og:image`](https://github.com/sw-yx/swyxkit/issues/146) logo - currently is the SwyxKit logo
 - (If migrating content from previous blog) setup Netlify redirects at `/static/_redirects`
 
 This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give the `GH_TOKEN` env variable to raise rate limit from 60 to 5000.
