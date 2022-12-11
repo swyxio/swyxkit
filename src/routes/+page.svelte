@@ -93,7 +93,7 @@
 		<ul class="space-y-2 text-white">
 			{#each items as item (item.slug)}
 				<li>
-					<a class="font-bold" sveltekit:prefetch href={item.slug}>{item.title}</a>
+					<a class="font-bold" data-sveltekit-preload-data href={item.slug}>{item.title}</a>
 					<span class="hidden text-xs text-black sm:inline dark:text-gray-400">{new Date(item.date).toISOString().slice(0, 10)}</span>
 				</li>
 			{/each}
