@@ -89,8 +89,7 @@ This is a partial implementation of https://www.swyx.io/the-surprisingly-high-ta
 ### Step 0: Clone project (and deploy)
 
 ```bash
-npx degit https://github.com/sw-yx/swyxkit
-export GH_TOKEN=your_gh_token_here # Can be skipped if just trying out this repo casually
+npx degit https://github.com/sw-yx/swyxkit # just a slightly faster git clone
 npm install
 npm run start # Launches site locally at http://localhost:5173/ and histoire at http://localhost:6006/
 ```
@@ -139,11 +138,22 @@ Of course, you should then go page by page (there aren't that many) and customiz
 - change the [dynamic `og:image`](https://github.com/sw-yx/swyxkit/issues/146) logo - currently is the SwyxKit logo
 - (If migrating content from previous blog) setup Netlify redirects at `/static/_redirects`
 
-This blog uses GitHub as a CMS - if you are doing any serious development at all, you should give the `GH_TOKEN` env variable to raise rate limit from 60 to 5000.
+#### GitHub as CMS
 
+This blog uses [GitHub as a CMS](https://swyxkit.netlify.app/moving-to-a-github-cms) - meaning you write markdown in GitHub issues and it pulls in the data using the GitHub API. 
+
+- You can of course rip this out and use your own CMS or write MDsvex, if you wish.
+- If you are doing any serious development with swyxkit + Github as a CMS, you should give the `GH_TOKEN` env variable to raise the APi rate limit from 60 to 5000.
 - A really basic personal access token should be enough and can be created [here](https://github.com/settings/tokens/new).
   https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
 - [Set the env variables in Netlify](https://docs.netlify.com/configure-builds/environment-variables/#declare-variables)
+
+To add it for local dev:
+
+```bash
+export GH_TOKEN=your_gh_token_here # Can be skipped if just trying out this repo casually
+npm run start
+```
 
 When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites/YOUR_SITE/settings/deploys#environment
 
