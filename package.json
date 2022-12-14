@@ -72,6 +72,7 @@
 		"@resvg/resvg-js": "^2.2.0",
 		"date-fns": "^2.29.3",
 		"parse-link-header": "^2.0.0",
+		"prism": "^4.1.2",
 		"prism-themes": "^1.9.0",
 		"remark": "^14.0.2",
 		"shiki": "^0.11.1",
