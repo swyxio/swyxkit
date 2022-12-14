@@ -1,11 +1,14 @@
 # SwyxKit
 
-A lightly opinionated starter for SvelteKit blogs:
+A lightly opinionated starter for [SvelteKit](https://kit.svelte.dev/) blogs:
 
-- Tailwind 3 + Tailwind Typography (with [swyx fixes](https://youtu.be/-FzemNMcOGs))
-- [JSDoc Typechecking](https://swyxkit.netlify.app/how-to-add-jsdoc-typechecking-to-sveltekit)
-- [GitHub Issues as CMS](https://github.com/sw-yx/swyxkit/issues/10)
-- Lots of minor UX opinions (see below)
+- SvelteKit 1.0 + [Mdsvex](https://mdsvex.pngwn.io/) setup verified to work on Netlify and Vercel
+- Tailwind 3 + Tailwind Typography (with [some fixes](https://youtu.be/-FzemNMcOGs))
+- [GitHub Issues as CMS](https://github.com/sw-yx/swyxkit/issues/10) - with comment and reaction displays
+- Content options
+  - [Twitter/YouTube Embeds](https://swyxkit.netlify.app/supporting-youtube-and-twitter-embeds)
+  - [Admonitions and Bleed layouts](https://swyxkit.netlify.app/layout-breakouts-in-swyxkit)
+- Lots of minor DX and UX opinions (see below)
 
 Feel free to rip out these opinions as you see fit of course.
 
