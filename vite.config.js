@@ -12,6 +12,8 @@ const config = {
 	optimizeDeps: {
 		exclude: [
 			'@resvg/resvg-js',
+			'mdsvex',
+			'prism',
 		],
 	},
 };

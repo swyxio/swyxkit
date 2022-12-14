@@ -3,7 +3,7 @@ import { REPO_URL } from '$lib/siteConfig';
 
 // we choose NOT to prerender blog pages because it is easier to edit and see changes immediately
 // instead we set cache control headers
-// export const prerender = true
+export const prerender = true
 
 
 /** @type {import('./$types').PageLoad} */
