@@ -55,7 +55,11 @@ const config = {
 
 			// // dec 2022 - moved back to true since we're using esbuild again
 			// edge: true,
-		})
+		}),
+		prerender: {
+			crawl: true,
+			entries: ["*", "/blog"]
+		}
 	}
 };
 
