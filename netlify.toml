@@ -5,10 +5,10 @@
 
 [functions]
   directory = "functions"
-  node_bundler = "esbuild" 
-  # (nov 2022) normally want to use esbuild, but there is a bug with netlify and esbuild right now https://github.com/sveltejs/kit/issues/7839#issuecomment-1328605300
-  # (dec 2022) we tried disabling esbuild to move to sveltekit adapter auto 89, but then there was an issue with prismjs rendering https://github.com/pngwn/MDsveX/issues/484
-  # so moved back to adapter auto 72 just to have a working build that can render code highlights
+  # node_bundler = "esbuild" 
+  ## (nov 2022) normally want to use esbuild, but there is a bug with netlify and esbuild right now https://github.com/sveltejs/kit/issues/7839#issuecomment-1328605300
+  ## (dec 2022) we tried disabling esbuild to move to sveltekit adapter auto 89, but then there was an issue with prismjs rendering https://github.com/pngwn/MDsveX/issues/484
+  ## so moved back to adapter auto 72 just to have a working build that can render code highlights
   external_node_modules = ["mdsvex"]
 
 [build.environment]
