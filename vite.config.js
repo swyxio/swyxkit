@@ -15,7 +15,7 @@ const config = {
 		exclude: [
 			'@resvg/resvg-js',
 			'mdsvex',
-			'prism',
+			// 'prism',
 		],
 	},
 };
