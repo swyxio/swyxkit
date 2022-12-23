@@ -18,12 +18,12 @@
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
-		"@playwright/test": "^1.29.0",
-		"@sveltejs/adapter-auto": "1.0.0",
-		"@sveltejs/kit": "1.0.1",
+		"@playwright/test": "^1.29.1",
+		"@sveltejs/adapter-auto": "^1.0.0",
+		"@sveltejs/kit": "^1.0.1",
 		"@tailwindcss/typography": "^0.5.8",
-		"@typescript-eslint/eslint-plugin": "^5.46.1",
-		"@typescript-eslint/parser": "^5.46.1",
+		"@typescript-eslint/eslint-plugin": "^5.47.0",
+		"@typescript-eslint/parser": "^5.47.0",
 		"autoprefixer": "^10.4.13",
 		"concurrently": "^7.6.0",
 		"eslint": "^8.30.0",
@@ -51,7 +51,7 @@
 		"remark-toc": "^8.0.1",
 		"rss": "^1.2.2",
 		"svelte": "^3.55.0",
-		"svelte-check": "^2.10.2",
+		"svelte-check": "^3.0.1",
 		"svelte-preprocess": "^5.0.0",
 		"tailwindcss": "^3.2.4",
 		"tslib": "^2.4.1",
@@ -59,7 +59,7 @@
 		"unified": "^10.1.2",
 		"vfile": "^5.3.6",
 		"vfile-reporter": "^7.0.4",
-		"vite": "^4.0.1"
+		"vite": "^4.0.3"
 	},
 	"engines": {
 		"node": ">=16.14"
@@ -74,7 +74,7 @@
 		"prism": "^4.1.2",
 		"prism-themes": "^1.9.0",
 		"remark": "^14.0.2",
-		"shiki": "^0.11.1",
+		"shiki": "^0.12.1",
 		"snarkdown": "^2.0.0",
 		"sveltekit-search-params": "^0.1.12"
 	}
