@@ -53,15 +53,14 @@
 			</h1>
 			<h2 class="mb-4 text-gray-700 dark:text-gray-200">
 				An opinionated blog starter for <span class="font-semibold"
-					>SvelteKit + Tailwind + Netlify.</span
-				>
-				Refreshed
-				<a href="https://github.com/sveltejs/kit/discussions/5774"
-					>the great SvelteKit redesign of Summer 2022</a
-				>
+					>SvelteKit + Tailwind + Netlify/Vercel.</span
+				> Updated for
+				<a href="https://github.com/sveltejs/kit/"
+					>SvelteKit 1.0</a
+				>!
 			</h2>
 			<p class="mb-16 text-gray-600 dark:text-gray-400">
-				<a href={REPO_URL}>View source here!</a>
+				<a href={REPO_URL}>View source and feature list here!</a>
 			</p>
 		</div>
 		<!-- <div
