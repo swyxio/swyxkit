@@ -227,9 +227,7 @@ function parseIssue(issue) {
 	// strip html
 	description = description.replace(/<[^>]*>?/gm, '');
 	// strip markdown
-	description = description.replace(/[[\]]/gm, '');
-	// strip markdown
-	description = description.replace(/[[\]]/gm, '');
+	// description = description.replace(/[[\]]/gm, '');
 
 	// you may wish to use a truncation approach like this instead...
 	// let description = (data.content.length > 300) ? data.content.slice(0, 300) + '...' : data.content

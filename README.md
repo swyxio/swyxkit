@@ -191,10 +191,7 @@ If all of this is annoying feel free to rip out the GitHub Issues CMS wiring and
   - RSS
     - https://scottspence.com/posts/make-an-rss-feed-with-sveltekit
     - https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
-    - Reasons it is hard to do dynamic RSS in SvelteKit:
-      - SvelteKit Endpoints don't take over from SvelteKit dynamic param routes (`[slug].svelte` has precedence over `rss.xml.js`)
-        - Aug 2022: now solved due to PlusKit
-      - RSS Endpoint runs locally but doesn't run in Netlify because there's no access to the content in prod ([SvelteKit issue](https://github.com/sveltejs/kit/issues/3535))
+    - Rich RSS https://indieweb.social/@mehulkar/109615859121989742
   - Sitemap.xml https://github.com/sveltejs/kit/issues/1142#issuecomment-1107667691
 - Find more SvelteKit projects at https://github.com/janosh/awesome-svelte-kit
 
@@ -204,3 +201,7 @@ If all of this is annoying feel free to rip out the GitHub Issues CMS wiring and
 - Store results in Netlify build cache
 - Separate hydration path for mobile nav (so that we could `hydrate=false` some pages)
 - Custom components in MDX, and rehype plugins
+- (maybe) Dynamic RSS in SvelteKit:
+  - SvelteKit Endpoints don't take over from SvelteKit dynamic param routes (`[slug].svelte` has precedence over `rss.xml.js`)
+    - Aug 2022: now solved due to PlusKit
+  - RSS Endpoint runs locally but doesn't run in Netlify because there's no access to the content in prod ([SvelteKit issue](https://github.com/sveltejs/kit/issues/3535))
