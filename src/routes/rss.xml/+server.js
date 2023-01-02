@@ -22,8 +22,6 @@ export async function GET({ fetch }) {
 			.use(remarkHTML)
 			.processSync(post.description)
 
-		console.log(htmlDescription.toString())
-
 		feed.item({
 			title: post.title,
 			url: SITE_URL + `/${post.slug}`,
