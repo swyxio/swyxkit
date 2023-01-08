@@ -3,6 +3,11 @@
 	import Comments from '../../components/Comments.svelte';
 
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
+	import 'prismjs/components/prism-bash.js';
+	import 'prismjs/components/prism-css.js';
+	import 'prismjs/components/prism-diff.js';
+	import 'prismjs/components/prism-typescript.js';
+	import 'prismjs/components/prism-jsx';
 	import Newsletter from '../../components/Newsletter.svelte';
 	import Reactions from '../../components/Reactions.svelte';
 	import { page } from '$app/stores';
