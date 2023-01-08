@@ -5,12 +5,21 @@ import remarkGithub from 'remark-github';
 import remarkAbbr from 'remark-abbr';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import shiki from 'shiki'
 
 // mdsvex config
 const mdsvexConfig = {
 	extensions: ['.svelte.md', '.md', '.svx'],
 	layout: {
 		_: './src/mdsvexlayout.svelte' // default mdsvex layout
+	},
+	highlight: {
+		highlighter: async function (code, lang) {
+			const highlighter = await shiki.getHighlighter({
+				theme: 'nord'
+			})
+			return highlighter.codeToHtml(code, { lang })
+		}
 	},
 	remarkPlugins: [
 		[
