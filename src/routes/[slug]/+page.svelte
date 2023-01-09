@@ -2,6 +2,7 @@
 	import { MY_TWITTER_HANDLE, SITE_URL } from '$lib/siteConfig';
 	import Comments from '../../components/Comments.svelte';
 
+	import prism from 'prismjs';
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
 	import 'prismjs/components/prism-bash.js';
 	import 'prismjs/components/prism-css.js';

@@ -78,6 +78,6 @@
 		"prism-themes": "^1.9.0",
 		"remark": "^14.0.2",
 		"snarkdown": "^2.0.0",
-		"sveltekit-search-params": "^0.1.12"
+		"sveltekit-search-params": "^0.1.13"
 	}
 }
