@@ -2,10 +2,10 @@
 
 A lightly opinionated starter for [SvelteKit](https://kit.svelte.dev/) blogs:
 
-- 🇸 SvelteKit 1.0 + [Mdsvex](https://mdsvex.pngwn.io/) setup verified to work on Netlify and Vercel
-- 🌬️ Tailwind 3 + Tailwind Typography (with [some fixes](https://youtu.be/-FzemNMcOGs))
-- 🤯 [GitHub Issues as CMS](https://github.com/sw-yx/swyxkit/issues/10) - with comment and reaction displays
-- ✍️ Content options
+- SvelteKit 1.0 + [Mdsvex](https://mdsvex.pngwn.io/) setup verified to work on Netlify and Vercel
+- Tailwind 3 + Tailwind Typography (with [some fixes](https://youtu.be/-FzemNMcOGs))
+- [GitHub Issues as CMS](https://github.com/sw-yx/swyxkit/issues/10) - with comment and reaction displays
+- Content options
   - [Twitter/YouTube Embeds](https://swyxkit.netlify.app/supporting-youtube-and-twitter-embeds)
   - [Admonitions and Bleed layouts](https://swyxkit.netlify.app/layout-breakouts-in-swyxkit)
 - Lots of minor DX and UX opinions (see below)
@@ -38,6 +38,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
 - https://twitter.com/iambenwis/status/1500998985388937216
 - https://twitter.com/lucianoratamero/status/1508832233225867267
 - https://twitter.com/Codydearkland/status/1503822866969595904
+- https://github.com/georgeoffley/george-offley-blog-swyxkit
 - add yourself here!
 
 ## Key Features and Design Considerations:
