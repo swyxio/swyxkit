@@ -2,14 +2,21 @@
 <script>
 
   import Reactions from './Reactions.svelte';
+  import Comments from './Comments.svelte';
+  import { sampleGHComments } from './_sampledata';
   export let Hst
 </script>
 
 
 <Hst.Story
-  title="Reactions"
+  title="Comments"
   layout={{ type: 'grid', width: '100%' }}
 >
+  <Hst.Variant title="Full comments Example">
+    <div class="mb-8">
+      <Comments data={sampleGHComments} />
+    </div>
+  </Hst.Variant>
   <Hst.Variant title="full">
     <Reactions reactions={{
       total_count: 40,

@@ -44,12 +44,12 @@
 		</section>
 	</Hst.Variant>
 
-	<Hst.Variant title="Fastxx">
+	<Hst.Variant title="Fast">
     <div class="flex flex-col gap-6 md:flex-row">
       <FeatureCard title={prefixString + " Fast 2022!"} href="/welcome" stringData="Jan 2022" />
     </div>
 	</Hst.Variant>
-	<Hst.Variant title="Slowxx">
+	<Hst.Variant title="Slow">
     <div class="flex flex-col gap-6 md:flex-row">
       <FeatureCard title={prefixString + " Slow 2022!"} href="/welcome" stringData="Jan 2022" />
     </div>
