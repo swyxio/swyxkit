@@ -1,35 +1,6 @@
-<script>
-	/** @type {import('$lib/types').GHMetadata} */
-	export let ghMetadata;
-	/** @type {import('$lib/types').GHComment[]} */
-	export let data = [];
-	import { onMount } from 'svelte';
-	onMount(async () => {
-    if (data.length) return; // data has been passed in from above, so dont bother loading
-		data = await (await fetch(ghMetadata.commentsUrl)).json();
-	});
-	import Comment from './Comment.svelte';
-</script>
+// this contains sample data for the Histoire story.svelte components
 
-<div class="prose mb-8 w-full dark:prose-invert">
-	{#each data as comment}
-		<Comment {comment} />
-	{/each}
-</div>
-<a
-	href={`${ghMetadata?.issueUrl}#issuecomment-new`}
-	rel="external noreferrer"
-	target="_blank"
-	class="flex justify-center border-y border-blue-700 p-4 no-underline hover:text-yellow-700 dark:hover:text-yellow-200 sm:inline sm:rounded-xl sm:border-x"
->
-	Leave a new comment!
-</a>
-
-<!-- <pre class="prose dark:prose-invert">
-  {JSON.stringify(data, null, 2)}
-</pre> -->
-<!-- 
-{
+export let sampleGHComments = [{
   "url": "https://api.github.com/repos/sw-yx/swyxkit/issues/comments/1008454294",
   "html_url": "https://github.com/sw-yx/swyxkit/issues/10#issuecomment-1008454294",
   "issue_url": "https://api.github.com/repos/sw-yx/swyxkit/issues/10",
@@ -57,6 +28,7 @@
   },
   "created_at": "2022-01-10T00:16:22Z",
   "updated_at": "2022-01-10T00:16:22Z",
+  "issue_url": "https://github.com/sw-yx/swyxkit/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc",
   "author_association": "OWNER",
   "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti fugiat quod non ipsum perspiciatis voluptatum pariatur explicabo enim, suscipit sapiente, quo perferendis amet sint voluptates. Quibusdam ullam voluptatibus expedita repudiandae quos tenetur, modi eligendi eos. Sit cum unde dolor assumenda error, suscipit earum, corrupti molestias vero quae incidunt enim aspernatur magni inventore reprehenderit esse rerum quas, at itaque? Autem repellendus cupiditate natus vero inventore sit! Excepturi expedita optio in! Sapiente rerum fuga dignissimos odit iure laboriosam earum non dolores obcaecati repellendus ipsum minus enim eum et, totam facere? Doloribus autem sed magni nobis aspernatur nulla officiis impedit nostrum obcaecati assumenda!",
   "reactions": {
@@ -72,4 +44,4 @@
     "eyes": 0
   },
   "performed_via_github_app": null
-} -->
+}]

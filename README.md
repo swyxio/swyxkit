@@ -90,9 +90,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
   - [JSDoc Typechecking](https://swyxkit.netlify.app/how-to-add-jsdoc-typechecking-to-sveltekit)
   - ESLint + Prettier
   - [Nightly lockfile upgrades](https://mobile.twitter.com/FredKSchott/status/1489287560387956736)
-  - Design system sandbox/"Storybook" setup with [Histoire](https://histoire.dev/guide/svelte3/hierarchy.html):
-    - (Dec 2022): This is normally included in your `npm start` command - but has been temporarily disabled due to Sveltekit moving to Vite 4 and Histoire being behind.
-    - `npm run story:dev` to view it on http://localhost:6006/. (currently not working)
+  - Design system sandbox/"Storybook" setup with [Histoire](https://histoire.dev/guide/svelte3/hierarchy.html). `npm run story:dev` to view it on http://localhost:6006/. 
 
 
 This is a partial implementation of https://www.swyx.io/the-surprisingly-high-table-stakes-of-modern-blogs/
@@ -145,7 +143,7 @@ export const GH_PUBLISHED_TAGS = ['Published']; // List of allowed issue labels,
 
 Of course, you should then go page by page (there aren't that many) and customize some of the other hardcoded items, for example:
 
-- The `Newsletter` component needs to be wired up to a newsletter service (I like Buttondown, TinyLetter, and Revue)
+- The `src/Newsletter.svelte` component needs to be wired up to a newsletter service (I like Buttondown and TinyLetter)
 - Page `Cache-Control` policy and SvelteKit `maxage`
 - Site favicons (use https://realfavicongenerator.net/ to make all the variants and stick it in `/static`)
 - (If migrating content from previous blog) setup Netlify redirects at `/static/_redirects`
