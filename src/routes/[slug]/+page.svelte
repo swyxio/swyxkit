@@ -137,4 +137,13 @@
 	article :global(.admonition) {
 		@apply p-8 border-4 border-red-500;
 	}
+
+	/* fix github codefence diff styling from our chosen prismjs theme */
+	article :global(.token.inserted) {
+		background: #00ff0044;
+	}
+
+	article :global(.token.deleted) {
+		background: #ff000d44;
+	}
 </style>
