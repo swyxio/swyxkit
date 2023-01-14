@@ -163,7 +163,7 @@ Open a new GitHub issue on your new repo, write some title and markdown in the b
 
 You should see it refetched in local dev or in the deployed site pretty quickly. You can configure SvelteKit to build each blog page up front, or on demand. Up to you to trade off speed and flexibility.
 
-Here's a full reference of the frontmatter we have included - ALL of this is optional and some of have aliases you can discover in `/src/lib/content.js`. Feel free to customize/simplify of course.
+Here's a full reference of the [YAML](https://eemeli.org/yaml-playground/) frontmatter that swyxkit recognizes - ALL of this is optional and some of have aliases you can discover in `/src/lib/content.js`. Feel free to customize/simplify of course.
 
 ```markdown
 ---
