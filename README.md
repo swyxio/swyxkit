@@ -162,6 +162,31 @@ Open a new GitHub issue on your new repo, write some title and markdown in the b
 
 You should see it refetched in local dev or in the deployed site pretty quickly. You can configure SvelteKit to build each blog page up front, or on demand. Up to you to trade off speed and flexibility.
 
+Here's a full reference of the frontmatter we have included - ALL of this is optional and some of have aliases you can discover in `/src/lib/content.js`. Feel free to customize/simplify of course.
+
+```markdown
+---
+title: my great title
+subtitle: my great subtitle
+description: my great description
+slug: my-title
+tags:
+  - foo
+  - bar
+  - baz
+category: blog
+image: https://my_image_url.com/img-4.png
+date: 2023-04-22
+canonical: https://official-site.com/my-title
+---
+
+my great intro
+
+## my subtitle
+
+lorem ipsum 
+```
+
 If your `Published` post (any post with one of the labels set in `GH_PUBLISHED_TAGS`) doesn't show up, you may have forgotten to set `APPROVED_POSTERS_GH_USERNAME` to your GitHub username in `siteConfig`.
 
 If all of this is annoying feel free to rip out the GitHub Issues CMS wiring and do your own content pipeline, I'm not your boss. MDSveX is already set up in this repo if you prefer not having a disconnected content toolchain from your codebase (which is fine, I just like having it in a different place for a better editing experience). See also my blogpost on [the benefits of using GitHub Issues as CMS](https://swyxkit.netlify.app/moving-to-a-github-cms).
