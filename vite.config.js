@@ -7,6 +7,9 @@ const config = {
 	plugins: [ssp(), sveltekit()],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
+	},
+	optimizeDeps: {
+		exclude: ['lz-string']
 	}
 };
 

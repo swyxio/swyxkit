@@ -74,6 +74,6 @@
 		"remark": "^14.0.2",
 		"shiki": "^0.11.1",
 		"snarkdown": "^2.0.0",
-		"sveltekit-search-params": "^0.1.12"
+		"sveltekit-search-params": "^1.0.0"
 	}
 }

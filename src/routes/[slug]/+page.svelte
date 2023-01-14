@@ -14,26 +14,45 @@
 	$: json = data.json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
 
 	$: canonical = SITE_URL + $page.url.pathname;
+
+	// customize this with https://tailgraph.com/
+	// discuss this decision at https://github.com/sw-yx/swyxkit/pull/161
+	$: image = json?.image || `https://og.tailgraph.com/og
+															?fontFamily=Roboto
+															&title=${encodeURIComponent(json?.title)}
+															&titleTailwind=font-bold%20bg-transparent%20text-7xl
+															&titleFontFamily=Poppins
+															${json?.subtitle ? '&text='+ encodeURIComponent(json?.subtitle) : ''}
+															&textTailwind=text-2xl%20mt-4
+															&logoTailwind=h-8
+															&bgUrl=https%3A%2F%2Fwallpaper.dog%2Flarge%2F20455104.jpg
+															&footer=${encodeURIComponent(SITE_URL)}
+															&footerTailwind=text-teal-900
+															&containerTailwind=border-2%20border-orange-200%20bg-transparent%20p-4
+															`.replace(/\s/g,'') // remove whitespace
+  $: console.log({image})
 </script>
 
 <svelte:head>
 	<title>{json.title}</title>
 	<meta name="description" content="swyxkit blog" />
+	<!-- reference: https://gist.github.com/whitingx/3840905 -->
 
 	<link rel="canonical" href={canonical} />
 	<meta property="og:url" content={canonical} />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={json.title} />
+	{#if json.subtitle}
+		<meta property="subtitle" content={json.subtitle} />
+	{/if}
 	<meta name="Description" content={json.description} />
 	<meta property="og:description" content={json.description} />
 	<meta name="twitter:card" content={json.image ? 'summary_large_image' : 'summary'} />
 	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={json.title} />
 	<meta name="twitter:description" content={json.description} />
-	{#if json.image}
-		<meta property="og:image" content={json.image} />
-		<meta name="twitter:image" content={json.image} />
-	{/if}
+	<meta property="og:image" content={image} />
+	<meta name="twitter:image" content={image} />
 </svelte:head>
 
 <article class="swyxcontent prose dark:prose-invert mx-auto mt-16 mb-32 w-full max-w-none items-start justify-center">

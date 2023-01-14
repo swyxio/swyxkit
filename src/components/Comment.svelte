@@ -62,7 +62,7 @@
 			>
 				{comment.user.login}
 				<span class="ml-2 text-xs font-normal text-gray-500">
-					<a href={comment.html_url} class="no-underline" rel="external" target="_blank">
+					<a href={comment.html_url} class="no-underline" rel="external noreferrer" target="_blank">
 						<time>{formatDistance(new Date(comment.created_at), new Date())} ago</time>
 					</a>
 				</span>
