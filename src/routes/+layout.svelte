@@ -2,6 +2,23 @@
 	import '../tailwind.css';
 	import Nav from '../components/Nav.svelte';
 	import { MY_TWITTER_HANDLE, MY_YOUTUBE, REPO_URL, SITE_TITLE } from '$lib/siteConfig';
+
+	import CommandPalette, { defineActions, createStoreMethods } from 'svelte-command-palette'
+
+	// define actions using the defineActions API
+
+	const paletteMethods = createStoreMethods();
+
+	const actions = defineActions([
+			{
+					title: "Open Svelte Command Palette on github",
+					subTitle: "This opens github in a new tab!",
+					onRun: ({ action, storeProps, storeMethods }) => {
+							window.open("https://github.com/rohitpotato/svelte-command-palette")
+					},
+					// shortcuts={['⌘', 'K']}
+			}
+	])
 </script>
 
 <svelte:head>
@@ -64,3 +81,5 @@
 		template.
 	</p>
 </footer>
+
+<CommandPalette commands={actions} />
