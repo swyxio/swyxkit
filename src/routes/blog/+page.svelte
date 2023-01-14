@@ -54,6 +54,8 @@
 
 <svelte:window on:keyup={focusSearch} />
 
+<main class="flex flex-col justify-center bg-gray-50 px-4 dark:bg-gray-900 sm:px-8">
+	
 <section class="flex flex-col items-start justify-center max-w-2xl px-4 mx-auto mb-16 sm:px-8">
 	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 		Blog
@@ -163,3 +165,5 @@
 		<div class="prose dark:prose-invert">No blogposts found!</div>
 	{/if}
 </section>
+
+</main>

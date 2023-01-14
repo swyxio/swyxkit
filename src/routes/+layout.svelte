@@ -16,9 +16,8 @@
 <div class="flex flex-col justify-center bg-gray-50 px-4 dark:bg-gray-900 sm:px-8">
 	<Nav />
 </div>
-<main class="flex flex-col justify-center bg-gray-50 px-4 dark:bg-gray-900 sm:px-8">
-	<slot />
-</main>
+
+<slot />
 
 <footer class="mx-auto mb-8 flex w-full max-w-2xl flex-col items-start justify-center">
 	<hr class="border-1 mb-8 w-full border-gray-200 dark:border-gray-800" />
