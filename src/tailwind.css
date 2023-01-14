@@ -9,14 +9,6 @@
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-mono: 'Fira Mono', monospace;
 	font-family: var(--font-body);
-
-
-	/* for svelte-toc https://github.com/janosh/svelte-toc/blob/445fcb8bf27e62636726b0a361e0fac89998bd95/src/app.css#L6 */
-  --toc-mobile-bg: #484452;
-  --toc-mobile-btn-color: white;
-  --toc-min-width: 12em;
-  --toc-desktop-max-width: 15em;
-  --toc-font-size: 11pt;
 }
 
 body {
@@ -31,6 +23,16 @@ body {
 	--scrollbar-primary-color: #facc15;
 	--text-color: #ef4444;
 	overflow: scroll; /* https://maxschmitt.me/posts/react-prevent-layout-shift-body-scrollable/ */
+
+
+	/* for svelte-toc https://github.com/janosh/svelte-toc/blob/445fcb8bf27e62636726b0a361e0fac89998bd95/src/app.css#L6 */
+  --toc-mobile-bg: #484452;
+  --toc-mobile-btn-color: white;
+  --toc-min-width: 12em;
+  --toc-desktop-max-width: 15em;
+  --toc-font-size: 11pt;
+	--toc-active-bg: #facc1577;
+	--toc-active-color: black;
 }
 /* .dark body {
     --scrollbar-primary-color: #8db2e5;

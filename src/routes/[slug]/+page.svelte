@@ -109,8 +109,8 @@
 			<Newsletter />
 		</div>
 	</div>
-	<Toc title='[ Table of Contents ]' activeHeadingScrollOffset={200} />
 </main>
+<Toc title='[ Table of Contents ]' activeHeadingScrollOffset={200} />
 
 <style>
 	/* https://ryanmulligan.dev/blog/layout-breakouts/ */
@@ -171,7 +171,11 @@
 		@apply border-4 border-red-500 p-8;
 	}
 
-	/* fix github codefence diff styling from our chosen prismjs theme */
+	/* 
+	
+	fix github codefence diff styling from our chosen prismjs theme 
+	
+	*/
 	article :global(.token.inserted) {
 		background: #00ff0044;
 	}
@@ -180,20 +184,37 @@
 		background: #ff000d44;
 	}
 
-	/* for svelte-toc */
+	/* 
+	
+	for svelte-toc
+	
+	*/
 	:global(aside.toc) {
 		@apply text-black;
+		position: fixed;
+		top: 2em;
+		right: 2em;
 	}
 	:global(.dark aside.toc) {
 		/* white text when dark mode set */
 		@apply text-white;
 	}
+
+	/* below doesnt seem to work... why? */
 	/* :global(aside > nav::-webkit-scrollbar-thumb) {
 		background: linear-gradient(var(--scrollbar-primary-color), var(--text-color));
 		border-radius: 4px;
 	} */
 	:global(aside > nav::-webkit-scrollbar) {
-		width: 0.5rem;
+		width: 0.5rem; /* seems to disappear it... good enough */
 	}
+
+	:global(aside > nav > h2) {
+		@apply bg-gray-200
+	}
+	:global(.dark aside > nav > h2) {
+		@apply bg-gray-700
+	}
+
 
 </style>
