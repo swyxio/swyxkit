@@ -14,6 +14,23 @@
 	$: json = data.json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
 
 	$: canonical = SITE_URL + $page.url.pathname;
+
+
+	// customize this with https://tailgraph.com/
+	let image = json.image || `https://og.tailgraph.com/og
+															?fontFamily=Roboto
+															&title=${encodeURIComponent(json.title)}
+															&titleTailwind=font-bold%20bg-transparent%20text-7xl
+															&titleFontFamily=Poppins
+															&text=${encodeURIComponent(json.description)}
+															&textTailwind=text-2xl%20mt-4
+															&logoTailwind=h-8
+															&bgUrl=https%3A%2F%2Fwallpaper.dog%2Flarge%2F20455104.jpg
+															&bgTailwind=bg-white
+															&footer=tailgraph.com
+															&footerTailwind=text-teal-600
+															&containerTailwind=border-2%20border-orange-200%20bg-transparent%20p-4
+															`.replace(/\s/g,'') // remove whitespace
 </script>
 
 <svelte:head>
@@ -30,10 +47,8 @@
 	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={json.title} />
 	<meta name="twitter:description" content={json.description} />
-	{#if json.image}
-		<meta property="og:image" content={json.image} />
-		<meta name="twitter:image" content={json.image} />
-	{/if}
+	<meta property="og:image" content={image} />
+	<meta name="twitter:image" content={image} />
 </svelte:head>
 
 <article class="swyxcontent prose dark:prose-invert mx-auto mt-16 mb-32 w-full max-w-none items-start justify-center">
