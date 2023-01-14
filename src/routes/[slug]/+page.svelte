@@ -16,12 +16,13 @@
 	$: canonical = SITE_URL + $page.url.pathname;
 
 	// customize this with https://tailgraph.com/
+	// discuss this decision at https://github.com/sw-yx/swyxkit/pull/161
 	$: image = json?.image || `https://og.tailgraph.com/og
 															?fontFamily=Roboto
 															&title=${encodeURIComponent(json?.title)}
 															&titleTailwind=font-bold%20bg-transparent%20text-7xl
 															&titleFontFamily=Poppins
-															&text=${encodeURIComponent(json?.description)}
+															${json?.subtitle ? '&text='+ encodeURIComponent(json?.subtitle) : ''}
 															&textTailwind=text-2xl%20mt-4
 															&logoTailwind=h-8
 															&bgUrl=https%3A%2F%2Fwallpaper.dog%2Flarge%2F20455104.jpg
@@ -35,11 +36,15 @@
 <svelte:head>
 	<title>{json.title}</title>
 	<meta name="description" content="swyxkit blog" />
+	<!-- reference: https://gist.github.com/whitingx/3840905 -->
 
 	<link rel="canonical" href={canonical} />
 	<meta property="og:url" content={canonical} />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={json.title} />
+	{#if json.subtitle}
+		<meta property="subtitle" content={json.subtitle} />
+	{/if}
 	<meta name="Description" content={json.description} />
 	<meta property="og:description" content={json.description} />
 	<meta name="twitter:card" content={json.image ? 'summary_large_image' : 'summary'} />
