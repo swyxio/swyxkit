@@ -17,8 +17,10 @@ export async function load({ params, fetch, setHeaders }) {
 	setHeaders({
 		'cache-control': 'public, max-age=60' // increase the max age as you get more confident in your caching
 	});
+	const json = await res.json();
+	console.log('----json', json);
 	return {
-		json: await res.json(),
+		json,
 		slug,
 		REPO_URL
 	};

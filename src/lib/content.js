@@ -182,12 +182,20 @@ export async function getContent(providedFetch, slug) {
 					<a href="${url}"></a></blockquote> 
 					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 					`;
+			})
+			.replace(/\n{% embed (.*?) %}/g, (_, _2, x) => {
+				// const url = x.startsWith('https://twitter.com/') ? x : `https://twitter.com/x/status/${x}`;
+				return `
+					<h6 data="tsesst-${x}">
+					`;
 			});
 
 		// compile it with mdsvex
+		// console.log('--------------compiling')
 		const content = (
 			await compile(blogbody, {
 				remarkPlugins,
+				layout: 'src/mdsvexlayout.svelte',
 				// @ts-ignore
 				rehypePlugins
 			})
@@ -195,6 +203,7 @@ export async function getContent(providedFetch, slug) {
 			// https://github.com/pngwn/MDsveX/issues/392
 			.replace(/>{@html `<code class="language-/g, '><code class="language-')
 			.replace(/<\/code>`}<\/pre>/g, '</code></pre>');
+		// console.log('--------------compiled', content)
 
 		return { ...blogpost, content };
 	} else {
