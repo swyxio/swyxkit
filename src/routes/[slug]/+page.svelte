@@ -15,22 +15,21 @@
 
 	$: canonical = SITE_URL + $page.url.pathname;
 
-
 	// customize this with https://tailgraph.com/
-	let image = json.image || `https://og.tailgraph.com/og
+	$: image = json?.image || `https://og.tailgraph.com/og
 															?fontFamily=Roboto
-															&title=${encodeURIComponent(json.title)}
+															&title=${encodeURIComponent(json?.title)}
 															&titleTailwind=font-bold%20bg-transparent%20text-7xl
 															&titleFontFamily=Poppins
-															&text=${encodeURIComponent(json.description)}
+															&text=${encodeURIComponent(json?.description)}
 															&textTailwind=text-2xl%20mt-4
 															&logoTailwind=h-8
 															&bgUrl=https%3A%2F%2Fwallpaper.dog%2Flarge%2F20455104.jpg
-															&bgTailwind=bg-white
-															&footer=tailgraph.com
-															&footerTailwind=text-teal-600
+															&footer=${encodeURIComponent(SITE_URL)}
+															&footerTailwind=text-teal-900
 															&containerTailwind=border-2%20border-orange-200%20bg-transparent%20p-4
 															`.replace(/\s/g,'') // remove whitespace
+  $: console.log({image})
 </script>
 
 <svelte:head>
