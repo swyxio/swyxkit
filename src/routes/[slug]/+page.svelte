@@ -6,36 +6,18 @@
 	import Newsletter from '../../components/Newsletter.svelte';
 	import Reactions from '../../components/Reactions.svelte';
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 
 
 	// https://svelte-put.vnphanquang.com/docs/toc
   import { toc, createTocStore } from '@svelte-put/toc';
 	import TableOfContents from './TableOfContents.svelte';
+	import utterances from './loadUtterances'
 
   const tocStore = createTocStore();
 
 	/** @type {import('./$types').PageData} */
 	export let data;
 	
-	
-	
-	/** @type any */
-	let utterancesEl
-	onMount(() => {
-			// have to do this because direct injection using @html doesnt work
-			// adapted from https://github.com/utterance/utterances/issues/161#issuecomment-550991248
-      const scriptElem = document.createElement("script");
-      scriptElem.src = "https://utteranc.es/client.js";
-      scriptElem.async = true;
-      scriptElem.crossOrigin = "anonymous";
-      scriptElem.setAttribute("repo", "sw-yx/swyxkit");
-      scriptElem.setAttribute("issue-number", json?.ghMetadata?.issueUrl?.split('/')?.pop());
-      // scriptElem.setAttribute("label", "blog-comment");
-      scriptElem.setAttribute("theme", "preferred-color-scheme");
-      utterancesEl.appendChild(scriptElem);
-	})
-
 	/** @type {import('$lib/types').ContentItem} */
 	$: json = data.json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
 
@@ -119,7 +101,8 @@
 			if you liked this post! 🧡
 		{/if}
 	</div>
-	<div class="mb-8" bind:this={utterancesEl}>
+	<div class="mb-8 text-black dark:text-white " use:utterances={{number: json?.ghMetadata?.issueUrl?.split('/')?.pop()}}>
+		Loading comments...
 		<!-- <Comments ghMetadata={json.ghMetadata} /> -->
 	</div>
 
