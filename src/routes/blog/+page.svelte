@@ -70,7 +70,9 @@
 					mark
 				)
 				// highlight whats left
-				.slice(Math.max(info.ranges[order[i]][0]-100,0), Math.min(info.ranges[order[i]][1]+100, haystack[info.idx[order[i]]].length));
+				.slice(Math.max(info.ranges[order[i]][0]-200,0), Math.min(info.ranges[order[i]][1]+200, haystack[info.idx[order[i]]].length))
+				// slice clean words
+				.split(' ').slice(1,-1).join(' ')
 				return {...x, highlightedResults: hl}
 			})
 		} else {
