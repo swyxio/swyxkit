@@ -19,12 +19,12 @@
 		class="fixed right-4 bottom-1 max-w-[12em] rounded-xl bg-white/25 hover:bg-white/30 p-2 backdrop-blur"
 	>
 		{#if !isOpen}
-			<button class="h-12 flex justify-center items-center z-50" on:click={() => (isOpen = !isOpen)}>
-				<h2 class="text-orange-700 dark:text-orange-400">Contents</h2>
+			<button class="flex justify-center items-center z-50" on:click={() => (isOpen = !isOpen)}>
+				<h2 class="text-orange-700 dark:text-orange-400">Table of <br /> Contents</h2>
 			</button>
 		{/if}
 		{#if isOpen}
-			<ul class="space-y-2 max-h-64 overflow-auto">
+			<ul class="space-y-2 max-h-80 overflow-auto">
 				<h2 class="text-orange-700 dark:text-orange-400">
 					Table of Contents
 					<button class="hover:text-white" on:click={() => (isOpen = !isOpen)}> [X] </button>
@@ -32,9 +32,9 @@
 				{#each Object.values($tocStore.items) as { id, text }}
 					<a
 						class="ml-2 block bg-opacity-25 text-sm"
-						class:bg-amber-300={$tocStore.activeItem?.id === id}
+						class:!text-red-300={$tocStore.activeItem?.id === id}
+						class:underline={$tocStore.activeItem?.id === id}
 						href="#{id}"
-						on:click={() => (isOpen = !isOpen)}
 					>
 						<li>{text}</li>
 					</a>
