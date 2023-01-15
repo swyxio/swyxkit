@@ -66,7 +66,7 @@
 
 <TableOfContents {tocStore} />
 
-<article class="items-start justify-center w-full mx-auto mt-16 mb-32 prose swyxcontent dark:prose-invert max-w-none" use:toc={{ store: tocStore, anchor: false, observe: true }}>
+<article class="items-start justify-center w-full mx-auto mt-16 mb-32 prose swyxcontent dark:prose-invert max-w-none">
 	<h1 class="md:text-center mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
 		{json.title}
 	</h1>
@@ -86,9 +86,9 @@
 	<div
 		class="-mx-4 my-2 flex h-1 w-[100vw] bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 sm:mx-0 sm:w-full"
 	/>
-	{@html json.content}
-	<!-- <div class="flex-row w-full mt-16 mb-32 prose swyxcontent max-w-none dark:prose-invert">
-	</div> -->
+	<div use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }}>
+		{@html json.content}
+	</div>
 </article>
 <div class="max-w-2xl mx-auto">
 	<div class="max-w-full p-4 mb-12 prose border-t border-b border-blue-800 dark:prose-invert">
