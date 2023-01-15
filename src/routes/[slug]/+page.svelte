@@ -80,7 +80,7 @@
 	</div> -->
 </article>
 <div class="mx-auto max-w-2xl">
-	<div class="prose mb-12 border-t border-b border-blue-800 p-4 dark:prose-invert">
+	<div class="prose max-w-full mb-12 border-t border-b border-blue-800 p-4 dark:prose-invert">
 		{#if json.ghMetadata.reactions.total_count > 0}
 			Reactions: <Reactions
 				issueUrl={json.ghMetadata.issueUrl}

@@ -11,7 +11,7 @@
 	import Comment from './Comment.svelte';
 </script>
 
-<div class="prose mb-8 w-full dark:prose-invert">
+<div class="prose max-w-full mb-8 w-full dark:prose-invert">
 	{#each data as comment}
 		<Comment {comment} />
 	{/each}
