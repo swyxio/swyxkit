@@ -53,7 +53,6 @@
 														}
 														return true;
 													})
-		console.log('$search', $search)
 		if ($search) {
 			const haystack = filteredItems.map(v => [v.title, v.subtitle, v.tags, v.content, v.description].join(' '))
 			let idxs = u.filter(haystack, $search);
@@ -63,14 +62,10 @@
 				const x = filteredItems[info.idx[order[i]]]
 				const hl = uFuzzy.highlight(
 					haystack[info.idx[order[i]]]
-					// regex to sanitize html
-					// https://stackoverflow.com/questions/822452/strip-html-from-text-javascript
-					.replace("<", " ")
-					.replace(">", " "),
-					// .replace(/<br>/gi, "")
-					// .replace(/<p.*>/gi, "")
-					// .replace(/<a.*href="(.*?)".*>(.*?)<\/a>/gi, " $2 (Link->$1) ")
-					// .replace(/<(?:.|\s)*?>/g, "")
+					// sanitize html as we dont actually want to render it
+					.replaceAll("<", " ")
+					.replaceAll("/>", "  ")
+					.replaceAll(">", " "),
 					info.ranges[order[i]],
 					mark
 				)
@@ -82,13 +77,6 @@
 			list = filteredItems
 		}
 	} 
-		// .filter((item) => {
-		// 	u.filter(haystack, needle);
-		// 	if ($search) {
-		// 		return item.title.toLowerCase().includes($search.toLowerCase());
-		// 	}
-		// 	return true;
-		// })
 		// .slice(0, isTruncated ? 2 : items.length);
 </script>
 
