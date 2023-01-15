@@ -1,12 +1,19 @@
 <script>
 	import { MY_TWITTER_HANDLE, SITE_URL } from '$lib/siteConfig';
-	import Comments from '../../components/Comments.svelte';
+	// import Comments from '../../components/Comments.svelte';
 
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
 	import Newsletter from '../../components/Newsletter.svelte';
 	import Reactions from '../../components/Reactions.svelte';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+
+
+	// https://svelte-put.vnphanquang.com/docs/toc
+  import { toc, createTocStore } from '@svelte-put/toc';
+	import TableOfContents from './TableOfContents.svelte';
+
+  const tocStore = createTocStore();
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -74,7 +81,9 @@
 	<meta name="twitter:image" content={image} />
 </svelte:head>
 
-<article class="items-start justify-center w-full mx-auto mt-16 mb-32 prose swyxcontent dark:prose-invert max-w-none">
+<TableOfContents {tocStore} />
+
+<article class="items-start justify-center w-full mx-auto mt-16 mb-32 prose swyxcontent dark:prose-invert max-w-none" use:toc={{ store: tocStore, anchor: false, observe: true }}>
 	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
 		{json.title}
 	</h1>
