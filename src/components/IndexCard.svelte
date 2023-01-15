@@ -13,7 +13,7 @@
 <a
 	class="w-full text-gray-900 hover:text-yellow-600 dark:text-gray-100 dark:hover:text-yellow-100 hover:no-underline"
 	{href}
-	><div class="w-full mb-8">
+	><div class="w-full">
 		<div class="flex flex-col justify-between md:flex-row">
 			<h4 class="flex-auto w-full mb-2 text-lg font-bold md:text-xl">
 				{title}
@@ -28,13 +28,13 @@
 			{#if item?.readingTime}
 				<p class="hidden sm:inline-block">{item?.readingTime}</p>
 			{/if}
+			<!-- comment this in if you have multiple categories -->
+			<button class="px-4 capitalize bg-gray-200 rounded-md dark:bg-gray-700 dark:text-gray-400"
+				>{item?.category || 'note'}</button
+			>
 			{#if ghMetadata && ghMetadata.reactions.total_count}
 				<p class="">{ghMetadata.reactions.total_count} ♥</p>
 			{/if}
-			<!-- comment this in if you have multiple categories -->
-			<!-- <button class="px-4 capitalize bg-gray-200 rounded-xl dark:bg-gray-700 dark:text-gray-400"
-				>{item?.category || 'blog'}</button
-			> -->
 		</div>
 	</div></a
 >
