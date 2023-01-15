@@ -22,7 +22,7 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    Cache-Control = "public, max-age=4000" 
+    Cache-Control = "public, max-age=31536000" 
     # cache just over 1 hour for webpagetest to be happy
     X-Content-Type-Options = "nosniff"
     ## Content-Security-Policy = "default-src 'self'; script-src 'nonce-swyx'; img-src *"

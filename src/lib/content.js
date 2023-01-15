@@ -127,7 +127,8 @@ export async function getContent(providedFetch, slug) {
 				function youtube_parser(url) {
 					var rx =
 						/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|&v(?:i)?=))([^#&?]*).*/;
-					return url.match(rx)[1];
+					if (url.match(rx)) return url.match(rx)[1];
+					return url.slice(-11);
 				}
 				const videoId = x.startsWith('https://') ? youtube_parser(x) : x;
 				return `<iframe

@@ -75,9 +75,10 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
 
 - Blog Index features (`/blog`)
   - Blog index truncates at 20 posts to make sure to render quickly
-  - Blog search/facets serialize to URLs for easy copy paste 
+  - Blog facets serialize to URLs for easy copy paste 
     - previously [done by @Ak4zh](https://github.com/sw-yx/swyxkit/pull/97)
     - but since moved to [`sveltekit-search-params`](https://github.com/paoloricciuti/sveltekit-search-params) [by @paoloricciuti](https://github.com/sw-yx/swyxkit/pull/140)
+  - Blog search is [fuzzy and highlights matches](https://swyxkit.netlify.app/ufuzzy-search)
     - The Error page feature uses this to send you back to a searchable index
   - Error page (try going to URL that doesn't exist)
     - Including nice error when GitHub API rate limit exceeded (fix by setting `GH_TOKEN`)
