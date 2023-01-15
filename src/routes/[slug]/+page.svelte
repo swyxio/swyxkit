@@ -12,16 +12,18 @@
 	export let data;
 	
 	
+	
 	/** @type any */
 	let utterancesEl
-
 	onMount(() => {
+			// have to do this because direct injection using @html doesnt work
+			// adapted from https://github.com/utterance/utterances/issues/161#issuecomment-550991248
       const scriptElem = document.createElement("script");
       scriptElem.src = "https://utteranc.es/client.js";
       scriptElem.async = true;
       scriptElem.crossOrigin = "anonymous";
       scriptElem.setAttribute("repo", "sw-yx/swyxkit");
-      scriptElem.setAttribute("issue-number", json.ghMetadata.issueUrl.split('/').pop());
+      scriptElem.setAttribute("issue-number", json?.ghMetadata?.issueUrl?.split('/')?.pop());
       // scriptElem.setAttribute("label", "blog-comment");
       scriptElem.setAttribute("theme", "preferred-color-scheme");
       utterancesEl.appendChild(scriptElem);
@@ -72,15 +74,15 @@
 	<meta name="twitter:image" content={image} />
 </svelte:head>
 
-<article class="swyxcontent prose dark:prose-invert mx-auto mt-16 mb-32 w-full max-w-none items-start justify-center">
+<article class="items-start justify-center w-full mx-auto mt-16 mb-32 prose swyxcontent dark:prose-invert max-w-none">
 	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
 		{json.title}
 	</h1>
 	<div
-		class="bg mt-2 flex w-full justify-between border-red sm:flex-col sm:items-start md:flex-row md:items-center"
+		class="flex justify-between w-full mt-2 bg border-red sm:flex-col sm:items-start md:flex-row md:items-center"
 	>
 		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">swyx</p>
-		<p class="min-w-32 flex items-center text-sm text-gray-600 dark:text-gray-400 md:mt-0">
+		<p class="flex items-center text-sm text-gray-600 min-w-32 dark:text-gray-400 md:mt-0">
 			<a href={json.ghMetadata.issueUrl} rel="external noreferrer" class="no-underline" target="_blank">
 				<!-- <span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
 					>{json.ghMetadata.reactions.total_count} reactions</span
@@ -93,11 +95,11 @@
 		class="-mx-4 my-2 flex h-1 w-[100vw] bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 sm:mx-0 sm:w-full"
 	/>
 	{@html json.content}
-	<!-- <div class="swyxcontent prose mt-16 mb-32 w-full max-w-none flex-row dark:prose-invert">
+	<!-- <div class="flex-row w-full mt-16 mb-32 prose swyxcontent max-w-none dark:prose-invert">
 	</div> -->
 </article>
-<div class="mx-auto max-w-2xl">
-	<div class="prose max-w-full mb-12 border-t border-b border-blue-800 p-4 dark:prose-invert">
+<div class="max-w-2xl mx-auto">
+	<div class="max-w-full p-4 mb-12 prose border-t border-b border-blue-800 dark:prose-invert">
 		{#if json.ghMetadata.reactions.total_count > 0}
 			Reactions: <Reactions
 				issueUrl={json.ghMetadata.issueUrl}
