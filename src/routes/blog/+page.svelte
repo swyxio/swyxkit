@@ -9,6 +9,8 @@
 	import IndexCard from '../../components/IndexCard.svelte';
 	import MostPopular from './MostPopular.svelte';
 
+	import uFuzzy from '@leeoniya/ufuzzy'
+
 	/** @type {import('./$types').PageData} */
 	export let data;
 
@@ -17,6 +19,7 @@
 	$: items = data.items;
 
 	// https://github.com/paoloricciuti/sveltekit-search-params#how-to-use-it
+	/** @type import('svelte/store').Writable<String[] | null> */
 	let selectedCategories = queryParam('show', {
 		encode: (arr) => arr?.toString(),
 		decode: (str) => str?.split(',')?.filter((e) => e) ?? []
@@ -31,25 +34,62 @@
 		if (e.key === '/' && inputEl) inputEl.select();
 	}
 
+
+
+	// https://github.com/leeoniya/uFuzzy#options
+	const u = new uFuzzy({ intraMode: 1 });
+	const mark = (part, matched) => matched ? '<b style="color:var(--brand-accent)">' + part + '</b>' : part;
 	let isTruncated = items?.length > 20;
-	$: list = items
-		.filter((item) => {
-			if ($selectedCategories?.length) {
-				return $selectedCategories
-					.map((element) => {
-						return element.toLowerCase();
-					})
-					.includes(item.category.toLowerCase());
-			}
-			return true;
-		})
-		.filter((item) => {
-			if ($search) {
-				return item.title.toLowerCase().includes($search.toLowerCase());
-			}
-			return true;
-		})
-		.slice(0, isTruncated ? 2 : items.length);
+
+	let list
+	$: {
+		let filteredItems = items.filter((item) => {
+														if ($selectedCategories?.length) {
+															return $selectedCategories
+																.map((element) => {
+																	return element.toLowerCase();
+																})
+																.includes(item.category.toLowerCase());
+														}
+														return true;
+													})
+		console.log('$search', $search)
+		if ($search) {
+			const haystack = filteredItems.map(v => [v.title, v.subtitle, v.tags, v.content, v.description].join(' '))
+			let idxs = u.filter(haystack, $search);
+			let info = u.info(idxs, haystack, $search);
+			let order = u.sort(info, haystack, $search);
+			list = order.map(i => {
+				const x = filteredItems[info.idx[order[i]]]
+				const hl = uFuzzy.highlight(
+					haystack[info.idx[order[i]]]
+					// regex to sanitize html
+					// https://stackoverflow.com/questions/822452/strip-html-from-text-javascript
+					.replace("<", " ")
+					.replace(">", " "),
+					// .replace(/<br>/gi, "")
+					// .replace(/<p.*>/gi, "")
+					// .replace(/<a.*href="(.*?)".*>(.*?)<\/a>/gi, " $2 (Link->$1) ")
+					// .replace(/<(?:.|\s)*?>/g, "")
+					info.ranges[order[i]],
+					mark
+				)
+				// highlight whats left
+				.slice(Math.max(info.ranges[order[i]][0]-100,0), Math.min(info.ranges[order[i]][1]+100, haystack[info.idx[order[i]]].length));
+				return {...x, highlightedResults: hl}
+			})
+		} else {
+			list = filteredItems
+		}
+	} 
+		// .filter((item) => {
+		// 	u.filter(haystack, needle);
+		// 	if ($search) {
+		// 		return item.title.toLowerCase().includes($search.toLowerCase());
+		// 	}
+		// 	return true;
+		// })
+		// .slice(0, isTruncated ? 2 : items.length);
 </script>
 
 <svelte:head>
@@ -138,7 +178,13 @@
 						ghMetadata={item.ghMetadata}
 						{item}
 					>
-						{item.description}
+						{#if item.highlightedResults}
+							<span class="italic">
+								{@html item.highlightedResults}
+							</span>						
+						{:else}
+							{item.description}
+						{/if}
 					</IndexCard>
 				</li>
 			{/each}

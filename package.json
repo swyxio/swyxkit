@@ -70,6 +70,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@leeoniya/ufuzzy": "^0.9.1",
 		"date-fns": "^2.29.3",
 		"parse-link-header": "^2.0.0",
 		"prism-themes": "^1.9.0",
