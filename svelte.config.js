@@ -55,7 +55,16 @@ const config = {
 
 			// dec 2022 - moved back to true since we're using esbuild again
 			edge: true,
-		})
+		}),
+		// https://kit.svelte.dev/docs/configuration#csp
+		csp: {
+			directives: {
+				'script-src': ['self']
+			},
+			reportOnly: {
+				'script-src': ['self']
+			}
+		}
 	}
 };
 
