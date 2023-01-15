@@ -245,7 +245,7 @@ function parseIssue(issue) {
 		title,
 		subtitle: data.subtitle,
 		description,
-		category: data.category?.toLowerCase() || 'blog',
+		category: data.category?.toLowerCase() || 'note', // all posts assumed to be "note"s unless otherwise specified
 		tags,
 		image: data.image ?? data.cover_image,
 		canonical: data.canonical, // for canonical URLs of something published elsewhere

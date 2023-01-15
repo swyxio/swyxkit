@@ -76,6 +76,7 @@
 		"remark": "^14.0.2",
 		"shiki": "^0.11.1",
 		"snarkdown": "^2.0.0",
+		"svelte-action-balancer": "^1.0.4",
 		"sveltekit-search-params": "^1.0.0"
 	}
 }
