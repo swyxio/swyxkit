@@ -8,8 +8,12 @@ const config = {
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
-	optimizeDeps: {
-		exclude: ['lz-string']
+	server: {
+		fs: {
+			// https://vitejs.dev/config/server-options.html#server-fs-allow
+			// allows importing readme for About page
+			allow: ['..']
+		}
 	}
 };
 

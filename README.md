@@ -10,13 +10,12 @@ A lightly opinionated starter for [SvelteKit](https://kit.svelte.dev/) blogs:
   - [Admonitions and Bleed layouts](https://swyxkit.netlify.app/layout-breakouts-in-swyxkit)
 - Lots of minor DX and UX opinions (see below)
 - <details>
-	<summary>
-	💯 100's across the board on Lighthouse scores
-	</summary>
+    <summary>
+    💯 100's across the board on Lighthouse scores
+    </summary>
 
-
-	![image](https://user-images.githubusercontent.com/6764957/207693633-8e85630b-5717-42d9-b5ff-8b69d2cbda30.png)
-
+    ![image](https://user-images.githubusercontent.com/6764957/207693633-8e85630b-5717-42d9-b5ff-8b69d2cbda30.png)
+    
   </details>  
 
 

@@ -106,10 +106,10 @@ a {
 }
 
 /* for the super long github links i drop */
-.prose a {
+article.prose a {
 	word-break: break-word;
 }
-.prose h1 a,
+article.prose h1 a,
 h2 a,
 h3 a,
 h4 a,
@@ -119,13 +119,13 @@ h6 a {
 	text-decoration: none !important;
 	@apply text-orange-700 dark:text-orange-400;
 }
-.prose h2::before {
+article.prose h2::before {
 	content: '## ';
 }
-.prose h3::before {
+article.prose h3::before {
 	content: '### ';
 }
-.prose h4::before {
+article.prose h4::before {
 	content: '#### ';
 }
 
