@@ -6,9 +6,26 @@
 	import Newsletter from '../../components/Newsletter.svelte';
 	import Reactions from '../../components/Reactions.svelte';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
+	
+	
+	/** @type any */
+	let utterancesEl
+
+	onMount(() => {
+      const scriptElem = document.createElement("script");
+      scriptElem.src = "https://utteranc.es/client.js";
+      scriptElem.async = true;
+      scriptElem.crossOrigin = "anonymous";
+      scriptElem.setAttribute("repo", "sw-yx/swyxkit");
+      scriptElem.setAttribute("issue-number", json.ghMetadata.issueUrl.split('/').pop());
+      // scriptElem.setAttribute("label", "blog-comment");
+      scriptElem.setAttribute("theme", "preferred-color-scheme");
+      utterancesEl.appendChild(scriptElem);
+	})
 
 	/** @type {import('$lib/types').ContentItem} */
 	$: json = data.json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
@@ -30,7 +47,7 @@
 															&footerTailwind=text-teal-900
 															&containerTailwind=border-2%20border-orange-200%20bg-transparent%20p-4
 															`.replace(/\s/g,'') // remove whitespace
-  $: console.log({image})
+
 </script>
 
 <svelte:head>
@@ -64,12 +81,12 @@
 	>
 		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">swyx</p>
 		<p class="min-w-32 flex items-center text-sm text-gray-600 dark:text-gray-400 md:mt-0">
-			<a href={json.ghMetadata.issueUrl} rel="external" class="no-underline" target="_blank">
-				<span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
+			<a href={json.ghMetadata.issueUrl} rel="external noreferrer" class="no-underline" target="_blank">
+				<!-- <span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
 					>{json.ghMetadata.reactions.total_count} reactions</span
-				>
+				> -->
+				{new Date(json.date).toISOString().slice(0, 10)}
 			</a>
-			{new Date(json.date).toISOString().slice(0, 10)}
 		</p>
 	</div>
 	<div
@@ -91,8 +108,8 @@
 			if you liked this post! 🧡
 		{/if}
 	</div>
-	<div class="mb-8">
-		<Comments ghMetadata={json.ghMetadata} />
+	<div class="mb-8" bind:this={utterancesEl}>
+		<!-- <Comments ghMetadata={json.ghMetadata} /> -->
 	</div>
 
 	<Newsletter />
