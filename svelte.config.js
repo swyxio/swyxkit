@@ -57,14 +57,14 @@ const config = {
 			edge: true,
 		}),
 		// https://kit.svelte.dev/docs/configuration#csp
-		csp: {
-			directives: {
-				'script-src': ['self']
-			},
-			reportOnly: {
-				'script-src': ['self']
-			}
-		}
+		// csp: {
+		// 	directives: {
+		// 		'script-src': ['self']
+		// 	},
+		// 	reportOnly: {
+		// 		'script-src': ['self']
+		// 	}
+		// }
 	}
 };
 
