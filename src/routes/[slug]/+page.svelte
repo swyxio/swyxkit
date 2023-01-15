@@ -66,11 +66,11 @@
 <TableOfContents {tocStore} />
 
 <article class="items-start justify-center w-full mx-auto mt-16 mb-32 prose swyxcontent dark:prose-invert max-w-none" use:toc={{ store: tocStore, anchor: false, observe: true }}>
-	<h1 class="text-center mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
+	<h1 class="md:text-center mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
 		{json.title}
 	</h1>
 	<div
-		class="flex justify-between w-full mt-2 bg border-red sm:flex-col sm:items-start md:flex-row md:items-center"
+		class="flex justify-between w-full mt-2 bg border-red sm:items-start md:flex-row md:items-center"
 	>
 		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">swyx</p>
 		<p class="flex items-center text-sm text-gray-600 min-w-32 dark:text-gray-400">

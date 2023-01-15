@@ -1,42 +1,30 @@
 <script>
-	// import { createTocStore } from '@svelte-put/toc';
-	// const tocStore = createTocStore();
-	export let tocStore;
+	import { onMount } from "svelte";
 
+
+	export let tocStore;
 	let isOpen = false;
+	onMount(() => {
+		// set isOpen if window width is mobile checking the media query
+		if (window.matchMedia("(min-width: 640px)").matches) {
+			isOpen = true;
+		}
+	})
+
 </script>
 
 <!-- Table of contents thing -->
 {#if Object.values($tocStore.items).length && Object.values($tocStore.items).length > 1}
-	<!-- desktop version -->
 	<section
-		class="fixed right-4 bottom-1 hidden max-w-[12em] rounded-xl bg-white/25 p-2 backdrop-blur sm:block"
-	>
-		<h2 class="text-orange-700 dark:text-orange-400">Table of Contents</h2>
-		<ul class="space-y-2">
-			{#each Object.values($tocStore.items) as { id, text }}
-				<a
-					class="ml-2 block bg-opacity-25 text-sm"
-					class:bg-amber-300={$tocStore.activeItem?.id === id}
-					href="#{id}"
-				>
-					<li>{text}</li>
-				</a>
-			{/each}
-		</ul>
-	</section>
-
-	<!-- mobile responsive version -->
-	<section
-		class="fixed right-4 bottom-1 max-w-[12em] rounded-xl bg-white/25 p-2 backdrop-blur sm:hidden"
+		class="fixed right-4 bottom-1 max-w-[12em] rounded-xl bg-white/25 hover:bg-white/30 p-2 backdrop-blur"
 	>
 		{#if !isOpen}
-			<button class="" on:click={() => (isOpen = !isOpen)}>
+			<button class="h-12 flex justify-center items-center z-50" on:click={() => (isOpen = !isOpen)}>
 				<h2 class="text-orange-700 dark:text-orange-400">Contents</h2>
 			</button>
 		{/if}
 		{#if isOpen}
-			<ul class="space-y-2">
+			<ul class="space-y-2 max-h-64 overflow-auto">
 				<h2 class="text-orange-700 dark:text-orange-400">
 					Table of Contents
 					<button class="hover:text-white" on:click={() => (isOpen = !isOpen)}> [X] </button>
