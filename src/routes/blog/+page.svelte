@@ -2,7 +2,7 @@
 	// import { browser } from '$app/environment';
 	// import { goto } from '$app/navigation';
 	// import { page } from '$app/stores';
-	import { queryParam } from 'sveltekit-search-params';
+	import { queryParam, ssp } from 'sveltekit-search-params';
 
 	import { SITE_TITLE, POST_CATEGORIES } from '$lib/siteConfig';
 
@@ -16,11 +16,15 @@
 	/** @type {import('$lib/types').ContentItem[]} */
 	$: items = data.items;
 
+	// https://github.com/paoloricciuti/sveltekit-search-params#how-to-use-it
 	let selectedCategories = queryParam('show', {
 		encode: (arr) => arr?.toString(),
 		decode: (str) => str?.split(',')?.filter((e) => e) ?? []
-	});
-	let search = queryParam('filter');
+	}, { debounceHistory: 500 });
+	let search = queryParam('filter', ssp.string(), {
+			debounceHistory: 500, 
+	})
+
 	let inputEl;
 
 	function focusSearch(e) {
