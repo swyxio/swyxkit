@@ -1,5 +1,4 @@
 <script>
-	import github from './github.svg'
 	import MobileMenu from './MobileMenu.svelte';
 	import { REPO_URL } from '$lib/siteConfig';
 	import NavLink from './NavLink.svelte';
@@ -78,12 +77,14 @@
 		</a> -->
 		<!-- Github -->
 		<a
-			class="rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200
+			class="h-9 w-9 p-1 rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200
 			dark:hover:bg-yellow-800"
 			href={REPO_URL}
 			aria-label="GitHub source"
 		>
-			<img alt="github logo" src={github} />
+			<!-- render static svg file here to reduce js weight -->
+			<!-- we choose to allow the logo svg to stay black but we could in future use masks https://stackoverflow.com/posts/43916743/revisions -->
+			<img class="bg-transparent dark:bg-yellow-100 rounded-full" alt="github logo" src="/github.svg" />
 		</a>
 		<button
 			aria-label="Toggle Dark Mode"
@@ -92,7 +93,8 @@
 			on:click={toggleDarkMode}
 		>
 			{#if isDark}
-				<svg
+				<img class="bg-transparent h-5 w-5 text-gray-800 dark:text-yellow-100" alt="lightmode" src="/tolightmode.svg" />
+				<!-- <svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 24 24"
 					fill="none"
@@ -106,22 +108,9 @@
 						d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728
 						0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
 					/>
-				</svg>
+				</svg> -->
 			{:else}
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					class="h-5 w-5 text-gray-800 dark:text-gray-200"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-					/>
-				</svg>
+			<img class="bg-transparent h-5 w-5 text-gray-800 dark:text-yellow-100" alt="darkmode" src="/todarkmode.svg" />
 			{/if}
 		</button>
 	</div>
