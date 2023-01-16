@@ -9,8 +9,6 @@
 	import IndexCard from '../../components/IndexCard.svelte';
 	import MostPopular from './MostPopular.svelte';
 
-	import uFuzzy from '@leeoniya/ufuzzy'
-
 	/** @type {import('./$types').PageData} */
 	export let data;
 
@@ -20,13 +18,17 @@
 
 	// https://github.com/paoloricciuti/sveltekit-search-params#how-to-use-it
 	/** @type import('svelte/store').Writable<String[] | null> */
-	let selectedCategories = queryParam('show', {
-		encode: (arr) => arr?.toString(),
-		decode: (str) => str?.split(',')?.filter((e) => e) ?? []
-	}, { debounceHistory: 500 });
+	let selectedCategories = queryParam(
+		'show',
+		{
+			encode: (arr) => arr?.toString(),
+			decode: (str) => str?.split(',')?.filter((e) => e) ?? []
+		},
+		{ debounceHistory: 500 }
+	);
 	let search = queryParam('filter', ssp.string(), {
-			debounceHistory: 500, 
-	})
+		debounceHistory: 500
+	});
 
 	let inputEl;
 
@@ -34,52 +36,34 @@
 		if (e.key === '/' && inputEl) inputEl.select();
 	}
 
-
-
-	// https://github.com/leeoniya/uFuzzy#options
-	const u = new uFuzzy({ intraMode: 1 });
-	const mark = (part, matched) => matched ? '<b style="color:var(--brand-accent)">' + part + '</b>' : part;
-	let isTruncated = items?.length > 20;
-
-	let list
-	$: {
-		let filteredItems = items.filter((item) => {
-														if ($selectedCategories?.length) {
-															return $selectedCategories
-																.map((element) => {
-																	return element.toLowerCase();
-																})
-																.includes(item.category.toLowerCase());
-														}
-														return true;
-													})
-		if ($search) {
-			const haystack = filteredItems.map(v => [v.title, v.subtitle, v.tags, v.content, v.description].join(' '))
-			let idxs = u.filter(haystack, $search);
-			let info = u.info(idxs, haystack, $search);
-			let order = u.sort(info, haystack, $search);
-			list = order.map(i => {
-				const x = filteredItems[info.idx[order[i]]]
-				const hl = uFuzzy.highlight(
-					haystack[info.idx[order[i]]]
-					// sanitize html as we dont actually want to render it
-					.replaceAll("<", " ")
-					.replaceAll("/>", "  ")
-					.replaceAll(">", " "),
-					info.ranges[order[i]],
-					mark
-				)
-				// highlight whats left
-				.slice(Math.max(info.ranges[order[i]][0]-200,0), Math.min(info.ranges[order[i]][1]+200, haystack[info.idx[order[i]]].length))
-				// slice clean words
-				.split(' ').slice(1,-1).join(' ')
-				return {...x, highlightedResults: hl}
+	// we are lazy loading a fuzzy search function
+	// with a fallback to a simple filter function
+	let loaded = false;
+	const filterCategories = (items, _, s) => {
+		if (!$selectedCategories?.length) return items;
+		return items
+			.filter((item) => {
+				return $selectedCategories
+					.map((element) => {
+						return element.toLowerCase();
+					})
+					.includes(item.category.toLowerCase());
 			})
-		} else {
-			list = filteredItems
-		}
-	} 
-		// .slice(0, isTruncated ? 2 : items.length);
+			.filter((item) => item.toString().toLowerCase().includes(s));
+	};
+	$: searchFn = filterCategories;
+	function loadsearchFn() {
+		if (loaded) return;
+		import('./fuzzySearch').then((fuzzy) => {
+			searchFn = fuzzy.fuzzySearch;
+			loaded = true;
+		});
+	}
+	if ($search) loadsearchFn()
+	$: list = searchFn(items, $selectedCategories, $search);
+	// legacy... TO FIX THIS when we have more than 20 items
+	let isTruncated = items?.length > 20;
+	// .slice(0, isTruncated ? 2 : items.length);
 </script>
 
 <svelte:head>
@@ -104,6 +88,7 @@
 			type="text"
 			bind:value={$search}
 			bind:this={inputEl}
+			on:focus={loadsearchFn}
 			placeholder="Hit / to search"
 			class="block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
 		/><svg
@@ -149,7 +134,6 @@
 
 	<!-- you can hardcode yourmost popular posts or pinned post here if you wish -->
 	{#if !$search && !$selectedCategories?.length}
-
 		<MostPopular />
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 			All Posts
@@ -171,7 +155,7 @@
 						{#if item.highlightedResults}
 							<span class="italic">
 								{@html item.highlightedResults}
-							</span>						
+							</span>
 						{:else}
 							{item.description}
 						{/if}
