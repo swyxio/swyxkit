@@ -29,9 +29,9 @@
 				<p class="hidden sm:inline-block">{item?.readingTime}</p>
 			{/if}
 			<!-- comment this in if you have multiple categories -->
-			<button class="px-4 capitalize bg-gray-200 rounded-md dark:bg-gray-700 dark:text-gray-400"
-				>{item?.category || 'note'}</button
-			>
+			<div class="px-4 capitalize bg-gray-200 rounded-md dark:bg-gray-700 dark:text-gray-400">
+				{item?.category || 'note'}
+			</div>
 			{#if ghMetadata && ghMetadata.reactions.total_count}
 				<p class="">{ghMetadata.reactions.total_count} ♥</p>
 			{/if}
