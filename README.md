@@ -46,7 +46,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
 
 *All the basic things I think a developer website should have.*
 
-- Light+Dark mode (manual toggle driven by choice)
+- Light+Dark mode (manual-toggle-driven as a matter of personal preference but feel free to change ofc)
 - GitHub-Issues-driven blog with index
   - Blog content pulled from the GitHub Issues API
   - Comment and Reaction system from GitHub Issues
