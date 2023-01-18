@@ -3,8 +3,8 @@
 	"private": true,
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "vite dev",
-		"start": "concurrently --names \"APP,HISTOIRE\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run dev\" \"npm run story:dev\"",
+		"start": "vite dev",
+		"dev": "concurrently --names \"APP,HISTOIRE\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run dev\" \"npm run story:dev\"",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
