@@ -32,6 +32,13 @@
 			<div class="px-4 capitalize bg-gray-200 rounded-md dark:bg-gray-700 dark:text-gray-400">
 				{item?.category || 'note'}
 			</div>
+			{#if item?.tags?.length}
+				{#each item.tags as tag}
+					<div class="px-1">
+						#{tag}
+					</div>
+				{/each}
+			{/if}
 			{#if ghMetadata && ghMetadata.reactions.total_count}
 				<p class="">{ghMetadata.reactions.total_count} ♥</p>
 			{/if}

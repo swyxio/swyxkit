@@ -66,7 +66,7 @@
 
 <TableOfContents {tocStore} />
 
-<article class="items-start justify-center w-full mx-auto mt-16 mb-32 prose swyxcontent dark:prose-invert max-w-none">
+<article use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }} class="items-start justify-center w-full mx-auto mt-16 mb-32 prose swyxcontent dark:prose-invert max-w-none">
 	<h1 class="md:text-center mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
 		{json.title}
 	</h1>
@@ -74,6 +74,15 @@
 		class="flex justify-between w-full mt-2 bg border-red sm:items-start md:flex-row md:items-center"
 	>
 		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">swyx</p>
+		{#if json?.tags?.length}
+			<p class="flex">
+				{#each json.tags as tag}
+					<div class="px-1">
+						<a class="!text-slate-400" href={`/blog?filter=hashtag-${tag}`}>#{tag}</a>
+					</div>
+				{/each}
+			</p>
+		{/if}
 		<p class="flex items-center text-sm text-gray-600 min-w-32 dark:text-gray-400">
 			<a href={json.ghMetadata.issueUrl} rel="external noreferrer" class="no-underline" target="_blank">
 				<!-- <span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
@@ -86,9 +95,7 @@
 	<div
 		class="-mx-4 my-2 flex h-1 w-[100vw] bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 sm:mx-0 sm:w-full"
 	/>
-	<div use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }}>
-		{@html json.content}
-	</div>
+	{@html json.content}
 </article>
 <div class="max-w-2xl mx-auto">
 	<div class="max-w-full p-4 mb-12 prose border-t border-b border-blue-800 dark:prose-invert">
