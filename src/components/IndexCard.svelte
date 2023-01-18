@@ -29,9 +29,18 @@
 				<p class="hidden sm:inline-block">{item?.readingTime}</p>
 			{/if}
 			<!-- comment this in if you have multiple categories -->
-			<div class="px-4 capitalize bg-gray-200 rounded-md dark:bg-gray-700 dark:text-gray-400">
+			<span class="px-4 max-h-6 flex items-center capitalize bg-gray-200 rounded-md dark:bg-gray-700 dark:text-gray-400">
 				{item?.category || 'note'}
+			</span>
+			{#if item?.tags?.length}
+			<div class="flex-1">
+				{#each item.tags as tag}
+					<span class="px-1">
+						#{tag}
+					</span>
+				{/each}
 			</div>
+			{/if}
 			{#if ghMetadata && ghMetadata.reactions.total_count}
 				<p class="">{ghMetadata.reactions.total_count} ♥</p>
 			{/if}
