@@ -68,17 +68,18 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
     - [X-XSS-Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection)
     - [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP): SvelteKit [recently added this](https://kit.svelte.dev/docs/configuration#csp)!
   - [Builds and deploys in ~40 seconds on Netlify](https://app.netlify.com/sites/swyxkit/deploys)
+  - You can see how seriously we take performance [on our updates](https://swyxkit.netlify.app/blog?filter=hashtag-performance), but also I'm not an expert and PRs to improve are always welcome.
 
 **Minor design/UX touches**
 
 *The devil is in the details.*
 
 - Blog Index features (`/blog`)
-  - Blog index truncates at 20 posts to make sure to render quickly
-  - Blog facets serialize to URLs for easy copy paste 
+  - Blog index supports categories (singletons), and [tags](https://swyxkit.netlify.app/tags-in-swyxkit) (freeform, list of strings)
+  - Blog index facets serialize to URLs for easy copy paste 
     - previously [done by @Ak4zh](https://github.com/sw-yx/swyxkit/pull/97)
     - but since moved to [`sveltekit-search-params`](https://github.com/paoloricciuti/sveltekit-search-params) [by @paoloricciuti](https://github.com/sw-yx/swyxkit/pull/140)
-  - Blog search is [fuzzy and highlights matches](https://swyxkit.netlify.app/ufuzzy-search)
+  - Blog index search is [fuzzy and highlights matches](https://swyxkit.netlify.app/ufuzzy-search)
     - The Error page feature uses this to send you back to a searchable index
   - Error page (try going to URL that doesn't exist)
     - Including nice error when GitHub API rate limit exceeded (fix by setting `GH_TOKEN`)
