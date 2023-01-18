@@ -74,16 +74,7 @@
 		class="flex justify-between w-full mt-2 bg border-red sm:items-start md:flex-row md:items-center"
 	>
 		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">swyx</p>
-		{#if json?.tags?.length}
-			<p class="flex">
-				{#each json.tags as tag}
-					<div class="px-1">
-						<a class="!text-slate-400" href={`/blog?filter=hashtag-${tag}`}>#{tag}</a>
-					</div>
-				{/each}
-			</p>
-		{/if}
-		<p class="flex items-center text-sm text-gray-600 min-w-32 dark:text-gray-400">
+		<p class="flex items-center text-sm text-gray-600 dark:text-gray-400">
 			<a href={json.ghMetadata.issueUrl} rel="external noreferrer" class="no-underline" target="_blank">
 				<!-- <span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
 					>{json.ghMetadata.reactions.total_count} reactions</span
@@ -97,7 +88,18 @@
 	/>
 	{@html json.content}
 </article>
+
 <div class="max-w-2xl mx-auto">
+	{#if json?.tags?.length}
+		<p class="!text-slate-400 flex-auto mb-4 italic">
+			Tagged in: 
+			{#each json.tags as tag}
+				<span class="px-1">
+					<a href={`/blog?filter=hashtag-${tag}`}>#{tag}</a>
+				</span>
+			{/each}
+		</p>
+	{/if}
 	<div class="max-w-full p-4 mb-12 prose border-t border-b border-blue-800 dark:prose-invert">
 		{#if json.ghMetadata.reactions.total_count > 0}
 			Reactions: <Reactions
