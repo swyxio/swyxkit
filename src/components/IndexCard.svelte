@@ -19,10 +19,10 @@
 				{title}
 			</h4>
 		</div>
-		<p class="text-gray-600 break-all sm:break-words dark:text-gray-400 hover:text-yellow-600 dark:hover:text-yellow-100">
+		<p class="text-gray-600 mb-2 break-all sm:break-words dark:text-gray-400 hover:text-yellow-600 dark:hover:text-yellow-100">
 			<slot />
 		</p>
-		<div class="flex justify-between gap-1 text-left text-gray-500 sm:justify-start sm:flex-row sm:gap-4 md:mb-0 md:text-sm">
+		<div class="flex justify-between items-center gap-1 text-left text-gray-500 sm:justify-start sm:flex-row sm:gap-4 md:mb-0 md:text-sm">
 			<!-- {JSON.stringify(item.readingTime)} -->
 			<p>{stringData}</p>
 			{#if item?.readingTime}
@@ -33,7 +33,7 @@
 				{item?.category || 'note'}
 			</span>
 			{#if item?.tags?.length}
-			<div class="flex-1">
+			<div class="hidden md:block flex-1">
 				{#each item.tags as tag}
 					<span class="px-1">
 						#{tag}
