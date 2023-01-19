@@ -164,6 +164,11 @@
 		margin-right: -1rem;
 	}
 
+	/* hacky thing because otherwise the summary>pre causes overflow */
+	article :global(summary > pre) {
+		max-width: 90vw;
+	}
+
 	article :global(.popout) {
 		grid-column: popout;
 	}
