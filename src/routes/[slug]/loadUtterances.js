@@ -11,6 +11,23 @@ let intersectionObserver;
 
 let hasLoaded = false
 
+export function injectScript(element, number) {
+  // have to do this because direct injection using @html doesnt work
+  // adapted from https://github.com/utterance/utterances/issues/161#issuecomment-550991248
+  const scriptElem = document.createElement("script");
+  scriptElem.src = "https://utteranc.es/client.js";
+  scriptElem.async = true;
+  scriptElem.crossOrigin = "anonymous";
+  scriptElem.setAttribute("repo", GH_USER_REPO);
+  scriptElem.setAttribute("issue-number", number);
+  // scriptElem.setAttribute("label", "blog-comment");
+  const theme = document.documentElement.classList.contains('dark') ? 'icy-dark' : 'github-light';
+  scriptElem.setAttribute("theme", theme);
+
+  // replace all contents of element and append script
+  element.innerHTML = "";
+  element.appendChild(scriptElem);
+}
 
 export default function viewport(element, { number }) {
 
@@ -21,22 +38,7 @@ export default function viewport(element, { number }) {
       (entries) => {
         entries.forEach(entry => {
           if (!hasLoaded && entry.isIntersecting) {
-            // have to do this because direct injection using @html doesnt work
-            // adapted from https://github.com/utterance/utterances/issues/161#issuecomment-550991248
-            const scriptElem = document.createElement("script");
-            scriptElem.src = "https://utteranc.es/client.js";
-            scriptElem.async = true;
-            scriptElem.crossOrigin = "anonymous";
-            scriptElem.setAttribute("repo", GH_USER_REPO);
-            scriptElem.setAttribute("issue-number", number);
-            // scriptElem.setAttribute("label", "blog-comment");
-            const theme = document.documentElement.classList.contains('dark') ? 'icy-dark' : 'github-light';
-            scriptElem.setAttribute("theme", theme);
-
-            // replace all contents of element and append script
-            element.innerHTML = "";
-            element.appendChild(scriptElem);
-
+            injectScript(element, number);
             hasLoaded = true
           }
         });

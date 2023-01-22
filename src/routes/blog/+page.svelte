@@ -9,8 +9,6 @@
 	import IndexCard from '../../components/IndexCard.svelte';
 	import MostPopular from './MostPopular.svelte';
 
-	import uFuzzy from '@leeoniya/ufuzzy';
-
 	/** @type {import('./$types').PageData} */
 	export let data;
 
@@ -42,63 +40,39 @@
 	// we know this has js weight, but we tried lazyloading and it wasnt significant enough for the added complexity
 	// https://github.com/sw-yx/swyxkit/pull/171
 	// this will be slow if you have thousands of items, but most people don't
-	const u = new uFuzzy({ intraMode: 1 });
-	const mark = (part, matched) =>
-		matched ? '<b style="color:var(--brand-accent)">' + part + '</b>' : part;
 	let isTruncated = items?.length > 20;
-
-	let list;
-	$: {
-		let filteredItems = items.filter((item) => {
-			if ($selectedCategories?.length) {
+	
+	
+	
+	// we are lazy loading a fuzzy search function
+	// with a fallback to a simple filter function
+	let loaded = false;
+	const filterCategories = async (_items, _, s) => {
+		console.log('filtering', $selectedCategories?.length)
+		if (!$selectedCategories?.length) return _items;
+		return _items
+			.filter((item) => {
 				return $selectedCategories
 					.map((element) => {
 						return element.toLowerCase();
 					})
 					.includes(item.category.toLowerCase());
-			}
-			return true;
+			})
+			.filter((item) => item.toString().toLowerCase().includes(s));
+	};
+	$: searchFn = filterCategories;
+	function loadsearchFn() {
+		if (loaded) return;
+		import('./fuzzySearch').then((fuzzy) => {
+			searchFn = fuzzy.fuzzySearch;
+			loaded = true;
 		});
-		if ($search) {
-			const haystack = filteredItems.map((v) =>
-				[
-					v.title,
-					v.subtitle,
-					v.tags.map((tag) => 'hashtag-' + tag), // add #tag so as to enable tag search
-					v.content,
-					v.description
-				].join(' ')
-			);
-			let idxs = u.filter(haystack, $search);
-			let info = u.info(idxs, haystack, $search);
-			let order = u.sort(info, haystack, $search);
-			list = order.map((i) => {
-				const x = filteredItems[info.idx[order[i]]];
-				const hl = uFuzzy
-					.highlight(
-						haystack[info.idx[order[i]]]
-							// sanitize html as we dont actually want to render it
-							.replaceAll('<', ' ')
-							.replaceAll('/>', '  ')
-							.replaceAll('>', ' '),
-						info.ranges[order[i]],
-						mark
-					)
-					// highlight whats left
-					.slice(
-						Math.max(info.ranges[order[i]][0] - 200, 0),
-						Math.min(info.ranges[order[i]][1] + 200, haystack[info.idx[order[i]]].length)
-					)
-					// slice clean words
-					.split(' ')
-					.slice(1, -1)
-					.join(' ');
-				return { ...x, highlightedResults: hl };
-			});
-		} else {
-			list = filteredItems;
-		}
 	}
+	if ($search) loadsearchFn()
+	/** @type import('$lib/types').ContentItem[]  */
+	let list;
+	$: searchFn(items, $selectedCategories, $search).then(_items => list = _items);
+
 	// .slice(0, isTruncated ? 2 : items.length);
 </script>
 
@@ -124,6 +98,7 @@
 			type="text"
 			bind:value={$search}
 			bind:this={inputEl}
+			on:focus={loadsearchFn}
 			placeholder="Hit / to search"
 			class="block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
 		/><svg
@@ -175,7 +150,7 @@
 		</h3>
 	{/if}
 
-	{#if list.length}
+	{#if list?.length}
 		<ul class="">
 			{#each list as item}
 				<li class="mb-8 text-lg">
