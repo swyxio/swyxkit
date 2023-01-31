@@ -46,6 +46,7 @@
 		"remark-abbr": "^1.4.1",
 		"remark-autolink-headings": "^7.0.1",
 		"remark-frontmatter": "^4.0.1",
+		"remark-gfm": "^3.0.1",
 		"remark-github": "^11.2.4",
 		"remark-html": "^15.0.1",
 		"remark-parse": "^10.0.1",

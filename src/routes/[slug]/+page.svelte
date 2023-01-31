@@ -27,7 +27,7 @@
 	export let commentsEl;
 	$: issueNumber = json?.ghMetadata?.issueUrl?.split('/')?.pop()
 
-	$: canonical = SITE_URL + $page.url.pathname;
+	$: canonical =  json?.canonical ? json.canonical : SITE_URL + $page.url.pathname;
 
 	// customize this with https://tailgraph.com/
 	// discuss this decision at https://github.com/sw-yx/swyxkit/pull/161
