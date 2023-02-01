@@ -1,13 +1,13 @@
-export const SITE_URL = 'https://swyxkit.netlify.app';
-export const APPROVED_POSTERS_GH_USERNAME = ['sw-yx'];
-export const GH_USER_REPO = 'sw-yx/swyxkit'; // used for pulling github issues and offering comments
-export const SITE_TITLE = 'SwyxKit';
-export const SITE_DESCRIPTION = "swyx's default SvelteKit + Tailwind starter";
+export const SITE_URL = 'https://luqven.netlify.app';
+export const APPROVED_POSTERS_GH_USERNAME = ['luqven'];
+export const GH_USER_REPO = 'luqven/swyxkit-blog'; // used for pulling github issues and offering comments
+export const SITE_TITLE = 'luqven';
+export const SITE_DESCRIPTION = "Luis Ball's personal site";
 export const DEFAULT_OG_IMAGE =
 	'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
-export const MY_TWITTER_HANDLE = 'swyx';
-export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
-export const POST_CATEGORIES = ['Essay', 'Note']; // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
+export const MY_TWITTER_HANDLE = 'luqven';
+export const MY_YOUTUBE = 'https://youtube.com/luqven';
+export const POST_CATEGORIES = ['Essay', 'Note', 'Talk', 'Code']; // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
 export const GH_PUBLISHED_TAGS = ['Published'];
 
 // auto generated variables
