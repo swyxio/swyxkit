@@ -37,6 +37,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
 - https://twitter.com/iambenwis/status/1500998985388937216
 - https://twitter.com/lucianoratamero/status/1508832233225867267
 - https://twitter.com/Codydearkland/status/1503822866969595904
+- https://twitter.com/macbraughton/status/1626307672227172354?s=20
 - https://github.com/georgeoffley/george-offley-blog-swyxkit
 - add yourself here!
 
