@@ -1,12 +1,12 @@
-export const SITE_URL = 'https://swyxkit.netlify.app';
-export const APPROVED_POSTERS_GH_USERNAME = ['sw-yx'];
-export const GH_USER_REPO = 'sw-yx/swyxkit'; // used for pulling github issues and offering comments
-export const SITE_TITLE = 'SwyxKit';
-export const SITE_DESCRIPTION = "swyx's default SvelteKit + Tailwind starter";
+export const SITE_URL = 'https://wiki.hyxos.io';
+export const APPROVED_POSTERS_GH_USERNAME = ['hyxos', 'macbraughton', 'wobbix'];
+export const GH_USER_REPO = 'hyxos/wiki.hyxos.io'; // used for pulling github issues and offering comments
+export const SITE_TITLE = 'wiki.hyxos.io';
+export const SITE_DESCRIPTION = "Encyclopedia of Hyxos";
 export const DEFAULT_OG_IMAGE =
-	'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
-export const MY_TWITTER_HANDLE = 'swyx';
-export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
+	'https://github.com/organizations/hyxos/settings/profile';
+export const MY_TWITTER_HANDLE = 'hyxos';
+export const MY_YOUTUBE = 'https://youtube.com/@hyxosio';
 export const POST_CATEGORIES = ['Essay', 'Note']; // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
 export const GH_PUBLISHED_TAGS = ['Published'];
 
