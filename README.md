@@ -174,9 +174,8 @@ This blog uses GitHub as a CMS - if you are doing any serious development at all
 
 - A really basic personal access token should be enough and can be created [here](https://github.com/settings/tokens/new).
   https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
-- [Set the env variables in Netlify](https://docs.netlify.com/configure-builds/environment-variables/#declare-variables)
-
-When deploying, don't forget to set it in Netlify: https://app.netlify.com/sites/YOUR_SITE/settings/deploys#environment
+- For local dev: run `export GH_TOKEN=MY_PERSONAL_ACCESS_TOKEN_FROM_GITHUB` before you run `npm run start`
+- For cloud deployment: [Set the env variables in Netlify](https://docs.netlify.com/configure-builds/environment-variables/#declare-variables) (basically go to  https://app.netlify.com/sites/YOUR_SITE/settings/deploys#environment )
 
 ### Step 2: Make your first post
 
