@@ -191,10 +191,7 @@ title: my great title
 subtitle: my great subtitle
 description: my great description
 slug: my-title
-tags:
-  - foo
-  - bar
-  - baz
+tags: [foo, bar, baz]
 category: blog
 image: https://my_image_url.com/img-4.png
 date: 2023-04-22
