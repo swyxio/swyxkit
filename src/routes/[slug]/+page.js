@@ -20,7 +20,7 @@ export async function load({ params, fetch, setHeaders }) {
 		throw error(listData.status, await listData.text());
 	}
 	setHeaders({
-		'cache-control': 'public, max-age=60' // increase the max age as you get more confident in your caching
+		'cache-control': 'public, max-age=3600' // 1 hour - increase the max age as you get more confident in your caching
 	});
 	return {
 		json: await pageData.json(),

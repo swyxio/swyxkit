@@ -11,7 +11,7 @@ export async function GET({ fetch, setHeaders }) {
 		return item
 	});
 	setHeaders({
-		'Cache-Control': `max-age=0, s-maxage=${60}` // 1 minute.. for now
+		'Cache-Control': `public, max-age=3600` // 1 hour
 	});
 	return new Response(JSON.stringify(list), {
 		headers: {

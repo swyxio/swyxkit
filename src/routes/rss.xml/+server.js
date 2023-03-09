@@ -33,7 +33,7 @@ export async function GET({ fetch }) {
 	// Suggestion (check for correctness before using):
 	return new Response(feed.xml({ indent: true }), {
 		headers: {
-			'Cache-Control': `max-age=0, s-maxage=${600}`, // 10 minutes
+			'Cache-Control': `public, max-age=${86400}`, // 24 hours
 			'Content-Type': 'application/rss+xml'
 		}
 	});

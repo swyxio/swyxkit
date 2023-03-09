@@ -9,7 +9,7 @@ export async function GET({ fetch }) {
 
 	return new Response(body, {
 		headers: {
-			'Cache-Control': `max-age=0, s-maxage=${3600}`,
+      'Cache-Control': `public, max-age=${86400}`, // 24 hours
 			'Content-Type': 'application/xml'
 		}
 	});
