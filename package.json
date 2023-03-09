@@ -22,7 +22,7 @@
 		"@svelte-put/toc": "^2.1.3",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-netlify": "^2.0.4",
-		"@sveltejs/kit": "1.7.0",
+		"@sveltejs/kit": "1.7.1",
 		"@tailwindcss/typography": "^0.5.9",
 		"@typescript-eslint/eslint-plugin": "^5.52.0",
 		"@typescript-eslint/parser": "^5.52.0",
