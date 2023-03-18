@@ -49,7 +49,6 @@
 
 <svelte:head>
 	<title>{json.title}</title>
-	<meta name="description" content="swyxkit blog" />
 	<!-- reference: https://gist.github.com/whitingx/3840905 -->
 
 	<link rel="canonical" href={canonical} />
@@ -59,8 +58,8 @@
 	{#if json.subtitle}
 		<meta property="subtitle" content={json.subtitle} />
 	{/if}
-	<meta name="Description" content={json.description} />
-	<meta property="og:description" content={json.description} />
+	<meta name="Description" content={json.description || 'swyxkit blog'} />
+	<meta property="og:description" content={json.description || 'swyxkit blog'} />
 	<meta name="twitter:card" content={json.image ? 'summary_large_image' : 'summary'} />
 	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={json.title} />
