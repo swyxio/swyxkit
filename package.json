@@ -64,7 +64,7 @@
 		"unified": "^10.1.2",
 		"vfile": "^5.3.7",
 		"vfile-reporter": "^7.0.5",
-		"vite": "^4.1.4"
+		"vite": "^4.1.5"
 	},
 	"engines": {
 		"node": ">=16.14"
