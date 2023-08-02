@@ -2,7 +2,20 @@
 import uFuzzy from '@leeoniya/ufuzzy'
 
 // https://github.com/leeoniya/uFuzzy#options
-const u = new uFuzzy({ intraMode: 1 });
+export let isSearchExact = false
+export function setIsSearchExact(value = !isSearchExact) {
+  isSearchExact = value
+}
+let u = new uFuzzy({ intraMode: 1 });
+
+export function changeSearchMode() {
+  isSearchExact = !isSearchExact
+  if (isSearchExact) {
+    u = new uFuzzy({ intraMode: 0, interLft: 1, interRgt: 1 });
+  } else {
+    u = new uFuzzy({ intraMode: 1, interLft: 0, interRgt: 0 });
+  }
+}
 
 // debounce async function returning a promise
 // https://dev.to/gabe_ragland/debouncing-with-async-await-in-js-26ci
