@@ -100,7 +100,7 @@
 				<a
 					class="flex w-auto pb-4"
 					on:click={() => setTimeout(() => (isOpen = false), 300)}
-					href="https://github.com/sw-yx/swyxkit">GitHub</a
+					href="https://github.com/swyxio/swyxkit">GitHub</a
 				>
 			</li>
 			<!-- <li
