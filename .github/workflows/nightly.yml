@@ -10,7 +10,7 @@ on:
 
 jobs:
   lockfile:
-    if: ${{ github.repository_owner == 'sw-yx' && github.event.label.name != 'manual-CI' }}
+    if: ${{ github.repository_owner == 'swyxio' && github.event.label.name != 'manual-CI' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out code using Git
