@@ -13,6 +13,7 @@
 
 [build.environment]
   NODE_VERSION = "16" 
+  NPM_FLAGS = "-f" # force install for histoire https://github.com/histoire-dev/histoire/pull/569
   ## as of v0.334 sveltekit requires node 16 https://github.com/sveltejs/kit/pull/4922
   ## https://github.com/sveltejs/kit/issues/2687
 
