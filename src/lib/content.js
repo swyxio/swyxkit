@@ -20,8 +20,8 @@ import remarkGithub from 'remark-github';
 import remarkGfm from 'remark-gfm';
 const remarkPlugins = [
 	remarkToc,
-	[remarkGithub, { repository: 'https://github.com/sw-yx/swyxkit/' }],
-	[remarkGfm, { repository: 'https://github.com/sw-yx/swyxkit/' }],
+	[remarkGithub, { repository: 'https://github.com/swyxio/swyxkit/' }],
+	[remarkGfm, { repository: 'https://github.com/swyxio/swyxkit/' }],
 ];
 const rehypePlugins = [
 	rehypeStringify,
