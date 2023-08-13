@@ -1,6 +1,6 @@
 export const SITE_URL = 'https://swyxkit.netlify.app';
-export const APPROVED_POSTERS_GH_USERNAME = ['sw-yx'];
-export const GH_USER_REPO = 'sw-yx/swyxkit'; // used for pulling github issues and offering comments
+export const APPROVED_POSTERS_GH_USERNAME = ['swyxio'];
+export const GH_USER_REPO = 'swyxio/swyxkit'; // used for pulling github issues and offering comments
 export const SITE_TITLE = 'SwyxKit';
 export const SITE_DESCRIPTION = "swyx's default SvelteKit + Tailwind starter";
 export const DEFAULT_OG_IMAGE =
