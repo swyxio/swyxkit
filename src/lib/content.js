@@ -97,7 +97,7 @@ export async function listContent(providedFetch) {
 }
 
 
-function renderMarkdownWithFootnotes(content) {
+function renderWithFootnotes(content) {
     // Regular expression to match footnote references
     const footnoteRefRegex = /\[\^(\w+)\]/g;
 
@@ -126,7 +126,8 @@ function renderMarkdownWithFootnotes(content) {
     // Generate the HTML for the footnotes section
     let footnotesHTML = '<hr><section class="footnotes"><ol>';
     for (const index in footnotes) {
-        footnotesHTML += `<li id="fn${index}">${footnotes[index]} <a href="#fnref${index}" title="Jump back to reference">↩</a></li>`;
+        let footNoteContent = footnotes[index]
+        footnotesHTML += `<li id="fn${index}">${footNoteContent} <a href="#fnref${index}" title="Jump back to reference">↩</a></li>`;
     }
     footnotesHTML += '</ol></section>';
 
@@ -219,7 +220,7 @@ export async function getContent(providedFetch, slug) {
 
 
         // footnotes
-        const blogbodyWithFootNotes = renderMarkdownWithFootnotes(blogbody);
+        const blogbodyWithFootNotes = renderWithFootnotes(blogbody);
 
         // compile it with mdsvex
         const content = (await compile(blogbodyWithFootNotes, {
