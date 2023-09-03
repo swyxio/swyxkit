@@ -1,7 +1,7 @@
 export const SITE_URL = 'https://swyxkit.netlify.app';
-export const APPROVED_POSTERS_GH_USERNAME = ['Bishwas-py'];
-export const GH_USER_REPO = 'Bishwas-py/dev-swyxio'; // used for pulling github issues and offering comments
-export const SITE_TITLE = 'Bishwas Bhandari';
+export const APPROVED_POSTERS_GH_USERNAME = ['swyxio'];
+export const GH_USER_REPO = 'swyxio/swyxkit'; // used for pulling github issues and offering comments
+export const SITE_TITLE = 'SwyxKit';
 export const SITE_DESCRIPTION = "swyx's default SvelteKit + Tailwind starter";
 export const DEFAULT_OG_IMAGE =
 	'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
