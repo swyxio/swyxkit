@@ -19,7 +19,7 @@ A lightly opinionated starter for [SvelteKit](https://kit.svelte.dev/) blogs:
   </details>  
 
 
-Feel free to rip out these opinions as you see fit of course.
+Feel free to rip out these opinions as you see fit of course. If you want a SaaS like starter kit maybe check out [okputer](https://github.com/okupter/kitforstartups)'s
 
 > "Does anyone know what theme that blog is using? It looks really nice." - [anon](https://news.ycombinator.com/item?id=32972871)
 
