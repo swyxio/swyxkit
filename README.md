@@ -55,6 +55,7 @@ See https://swyxkit.netlify.app/ (see [Deploy Logs](https://app.netlify.com/site
   - Consumes markdown/MDSveX
     - With syntax highlighting (MDSvex uses `prism-svelte` under the hood)
     - Fixes for [known MDSveX render issue](https://github.com/pngwn/MDsveX/issues/392)
+    - Renders [footnotes](https://github.com/swyxio/swyxkit/pull/208) thanks to Bishwas-py
 - RSS (at `/rss.xml`), and Sitemap (at `sitemap.xml`) with caching
 
 **Performance/Security touches**
