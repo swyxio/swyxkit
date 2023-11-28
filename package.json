@@ -53,6 +53,7 @@
 		"remark-rehype": "^10.1.0",
 		"remark-sectionize": "^2.0.0",
 		"remark-slug": "^7.0.1",
+		"remark-stringify": "^11.0.0",
 		"remark-toc": "^8.0.1",
 		"rss": "^1.2.2",
 		"svelte": "^4.1.2",
