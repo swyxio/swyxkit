@@ -34,7 +34,7 @@
 		"gray-matter": "^4.0.3",
 		"histoire": "^0.16.2",
 		"mdsvex": "^0.11.0",
-		"postcss": "^8.4.27",
+		"postcss": "^8.4.31",
 		"postcss-load-config": "^4.0.1",
 		"prettier": "~3.0.0",
 		"prettier-plugin-svelte": "^3.0.3",
