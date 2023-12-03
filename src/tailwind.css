@@ -98,6 +98,7 @@ pre {
 		max-width: 100%;
 		object-fit: cover;
 		background-color: grey;
+	        max-height: 50rem; /* so that iphone photos dont take over the whole screen. better than vh bc its responsive to text size */
 	}
 }
 /* bg-yellow-200 dark:hover:bg-yellow-800 */
