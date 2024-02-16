@@ -20,9 +20,9 @@
 		"@histoire/plugin-svelte": "^0.17.6",
 		"@playwright/test": "^1.40.1",
 		"@svelte-put/toc": "^4.0.0",
-		"@sveltejs/adapter-auto": "^2.1.1",
-		"@sveltejs/adapter-netlify": "^2.0.8",
-		"@sveltejs/kit": "1.27.6",
+		"@sveltejs/adapter-auto": "^3.1.1",
+		"@sveltejs/adapter-netlify": "^4.1.0",
+		"@sveltejs/kit": "2.5.0",
 		"@tailwindcss/typography": "^0.5.10",
 		"@typescript-eslint/eslint-plugin": "^6.13.1",
 		"@typescript-eslint/parser": "^6.13.1",
@@ -80,6 +80,6 @@
 		"shiki": "^0.14.5",
 		"snarkdown": "^2.0.0",
 		"svelte-action-balancer": "^1.0.4",
-		"sveltekit-search-params": "^1.0.15"
+		"sveltekit-search-params": "^1.1.1"
 	}
 }
